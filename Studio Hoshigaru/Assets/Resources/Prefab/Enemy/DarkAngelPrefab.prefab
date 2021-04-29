@@ -86,7 +86,6 @@ GameObject:
   - component: {fileID: 3126681123709049917}
   - component: {fileID: 3252650397241641625}
   - component: {fileID: -7410934906265117654}
-  - component: {fileID: 6535443133040279244}
   - component: {fileID: 2502479398619345192}
   - component: {fileID: -8471083787892578870}
   - component: {fileID: -3186832997736321625}
@@ -202,22 +201,6 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
---- !u!70 &6535443133040279244
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3126681123709049919}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.6510409, y: 0.08784573}
-  m_Size: {x: 2.0063248, y: 4.4961658}
-  m_Direction: 0
 --- !u!114 &2502479398619345192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,6 +218,8 @@ MonoBehaviour:
   enemySO: {fileID: 11400000, guid: 24e9a6bfa7ffee6428697809afd7fb51, type: 2}
   cooling: 0
   wait: 0
+  Parent: {fileID: 0}
+  source: {fileID: 0}
   maxHealth: 0
 --- !u!95 &-8471083787892578870
 Animator:

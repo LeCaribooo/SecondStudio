@@ -5,7 +5,7 @@ using Photon.Pun;
 using Pathfinding;
 
 
-public class EnemyController : MonoBehaviourPun
+public class EnemyController : MonoBehaviour
 {
     private AIPath aIPath;
     public HealthBar healthbar;
@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviourPun
     public bool cooling;
     public bool wait;
     public GameObject Parent;
+    public AudioSource source;
 
     public int maxHealth;
     // Start is called before the first frame update
@@ -27,6 +28,8 @@ public class EnemyController : MonoBehaviourPun
         healthbar.SetMaxHealth(health.health);
         animator = GetComponent<Animator>();
         cooling = true;
+        source = GetComponentInParent<AudioSource>();
+        source.Play();
     }
     private void FixedUpdate()
     {
@@ -56,7 +59,7 @@ public class EnemyController : MonoBehaviourPun
     {
         if (health.health <= 0)
         {
-            base.photonView.RPC("DestroyOnLoad", RpcTarget.All);
+            PhotonNetwork.Destroy(Parent);
         }
     }
 
@@ -82,12 +85,6 @@ public class EnemyController : MonoBehaviourPun
     {
         yield return new WaitForSeconds(2f);
         wait = true;
-        Debug.Log("attack again");
-    }
-
-    [PunRPC]
-    void DestroyOnLoad()
-    {
-        Destroy(Parent);
+        
     }
 }

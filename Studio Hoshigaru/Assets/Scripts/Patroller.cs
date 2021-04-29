@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class Patroller : MonoBehaviourPun
+public class Patroller : MonoBehaviour
 {
     public HealthBar healthbar;
     public int Maxhealth;
@@ -12,6 +12,8 @@ public class Patroller : MonoBehaviourPun
     public bool finishedAttack;
     public bool dead = false;
     public bool attackMode;
+    public bool alreadyAttacked;
+    public AudioSource source;
     #region Patrolling
     [SerializeField]
     Transform castPos;
@@ -55,6 +57,7 @@ public class Patroller : MonoBehaviourPun
         health.health = Maxhealth;
         healthbar.SetMaxHealth(health.health);
         finishedAttack = true;
+        source = GetComponent<AudioSource>();
     }
     private void Awake()
     {
@@ -70,8 +73,8 @@ public class Patroller : MonoBehaviourPun
     {
         if(dead)
         {
-            base.photonView.RPC("DestroyOnLoad", RpcTarget.All);
             Destroy(this.gameObject);
+            GameObject.Find("patroller").SetActive(false);
         }
         healthbar.SetHealth(health.health);
         Death();
@@ -118,16 +121,6 @@ public class Patroller : MonoBehaviourPun
         {
             EnemyLogic();
         }
-    }
-
-    public void Hit()
-    {
-        hitbox.SetActive(true);
-    }
-
-    public void StopHit()
-    {
-        hitbox.SetActive(false);
     }
 
     public void Death()
@@ -218,6 +211,7 @@ public class Patroller : MonoBehaviourPun
             cooling = false;
             attackMode = false;
             timer = intTimer;
+            alreadyAttacked = false;
         }
     }
 
@@ -286,7 +280,6 @@ public class Patroller : MonoBehaviourPun
         //determine the target destination based on the cast distance
         Vector3 targetPos = castPos.position;
         targetPos.y -= castDist;
-
         if (Physics2D.Linecast(castPos.position, targetPos, 1 << LayerMask.NameToLayer("Ground")))
         {
 
@@ -320,12 +313,6 @@ public class Patroller : MonoBehaviourPun
             val = true;
         }
         return val;
-    }
-
-    [PunRPC]
-    void DestroyOnLoad()
-    {
-        Destroy(this.gameObject);
     }
 }
 

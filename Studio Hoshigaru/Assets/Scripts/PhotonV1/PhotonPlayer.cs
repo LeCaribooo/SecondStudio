@@ -11,22 +11,7 @@ public class PhotonPlayer : MonoBehaviourPun
 {
     private PhotonView PV;
     private GameObject myAvatar;
-
-    private static PhotonPlayer photonInstance;
-
-    void Awake()
-    {
-        DontDestroyOnLoad(this);
-
-        if (photonInstance == null)
-        {
-            photonInstance = this;
-        }
-        else
-        {
-            PhotonNetwork.Destroy(gameObject);
-        }
-    }
+    
 
     public int getPlayer()
     {
