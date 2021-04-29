@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class Patroller : MonoBehaviour
+public class Patroller : MonoBehaviourPun
 {
     public HealthBar healthbar;
     public int Maxhealth;
@@ -73,8 +73,7 @@ public class Patroller : MonoBehaviour
     {
         if(dead)
         {
-            Destroy(this.gameObject);
-            GameObject.Find("patroller").SetActive(false);
+            base.photonView.RPC("DestroyOnline", RpcTarget.All);
         }
         healthbar.SetHealth(health.health);
         Death();
@@ -314,5 +313,13 @@ public class Patroller : MonoBehaviour
         }
         return val;
     }
+
+    [PunRPC]
+
+    void DestroyOnline()
+    {
+        Destroy(this.gameObject);
+    }
+
 }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using System.IO;
 using UnityEngine.SceneManagement;
-public class PlayerDeath : MonoBehaviour
+public class PlayerDeath : MonoBehaviourPun
 {
     private Health health;
     private PhotonView PV;
@@ -31,11 +31,10 @@ public class PlayerDeath : MonoBehaviour
             {
                 Debug.Log("yop");
                 isDead = true;
-                animator.SetTrigger("isDead");
-                playerControler.enabled = false;
-                gameObject.tag = "Untagged";
+                base.photonView.RPC("Unload", RpcTarget.All);
             }
         }
+
         if(SceneManager.GetActiveScene().buildIndex == 4)
         {
             Destroy(this.gameObject);
@@ -47,4 +46,13 @@ public class PlayerDeath : MonoBehaviour
         camera.gameObject.SetActive(false);
         PhotonNetwork.Instantiate(Path.Combine("Prefab", "Player", "DeadPlayer"), transform.position, Quaternion.identity, 0); ;
     }
+
+    [PunRPC]
+   void Unload()
+    {
+        animator.SetTrigger("isDead");
+        playerControler.enabled = false;
+        gameObject.tag = "Untagged";
+   }
+
 }

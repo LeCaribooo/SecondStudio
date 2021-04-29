@@ -74,7 +74,6 @@ public class EnemyController : MonoBehaviour
             health.numOfHits -= enemySO.damage;
             cooling = false;
             Cooler();
-            Debug.Log("i just attacked");
         }  
     }
 
@@ -88,5 +87,11 @@ public class EnemyController : MonoBehaviour
         yield return new WaitForSeconds(2f);
         wait = true;
         
+    }
+
+    [PunRPC]
+    void DestroyOnline()
+    {
+        Destroy(Parent);
     }
 }

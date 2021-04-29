@@ -1854,7 +1854,7 @@ MonoBehaviour:
     SynchronizeType: 2
     Name: hasShuriken
   - Type: 4
-    SynchronizeType: 2
+    SynchronizeType: 1
     Name: isDead
   m_SynchronizeLayers:
   - SynchronizeType: 2
