@@ -14,11 +14,11 @@ public class HitboxDamage : MonoBehaviour
             EnemyHealth enemyhealth = other.gameObject.GetComponent<EnemyHealth>();
             enemyhealth.health -= dmg;
             bool right = player.GetComponent<PlayerControler>().facingRight;
-            Knockback(enemy,right);
+            //Knockback(enemy,right);
         }
     }
    
-    private void Knockback(GameObject enemy, bool right)
+    /*private void Knockback(GameObject enemy, bool right)
     {
         Debug.Log("almost");
         
@@ -59,5 +59,5 @@ public class HitboxDamage : MonoBehaviour
                 }
                 break;
         }
-    }
+    }*/
 }
