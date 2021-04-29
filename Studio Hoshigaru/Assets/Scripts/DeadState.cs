@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Photon.Pun;
 
 public class DeadState : MonoBehaviour
@@ -10,7 +9,6 @@ public class DeadState : MonoBehaviour
     Parallaxing parallaxing;
     public Canvas UI;
     private PhotonView PV;
-    bool can = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,13 +24,7 @@ public class DeadState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (can)
-        {
-            Debug.Log("Test");
-            can = false;
-            PhotonNetwork.LoadLevel(4);
-        }
-        else if (PV.IsMine)
+        if (PV.IsMine)
         {
             parallaxing.cam = DisplayCameraWhenDead();
         }
@@ -42,9 +34,8 @@ public class DeadState : MonoBehaviour
     public Transform DisplayCameraWhenDead()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        if (players.Length == 0 && !can)
+        if (players.Length == 0)
         {
-            can = true;
             return null;
         }
         else
