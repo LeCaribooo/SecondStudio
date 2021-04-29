@@ -921,6 +921,7 @@ MonoBehaviour:
   dead: 0
   attackMode: 0
   alreadyAttacked: 0
+  source: {fileID: 0}
   castPos: {fileID: 1620005525219524062}
   castJump: {fileID: 1620005526276346455}
   baseCastDist: 0.1

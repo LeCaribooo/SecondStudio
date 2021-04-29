@@ -5,7 +5,7 @@ using Photon.Pun;
 using Pathfinding;
 
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviourPun
 {
     private AIPath aIPath;
     public HealthBar healthbar;
@@ -61,7 +61,7 @@ public class EnemyController : MonoBehaviour
     {
         if (health.health <= 0)
         {
-            PhotonNetwork.Destroy(Parent);
+            base.photonView.RPC("DestroyOnline", RpcTarget.All);
         }
     }
 
