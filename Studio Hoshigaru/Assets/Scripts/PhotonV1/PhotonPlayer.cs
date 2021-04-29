@@ -24,10 +24,10 @@ public class PhotonPlayer : MonoBehaviourPun
         }
         else
         {
-            PhotonNetwork.Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
-
+    
     public int getPlayer()
     {
         for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)

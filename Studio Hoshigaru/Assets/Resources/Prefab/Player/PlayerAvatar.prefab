@@ -1751,11 +1751,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcf53e01211af2f438ef4c724896cfe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: -5369199426318173991}
-  playerControler: {fileID: 8745890432335679497}
-  capsuleCollider: {fileID: -5528596187562312331}
-  rb: {fileID: 8745890432335679496}
-  camera: {fileID: 5368359382360323570}
 --- !u!114 &-5198743702041084537
 MonoBehaviour:
   m_ObjectHideFlags: 0

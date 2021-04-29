@@ -110,9 +110,13 @@ public class Waves : MonoBehaviour
             if (PhotonNetwork.IsMasterClient)
             {
                 PhotonNetwork.Instantiate
-                                (Path.Combine("Prefab", "Enemy", name), spawnpoint[spawnPoint].transform.position, Quaternion.identity);
+                    (Path.Combine("Prefab", "Enemy", name), spawnpoint[spawnPoint].transform.position, Quaternion.identity);
             }
+
+
         }
+        
+
     }
 
     //Vérifie si la vague est clear.
