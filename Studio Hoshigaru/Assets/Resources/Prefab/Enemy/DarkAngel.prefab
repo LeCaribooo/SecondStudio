@@ -129,7 +129,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -227,8 +227,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthbar: {fileID: 8249583254787802149}
+  health: {fileID: 0}
   enemySO: {fileID: 11400000, guid: 24e9a6bfa7ffee6428697809afd7fb51, type: 2}
-  health: 0
+  cooling: 0
+  wait: 0
+  Parent: {fileID: 0}
+  source: {fileID: 0}
+  maxHealth: 0
 --- !u!114 &5191038931301254777
 MonoBehaviour:
   m_ObjectHideFlags: 0
