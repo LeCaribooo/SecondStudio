@@ -121,6 +121,14 @@ public class Player_portal : MonoBehaviourPun
 
     }
 
+    //La teleportation
+    public void LoadRCP(int nbLvl)
+    {
+        string sceneload = scene[nbLvl];
+        PhotonNetwork.LoadLevel(sceneload);
+        Debug.Log("Room Loaded");
+    }
+
     public void SendNotif()
     {
         base.photonView.RPC("SendMessage", RpcTarget.All, "Hello there");
@@ -189,9 +197,7 @@ public class Player_portal : MonoBehaviourPun
     [PunRPC]
     void LoadRoom(int nbLvl)
     {
-        string sceneload = scene[nbLvl];
-        PhotonNetwork.LoadLevel(sceneload);
-        Debug.Log("Room Loaded");
+        LoadRCP(nbLvl);
     }
 
 }
