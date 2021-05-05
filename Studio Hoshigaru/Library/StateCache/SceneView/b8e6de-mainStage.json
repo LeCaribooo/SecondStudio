@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":true,"pivot":{"x":7.678147792816162,"y":2.24241042137146,"z":-816.9849853515625},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":30.054338455200197,"orthographic":true}
+=======
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":true,"pivot":{"x":20.451923370361329,"y":0.43006622791290285,"z":-49.007442474365237},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":10.88459587097168,"orthographic":true}
+>>>>>>> FixTp

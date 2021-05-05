@@ -28,6 +28,9 @@ public class Player_portal : MonoBehaviourPun
     [SerializeField]
     private string[] scene = new string[2];
 
+    [SerializeField]
+    private int RandomRoomNumber = 0;
+
     //Timer
     float time = 21f;    
 
@@ -97,6 +100,7 @@ public class Player_portal : MonoBehaviourPun
                 time = 21f;
                 if (WantToTeleport)
                 {
+                    SelectRoom();
                     StartCoroutine(Decompte());
                 }
                 else
@@ -113,21 +117,20 @@ public class Player_portal : MonoBehaviourPun
     //Teleportation
     public void LoadRandomRoom()
     {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            int nbLvl = Random.Range(0, 2);
-            base.photonView.RPC("LoadRoom", RpcTarget.All, nbLvl);
-        }
-
-    }
-
-    //La teleportation
-    public void LoadRCP(int nbLvl)
-    {
+        int nbLvl = Random.Range(0, 2);
         string sceneload = scene[nbLvl];
         PhotonNetwork.LoadLevel(sceneload);
         Debug.Log("Room Loaded");
+
     }
+
+    //Choix de la room
+    public void SelectRoom()
+    {
+        RandomRoomNumber = Random.Range(0, 2);
+        base.photonView.RPC("RandomRoomNumber_rpc", RpcTarget.All, RandomRoomNumber);
+    }
+
 
     public void SendNotif()
     {
@@ -195,9 +198,9 @@ public class Player_portal : MonoBehaviourPun
     }
 
     [PunRPC]
-    void LoadRoom(int nbLvl)
+    void RandomRoomNumber_rpc(int RoomNumber)
     {
-        LoadRCP(nbLvl);
+        RandomRoomNumber = RoomNumber;
+        Debug.Log("Room choose : " + RoomNumber);
     }
-
 }

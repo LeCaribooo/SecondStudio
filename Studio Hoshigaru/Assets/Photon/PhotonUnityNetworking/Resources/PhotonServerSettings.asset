@@ -52,7 +52,7 @@ MonoBehaviour:
   - SetSwordActive
   - Unload
   - VoteRPC
-  - LoadRoom
+  - RandomRoomNumber_rpc
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
