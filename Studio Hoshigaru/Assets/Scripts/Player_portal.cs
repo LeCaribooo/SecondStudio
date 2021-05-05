@@ -28,6 +28,8 @@ public class Player_portal : MonoBehaviourPun
     [SerializeField]
     private string[] scene = new string[2];
 
+    private int nbLvl = 0;
+
     //Timer
     float time = 21f;    
 
@@ -113,7 +115,7 @@ public class Player_portal : MonoBehaviourPun
     //Teleportation
     public void LoadRandomRoom()
     {
-        int nbLvl = Random.Range(0,2); //Je génère une scène aléatoire
+        base.photonView.RPC("RandomRoom", RpcTarget.All);
         string sceneload = scene[nbLvl];
         PhotonNetwork.LoadLevel(sceneload);
         Debug.Log("Room Loaded" );
@@ -182,6 +184,12 @@ public class Player_portal : MonoBehaviourPun
     {
         Debug.Log("Player ready ");
         playerReady.Add(state);
+    }
+
+    [PunRPC]
+    void RandomRoom(bool state)
+    {
+        nbLvl = Random.Range(0, 2);
     }
 
 }
