@@ -100,7 +100,10 @@ public class Player_portal : MonoBehaviourPun
                 time = 21f;
                 if (WantToTeleport)
                 {
-                    SelectRoom();
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        SelectRoom();
+                    }
                     StartCoroutine(Decompte());
                 }
                 else
@@ -117,8 +120,7 @@ public class Player_portal : MonoBehaviourPun
     //Teleportation
     public void LoadRandomRoom()
     {
-        int nbLvl = Random.Range(0, 2);
-        string sceneload = scene[nbLvl];
+        string sceneload = scene[RandomRoomNumber];
         PhotonNetwork.LoadLevel(sceneload);
         Debug.Log("Room Loaded");
 

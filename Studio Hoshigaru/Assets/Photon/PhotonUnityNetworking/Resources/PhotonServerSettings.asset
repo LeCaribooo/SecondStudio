@@ -41,6 +41,7 @@ MonoBehaviour:
   - Fire
   - IsTrigger
   - PlayerReady
+  - RandomRoomNumber_rpc
   - RespawnSpaceship
   - RPC_ChangeReadyState
   - SendMessage
@@ -52,7 +53,6 @@ MonoBehaviour:
   - SetSwordActive
   - Unload
   - VoteRPC
-  - RandomRoomNumber_rpc
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
