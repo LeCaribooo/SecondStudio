@@ -37,9 +37,12 @@ MonoBehaviour:
   - Death
   - DestroyOnline
   - DestroyRpc
+  - DestroySpaceship
+  - Fire
   - IsTrigger
   - PlayerReady
   - RandomRoomNumber_rpc
+  - RespawnSpaceship
   - RPC_ChangeReadyState
   - SendMessage
   - SetActualActive
