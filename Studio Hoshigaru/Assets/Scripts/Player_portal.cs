@@ -115,10 +115,11 @@ public class Player_portal : MonoBehaviourPun
     //Teleportation
     public void LoadRandomRoom()
     {
-        base.photonView.RPC("RandomRoom", RpcTarget.All);
-        string sceneload = scene[nbLvl];
-        PhotonNetwork.LoadLevel(sceneload);
-        Debug.Log("Room Loaded" );
+        if (PhotonNetwork.IsMasterClient)
+        {
+            nbLvl = Random.Range(0, 2);
+        }
+        base.photonView.RPC("LoadRoom", RpcTarget.All,nbLvl);
     }
 
     public void SendNotif()
@@ -187,9 +188,11 @@ public class Player_portal : MonoBehaviourPun
     }
 
     [PunRPC]
-    void RandomRoom(bool state)
+    void LoadRoom(bool state)
     {
-        nbLvl = Random.Range(0, 2);
+        string sceneload = scene[nbLvl];
+        PhotonNetwork.LoadLevel(sceneload);
+        Debug.Log("Room Loaded");
     }
 
 }
