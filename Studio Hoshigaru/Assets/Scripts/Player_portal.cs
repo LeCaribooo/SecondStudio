@@ -28,8 +28,6 @@ public class Player_portal : MonoBehaviourPun
     [SerializeField]
     private string[] scene = new string[2];
 
-    private int nbLvl = 0;
-
     //Timer
     float time = 21f;    
 
@@ -117,9 +115,10 @@ public class Player_portal : MonoBehaviourPun
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            nbLvl = Random.Range(0, 2);
+            int nbLvl = Random.Range(0, 2);
+            base.photonView.RPC("LoadRoom", RpcTarget.All, nbLvl);
         }
-        base.photonView.RPC("LoadRoom", RpcTarget.All,nbLvl);
+
     }
 
     public void SendNotif()
@@ -188,7 +187,7 @@ public class Player_portal : MonoBehaviourPun
     }
 
     [PunRPC]
-    void LoadRoom(bool state)
+    void LoadRoom(int nbLvl)
     {
         string sceneload = scene[nbLvl];
         PhotonNetwork.LoadLevel(sceneload);
