@@ -6,11 +6,12 @@ using UnityEngine.UI;
 using System.IO;
 using UnityEngine.SceneManagement;
 
-public class Waves : MonoBehaviour
+public class Waves : MonoBehaviourPun
 {
     private int CountWaves = 0;
     private bool W_inprogress = false;
     private bool RoomCleared = false;
+    
     public Canvas DecompteCanvas;
     public Text DecompteTxt;
     public Canvas EndRoom;
@@ -70,13 +71,17 @@ public class Waves : MonoBehaviour
             }
 
         }
-        if (IsClear() && !W_inprogress)
+        if (IsClear() && !W_inprogress && PhotonNetwork.IsMasterClient) //Permet au MasterClient de controler l'envoie de vague et leur uptade.
         {
             CountWaves++;
             Debug.Log("Waves clear : " + CountWaves);
             W_inprogress = true;
             RoomCleared = CountWaves == nbWaves;
 
+            //Envoie des infos.
+            base.photonView.RPC("SendCountWaves", RpcTarget.Others, CountWaves);
+            base.photonView.RPC("SendWinProgress", RpcTarget.Others, W_inprogress);
+            base.photonView.RPC("SendRoomCleared", RpcTarget.Others, RoomCleared);
 
         }
 
@@ -151,5 +156,27 @@ public class Waves : MonoBehaviour
         } 
         PhotonNetwork.LoadLevel(backscene) ;
         Debug.Log("Room Loaded : " + backscene);
+    }
+
+    //Envoie des info des vagues.
+    [PunRPC]
+    //Countwaves
+    void SendCountWaves(int countwaves)
+    {
+        CountWaves = countwaves;
+    }
+
+    [PunRPC]
+    //Waves in progress
+    void SendWinProgress(bool wInprogress)
+    {
+        W_inprogress = wInprogress;
+    }
+
+    [PunRPC]
+    //RoomClear
+    void SendRoomCleared(bool roomclear)
+    {
+        RoomCleared = roomclear;
     }
 }
