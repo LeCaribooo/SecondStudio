@@ -37,14 +37,14 @@ MonoBehaviour:
   - Death
   - DestroyOnline
   - DestroyRpc
-  - DestroySpaceship
-  - Fire
   - IsTrigger
   - PlayerReady
   - RandomRoomNumber_rpc
-  - RespawnSpaceship
   - RPC_ChangeReadyState
+  - SendCountWaves
   - SendMessage
+  - SendRoomCleared
+  - SendWinProgress
   - SetActualActive
   - SetBowActive
   - SetGameObjectActive
@@ -53,9 +53,6 @@ MonoBehaviour:
   - SetSwordActive
   - Unload
   - VoteRPC
-  - SendCountWaves
-  - SendRoomCleared
-  - SendWinProgress
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
