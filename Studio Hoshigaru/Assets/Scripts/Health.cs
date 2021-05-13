@@ -30,46 +30,46 @@ public class Health : MonoBehaviour
         {
             numOfHits = numOfHearts * 4;
         }
-
-        if(numOfHits == 0)
-        {
-            hearts[0].sprite = emptyHeart;
-        }
         for (int i = 0; i < hearts.Length; i++)
+        {
+            if(i < numOfHits / 4)
             {
-                if (i < numOfHits / 4)
+                hearts[i].sprite = fullHeart;
+            }
+            else if(i > numOfHits / 4)
+            {
+                hearts[i].sprite = emptyHeart;
+            }
+            else
+            {
+                int rest = numOfHits % 4;
+                switch (rest)
                 {
-                    hearts[i].sprite = fullHeart;
+                    case 0: 
+                        hearts[i].sprite = emptyHeart;
+                        break;
+                    case 1:
+                        hearts[i].sprite = quarterHeart;
+                        break;
+                    case 2:
+                        hearts[i].sprite = halfHeart;
+                        break;
+                    case 3:
+                        hearts[i].sprite = hquarterHeart;
+                        break;
                 }
-                else if (i == numOfHits / 4)
-                {
-                    switch (numOfHits % 4)
-                    {
-                        case 1:
-                            hearts[i].sprite = quarterHeart;
-                            break;
-                        case 2:
-                            hearts[i].sprite = halfHeart;
-                            break;
-                        case 3:
-                            hearts[i].sprite = hquarterHeart;
-                            break;
-                    }
-                }
-                else
-                {
-                    hearts[i].sprite = emptyHeart;
-                }
-                if (i < numOfHearts)
-                {
-                    hearts[i].enabled = true;
-                }
-                else
-                {
-                    hearts[i].enabled = false;
-                }
+                    
+            }
+
+            if (i < numOfHearts)
+            {
+                hearts[i].enabled = true;
+            }
+            else
+            {
+                hearts[i].enabled = false;
+            }
         }
-        
     }
 }
 

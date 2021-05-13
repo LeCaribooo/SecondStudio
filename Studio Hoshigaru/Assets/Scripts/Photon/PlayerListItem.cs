@@ -7,12 +7,16 @@ using UnityEngine.UI;
 
 public class PlayerListItem : MonoBehaviourPunCallbacks
 {
-    [SerializeField] Text text;
+    [SerializeField] public Text text;
     public Player player;
     public bool Ready;
 
     public void SetUp(Player _player)
     {
+        if (_player.IsMasterClient)
+            Ready = true;
+        else
+            Ready = false;
         player = _player;
         text.text = player.NickName;
     }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Bow : MonoBehaviour
 {
@@ -17,16 +18,20 @@ public class Bow : MonoBehaviour
 
     public AnimatedArms animatedArms;
 
+    public PhotonView PV;
+
     void Update()
     {
-       
-        if (Input.GetMouseButtonDown(0))
+        if (PV.IsMine)
         {
-            Shoot();
-        }
-        for (int i = 0; i < numberOfPoints; i++)
-        {
-            points[i].transform.position = PointPosition(i * spaceBetweenPoints);
+            if (Input.GetMouseButtonDown(0))
+            {
+                Shoot();
+            }
+            for (int i = 0; i < numberOfPoints; i++)
+            {
+                points[i].transform.position = PointPosition(i * spaceBetweenPoints);
+            }
         }
     }
     

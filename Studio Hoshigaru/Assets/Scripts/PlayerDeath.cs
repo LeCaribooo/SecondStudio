@@ -29,7 +29,6 @@ public class PlayerDeath : MonoBehaviourPun
         {
             if (health.numOfHits <= 0 && !isDead)
             {
-                Debug.Log("yop");
                 isDead = true;
                 base.photonView.RPC("Unload", RpcTarget.All);
             }

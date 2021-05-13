@@ -142,11 +142,8 @@ public class Launcher : MonoBehaviourPunCallbacks
         {
             for (int i = 0; i < playerList.Count(); i++)
             {
-                if (playerList[i].player == PhotonNetwork.LocalPlayer)
-                {
-                    if (playerList[i].Ready)
-                        return;
-                }
+                if (!playerList[i].Ready)
+                   return;
             }
 
             PhotonNetwork.CurrentRoom.IsOpen = false;
@@ -160,7 +157,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         if (!PhotonNetwork.IsMasterClient)
         {
             SetReadyUp(!ready);
-            base.photonView.RPC("RPC_ChangeReadyState", RpcTarget.MasterClient, PhotonNetwork.LocalPlayer, ready);
+            base.photonView.RPC("RPC_ChangeReadyState", RpcTarget.All, PhotonNetwork.LocalPlayer, ready);
         }
     }
 
@@ -169,7 +166,15 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         int index = playerList.FindIndex(x => x.player == player);
         if (index != -1)
+        {
             playerList[index].Ready = ready;
+            if(ready)
+                playerList[index].text.color = Color.green;
+            else
+                playerList[index].text.color = Color.white;
+        }
+            
+            
     }
 
     public void OnClick_ValidButton()

@@ -572,6 +572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitbox: {fileID: 8421823494695246172}
   animator: {fileID: -5369199426318173991}
+  PV: {fileID: -5198743702041084537}
 --- !u!1 &1959212436820100745
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,7 +805,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 7957c85db74ff85b5a494fd5e09a44fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -936,7 +937,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3098516444043262116}
+      - m_Target: {fileID: 3203967071730261718}
         m_MethodName: selectHammer
         m_Mode: 1
         m_Arguments:
@@ -1343,7 +1344,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3098516444043262116}
+      - m_Target: {fileID: 3203967071730261718}
         m_MethodName: selectShuriken
         m_Mode: 1
         m_Arguments:
@@ -1458,6 +1459,7 @@ MonoBehaviour:
   numberOfPoints: 50
   spaceBetweenPoints: 0.0125
   animatedArms: {fileID: 958806729095387024}
+  PV: {fileID: -5198743702041084537}
 --- !u!1 &3641223025752236751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1550,9 +1552,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.007987342, y: -0.0023277432}
   serializedVersion: 2
-  m_Radius: 0.9
+  m_Radius: 1.0206354
 --- !u!114 &5874163618953832574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2082,13 +2084,13 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4267987911791588897}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0010481235, y: 0.03825809}
+  m_Offset: {x: -0.0008192435, y: 0.02296415}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2099,7 +2101,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.11848448, y: 0.3677909}
+  m_Size: {x: 0.26140136, y: 0.50975984}
   m_EdgeRadius: 0
 --- !u!114 &357143876520383550
 MonoBehaviour:
@@ -2303,7 +2305,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 8050714393231344735}
-  - {fileID: 4005537266912441117}
+  - {fileID: 6638585433453153746}
   m_Father: {fileID: 8606346153712435183}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2958,6 +2960,80 @@ Transform:
   m_Father: {fileID: 2149148373339789988}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7253224406043608280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6638585433453153746}
+  - component: {fileID: 3203967071730261718}
+  - component: {fileID: 7917162825475216618}
+  m_Layer: 0
+  m_Name: HolderWeapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6638585433453153746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7253224406043608280}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -702.75745, y: -316.93134, z: -63.535286}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4005537266912441117}
+  m_Father: {fileID: 9198871995910472842}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3203967071730261718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7253224406043608280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 149fd840fe13e0b4b98e60e082b5c54a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: -5369199426318173991}
+  sword: {fileID: 7937325267349778541}
+  bow: {fileID: 3641223025752236751}
+  shuriken: {fileID: 1190689625883642452}
+  hammer: {fileID: 1872936827306804595}
+  actualWeapon: {fileID: 0}
+  actualWeaponString: 
+--- !u!114 &7917162825475216618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7253224406043608280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &7319790156359263404
 GameObject:
   m_ObjectHideFlags: 0
@@ -3044,8 +3120,6 @@ GameObject:
   - component: {fileID: 4005537266912441117}
   - component: {fileID: 1403711499839992626}
   - component: {fileID: 1618717404291332973}
-  - component: {fileID: 3098516444043262116}
-  - component: {fileID: 8577079195434782081}
   m_Layer: 5
   m_Name: WeaponSelection
   m_TagString: Untagged
@@ -3060,21 +3134,21 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7359470005096580461}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 63.535286}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6109547196965326172}
   - {fileID: 2434382905663830380}
   - {fileID: 5109497171385129605}
   - {fileID: 6275290026121896711}
-  m_Father: {fileID: 9198871995910472842}
-  m_RootOrder: 1
+  m_Father: {fileID: 6638585433453153746}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
+  m_AnchoredPosition: {x: 702.75745, y: 316.93134}
+  m_SizeDelta: {x: 1386, y: 614}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1403711499839992626
 CanvasRenderer:
@@ -3113,47 +3187,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3098516444043262116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7359470005096580461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 149fd840fe13e0b4b98e60e082b5c54a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: -5369199426318173991}
-  sword: {fileID: 7937325267349778541}
-  bow: {fileID: 3641223025752236751}
-  shuriken: {fileID: 1190689625883642452}
-  hammer: {fileID: 1872936827306804595}
-  actualWeapon: {fileID: 0}
-  actualWeaponString: 
---- !u!114 &8577079195434782081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7359470005096580461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 0
-  OwnershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 0}
-  viewIdField: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!1 &7730880062772989538
 GameObject:
   m_ObjectHideFlags: 0
@@ -3199,7 +3232,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.0722835}
+  m_Offset: {x: 0.020804882, y: 1.0597816}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3210,7 +3243,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8304908, y: 0.5320028}
+  m_Size: {x: 1.1723974, y: 0.86175144}
   m_EdgeRadius: 0
 --- !u!114 &185202927771182336
 MonoBehaviour:
@@ -3395,7 +3428,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3098516444043262116}
+      - m_Target: {fileID: 3203967071730261718}
         m_MethodName: selectSword
         m_Mode: 1
         m_Arguments:
@@ -3652,7 +3685,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2434382905663830380
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3754,7 +3787,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3098516444043262116}
+      - m_Target: {fileID: 3203967071730261718}
         m_MethodName: selectBow
         m_Mode: 1
         m_Arguments:

@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+
 
 public class Hammer : MonoBehaviour
 {
     [SerializeField] BoxCollider2D hitbox;
     public Animator animator;
+    public PhotonView PV;
 
     private void Start()
     {
@@ -14,7 +17,10 @@ public class Hammer : MonoBehaviour
 
     void Update()
     {
-        Attack();
+        if (PV.IsMine)
+        {
+            Attack();
+        }
     }
 
     void Attack()

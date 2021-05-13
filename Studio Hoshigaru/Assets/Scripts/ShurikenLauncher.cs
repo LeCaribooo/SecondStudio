@@ -41,7 +41,7 @@ public class ShurikenLauncher : MonoBehaviourPun
     {
         foreach(GameObject player in players)
         {
-            if (player.GetPhotonView().IsMine)
+            if (player.GetPhotonView().Owner == PV.Owner)
                 return player;
         }
         return null;
