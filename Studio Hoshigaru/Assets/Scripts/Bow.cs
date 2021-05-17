@@ -5,8 +5,6 @@ using Photon.Pun;
 
 public class Bow : MonoBehaviour
 {
-
-
     public GameObject arrow;
     public float launchForce;
     public Transform shotPoint;

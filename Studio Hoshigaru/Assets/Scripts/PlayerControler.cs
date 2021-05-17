@@ -7,8 +7,6 @@ using System.IO;
 
 public class PlayerControler : MonoBehaviour
 {
-    [SerializeField] private GameObject bow;
-
     public PlayerSO playerSO;
 
     public PhotonView PV;
@@ -158,9 +156,6 @@ public class PlayerControler : MonoBehaviour
         Vector3 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
-        Vector3 ScalerBow = bow.transform.localScale;
-        ScalerBow.x *= -1;
-        bow.transform.localScale = ScalerBow;
     }
 
     public void SetAttackStatus(int AttackStatus)
