@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using System.IO;
 
 public class Bow : MonoBehaviour
 {
+    public Animator animator;
     public GameObject arrow;
     public float launchForce;
     public Transform shotPoint;
@@ -22,9 +24,9 @@ public class Bow : MonoBehaviour
     {
         if (PV.IsMine)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && animator.GetInteger("AttackStatus") == 0)
             {
-                Shoot();
+                animator.SetInteger("AttackStatus",1);
             }
             for (int i = 0; i < numberOfPoints; i++)
             {
@@ -33,16 +35,27 @@ public class Bow : MonoBehaviour
         }
     }
     
-    void Shoot()
+    public void Shoot()
     {
-        GameObject newArrow = Instantiate(arrow, shotPoint.position, shotPoint.rotation);
-        newArrow.GetComponent<Rigidbody2D>().velocity = transform.right * launchForce;
+        GameObject newArrow = PhotonNetwork.Instantiate(Path.Combine("Prefab", "Player", arrow.name), shotPoint.position, shotPoint.rotation);
+        if(animatedArms.playerControler.facingRight)
+            newArrow.GetComponent<Rigidbody2D>().velocity = -transform.right * launchForce;
+        else
+            newArrow.GetComponent<Rigidbody2D>().velocity = transform.right * launchForce;
     }
 
 
     Vector2 PointPosition(float t)
     {
-        Vector2 position = (Vector2)shotPoint.position + (animatedArms.direction.normalized * launchForce * t) + 0.5f * Physics2D.gravity * (t * t);
+        Vector2 position;
+        if (animatedArms.playerControler.facingRight)
+        {
+            position = (Vector2)shotPoint.position + (-1 * (Vector2)animatedArms.transform.right.normalized * launchForce * t) + 0.5f * Physics2D.gravity * (t * t);
+        }
+        else
+        {
+            position = (Vector2)shotPoint.position + ((Vector2)animatedArms.transform.right.normalized * launchForce * t) + 0.5f * Physics2D.gravity * (t * t);
+        }
         return position;
     }
 

@@ -6,7 +6,7 @@ public class AnimatedArms : MonoBehaviour
 {
     [SerializeField] private Camera camera;
     [HideInInspector] public Vector2 direction;
-    [SerializeField] private PlayerControler playerControler;
+    [SerializeField] public PlayerControler playerControler;
 
     void Update()
     {
@@ -17,15 +17,15 @@ public class AnimatedArms : MonoBehaviour
         else
             direction = new Vector2(mousePosition.x - bowPosition.x, mousePosition.y - bowPosition.y);
         transform.right = direction;
-        if (transform.rotation.eulerAngles.z < 335 && transform.rotation.eulerAngles.z > 30)
+        if (transform.rotation.eulerAngles.z < 300 && transform.rotation.eulerAngles.z > 50)
         {
             if (transform.rotation.eulerAngles.z > 180)
             {
-                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 335));
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 300));
             }
             else
             {
-                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 30));
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 50));
             }
         }
     }

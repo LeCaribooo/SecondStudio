@@ -33,6 +33,7 @@ public class PlayerControler : MonoBehaviour
 
     private PlayerDeath playerDeath;
     [SerializeField] private Sword sword;
+    [SerializeField] private Bow bow;
 
     public Canvas UI;
 
@@ -53,6 +54,13 @@ public class PlayerControler : MonoBehaviour
             PhotonNetwork.Destroy(gameObject);
         }
     }
+
+    public void ShootWithBow()
+    {
+        Debug.Log("On a lancé un fléche");
+        bow.Shoot();
+    }
+
 
     void PlayerSO()
     {
@@ -170,8 +178,4 @@ public class PlayerControler : MonoBehaviour
             Physics2D.IgnoreCollision(hitbox, other);
         }
     }
-
-    
-
-
 }

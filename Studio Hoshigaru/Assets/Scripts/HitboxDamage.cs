@@ -13,7 +13,7 @@ public class HitboxDamage : MonoBehaviour
             GameObject enemy = other.gameObject;
             EnemyHealth enemyhealth = other.gameObject.GetComponent<EnemyHealth>();
             enemyhealth.health -= dmg;
-            bool right = player.GetComponent<PlayerControler>().facingRight;
+            //bool right = player.GetComponent<PlayerControler>().facingRight;
             //Knockback(enemy,right);
         }
     }
