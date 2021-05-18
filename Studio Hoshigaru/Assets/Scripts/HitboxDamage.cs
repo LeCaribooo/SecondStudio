@@ -14,12 +14,12 @@ public class HitboxDamage : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             GameObject enemy = other.gameObject;
-            EnemyHealth enemyhealth = other.gameObject.GetComponent<EnemyHealth>();
+            EnemyHealth enemyhealth = other.gameObject.GetComponentInParent<EnemyHealth>();
             Debug.Log("etsfdq");
             enemyhealth.health -= dmg;
             bool right = player.GetComponent<PlayerControler>().facingRight;
-            Debug.Log(other.gameObject.GetComponentInParent<Rigidbody2D>().velocity);
-            Knockback(enemy, other.gameObject.GetComponentInParent<Rigidbody2D>().velocity, right);
+            Debug.Log(other.gameObject.GetComponent<Rigidbody2D>().velocity);
+            Knockback(enemy, other.gameObject.GetComponent<Rigidbody2D>().velocity, right);
         }
     }
 

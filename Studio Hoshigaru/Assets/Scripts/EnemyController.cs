@@ -15,7 +15,6 @@ public class EnemyController : MonoBehaviourPun
     private Animator animator;
     public bool cooling;
     public bool wait;
-    public GameObject Parent;
     public AudioSource source;
 
     public int maxHealth;
@@ -24,13 +23,13 @@ public class EnemyController : MonoBehaviourPun
     // Start is called before the first frame update
     void Start()
     {
-        aIPath = GetComponentInParent<AIPath>();
+        aIPath = GetComponent<AIPath>();
         PV = GetComponent<PhotonView>();
         health.health = enemySO.health;
         healthbar.SetMaxHealth(health.health);
         animator = GetComponent<Animator>();
         cooling = true;
-        source = GetComponentInParent<AudioSource>();
+        source = GetComponent<AudioSource>();
         source.Play();
     }
     private void FixedUpdate()
@@ -91,6 +90,6 @@ public class EnemyController : MonoBehaviourPun
     [PunRPC]
     void DestroyOnline()
     {
-        Destroy(Parent);
+        Destroy(this.gameObject);
     }
 }
