@@ -54,6 +54,7 @@ namespace Pathfinding {
 		/// <summary>Speed in world units</summary>
 		public float speed = 3;
 
+
 		/// <summary>
 		/// Determines which direction the agent moves in.
 		/// For 3D games you most likely want the ZAxisIsForward option as that is the convention for 3D games.

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Pathfinding {
@@ -9,6 +10,8 @@ namespace Pathfinding {
 	/// See: <see cref="Pathfinding.AILerp"/>
 	/// </summary>
 	public interface IAstarAI {
+
+		
 		/// <summary>
 		/// Height of the agent in world units.
 		/// This is visualized in the scene view as a yellow cylinder around the character.

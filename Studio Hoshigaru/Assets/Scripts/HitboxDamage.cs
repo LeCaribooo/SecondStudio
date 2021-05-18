@@ -1,63 +1,64 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class HitboxDamage : MonoBehaviour
 {
     public GameObject player;
     public int dmg;
+    public WeaponSelection weaponSelection;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
             GameObject enemy = other.gameObject;
             EnemyHealth enemyhealth = other.gameObject.GetComponent<EnemyHealth>();
+            Debug.Log("etsfdq");
             enemyhealth.health -= dmg;
-            //bool right = player.GetComponent<PlayerControler>().facingRight;
-            //Knockback(enemy,right);
+            bool right = player.GetComponent<PlayerControler>().facingRight;
+            Debug.Log(other.gameObject.GetComponentInParent<Rigidbody2D>().velocity);
+            Knockback(enemy, other.gameObject.GetComponentInParent<Rigidbody2D>().velocity, right);
         }
     }
-   
-    /*private void Knockback(GameObject enemy, bool right)
+
+
+    private void Knockback(GameObject enemy, Vector2 rdb2, bool right)
     {
-        Debug.Log("almost");
-        
-        if(!right)
-        {
-            Debug.Log("r");
-        }
-        else
-        {
-            Debug.Log("l");
-        }
-        string weapon = this.gameObject.GetComponent<WeaponSelection>().actualWeaponString;
+        string weapon = weaponSelection.actualWeaponString;
         switch (weapon)
         {
             case "hasSword":
                 Debug.Log("it's ok");
-                if (!right)
+                if(rdb2 == Vector2.zero)
                 {
-                    enemy.GetComponent<KnockBack>().rdb2.velocity = Vector2.right * 3;
+                    rdb2 = new Vector2(40, 40);
+                }
+                else if (!right)
+                {
+                    rdb2 = transform.right * 40;
                 }
                 else
                 {
-                    enemy.GetComponent<KnockBack>().rdb2.velocity = Vector2.left * 3;
+                    rdb2 = -transform.right * 40;
                 }
                 break;
             case "hasShuriken":
+            case "hasBow":
                 Debug.Log("it's ok");
                 break;
             case "hasHammer":
                 Debug.Log("it's ok");
                 if (!right)
                 {
-                    enemy.GetComponent<KnockBack>().rdb2.velocity = Vector2.right * 6;
+                    rdb2= Vector2.right * 6;
                 }
                 else
                 {
-                    enemy.GetComponent<KnockBack>().rdb2.velocity = Vector2.left * 6;
+                    rdb2 = Vector2.left * 6;
                 }
                 break;
         }
-    }*/
+    }
 }

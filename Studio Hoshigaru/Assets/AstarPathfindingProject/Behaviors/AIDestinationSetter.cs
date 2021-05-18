@@ -18,6 +18,7 @@ namespace Pathfinding {
 		public Transform target;
 		IAstarAI ai;
 
+		
 		private GameObject[] players;
 
 		public Transform whichTarget()
@@ -25,6 +26,7 @@ namespace Pathfinding {
 				players = GameObject.FindGameObjectsWithTag("Player");
 				if (players.Length == 0)
 					return null;
+
 				float minDist = Mathf.Infinity;
 				GameObject currCloser = players[0];
 				foreach (GameObject player in players)

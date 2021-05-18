@@ -16,7 +16,10 @@ public class PlayerControler : MonoBehaviour
     private float movementInput;       //(-1 ou 1 Gauche Droite)
     private float jumpTimeCounter;
     private float jumpTime;
-   
+
+    public GameObject enemy;
+
+
     private Rigidbody2D rb;
     public Animator animator;
     private Collider2D hitbox;

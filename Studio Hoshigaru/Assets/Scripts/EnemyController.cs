@@ -35,8 +35,8 @@ public class EnemyController : MonoBehaviourPun
     }
     private void FixedUpdate()
     {
-            float enemyvelocity = Mathf.Abs(aIPath.velocity.x);
-            animator.SetFloat("speed", enemyvelocity);
+        float enemyvelocity = Mathf.Abs(aIPath.velocity.x);
+        animator.SetFloat("speed", enemyvelocity);
     }
 
     // Update is called once per frame
@@ -53,7 +53,6 @@ public class EnemyController : MonoBehaviourPun
     private void OnTriggerEnter2D(Collider2D other)
     {
         Attack(other);
-        
     }
 
     [PunRPC]

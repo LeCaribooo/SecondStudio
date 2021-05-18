@@ -1571,6 +1571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 4073380840126637068}
   dmg: 2
+  weaponSelection: {fileID: 3203967071730261718}
 --- !u!1 &4073380840126637068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1704,6 +1705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSO: {fileID: 11400000, guid: 1e73ed30c3a5b314481ae0d8edc1699b, type: 2}
   PV: {fileID: -5198743702041084537}
+  enemy: {fileID: 0}
   animator: {fileID: -5369199426318173991}
   groundCheck: {fileID: 5296357941224267156}
   facingRight: 1
@@ -2119,6 +2121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 4073380840126637068}
   dmg: 3
+  weaponSelection: {fileID: 3203967071730261718}
 --- !u!1 &4389406916077254573
 GameObject:
   m_ObjectHideFlags: 0
@@ -3261,6 +3264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 4073380840126637068}
   dmg: 5
+  weaponSelection: {fileID: 3203967071730261718}
 --- !u!1 &7937325267349778541
 GameObject:
   m_ObjectHideFlags: 0

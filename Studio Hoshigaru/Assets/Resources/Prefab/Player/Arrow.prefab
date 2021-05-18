@@ -159,6 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   dmg: 0
+  weaponSelection: {fileID: 0}
 --- !u!114 &3016461606125586614
 MonoBehaviour:
   m_ObjectHideFlags: 0
