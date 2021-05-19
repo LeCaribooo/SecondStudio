@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class Arrow : MonoBehaviour
+public class Arrow : MonoBehaviourPun
 {
     Rigidbody2D rb;
     bool hasHit;
     public int dmg;
+    public PhotonView PV; 
 
     // Start is called before the first frame update
     void Start()
@@ -32,10 +34,17 @@ public class Arrow : MonoBehaviour
         {
             EnemyHealth enemyhealth = collision.gameObject.GetComponentInParent<EnemyHealth>();
             enemyhealth.health -= dmg;
+            base.photonView.RPC("DestroyOnline", RpcTarget.All);
         }
         else
         {
-            Destroy(this.gameObject);
+            base.photonView.RPC("DestroyOnline", RpcTarget.All);
         }
+    }
+
+    [PunRPC]
+    void DestroyOnline()
+    {
+        Destroy(this.gameObject);
     }
 }
