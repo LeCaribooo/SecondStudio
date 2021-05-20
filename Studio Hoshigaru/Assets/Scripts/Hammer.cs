@@ -9,6 +9,7 @@ public class Hammer : MonoBehaviour
     [SerializeField] BoxCollider2D hitbox;
     public Animator animator;
     public PhotonView PV;
+    public PlayerControler pc;
 
     private void Start()
     {
@@ -25,7 +26,7 @@ public class Hammer : MonoBehaviour
 
     void Attack()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && pc.canAttack)
         {
             animator.SetInteger("AttackStatus", 1);
         }

@@ -46,6 +46,7 @@ MonoBehaviour:
   - SendRoomCleared
   - SendWinProgress
   - SetActualActive
+  - SetActualWeapon
   - SetBowActive
   - SetGameObjectActive
   - SetHammerActive

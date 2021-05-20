@@ -131,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 4073380840126637068, guid: df23e5c1b60471c478974b10f86ad104, type: 3}
   dmg: 1
+  weaponSelection: {fileID: 0}
 --- !u!50 &3860181556051993939
 Rigidbody2D:
   serializedVersion: 4
