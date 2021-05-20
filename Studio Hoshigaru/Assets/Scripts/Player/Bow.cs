@@ -35,7 +35,6 @@ public class Bow : MonoBehaviour
             {
                 points[i].transform.position = PointPosition(i * spaceBetweenPoints);
             }
-            
         }
     }
 

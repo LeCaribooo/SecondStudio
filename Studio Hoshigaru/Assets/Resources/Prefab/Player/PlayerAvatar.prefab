@@ -1449,6 +1449,7 @@ GameObject:
   - component: {fileID: 7547140407812190731}
   - component: {fileID: 2241399891772333356}
   - component: {fileID: 9156669371168396123}
+  - component: {fileID: 3578132586908753459}
   m_Layer: 0
   m_Name: Bow
   m_TagString: Untagged
@@ -1560,13 +1561,28 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 0
+  Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 0}
+  - {fileID: 3578132586908753459}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &3578132586908753459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3575396673422234280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!1 &3641223025752236751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1577,6 +1593,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2149148373339789988}
   - component: {fileID: 958806729095387024}
+  - component: {fileID: 1437431021835623129}
+  - component: {fileID: 5455239411505619955}
   m_Layer: 0
   m_Name: Bow
   m_TagString: Untagged
@@ -1615,6 +1633,44 @@ MonoBehaviour:
   camera: {fileID: 5368359382360323570}
   direction: {x: 0, y: 0}
   playerControler: {fileID: 8745890432335679497}
+  PV: {fileID: 1437431021835623129}
+--- !u!114 &1437431021835623129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3641223025752236751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 5455239411505619955}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &5455239411505619955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3641223025752236751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!1 &3750316192971192585
 GameObject:
   m_ObjectHideFlags: 0
