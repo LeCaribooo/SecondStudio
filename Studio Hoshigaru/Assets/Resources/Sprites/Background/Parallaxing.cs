@@ -11,18 +11,12 @@ public class Parallaxing : MonoBehaviour
 
     public Transform cam; //reference a la camera reliee (principale)
     private Vector3 previousCamPos; //position de la cam a la frame precedente
-
-    private PlayerControler playerControler;
-
-    bool check = false;
-    void Awake() // appele avant la fonction start
-    {
-        cam = Camera.main.transform;
-    }
-    
+    public WaitingForPlayer wfp;
+ 
     // Start is called before the first frame update
     void Start()
     {
+        wfp.enabled = false;
         //la frame precedente a la position de la frame actuelle
         previousCamPos = cam.position;
         
@@ -31,16 +25,12 @@ public class Parallaxing : MonoBehaviour
         for (int i = 0; i < backgrounds.Length; i++)
         {
             parallaxScales[i] = backgrounds[i].position.z * (-1);
-        }
+        } 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!check)
-        {
-            CheckCam();
-        }
         //pour chaque background
         for (int i = 0; i < backgrounds.Length; i++)
         {
@@ -58,24 +48,5 @@ public class Parallaxing : MonoBehaviour
         
         //bouge la position precedente de la cam a la position a la fin de la frame
         previousCamPos = cam.position;
-    }
-
-    void CheckCam()
-    {
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        foreach (GameObject player in players)
-        {
-            PhotonView PV = player.GetComponent<PhotonView>();
-            if (PV.IsMine)
-            {
-                //reference de la camera
-                playerControler = player.GetComponent<PlayerControler>();
-                playerControler.camera.gameObject.SetActive(true);
-                cam = playerControler.camera.transform;
-                Camera.main.gameObject.SetActive(false);
-                check = true;
-            }
-        }
-       
-    }
+    }   
 }
