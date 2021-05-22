@@ -3,56 +3,37 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="142070fa-aa8f-4d3e-aef9-6e6a2f6fa64f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Prefab/Enemy/shinigami.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../Prefab/Enemy/shinigami.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Prefab/Player/Arrow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../Prefab/Player/Arrow.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Prefab/Player/PlayerAvatar.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../Prefab/Player/PlayerAvatar.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Parallaxing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Parallaxing.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Scenes/D&amp;R/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Scenes/D&amp;R/Level1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Scenes/D&amp;R/Level2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Scenes/D&amp;R/Level2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TilesMap/Palettes/Static dec.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../TilesMap/Palettes/Static dec.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../musics/mj 1.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../musics/mj 1.mp3.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../musics/mj 2.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../musics/mj 2.mp3.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Scenes/Menu/PhotonLobby.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Scenes/Menu/PhotonLobby.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../Scenes/Phase 1/TestCharacter.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Scenes/Phase 1/TestCharacter.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/ArtifactDB" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Library/ArtifactDB" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/0b/0b098d1f93a7c67dbce097f0166a7708" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/0b/0bb1b02b1081f9d371e2a4a43154b0f4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/0d/0d7c135272f770f2e9a4c8df1da76f09" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/16/1673378a54f93e3a37359d803c578864" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/1b/1b84e1ad943a525a63ad1cf2e66e313d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/1b/1ba54c7ba21a8d497c629e517896e8f9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/1e/1e0828a285c48f2809e12f5878061b0f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/21/21f8a8ce87377bbf96fff393032873fa" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/22/22c9b5e27b31a5182262606e76b23e50" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/2f/2f1bb4afcd832aa4570a3dc3b5dc0910" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/32/32e354389cfe30e7c23c43aa2b4afc40" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/38/3889fc3d00cb3349a8ae4e5785c83c0d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/46/464b7005d553531ee3cbca7ef3f587e7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/63/63aa9f4193ed81bf9ce977b450966c2c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/65/65c03419ceb55b89c15cb01012dc0a9e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/67/67a7e61d40c21a8cfb61a3ecb61355ce" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/75/755b7a5ba84e9f9eaf365e66628bf46d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/8a/8aa72581ef639088b95adeff4d9da72b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/8e/8eaacefc1a40e4b76721e843444816d3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/91/911b2c93863e8b38600a5965a323a00f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/9d/9d4ddaf0ceadbcd62fc50a65654ccc9d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/a1/a1dea001c7d44a049bb73ec4852cf0d8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/a4/a4e9bd79fd30789b9da17ae55419368a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/bb/bb4718710a02fbe1da49d522972947a0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/c7/c7d7cd94daf7de3c323dcc7f12c0c290" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/cd/cd02b4b40b6b5b6d1a2d8e09f1a1f643" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/d6/d6b4efa34c5a15cc8f77da5ceebcc13a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/e5/e553d9190e9eefd2c4c056d97f9e3e0d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/f9/f9235ecd7dd3134af0846745870242ee" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/Artifacts/fb/fbacd4482293464a30433b2fbec05500" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Library/CurrentMaximizeLayout.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/ScriptAssemblies/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Library/ScriptAssemblies/Assembly-CSharp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/ShaderCache/EditorEncounteredVariants" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Library/ShaderCache/EditorEncounteredVariants" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/SourceAssetDB" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Library/SourceAssetDB" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/StateCache/Hierarchy/6df4a3-mainStage.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Library/StateCache/Hierarchy/6df4a3-mainStage.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/StateCache/SceneView/b8e6de-mainStage.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Library/StateCache/SceneView/b8e6de-mainStage.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Library/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/shadercompiler-UnityShaderCompiler.exe1.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Library/shadercompiler-UnityShaderCompiler.exe1.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/shadercompiler-UnityShaderCompiler.exe2.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Library/shadercompiler-UnityShaderCompiler.exe2.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/shadercompiler-UnityShaderCompiler.exe3.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Library/shadercompiler-UnityShaderCompiler.exe3.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Library/shadercompiler-UnityShaderCompiler.exe4.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Library/shadercompiler-UnityShaderCompiler.exe4.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +51,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Parallaxing.cs" />
+        <option value="$PROJECT_DIR$/../../musics/launch music.cs" />
       </list>
     </option>
   </component>
@@ -82,6 +64,12 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="reference.settings.deploy.options" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -97,15 +85,33 @@
       <option name="presentableId" value="Default" />
       <updated>1620230300759</updated>
       <workItem from="1620230306135" duration="766000" />
+      <workItem from="1621698196192" duration="807000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1611" y="149" width="1505" height="998" key="dock-window-1" timestamp="1621713404303">
+      <screen x="1920" y="0" width="1680" height="1010" />
+    </state>
+    <state x="1611" y="149" width="1505" height="998" key="dock-window-1/0.0.1920.1040/1920.0.1680.1010@1920.0.1680.1010" timestamp="1621713404303" />
   </component>
 </project>

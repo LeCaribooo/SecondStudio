@@ -69,3 +69,7 @@ crashlytics-build.properties
 Studio Hoshigaru/Library/
 
 Studio Hoshigaru_Data/
+
+Studio Hoshigaru/obj/Debug/
+
+Studio Hoshigaru/ProjectSettings/
