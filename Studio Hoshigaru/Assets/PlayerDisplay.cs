@@ -15,6 +15,7 @@ public class PlayerDisplay : MonoBehaviourPun
     private PlayerExperience pe;
     [SerializeField] private Health health;
     private Health playerHealth;
+    private int i;
 
     public Sprite bow;
     public Sprite sword;
@@ -28,10 +29,13 @@ public class PlayerDisplay : MonoBehaviourPun
     private void Awake()
     {
         playersInGame = GameObject.FindGameObjectsWithTag("Player");
+        SetUp(player, i);
     }
 
     private void Update()
-    {
+    { 
+        playersInGame = GameObject.FindGameObjectsWithTag("Player");
+        SetUp(player, i);
         level.text = pe.level.ToString();
         health.numOfHits = playerHealth.numOfHits;
         switch (wp.actualWeaponString)
@@ -57,6 +61,7 @@ public class PlayerDisplay : MonoBehaviourPun
     public void SetUp(Player _player, int i)
     {
         player = _player;
+        this.i = i;
         name.text = _player.NickName;
         playerHealth = playersInGame[i].GetComponent<Health>();
         health.numOfHits = playerHealth.numOfHits;
