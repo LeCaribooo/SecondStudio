@@ -18,9 +18,12 @@ public class SpawnRoom : MonoBehaviour
         int i = 0;
         foreach (var joueur in player)
         {
-            GameObject spawn = spawnpoint[i];
-            joueur.transform.position = spawn.transform.position;
-            i++;
+            if (joueur.GetPhotonView().IsMine)
+            {
+                GameObject spawn = spawnpoint[i];
+                joueur.transform.position = spawn.transform.position;
+                i++;
+            }
         }
         
     }

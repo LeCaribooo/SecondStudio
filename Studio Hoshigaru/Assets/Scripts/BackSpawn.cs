@@ -12,27 +12,29 @@ public class BackSpawn : MonoBehaviourPun
 
     private void Start()
     {
-        if (PhotonNetwork.IsMasterClient)
+
+        foreach (Player_portal p in portals)
         {
-            foreach (Player_portal p in portals)
+            if (p.CopyPortal.ComeBack)
             {
-                if (p.CopyPortal.ComeBack)
+                GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
+                int i = 0;
+                foreach (var joueur in player)
                 {
-                    GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
-                    int i = 0;
-                    foreach (var joueur in player)
+                    if (joueur.GetPhotonView().IsMine)
                     {
                         GameObject spawn = p.spawnpoint[i];
                         joueur.transform.position = spawn.transform.position;
                         i++;
                     }
-
-                    Debug.Log("Je remet CP à False");
-                    p.CopyPortal.ComeBack = false;
-                    break;
                 }
+
+                Debug.Log("Je remet CP à False");
+                p.CopyPortal.ComeBack = false;
+                break;
             }
         }
+        
     }
 
 

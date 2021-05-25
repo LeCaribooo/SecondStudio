@@ -14,28 +14,27 @@ public class CopyPortal : MonoBehaviourPun
     private void Awake()
     {
 
-        if (PhotonNetwork.IsMasterClient)
-        {
-            if (!created)
-            {
-                created = true;
-            }
-            else
-            {
-                GameObject[] portals = GameObject.FindGameObjectsWithTag("Portal");
-                for (int i = 0; i < portals.Length; i++)
-                {
-                    CopyPortal p = portals[i].GetComponent<CopyPortal>();
-                    if (portalName == p.portalName)
-                    {
-                        ComeBack = p.ComeBack;
-                        PhotonNetwork.Destroy(p.gameObject);
-                    }
-                    break;
-                }
 
-            }
+        if (!created)
+        {
+            created = true;
         }
+        else
+        {
+            GameObject[] portals = GameObject.FindGameObjectsWithTag("Portal");
+            for (int i = 0; i < portals.Length; i++)
+            {
+                CopyPortal p = portals[i].GetComponent<CopyPortal>();
+                if (portalName == p.portalName)
+                {
+                    ComeBack = p.ComeBack;
+                    Destroy(p.gameObject);
+                }
+                break;
+            }
+
+        }
+
     }
 
 }
