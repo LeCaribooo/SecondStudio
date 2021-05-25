@@ -8,8 +8,15 @@ using Photon.Realtime;
 
 public class Player_portal : MonoBehaviourPun
 {
+    public string name;
+    
+    //Gestion du retour des joueurs
+    [SerializeField]
+    private bool WantToComeBack;
+    public GameObject[] spawnpoint = new GameObject[4];
+    public CopyPortal CopyPortal;
+
     public GameObject Player;
-    public GameObject block;
     public Canvas Vote;
     public Canvas Level;
     public Canvas DecompteCanvas;
@@ -28,8 +35,10 @@ public class Player_portal : MonoBehaviourPun
     [SerializeField]
     private string[] scene = new string[2];
 
-    [SerializeField]
     private int RandomRoomNumber = 0;
+
+
+
 
     //Timer
     float time = 21f;    
@@ -79,6 +88,7 @@ public class Player_portal : MonoBehaviourPun
         {                
             DontDestroyOnLoad(joueur);
         }
+        
         SendNotif();
 
         VoteCanvas();
@@ -120,6 +130,11 @@ public class Player_portal : MonoBehaviourPun
     //Teleportation
     public void LoadRandomRoom()
     {
+        if (WantToComeBack)
+        {
+            CopyPortal.ComeBack = true;
+            DontDestroyOnLoad(CopyPortal.gameObject);
+        }
         string sceneload = scene[RandomRoomNumber];
         PhotonNetwork.LoadLevel(sceneload);
         Debug.Log("Room Loaded");

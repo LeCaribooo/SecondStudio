@@ -1,0 +1,37 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CopyPortal : MonoBehaviour
+{
+    public bool ComeBack;
+    
+    static bool created = false;
+
+    public string portalName;
+
+    private void Awake()
+    {
+        if (!created)
+        {
+            created = true;
+        }
+        else
+        {
+            GameObject[] portals = GameObject.FindGameObjectsWithTag("Portal");
+            for (int i = 0; i < portals.Length; i++)
+            {
+                CopyPortal p = portals[i].GetComponent<CopyPortal>();
+                if (portalName == p.portalName)
+                {
+                    ComeBack = p.ComeBack;
+                    Destroy(p.gameObject);
+                }
+                break;
+            }
+            
+        }
+
+    }
+
+}

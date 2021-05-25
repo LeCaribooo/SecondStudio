@@ -11,13 +11,14 @@ public class Waves : MonoBehaviourPun
     private int CountWaves = 0;
     private bool W_inprogress = false;
     private bool RoomCleared = false;
-    
+
+
     public Canvas DecompteCanvas;
     public Text DecompteTxt;
     public Canvas EndRoom;
 
     [SerializeField]
-    private string backscene;
+    private string newscene;
 
     [SerializeField]
     private int plusWaves_MAX;
@@ -153,9 +154,11 @@ public class Waves : MonoBehaviourPun
         foreach (var joueur in player)
         {
             DontDestroyOnLoad(joueur);
-        } 
-        PhotonNetwork.LoadLevel(backscene) ;
-        Debug.Log("Room Loaded : " + backscene);
+        }
+
+        PhotonNetwork.LoadLevel(newscene);
+        Debug.Log("Room Loaded : " + newscene);
+        
     }
 
     //Envoie des info des vagues.
