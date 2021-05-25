@@ -130,7 +130,7 @@ public class Player_portal : MonoBehaviourPun
     //Teleportation
     public void LoadRandomRoom()
     {
-        if (WantToComeBack)
+        if (WantToComeBack && PhotonNetwork.IsMasterClient)
         {
             CopyPortal.ComeBack = true;
             DontDestroyOnLoad(CopyPortal.gameObject);
