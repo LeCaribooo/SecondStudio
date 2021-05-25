@@ -12,20 +12,20 @@ public class BackSpawn : MonoBehaviourPun
 
     private void Start()
     {
-
+        
         foreach (Player_portal p in portals)
         {
             if (p.CopyPortal.ComeBack)
             {
                 GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
-                int i = 0;
                 foreach (var joueur in player)
                 {
                     if (joueur.GetPhotonView().IsMine)
                     {
-                        GameObject spawn = p.spawnpoint[i];
+                        int numspawn = (joueur.GetPhotonView().ViewID / 1000) % 4;
+                        Debug.LogWarning("Num Spaw : " + numspawn);
+                        GameObject spawn = p.spawnpoint[numspawn];
                         joueur.transform.position = spawn.transform.position;
-                        i++;
                     }
                 }
 

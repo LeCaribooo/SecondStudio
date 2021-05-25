@@ -15,14 +15,14 @@ public class SpawnRoom : MonoBehaviour
     void Start()
     {
         GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
-        int i = 0;
         foreach (var joueur in player)
         {
             if (joueur.GetPhotonView().IsMine)
             {
-                GameObject spawn = spawnpoint[i];
+                int numspawn = (joueur.GetPhotonView().ViewID / 1000) % 4;
+                Debug.LogWarning("Num Spaw : " + numspawn);
+                GameObject spawn = spawnpoint[numspawn];
                 joueur.transform.position = spawn.transform.position;
-                i++;
             }
         }
         
