@@ -82,19 +82,19 @@ public class launchmusic : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider2D)
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        foreach (GameObject player in players)
+        if (collider2D.tag == "Player")
         {
-            PhotonView PV = player.GetComponent<PhotonView>();
-            if (PV.IsMine)
+            foreach (GameObject player in players)
             {
-
-                if (collider2D.tag == "Player")
+                if (player.GetPhotonView().IsMine)
                 {
                     changemusic = true;
                     break;
                 }
             }
         }
+            
+            
                 
     }
 
