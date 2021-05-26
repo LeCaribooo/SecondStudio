@@ -125,6 +125,7 @@ public class Player_portal : MonoBehaviourPun
             WantToTeleport = playerReady.Count == PhotonNetwork.PlayerList.Length;
             if (time <= 0f  || WantToTeleport) 
             {
+                IsThisPortal = false;
                 LevelVote.gameObject.SetActive(false);
                 Vote.gameObject.SetActive(false);
                 time = 21f;
@@ -138,6 +139,10 @@ public class Player_portal : MonoBehaviourPun
                 }
                 else
                 {
+                    for (int index = 0; index < playerReady.Count; index ++)
+                    {
+                        playerReady[index] = false;
+                    }
                     LevelVote.gameObject.SetActive(true);
                 }
                 HasClickE = false;
