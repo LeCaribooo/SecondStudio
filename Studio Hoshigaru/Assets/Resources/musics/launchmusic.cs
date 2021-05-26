@@ -40,7 +40,7 @@ public class launchmusic : MonoBehaviour
                 musiccount = (musiccount + 1) % 2;
                 GetComponent<AudioSource>().clip = musics[musiccount];
                 GetComponent<AudioSource>().Play();
-                changemusic = !changemusic;
+                changemusic = false;
                 check = false;
             }
         }
