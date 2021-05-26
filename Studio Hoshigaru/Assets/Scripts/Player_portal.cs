@@ -143,6 +143,7 @@ public class Player_portal : MonoBehaviourPun
                     {
                         playerReady[index] = false;
                     }
+                    Ready.interactable = true;
                     LevelVote.gameObject.SetActive(true);
                 }
                 HasClickE = false;
