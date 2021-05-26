@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Menu/PhotonLobbyV1.unity
-    guid: b7d811ab60b0c054481b47e5111fef7b
   - enabled: 1
     path: Assets/Scenes/Menu/PhotonLobby.unity
     guid: fdbc0d83bedc25741bd5c2877228d518
@@ -20,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/D&R/Level2.unity
     guid: e28d6adf65456ab42838deb30049d3de
+  - enabled: 1
+    path: Assets/Scenes/D&R/Test A Keke bis (A del).unity
+    guid: 7854c15f4f607454e84cdd201b1a4600
+  - enabled: 1
+    path: Assets/Scenes/D&R/Test A Keke.unity
+    guid: ab45e1935fa127b44a6f216e95f2fc09
   m_configObjects: {}

@@ -8,7 +8,7 @@ using Photon.Realtime;
 
 public class Player_portal : MonoBehaviourPun
 {
-    public string name;
+    public string nameportal;
     
     //Gestion du retour des joueurs
     [SerializeField]
@@ -16,11 +16,17 @@ public class Player_portal : MonoBehaviourPun
     public GameObject[] spawnpoint = new GameObject[4];
     public CopyPortal CopyPortal;
 
+    //Nom du Level 
+    public string NumberLvL;
+    public string NameLvl;
+
     public GameObject Player;
     public Canvas Vote;
     public Canvas Level;
     public Canvas DecompteCanvas;
     public Button LevelVote;
+    public Text NumberLevelText;
+    public Text Levelname;
     public Text text;
     public Text Count;
     public Text DecompteTxt;
@@ -33,15 +39,17 @@ public class Player_portal : MonoBehaviourPun
     private List<bool> playerReady = new List<bool>();
 
     [SerializeField]
-    private string[] scene = new string[2];
+    private string[] scene = new string[1];
 
     private int RandomRoomNumber = 0;
 
-
+    //!\ Supra méga important => Permet de savoir si c'est bien ce portail que l'on active
+    public bool IsThisPortal;
 
 
     //Timer
-    float time = 21f;    
+    float time = 21f;
+
 
     GameObject getMinePlayer()
     {
@@ -62,11 +70,18 @@ public class Player_portal : MonoBehaviourPun
 
         if (collision.gameObject.tag == "Player" &&  collision.gameObject == getMinePlayer())
         {
+            IsThisPortal = true;
             Level.gameObject.SetActive(true);
+            NumberLevelText.text = NumberLvL;
             if (HasClickE)
             {
                 LevelVote.gameObject.SetActive(false);
             }
+            else
+            {
+                Levelname.text = NameLvl;
+            }
+
         }
         
 
@@ -76,28 +91,33 @@ public class Player_portal : MonoBehaviourPun
     {
         if (collision.gameObject.tag == "Player" && collision.gameObject == getMinePlayer())
         {
+            IsThisPortal = false;
             Level.gameObject.SetActive(false);
         }
     }
 
     public void Click_ToVote()
     {
-        Level.gameObject.SetActive(false);
-        GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
-        foreach (var joueur in player)
-        {                
-            DontDestroyOnLoad(joueur);
-        }
-        
-        SendNotif();
+        if (IsThisPortal)
+        {
+            Level.gameObject.SetActive(false);
+            GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
+            foreach (var joueur in player)
+            {
+                DontDestroyOnLoad(joueur);
+            }
 
-        VoteCanvas();
-        
+            SendNotif();
+
+            VoteCanvas();
+        }
     }
     private void Update()
     {
         if (HasClickE)
         {
+            IsThisPortal = true;
+            LevelVote.gameObject.SetActive(false);
             time -= Time.deltaTime;
             int sec = (int)time;
             text.text = "00 : " + sec.ToString();
@@ -132,6 +152,7 @@ public class Player_portal : MonoBehaviourPun
     {
         if (WantToComeBack)
         {
+            CopyPortal.portalName = nameportal;
             CopyPortal.ComeBack = true;
             DontDestroyOnLoad(CopyPortal.gameObject);
         }
@@ -144,7 +165,12 @@ public class Player_portal : MonoBehaviourPun
     //Choix de la room
     public void SelectRoom()
     {
-        RandomRoomNumber = Random.Range(0, 2);
+        foreach (string str in scene)
+        {
+            Debug.LogWarning(str);
+        }
+        int maxRandom = scene.Length;
+        RandomRoomNumber = Random.Range(0, maxRandom);
         base.photonView.RPC("RandomRoomNumber_rpc", RpcTarget.All, RandomRoomNumber);
     }
 
@@ -161,7 +187,10 @@ public class Player_portal : MonoBehaviourPun
 
     public void OnClick_ReadyUp()
     {
-        SetReadyUp(!ready);
+        if (IsThisPortal)
+        {
+            SetReadyUp(!ready);
+        }
     }
     private void SetReadyUp(bool state)
     {
