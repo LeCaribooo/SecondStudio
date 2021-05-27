@@ -25,7 +25,6 @@ public class Player_portal : MonoBehaviourPun
     public Canvas Level;
     public Canvas DecompteCanvas;
     public Button LevelVote;
-    public Text NumberLevelText;
     public Text Levelname;
     public Text text;
     public Text Count;
@@ -72,10 +71,9 @@ public class Player_portal : MonoBehaviourPun
         {
             IsThisPortal = true;
             Level.gameObject.SetActive(true);
-            NumberLevelText.text = NumberLvL;
             if (HasClickE)
             {
-                LevelVote.gameObject.SetActive(false);
+                LevelVote.interactable = false;
             }
             else
             {
@@ -117,7 +115,7 @@ public class Player_portal : MonoBehaviourPun
         if (HasClickE)
         {
             IsThisPortal = true;
-            LevelVote.gameObject.SetActive(false);
+            LevelVote.interactable = false;
             time -= Time.deltaTime;
             int sec = (int)time;
             text.text = "00 : " + sec.ToString();
@@ -126,7 +124,7 @@ public class Player_portal : MonoBehaviourPun
             if (time <= 0f  || WantToTeleport) 
             {
                 IsThisPortal = false;
-                LevelVote.gameObject.SetActive(false);
+                LevelVote.interactable = false;
                 Vote.gameObject.SetActive(false);
                 time = 21f;
                 if (WantToTeleport)
@@ -142,7 +140,7 @@ public class Player_portal : MonoBehaviourPun
                     playerReady = new List<bool>();
                     readyUpText.text = "Ready ?";
                     Ready.interactable = true;
-                    LevelVote.gameObject.SetActive(true);
+                    LevelVote.interactable = true;
                 }
                 HasClickE = false;
                 

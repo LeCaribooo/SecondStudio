@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class Waves : MonoBehaviourPun
 {
     [SerializeField]
-    private int CountWaves = 0;
+    private int CountWaves = 1;
     
     private bool W_inprogress = true;
     
@@ -18,7 +18,9 @@ public class Waves : MonoBehaviourPun
 
     public Canvas DecompteCanvas;
     public Text DecompteTxt;
-    public Canvas EndRoom;
+    public Canvas CanvasMob;
+    public Text StatesWaves;
+    public Text CWaves;
 
     public Portal_Back Portal_Back;
     
@@ -63,6 +65,10 @@ public class Waves : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
+        if (!RoomCleared)
+        {
+            CWaves.text = "" + (CountWaves + 1);
+        }
         //Nouvelle vague
         if (CountWaves <= nbWaves && W_inprogress && !RoomCleared)
         {
@@ -80,10 +86,16 @@ public class Waves : MonoBehaviourPun
             }
 
         }
+        if (!RoomCleared && !IsClear())
+        {
+            GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
+            StatesWaves.text = "" + enemy.Length + "/" + mobwaves.Count + " Ennemies";
+        }
         //Quand c'est clear et que je suis le MasterClient
         if (IsClear() && !W_inprogress && PhotonNetwork.IsMasterClient && !RoomCleared) //Permet au MasterClient de controler l'envoie de vague et leur uptade.
         {
             DecompteCanvas.gameObject.SetActive(true);
+            StatesWaves.text = "Wave Clear !";
             CountWaves++;
             Debug.Log("Waves clear : " + CountWaves);
             W_inprogress = true;
@@ -98,8 +110,9 @@ public class Waves : MonoBehaviourPun
         //Quand c'est fini
         if (RoomCleared)
         {
+            CWaves.text = "" + nbWaves;
+            StatesWaves.text = "Room Cleared !";
             DecompteCanvas.gameObject.SetActive(false);
-            EndRoom.gameObject.SetActive(true);
             Portal_Back.gameObject.SetActive(true);
         } 
     }
