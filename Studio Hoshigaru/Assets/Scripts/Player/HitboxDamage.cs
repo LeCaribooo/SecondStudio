@@ -25,6 +25,12 @@ public class HitboxDamage : MonoBehaviour
                 StartCoroutine(Wait(other));
             }
         }
+        else if(other.gameObject.CompareTag("Boss"))
+        {
+            GameObject enemy = other.gameObject;
+            EnemyHealth enemyhealth = other.gameObject.GetComponentInParent<EnemyHealth>();
+            enemyhealth.health -= dmg;
+        }
     }
 
     IEnumerator Wait(Collider2D other)
