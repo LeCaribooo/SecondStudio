@@ -20,7 +20,6 @@ public class SpawnRoom : MonoBehaviour
             if (joueur.GetPhotonView().IsMine)
             {
                 int numspawn = (joueur.GetPhotonView().ViewID / 1000) % 4;
-                Debug.LogWarning("Num Spaw : " + numspawn);
                 GameObject spawn = spawnpoint[numspawn];
                 joueur.transform.position = spawn.transform.position;
             }

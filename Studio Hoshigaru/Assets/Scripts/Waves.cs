@@ -8,26 +8,34 @@ using UnityEngine.SceneManagement;
 
 public class Waves : MonoBehaviourPun
 {
-    private int CountWaves = 0;
-    private bool W_inprogress = false;
-    private bool RoomCleared = false;
+    [SerializeField]
+    private int CountWaves = 1;
+    
+    private bool W_inprogress = true;
+    
+    public bool RoomCleared = false;
 
 
     public Canvas DecompteCanvas;
     public Text DecompteTxt;
-    public Canvas EndRoom;
+    public Canvas CanvasMob;
+    public Text StatesWaves;
+    public Text CWaves;
 
-    [SerializeField]
-    private string newscene;
-
-    [SerializeField]
-    private int plusWaves_MAX;
-
-    [SerializeField]
-    private int plusWaves_MIN;
-
+    public Portal_Back Portal_Back;
+    
+    public string newscene;
+    
     [SerializeField]
     private int nbWaves;
+
+    [SerializeField]
+    private int[] plusMobWaves_MAX;
+
+    [SerializeField]
+    private int[] plusMobWaves_MIN;
+
+
 
     [SerializeField]
     private GameObject[] spawnpoint = new GameObject[8];
@@ -45,11 +53,11 @@ public class Waves : MonoBehaviourPun
 
     // /!\ DOIT AVOIR LA MEME LENGHT QUE LE NOMBRE D'ENNEMIS DIFFERENTS
     [SerializeField]
-    private int[] nbenemies_EACH_MAX = new int[2];
+    private int[] INIT_nbenemies_EACH_MAX = new int[2];
 
     // /!\ DOIT AVOIR LA MEME LENGHT QUE LE NOMBRE D'ENNEMIS DIFFERENTS
     [SerializeField]
-    private int[] nbenemies_EACH_MIN = new int[2];
+    private int[] INIT_nbenemies_EACH_MIN = new int[2];
 
     //==================\\
 
@@ -57,6 +65,11 @@ public class Waves : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
+        if (!RoomCleared)
+        {
+            CWaves.text = "" + (CountWaves + 1);
+        }
+        //Nouvelle vague
         if (CountWaves <= nbWaves && W_inprogress && !RoomCleared)
         {
             DecompteCanvas.gameObject.SetActive(true);
@@ -66,14 +79,23 @@ public class Waves : MonoBehaviourPun
             if (time <= 0f)
             {
                 Debug.Log("Start Waves");
+                DecompteCanvas.gameObject.SetActive(false);
                 W_inprogress = false;
                 WavesFct();
                 time = 6f;
             }
 
         }
-        if (IsClear() && !W_inprogress && PhotonNetwork.IsMasterClient) //Permet au MasterClient de controler l'envoie de vague et leur uptade.
+        if (!RoomCleared && !IsClear())
         {
+            GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
+            StatesWaves.text = "" + enemy.Length + "/" + mobwaves.Count + " Ennemies";
+        }
+        //Quand c'est clear et que je suis le MasterClient
+        if (IsClear() && !W_inprogress && PhotonNetwork.IsMasterClient && !RoomCleared) //Permet au MasterClient de controler l'envoie de vague et leur uptade.
+        {
+            DecompteCanvas.gameObject.SetActive(true);
+            StatesWaves.text = "Wave Clear !";
             CountWaves++;
             Debug.Log("Waves clear : " + CountWaves);
             W_inprogress = true;
@@ -85,27 +107,24 @@ public class Waves : MonoBehaviourPun
             base.photonView.RPC("SendRoomCleared", RpcTarget.Others, RoomCleared);
 
         }
-
+        //Quand c'est fini
         if (RoomCleared)
         {
-            W_inprogress = true;
-            Debug.Log("Room Cleared !");
-            DecompteCanvas.gameObject.SetActive(true);
-            EndRoom.gameObject.SetActive(true);
-            endtime -= Time.deltaTime;
-            int sec = (int)endtime;
-            DecompteTxt.text = "00 : 0" + sec.ToString();
-            if (endtime <= 0f)
-            {
-                RoomCleared = false;
-                LoadRoom();
-            }
+            CWaves.text = "" + nbWaves;
+            StatesWaves.text = "Room Cleared !";
+            DecompteCanvas.gameObject.SetActive(false);
+            Portal_Back.gameObject.SetActive(true);
         } 
     }
 
     //Lance les différentes vagues.
     private void WavesFct()
     {
+        ClearMobList();
+        if (CountWaves > 0)
+        {
+            AddMob();
+        }
         Fill_mobwaves();
         foreach (GameObject mob in mobwaves)
         {
@@ -137,28 +156,35 @@ public class Waves : MonoBehaviourPun
     {
         for (int i = 0; i < enemies.Length; i++)
         {
-            int maxRandom = nbenemies_EACH_MAX[i];
-            int minRandom = nbenemies_EACH_MIN[i];
+            int maxRandom = INIT_nbenemies_EACH_MAX[i];
+            int minRandom = INIT_nbenemies_EACH_MIN[i];
             int nb_mob = Random.Range(minRandom, maxRandom);
-            Debug.Log("Nombre de " + enemies[i].name + " : " + nb_mob);
+            Debug.LogWarning("Nombre de " + enemies[i].name + " : " + nb_mob);
             for (int j = 0; j < nb_mob; j++)
             {
                 mobwaves.Add(enemies[i]);
             }
+            Debug.LogWarning("Apres le remplissage nombre de mob dans mobwaves: " + mobwaves.Count);
         }
     }
 
-    public void LoadRoom()
+    private void ClearMobList()
     {
-        GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
-        foreach (var joueur in player)
-        {
-            DontDestroyOnLoad(joueur);
-        }
+        mobwaves = new List<GameObject>();
+        Debug.LogWarning("Nouvelle mobwaves de longueur : " + mobwaves.Count);
+    }
 
-        PhotonNetwork.LoadLevel(newscene);
-        Debug.Log("Room Loaded : " + newscene);
-        
+    private void AddMob()
+    {
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            int bornePLUS = plusMobWaves_MAX[i];
+            int borneMIN = plusMobWaves_MIN[i];
+            int Add_mob = Random.Range(borneMIN, bornePLUS);
+            Debug.LogWarning("Ajout de : " + Add_mob + "Mobs");
+            INIT_nbenemies_EACH_MAX[i] += Add_mob;
+            INIT_nbenemies_EACH_MIN[i] += Add_mob;
+        }
     }
 
     //Envoie des info des vagues.
