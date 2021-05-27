@@ -2752,8 +2752,8 @@ MonoBehaviour:
   EndRoom: {fileID: 181418190}
   Portal_Back: {fileID: 2036794075}
   newscene: TestCharacter
-  plusWaves_MAX: 2
-  plusWaves_MIN: 1
+  plusMobWaves_MAX: 03000000
+  plusMobWaves_MIN: 00000000
   nbWaves: 3
   spawnpoint:
   - {fileID: 389373534}
@@ -2767,8 +2767,8 @@ MonoBehaviour:
   - {fileID: 871754332}
   enemies:
   - {fileID: 7560377424807072096, guid: fb6cb79b307e02b48a8469b8314b4645, type: 3}
-  nbenemies_EACH_MAX: 01000000
-  nbenemies_EACH_MIN: 01000000
+  INIT_nbenemies_EACH_MAX: 01000000
+  INIT_nbenemies_EACH_MIN: 01000000
 --- !u!114 &613017840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37222,7 +37222,7 @@ Tilemap:
       - {fileID: 6122161419676681471, guid: 5f925fb9dafff924790e4c8c1fd8b97f, type: 3}
       - {fileID: -3461057074378727891, guid: 5f925fb9dafff924790e4c8c1fd8b97f, type: 3}
       - {fileID: -4924385081812390761, guid: 5f925fb9dafff924790e4c8c1fd8b97f, type: 3}
-      m_AnimationSpeed: 4.716831
+      m_AnimationSpeed: 5.428493
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 8, y: 6, z: 0}
@@ -37237,7 +37237,7 @@ Tilemap:
       - {fileID: 6122161419676681471, guid: 5f925fb9dafff924790e4c8c1fd8b97f, type: 3}
       - {fileID: -3461057074378727891, guid: 5f925fb9dafff924790e4c8c1fd8b97f, type: 3}
       - {fileID: -4924385081812390761, guid: 5f925fb9dafff924790e4c8c1fd8b97f, type: 3}
-      m_AnimationSpeed: 4.6237736
+      m_AnimationSpeed: 3.4530694
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -12, y: 7, z: 0}
@@ -37252,7 +37252,7 @@ Tilemap:
       - {fileID: 6122161419676681471, guid: 5f925fb9dafff924790e4c8c1fd8b97f, type: 3}
       - {fileID: -3461057074378727891, guid: 5f925fb9dafff924790e4c8c1fd8b97f, type: 3}
       - {fileID: -4924385081812390761, guid: 5f925fb9dafff924790e4c8c1fd8b97f, type: 3}
-      m_AnimationSpeed: 4.0705614
+      m_AnimationSpeed: 5.596526
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 21, y: 13, z: 0}
@@ -37267,7 +37267,7 @@ Tilemap:
       - {fileID: 6122161419676681471, guid: 5f925fb9dafff924790e4c8c1fd8b97f, type: 3}
       - {fileID: -3461057074378727891, guid: 5f925fb9dafff924790e4c8c1fd8b97f, type: 3}
       - {fileID: -4924385081812390761, guid: 5f925fb9dafff924790e4c8c1fd8b97f, type: 3}
-      m_AnimationSpeed: 5.353323
+      m_AnimationSpeed: 3.5371156
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   m_TileAssetArray:

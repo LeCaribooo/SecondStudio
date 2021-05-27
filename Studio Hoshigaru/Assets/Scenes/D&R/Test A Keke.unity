@@ -47557,9 +47557,9 @@ MonoBehaviour:
   EndRoom: {fileID: 1587304330}
   Portal_Back: {fileID: 0}
   newscene: TestCharacter
-  plusWaves_MAX: 2
-  plusWaves_MIN: 1
   nbWaves: 3
+  plusMobWaves_MAX: 02000000
+  plusMobWaves_MIN: 01000000
   spawnpoint:
   - {fileID: 1532077636}
   - {fileID: 1057407287}
@@ -47572,8 +47572,8 @@ MonoBehaviour:
   - {fileID: 53772310}
   enemies:
   - {fileID: 7560377424807072096, guid: fb6cb79b307e02b48a8469b8314b4645, type: 3}
-  nbenemies_EACH_MAX: 01000000
-  nbenemies_EACH_MIN: 01000000
+  INIT_nbenemies_EACH_MAX: 02000000
+  INIT_nbenemies_EACH_MIN: 01000000
 --- !u!4 &812914993
 Transform:
   m_ObjectHideFlags: 0
