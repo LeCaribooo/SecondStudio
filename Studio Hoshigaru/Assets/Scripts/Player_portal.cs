@@ -139,10 +139,8 @@ public class Player_portal : MonoBehaviourPun
                 }
                 else
                 {
-                    for (int index = 0; index < playerReady.Count; index ++)
-                    {
-                        playerReady[index] = false;
-                    }
+                    playerReady = new List<bool>();
+                    readyUpText.text = "Ready ?";
                     Ready.interactable = true;
                     LevelVote.gameObject.SetActive(true);
                 }
@@ -200,7 +198,7 @@ public class Player_portal : MonoBehaviourPun
     }
     private void SetReadyUp(bool state)
     {
-        ready = state;
+        ready = true; //MDR cherche pas
         if (ready)
         {
             readyUpText.text = "Ready !";
@@ -208,7 +206,7 @@ public class Player_portal : MonoBehaviourPun
             base.photonView.RPC("PlayerReady", RpcTarget.All, ready);
         }
         else
-            readyUpText.text = "Not ready";
+            readyUpText.text = "Ready ?";
     }
 
     IEnumerator Decompte()

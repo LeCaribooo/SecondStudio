@@ -8,17 +8,21 @@ using UnityEngine.SceneManagement;
 
 public class Waves : MonoBehaviourPun
 {
+    [SerializeField]
     private int CountWaves = 0;
+    
     private bool W_inprogress = false;
-    private bool RoomCleared = false;
+    
+    public bool RoomCleared = false;
 
 
     public Canvas DecompteCanvas;
     public Text DecompteTxt;
     public Canvas EndRoom;
 
-    [SerializeField]
-    private string newscene;
+    public Portal_Back Portal_Back;
+    
+    public string newscene;
 
     [SerializeField]
     private int plusWaves_MAX;
@@ -66,14 +70,16 @@ public class Waves : MonoBehaviourPun
             if (time <= 0f)
             {
                 Debug.Log("Start Waves");
+                DecompteCanvas.gameObject.SetActive(false);
                 W_inprogress = false;
                 WavesFct();
                 time = 6f;
             }
 
         }
-        if (IsClear() && !W_inprogress && PhotonNetwork.IsMasterClient) //Permet au MasterClient de controler l'envoie de vague et leur uptade.
+        if (IsClear() && !W_inprogress && PhotonNetwork.IsMasterClient && !RoomCleared) //Permet au MasterClient de controler l'envoie de vague et leur uptade.
         {
+            DecompteCanvas.gameObject.SetActive(true);
             CountWaves++;
             Debug.Log("Waves clear : " + CountWaves);
             W_inprogress = true;
@@ -88,18 +94,9 @@ public class Waves : MonoBehaviourPun
 
         if (RoomCleared)
         {
-            W_inprogress = true;
-            Debug.Log("Room Cleared !");
-            DecompteCanvas.gameObject.SetActive(true);
+            DecompteCanvas.gameObject.SetActive(false);
             EndRoom.gameObject.SetActive(true);
-            endtime -= Time.deltaTime;
-            int sec = (int)endtime;
-            DecompteTxt.text = "00 : 0" + sec.ToString();
-            if (endtime <= 0f)
-            {
-                RoomCleared = false;
-                LoadRoom();
-            }
+            Portal_Back.gameObject.SetActive(true);
         } 
     }
 
@@ -148,18 +145,6 @@ public class Waves : MonoBehaviourPun
         }
     }
 
-    public void LoadRoom()
-    {
-        GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
-        foreach (var joueur in player)
-        {
-            DontDestroyOnLoad(joueur);
-        }
-
-        PhotonNetwork.LoadLevel(newscene);
-        Debug.Log("Room Loaded : " + newscene);
-        
-    }
 
     //Envoie des info des vagues.
     [PunRPC]
