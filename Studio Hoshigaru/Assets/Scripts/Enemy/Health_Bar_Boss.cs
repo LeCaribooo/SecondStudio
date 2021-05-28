@@ -21,6 +21,10 @@ public class Health_Bar_Boss : MonoBehaviour
     {
         Health = Boss.GetComponent<EnemyHealth>().health;
         SetHealth(Health);
+        if (Boss == null)
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 
     public void SetHealth(int health)
