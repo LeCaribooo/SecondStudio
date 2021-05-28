@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2595132955130299075}
   - component: {fileID: 492466604163183301}
-  - component: {fileID: 8585288146583065393}
+  - component: {fileID: 2047794979639512594}
   m_Layer: 0
   m_Name: hitbox2
   m_TagString: Untagged
@@ -58,7 +58,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &8585288146583065393
+--- !u!114 &2047794979639512594
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2286305424931133173}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13914a4ac8bf4ed4a956ab33966c42dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d96d95a6988f89498794fe6c7bf2d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
@@ -317,7 +317,8 @@ MonoBehaviour:
   attack2cooling: 1
   attack3cooling: 1
   cooling: 1
-  Maxhealth: 50
+  alreadytouched: 1
+  Maxhealth: 75
   baseCastDist: 0.1
   maxDistanceAttack: 2.5
   maxtimer1: 3
@@ -407,7 +408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
+  m_SynchronizeScale: 1
 --- !u!1 &5363428201009395991
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,7 +419,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5363428201009395990}
   - component: {fileID: 5363428201009395989}
-  - component: {fileID: 6943605173089893528}
+  - component: {fileID: 2959364470176944398}
   m_Layer: 0
   m_Name: hitbox1
   m_TagString: Untagged
@@ -466,7 +467,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6943605173089893528
+--- !u!114 &2959364470176944398
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -475,7 +476,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5363428201009395991}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13914a4ac8bf4ed4a956ab33966c42dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d96d95a6988f89498794fe6c7bf2d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
@@ -671,7 +672,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7184484723945809291}
   - component: {fileID: 5709694145342551053}
-  - component: {fileID: 7443563037312671531}
+  - component: {fileID: 2504323541624257410}
   m_Layer: 0
   m_Name: hitbox3
   m_TagString: Untagged
@@ -719,7 +720,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7443563037312671531
+--- !u!114 &2504323541624257410
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -728,7 +729,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6133930035512701424}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13914a4ac8bf4ed4a956ab33966c42dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d96d95a6988f89498794fe6c7bf2d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
