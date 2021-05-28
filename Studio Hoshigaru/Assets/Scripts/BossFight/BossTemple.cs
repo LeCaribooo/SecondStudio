@@ -36,6 +36,11 @@ public class BossTemple : MonoBehaviourPun
 
     //==================\\
 
+    private void Awake()
+    {
+        Block.gameObject.SetActive(true);
+    }
+
     private void OnEnable()
     {
         Fill_mobwaves();
@@ -60,7 +65,7 @@ public class BossTemple : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
-        if (IsClearBoss())
+        if (IsClearBoss() && PhotonNetwork.IsMasterClient)
         {
             RoomCleared = true;
 
@@ -68,10 +73,10 @@ public class BossTemple : MonoBehaviourPun
             base.photonView.RPC("SendRoomCleared", RpcTarget.Others, RoomCleared);
         }
 
-        if (IsClearMob())
+        if (IsClearMob() && PhotonNetwork.IsMasterClient)
         {
             Block.gameObject.SetActive(false);
-            //base.photonView.RPC("DestroyBlock", RpcTarget.All, Block);
+            base.photonView.RPC("DestroyBlock", RpcTarget.Others, Block);
         }
 
         if (RoomCleared)
@@ -90,8 +95,7 @@ public class BossTemple : MonoBehaviourPun
             for (int j = 0; j < nb_mob; j++)
             {
                 mobwaves.Add(enemies[i]);
-            }
-            Debug.LogWarning("Apres le remplissage nombre de mob dans mobwaves: " + mobwaves.Count);
+            };
         }
     }
 
