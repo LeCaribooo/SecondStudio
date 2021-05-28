@@ -41,7 +41,7 @@ public class BossTemple : MonoBehaviourPun
         Block.gameObject.SetActive(true);
     }
 
-    private void OnEnable()
+    private void Start()
     {
         Fill_mobwaves();
         int spawn = 0;
@@ -75,8 +75,8 @@ public class BossTemple : MonoBehaviourPun
 
         if (IsClearMob() && PhotonNetwork.IsMasterClient)
         {
-            Block.gameObject.SetActive(false);
             base.photonView.RPC("DestroyBlock", RpcTarget.Others, Block);
+            Block.gameObject.SetActive(false);
         }
 
         if (RoomCleared)
