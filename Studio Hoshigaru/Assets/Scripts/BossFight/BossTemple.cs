@@ -31,8 +31,7 @@ public class BossTemple : MonoBehaviourPun
     private List<GameObject> mobwaves = new List<GameObject>();
 
     //Timer
-    float time = 6f;
-    float endtime = 10f;
+    float time = 1f;
 
 
     //==================\\
@@ -42,32 +41,17 @@ public class BossTemple : MonoBehaviourPun
         Block.gameObject.SetActive(true);
     }
 
-    private void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
         if (Done)
         {
-            Fill_mobwaves();
-            int spawn = 0;
-            foreach (GameObject mob in mobwaves)
+            Block.gameObject.SetActive(true);
+            time -= Time.deltaTime;
+            if (time <= 0f)
             {
-                Debug.Log("Spawn & Instantiate");
-                int spawnPoint = spawn;
-                string name = mob.name;
-                Debug.Log("Mob name :" + name);
-                if (PhotonNetwork.IsMasterClient)
-                {
-                    PhotonNetwork.Instantiate
-                        (Path.Combine("Prefab", "Enemy", name), spawnpoint[spawnPoint].transform.position, Quaternion.identity);
-                }
-                spawn++;
+                SpawnMob();
             }
-            Done = false;
         }
         if (IsClearBoss() && PhotonNetwork.IsMasterClient && !SendRoomClear)
         {
@@ -79,7 +63,7 @@ public class BossTemple : MonoBehaviourPun
             SendRoomClear = true;
         }
 
-        if (IsClearMob() && PhotonNetwork.IsMasterClient && !BlockDestroy)
+        if (IsClearMob() && PhotonNetwork.IsMasterClient && !BlockDestroy && !Done)
         {
             base.photonView.RPC("DestroyBlock", RpcTarget.Others);
             Block.gameObject.SetActive(false);
@@ -106,7 +90,25 @@ public class BossTemple : MonoBehaviourPun
         }
     }
 
-
+    private void SpawnMob()
+    {
+        int spawn = 0;
+        Fill_mobwaves();
+        foreach (GameObject mob in mobwaves)
+        {
+            Debug.Log("Spawn & Instantiate");
+            int spawnpoints = spawn;
+            string name = mob.name;
+            Debug.Log("Mob name :" + name);
+            if (PhotonNetwork.IsMasterClient)
+            {
+                PhotonNetwork.Instantiate
+                    (Path.Combine("Prefab", "Enemy", name), spawnpoint[spawnpoints].transform.position, Quaternion.identity);
+            }
+            spawn++;
+            Done = false;
+        }
+    }
 
 
     //Vérifie si la salle est clear de boss.

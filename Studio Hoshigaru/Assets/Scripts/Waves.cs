@@ -47,7 +47,6 @@ public class Waves : MonoBehaviourPun
 
     //Timer
     float time = 6f;
-    float endtime = 10f;
 
     //== Borne Random ==\\
 
