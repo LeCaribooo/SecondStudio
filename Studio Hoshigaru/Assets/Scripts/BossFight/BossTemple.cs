@@ -76,7 +76,7 @@ public class BossTemple : MonoBehaviourPun
 
         if (RoomCleared)
         {
-            BossTemplePortald.gameObject.SetActive(true);
+            BossTemplePortal.gameObject.SetActive(true);
         }
     }
 

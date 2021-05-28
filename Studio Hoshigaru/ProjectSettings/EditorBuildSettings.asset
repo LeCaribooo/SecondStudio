@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/D&R/Test A Keke.unity
     guid: d40099f42ac61a64fbede16d998da141
+  - enabled: 1
+    path: Assets/Scenes/Phase 3/TreeLevel.unity
+    guid: cce92b36aa3fddb4a87830d5be8fddad
   m_configObjects: {}
