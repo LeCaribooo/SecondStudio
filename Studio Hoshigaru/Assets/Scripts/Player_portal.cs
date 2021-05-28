@@ -210,12 +210,13 @@ public class Player_portal : MonoBehaviourPun
     IEnumerator Decompte()
     {
         DecompteCanvas.gameObject.SetActive(true);
+        DecompteTxt.text = " 3 ";
         yield return new WaitForSeconds(1f);
-        DecompteTxt.text = "2";
+        DecompteTxt.text = DecompteTxt.text + " 2 ";
         yield return new WaitForSeconds(1f);
-        DecompteTxt.text = "1";
+        DecompteTxt.text = DecompteTxt.text + " 1 ";
         yield return new WaitForSeconds(1f);
-        DecompteTxt.text = "Iku !";
+        DecompteTxt.text = DecompteTxt.text + "Iku !";
         yield return new WaitForSeconds(1.2f);
         DecompteCanvas.gameObject.SetActive(false);
         LoadRandomRoom();

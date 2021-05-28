@@ -164,14 +164,12 @@ public class Waves : MonoBehaviourPun
             {
                 mobwaves.Add(enemies[i]);
             }
-            Debug.LogWarning("Apres le remplissage nombre de mob dans mobwaves: " + mobwaves.Count);
         }
     }
 
     private void ClearMobList()
     {
         mobwaves = new List<GameObject>();
-        Debug.LogWarning("Nouvelle mobwaves de longueur : " + mobwaves.Count);
     }
 
     private void AddMob()

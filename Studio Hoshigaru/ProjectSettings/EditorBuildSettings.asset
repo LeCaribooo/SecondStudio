@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/D&R/Level2.unity
     guid: e28d6adf65456ab42838deb30049d3de
   - enabled: 1
-    path: Assets/Scenes/D&R/Test A Keke bis (A del).unity
+    path: Assets/Scenes/D&R/Index_four.unity
     guid: 7854c15f4f607454e84cdd201b1a4600
   - enabled: 1
     path: Assets/Scenes/D&R/salle boss temple.unity
@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/D&R/Test A Keke.unity
     guid: d40099f42ac61a64fbede16d998da141
+  - enabled: 1
+    path: Assets/Scenes/Phase 3/TreeLevel.unity
+    guid: cce92b36aa3fddb4a87830d5be8fddad
   m_configObjects: {}
