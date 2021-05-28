@@ -19,7 +19,8 @@ public class BossTemple : MonoBehaviourPun
     public string newscene;
 
 
-
+    private bool BlockDestroy;
+    private bool SendRoomClear;
 
     [SerializeField]
     private GameObject[] spawnpoint = new GameObject[8];
@@ -65,18 +66,21 @@ public class BossTemple : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
-        if (IsClearBoss() && PhotonNetwork.IsMasterClient)
+        if (IsClearBoss() && PhotonNetwork.IsMasterClient && !SendRoomClear)
         {
             RoomCleared = true;
 
             //Envoie des infos.
             base.photonView.RPC("SendRoomCleared", RpcTarget.Others, RoomCleared);
+
+            SendRoomClear = true;
         }
 
-        if (IsClearMob() && PhotonNetwork.IsMasterClient)
+        if (IsClearMob() && PhotonNetwork.IsMasterClient && !BlockDestroy)
         {
-            base.photonView.RPC("DestroyBlock", RpcTarget.Others, Block);
+            base.photonView.RPC("DestroyBlock", RpcTarget.Others);
             Block.gameObject.SetActive(false);
+            BlockDestroy = true;
         }
 
         if (RoomCleared)
@@ -118,17 +122,19 @@ public class BossTemple : MonoBehaviourPun
 
     //Envoie des info des vagues.
 
-    [PunRPC]
+
     //RoomClear
+    [PunRPC]
     void SendRoomCleared(bool roomclear)
     {
         RoomCleared = roomclear;
     }
 
+
+    //Destroy Block
     [PunRPC]
-    //RoomClear
-    void DestroyBlock(GameObject block)
+    void DestroyBlock()
     {
-        block.gameObject.SetActive(false);
+        Block.gameObject.SetActive(false);
     }
 }
