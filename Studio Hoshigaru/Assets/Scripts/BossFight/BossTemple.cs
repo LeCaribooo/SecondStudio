@@ -18,7 +18,7 @@ public class BossTemple : MonoBehaviourPun
 
     public string newscene;
 
-
+    private bool Done = true;
     private bool BlockDestroy;
     private bool SendRoomClear;
 
@@ -44,28 +44,31 @@ public class BossTemple : MonoBehaviourPun
 
     private void Start()
     {
-        Fill_mobwaves();
-        int spawn = 0;
-        foreach (GameObject mob in mobwaves)
-        {
-            Debug.Log("Spawn & Instantiate");
-            int spawnPoint = spawn;
-            string name = mob.name;
-            Debug.Log("Mob name :" + name);
-            if (PhotonNetwork.IsMasterClient)
-            {
-                PhotonNetwork.Instantiate
-                    (Path.Combine("Prefab", "Enemy", name), spawnpoint[spawnPoint].transform.position, Quaternion.identity);
-            }
-            spawn++;
 
-
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Done)
+        {
+            Fill_mobwaves();
+            int spawn = 0;
+            foreach (GameObject mob in mobwaves)
+            {
+                Debug.Log("Spawn & Instantiate");
+                int spawnPoint = spawn;
+                string name = mob.name;
+                Debug.Log("Mob name :" + name);
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    PhotonNetwork.Instantiate
+                        (Path.Combine("Prefab", "Enemy", name), spawnpoint[spawnPoint].transform.position, Quaternion.identity);
+                }
+                spawn++;
+            }
+            Done = false;
+        }
         if (IsClearBoss() && PhotonNetwork.IsMasterClient && !SendRoomClear)
         {
             RoomCleared = true;
