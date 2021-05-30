@@ -8,23 +8,41 @@ public class PlayerRendering : MonoBehaviourPunCallbacks
 {
     [SerializeField] Transform playerListContent;
     [SerializeField] GameObject playerDisplay;
-    Player[] players;
+    Player[] playersOnline;
+    GameObject[] playersInScene;
 
  
     // Start is called before the first frame update
     void Start()
     {
-        players = PhotonNetwork.PlayerList;
-        for (int i = 0; i < players.Length; i++)
+        playersInScene = GameObject.FindGameObjectsWithTag("Player");
+        playersOnline = PhotonNetwork.PlayerList;
+        playersInScene = SortPlayer();
+        Debug.Log("Online " + playersOnline.Length + "In scene " + playersInScene.Length);
+        for (int i = 0; i < playersOnline.Length; i++)
         {
-            GameObject player = Instantiate(playerDisplay, playerListContent);
-            player.GetComponent<PlayerDisplay>().SetUp(players[i], i);
+            if (!playersOnline[i].IsLocal)
+            {
+                GameObject player = Instantiate(playerDisplay, playerListContent);
+                player.GetComponent<PlayerDisplay>().SetUp(playersOnline[i], playersInScene[i]);
+            }
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    GameObject[] SortPlayer()
     {
-        
+        GameObject[] sortedPlayers = new GameObject[playersInScene.Length];
+        for (int i = 0; i < playersOnline.Length; i++)
+        {
+            for (int j = 0; j < playersInScene.Length; j++)
+            {
+                if(playersInScene[j].GetPhotonView().Owner == playersOnline[i])
+                {
+                    sortedPlayers[i] = playersInScene[j];
+                }
+            }
+        }
+        return sortedPlayers;
     }
+
 }

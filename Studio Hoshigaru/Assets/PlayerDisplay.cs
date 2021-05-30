@@ -22,13 +22,7 @@ public class PlayerDisplay : MonoBehaviourPun
     public Sprite shuriken;
     public Sprite naked;
 
-
-    public GameObject[] playersInGame;
-
-    private void Awake()
-    {
-        playersInGame = GameObject.FindGameObjectsWithTag("Player");
-    }
+    public GameObject affectedPlayer;
 
     private void Update()
     {
@@ -54,14 +48,15 @@ public class PlayerDisplay : MonoBehaviourPun
         }
     }
 
-    public void SetUp(Player _player, int i)
+    public void SetUp(Player _player, GameObject _affectedPlayer)
     {
+        affectedPlayer = _affectedPlayer;
         player = _player;
         name.text = _player.NickName;
-        playerHealth = playersInGame[i].GetComponent<Health>();
+        playerHealth = affectedPlayer.GetComponent<Health>();
         health.numOfHits = playerHealth.numOfHits;
-        wp = playersInGame[i].GetComponentInChildren<WeaponSelection>();
-        pe = playersInGame[i].GetComponent<PlayerExperience>();
+        wp = affectedPlayer.GetComponentInChildren<WeaponSelection>();
+        pe = affectedPlayer.GetComponent<PlayerExperience>();
         level.text = pe.level.ToString();
         switch (wp.actualWeaponString)
         {
