@@ -75,11 +75,7 @@ public class Player_portal : MonoBehaviourPun
             {
                 LevelVote.interactable = false;
             }
-            else
-            {
-                Levelname.text = NameLvl;
-            }
-
+            Levelname.text = NameLvl;
         }
         
 

@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class WarriorBoss : MonoBehaviourPun
+public class GuardianWarrior : MonoBehaviourPun
 {
-
-    public bool started;
     public bool dead;
     private bool lifeEnded;
     public bool attack1ended = true;
@@ -20,6 +18,7 @@ public class WarriorBoss : MonoBehaviourPun
 
     public int Maxhealth;
     public float baseCastDist;
+    public float downCastDist;
     public float maxDistanceAttack;
     public int maxtimer1;
     public int maxtimer2;
@@ -33,7 +32,11 @@ public class WarriorBoss : MonoBehaviourPun
     public GameObject hitbox2;
     public GameObject hitbox3;
     public Transform castPos;
+    public Transform castJump;
     public Animator anim;
+    public GameObject hotZone;
+    public GameObject triggerArea;
+    public HealthBar healthbar;
 
     private float timer1;
     private float timer2;
@@ -50,7 +53,6 @@ public class WarriorBoss : MonoBehaviourPun
 
     public Transform target;
 
-    private GameObject[] players;
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +64,7 @@ public class WarriorBoss : MonoBehaviourPun
         cooling3 = maxcooling3;
         health = GetComponent<EnemyHealth>();
         health.health = Maxhealth;
+        healthbar.SetMaxHealth(Maxhealth);
         rb2d = GetComponent<Rigidbody2D>();
         baseScale = transform.localScale;
         facingDirection = RIGHT;
@@ -70,10 +73,7 @@ public class WarriorBoss : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
-        if(started)
-        {
-            target = TargetChoose();
-        }
+        healthbar.SetHealth(health.health);
         dead = Death();
         if (!dead && attack1ended && attack2ended && attack3ended)
         {
@@ -91,6 +91,14 @@ public class WarriorBoss : MonoBehaviourPun
             }
             if (target != null)
             {
+                if (target.position.x < transform.position.x && facingDirection == RIGHT)
+                {
+                    Flip("left");
+                }
+                else if (target.position.x > transform.position.x && facingDirection == LEFT)
+                {
+                    Flip("right");
+                }
                 if (cooling)
                 {
                     if (Vector2.Distance(target.position, transform.position) < maxDistanceAttack)
@@ -128,21 +136,63 @@ public class WarriorBoss : MonoBehaviourPun
                     anim.SetBool("walk", false);
                 }
             }
+            else if (!cooling)
+            {
+                cooling = Cooling(last);
+                anim.SetBool("attack1", false);
+                anim.SetBool("attack2", false);
+                anim.SetBool("attack3", false);
+                anim.SetBool("walk", false);
+            }
+            else if (IsNearEdge() && !anim.GetCurrentAnimatorStateInfo(0).IsName("death") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack1") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack2") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack3"))
+            {
+                if (facingDirection == LEFT)
+                {
+                    Flip(RIGHT);
+                }
+                else
+                {
+                    Flip(LEFT);
+                }
+            }
+            else if (IsHittingWall() && !anim.GetCurrentAnimatorStateInfo(0).IsName("death") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack1") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack2") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack3"))
+            {
+                if (CanJump())
+                {
+                    rb2d.velocity = Vector2.up * 3f;
+                }
+                else
+                {
+                    if (facingDirection == LEFT)
+                    {
+                        Flip(RIGHT);
+                    }
+                    else
+                    {
+                        Flip(LEFT);
+                    }
+                }
+            }
+            else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("death") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack1") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack2") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack3"))
+            {
+                Move();
+            }
         }
-        else if(dead)
+        else if (dead)
         {
             anim.SetBool("death", true);
         }
-        if(lifeEnded)
+        if (lifeEnded)
         {
             base.photonView.RPC("DestroyOnline", RpcTarget.All);
             lifeEnded = false;
         }
     }
 
+
     public void Attack1()
     {
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("deathBoss") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack2Boss") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack3Boss"))
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("death") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack2") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack3"))
         {
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
             attack1cooling = false;
@@ -156,7 +206,7 @@ public class WarriorBoss : MonoBehaviourPun
 
     public void Attack2()
     {
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("deathBoss") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack1Boss") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack3Boss"))
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("death") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack1") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack3"))
         {
             Debug.Log("ceci est un test");
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
@@ -171,10 +221,8 @@ public class WarriorBoss : MonoBehaviourPun
 
     public void Attack3()
     {
-        Debug.Log("Attack3");
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("deathBoss") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack2Boss") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack1Boss"))
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("death") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack2") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack1"))
         {
-            Debug.Log("Attack3.5");
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
             attack3cooling = false;
             attack3ended = false;
@@ -187,17 +235,29 @@ public class WarriorBoss : MonoBehaviourPun
 
     public void Move()
     {
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("attack1Boss") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack2Boss") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack3Boss") && !anim.GetCurrentAnimatorStateInfo(0).IsName("deathBoss"))
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("attack1") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack2") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack3") && !anim.GetCurrentAnimatorStateInfo(0).IsName("death"))
         {
-            if (!IsHittingWall())
+            if (target != null)
             {
-                anim.SetBool("walk", true);
-                Vector2 targetPosition = new Vector2(target.position.x, transform.position.y);
-                transform.position = Vector2.MoveTowards(transform.position, targetPosition, movementSpeed * Time.deltaTime);
+                if (!IsHittingWall())
+                {
+                    anim.SetBool("walk", true);
+                    Vector2 targetPosition = new Vector2(target.position.x, transform.position.y);
+                    transform.position = Vector2.MoveTowards(transform.position, targetPosition, movementSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    rb2d.velocity = new Vector2(0, rb2d.velocity.y);
+                }
             }
             else
             {
-                rb2d.velocity = new Vector2(0, rb2d.velocity.y);
+                float vX = movementSpeed;
+                if (facingDirection == LEFT)
+                {
+                    vX = -movementSpeed;
+                }
+                rb2d.velocity = new Vector2(vX, rb2d.velocity.y);
             }
         }
     }
@@ -205,11 +265,11 @@ public class WarriorBoss : MonoBehaviourPun
     public bool Cooling(int i)
     {
         bool result = false;
-        switch(i)
+        switch (i)
         {
             case 1:
                 cooling1 -= Time.deltaTime;
-                if(cooling1 <= 0)
+                if (cooling1 <= 0)
                 {
                     result = true;
                     cooling1 = maxcooling1;
@@ -235,40 +295,10 @@ public class WarriorBoss : MonoBehaviourPun
         return result;
     }
 
-    public Transform TargetChoose()
-    {
-        players = GameObject.FindGameObjectsWithTag("Player");
-        if (players.Length == 0)
-            return null;
-        float minDist = Mathf.Infinity;
-        GameObject currCloser = players[0];
-        foreach (GameObject player in players)
-        {
-            float distance = Vector3.Distance(this.transform.position, player.transform.position);
-            if (distance < minDist)
-            {
-                currCloser = player;
-                minDist = distance;
-            }
-        }
-        if (attack1ended && attack2ended && attack3ended)
-        {
-            if (currCloser.transform.position.x < transform.position.x && facingDirection == RIGHT)
-            {
-                Flip(LEFT);
-            }
-            else if (currCloser.transform.position.x > transform.position.x && facingDirection == LEFT)
-            {
-                Flip(RIGHT);
-            }
-        }
-        return currCloser.transform;
-    }
-
     public void Attack1Cooling()
     {
         timer1 -= Time.deltaTime;
-        if(timer1 <= 0)
+        if (timer1 <= 0)
         {
             attack1cooling = true;
             timer1 = maxtimer1;
@@ -328,7 +358,7 @@ public class WarriorBoss : MonoBehaviourPun
         //determine the target destination based on the cast distance
         Vector3 targetPos = castPos.position;
         targetPos.x += castDist;
-        Debug.DrawLine(castPos.position, targetPos, Color.green);
+        
         if (Physics2D.Linecast(castPos.position, targetPos, 1 << LayerMask.NameToLayer("Ground")))
         {
 
@@ -341,6 +371,46 @@ public class WarriorBoss : MonoBehaviourPun
         return val;
     }
 
+    bool IsNearEdge()
+    {
+        bool val = true;
+        float castDist = downCastDist;
+        //determine the target destination based on the cast distance
+        Vector3 targetPos = castPos.position;
+        targetPos.y -= castDist;
+        if (Physics2D.Linecast(castPos.position, targetPos, 1 << LayerMask.NameToLayer("Ground")))
+        {
+
+            val = false;
+        }
+        else
+        {
+            val = true;
+        }
+        return val;
+    }
+    bool CanJump()
+    {
+        bool val = false;
+        float castDist = baseCastDist;
+        //define the cast distance
+        if (facingDirection == LEFT)
+        {
+            castDist = -baseCastDist;
+        }
+        //determine the target destination based on the cast distance
+        Vector3 targetPos = castJump.position;
+        targetPos.x += castDist;
+        if (Physics2D.Linecast(castJump.position, targetPos, 1 << LayerMask.NameToLayer("Ground")))
+        {
+            val = false;
+        }
+        else
+        {
+            val = true;
+        }
+        return val;
+    }
     public void Flip(string newDIrection)
     {
         Vector3 newScale = baseScale;

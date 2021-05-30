@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 3141607236060892316}
   m_Layer: 0
   m_Name: TriggerArea
-  m_TagString: Boss
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -431,7 +431,7 @@ MonoBehaviour:
   baseCastDist: 1
   maxcooling: 2
   dmg: 4
-  maxHealth: 50
+  maxHealth: 75
   hitbox: {fileID: 3957148486193325730}
   health: {fileID: 368871082802375636}
   chargeCooling: 0
