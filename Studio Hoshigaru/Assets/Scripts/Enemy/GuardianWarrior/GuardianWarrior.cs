@@ -189,6 +189,7 @@ public class GuardianWarrior : MonoBehaviourPun
         }
     }
 
+
     public void Attack1()
     {
         if (!anim.GetCurrentAnimatorStateInfo(0).IsName("death") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack2") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack3"))
@@ -357,7 +358,7 @@ public class GuardianWarrior : MonoBehaviourPun
         //determine the target destination based on the cast distance
         Vector3 targetPos = castPos.position;
         targetPos.x += castDist;
-        Debug.DrawLine(castPos.position, targetPos, Color.green);
+        
         if (Physics2D.Linecast(castPos.position, targetPos, 1 << LayerMask.NameToLayer("Ground")))
         {
 
@@ -400,7 +401,6 @@ public class GuardianWarrior : MonoBehaviourPun
         //determine the target destination based on the cast distance
         Vector3 targetPos = castJump.position;
         targetPos.x += castDist;
-
         if (Physics2D.Linecast(castJump.position, targetPos, 1 << LayerMask.NameToLayer("Ground")))
         {
             val = false;
