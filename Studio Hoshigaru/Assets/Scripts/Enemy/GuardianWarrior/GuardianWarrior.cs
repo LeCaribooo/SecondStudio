@@ -208,7 +208,6 @@ public class GuardianWarrior : MonoBehaviourPun
     {
         if (!anim.GetCurrentAnimatorStateInfo(0).IsName("death") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack1") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack3"))
         {
-            Debug.Log("ceci est un test");
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
             attack2cooling = false;
             attack2ended = false;

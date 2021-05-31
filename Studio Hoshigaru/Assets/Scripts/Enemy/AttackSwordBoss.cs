@@ -10,17 +10,21 @@ public class AttackSwordBoss : MonoBehaviourPun
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Ah");
         if (collision.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Bh");
             GameObject player = collision.gameObject;
             health = player.GetComponent<Health>();
-            base.photonView.RPC("Damage",RpcTarget.All);
+            Debug.Log(health.numOfHits);
+            base.photonView.RPC("Dommage",RpcTarget.All);
         }
     }
 
     [PunRPC]
-    public void Damage()
+    public void Dommage()
     {
+        Debug.Log("Ch");
         health.numOfHits -= damage;
     }
 }

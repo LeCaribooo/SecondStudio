@@ -355,6 +355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
+  PV: {fileID: 7788710083642730293}
 --- !u!1 &1620005525494345298
 GameObject:
   m_ObjectHideFlags: 0

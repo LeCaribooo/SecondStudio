@@ -139,7 +139,6 @@ public class SwordBoss : MonoBehaviourPun
 
     public void Move()
     {
-        Debug.Log("mouvement");
         if (!anim.GetCurrentAnimatorStateInfo(0).IsName("attackBoss") && !anim.GetCurrentAnimatorStateInfo(0).IsName("deathBoss") && !anim.GetCurrentAnimatorStateInfo(0).IsName("chargeBoss"))
         {
             if (target.position.x < transform.position.x && facingDirection == RIGHT)
@@ -164,7 +163,6 @@ public class SwordBoss : MonoBehaviourPun
     }
     public void Attack()
     {
-        Debug.Log("attack");
         if (!anim.GetCurrentAnimatorStateInfo(0).IsName("deathBoss") && !anim.GetCurrentAnimatorStateInfo(0).IsName("chargeBoss"))
         {
             if (target.position.x < transform.position.x && facingDirection == RIGHT)
@@ -183,7 +181,6 @@ public class SwordBoss : MonoBehaviourPun
     }
     public void Charge()
     {
-        Debug.Log("charge");
         if (!anim.GetCurrentAnimatorStateInfo(0).IsName("deathBoss") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attackBoss"))
         {
             if (target.position.x < transform.position.x && facingDirection == RIGHT)

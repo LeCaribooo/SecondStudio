@@ -259,7 +259,6 @@ public class Patroller : MonoBehaviourPun
         //determine the target destination based on the cast distance
         Vector3 targetPos = castPos.position;
         targetPos.x += castDist;
-        Debug.DrawLine(castPos.position, targetPos, Color.green);
         if (Physics2D.Linecast(castPos.position,targetPos,1<<LayerMask.NameToLayer("Ground")))
         {
 
