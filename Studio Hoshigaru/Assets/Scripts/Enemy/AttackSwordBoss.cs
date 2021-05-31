@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class AttackSwordBoss : MonoBehaviour
+public class AttackSwordBoss : MonoBehaviourPun
 {
+    private Health health;
     public int damage;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -11,7 +13,14 @@ public class AttackSwordBoss : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             GameObject player = collision.gameObject;
-            player.GetComponent<Health>().numOfHits -= damage;
+            health = player.GetComponent<Health>();
+            base.photonView.RPC("Damage",RpcTarget.All);
         }
+    }
+
+    [PunRPC]
+    public void Damage()
+    {
+        health.numOfHits -= damage;
     }
 }

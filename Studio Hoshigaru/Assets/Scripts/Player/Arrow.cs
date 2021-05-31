@@ -30,7 +30,7 @@ public class Arrow : MonoBehaviourPun
         {
             Physics2D.IgnoreCollision(this.gameObject.GetComponent<BoxCollider2D>(), collision.gameObject.GetComponent<CapsuleCollider2D>());
         }
-        else if(collision.gameObject.tag == "Enemy")
+        else if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Boss")
         {
             EnemyHealth enemyhealth = collision.gameObject.GetComponentInParent<EnemyHealth>();
             enemyhealth.health -= dmg;

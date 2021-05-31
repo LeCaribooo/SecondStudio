@@ -19,7 +19,6 @@ public class HotZoneWarrior : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            inRange = false;
             gameObject.SetActive(false);
             enemyParent.triggerArea.SetActive(true);
             enemyParent.target = null;
