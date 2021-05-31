@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6265484523586656621}
   - component: {fileID: 3016461606125586614}
   - component: {fileID: 3844999806210107803}
+  - component: {fileID: 5757618835421568059}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -146,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 4
-  PV: {fileID: 0}
+  PV: {fileID: 3016461606125586614}
 --- !u!114 &3016461606125586614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +167,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 3844999806210107803}
+  - {fileID: 5757618835421568059}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -183,4 +185,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
+  m_SynchronizeScale: 1
+--- !u!114 &5757618835421568059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5651813007709717079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7cb724808c322458aa4d15f5035fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 1
+  m_TeleportEnabled: 1
+  m_TeleportIfDistanceGreaterThan: 3

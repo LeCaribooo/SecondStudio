@@ -15,6 +15,7 @@ public class ShurikenLauncher : MonoBehaviourPun
     Shuriken shuriken;
     public PhotonView PV;
     public bool facingRight = false;
+    public int dmg;
 
     void Start()
     {
@@ -83,6 +84,22 @@ public class ShurikenLauncher : MonoBehaviourPun
             PhotonNetwork.Destroy(this.gameObject);
         }
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            GameObject enemy = other.gameObject;
+            EnemyHealth enemyhealth = other.gameObject.GetComponentInParent<EnemyHealth>();
+            enemyhealth.health -= dmg;
+        }
+        else if (other.gameObject.CompareTag("Boss"))
+        {
+            GameObject enemy = other.gameObject;
+            EnemyHealth enemyhealth = other.gameObject.GetComponentInParent<EnemyHealth>();
+            enemyhealth.health -= dmg;
+        }
     }
 
     [PunRPC]

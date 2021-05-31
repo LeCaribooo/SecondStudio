@@ -34,11 +34,19 @@ public class Arrow : MonoBehaviourPun
         {
             EnemyHealth enemyhealth = collision.gameObject.GetComponentInParent<EnemyHealth>();
             enemyhealth.health -= dmg;
-            base.photonView.RPC("DestroyOnline", RpcTarget.All);
+            if (PV.IsMine)
+            {
+                PV.RPC("DestroyOnline", RpcTarget.All);
+
+            }
         }
         else
         {
-            base.photonView.RPC("DestroyOnline", RpcTarget.All);
+            if (PV.IsMine)
+            {
+                PV.RPC("DestroyOnline", RpcTarget.All);
+
+            }
         }
     }
 

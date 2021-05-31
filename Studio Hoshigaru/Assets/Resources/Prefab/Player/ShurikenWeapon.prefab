@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4034012226916416202}
   - component: {fileID: 6140954873904487752}
   - component: {fileID: 8964038959427457201}
-  - component: {fileID: 6594628490479630473}
   - component: {fileID: 3860181556051993939}
   - component: {fileID: -5393542517025108317}
   - component: {fileID: 5103242504739196929}
@@ -101,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PV: {fileID: -5393542517025108317}
   facingRight: 0
+  dmg: 1
 --- !u!58 &8964038959427457201
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -117,21 +117,6 @@ CircleCollider2D:
   m_Offset: {x: -0.007987342, y: -0.0023277432}
   serializedVersion: 2
   m_Radius: 1.0206354
---- !u!114 &6594628490479630473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1943585815823011618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10b30b7085bce4b46ba88a232db2d838, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dmg: 1
-  knockbackStrength: 0
-  weaponSelection: {fileID: 0}
 --- !u!50 &3860181556051993939
 Rigidbody2D:
   serializedVersion: 4

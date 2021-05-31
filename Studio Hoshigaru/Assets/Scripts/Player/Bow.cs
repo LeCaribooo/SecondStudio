@@ -49,11 +49,15 @@ public class Bow : MonoBehaviour
 
     public void Shoot()
     {
-        GameObject newArrow = PhotonNetwork.Instantiate(Path.Combine("Prefab", "Player", arrow.name), shotPoint.position, shotPoint.rotation);
-        if(animatedArms.playerControler.facingRight)
-            newArrow.GetComponent<Rigidbody2D>().velocity = -transform.right * launchForce;
-        else
-            newArrow.GetComponent<Rigidbody2D>().velocity = transform.right * launchForce;
+        if (PV.IsMine)
+        {
+            GameObject newArrow = PhotonNetwork.Instantiate(Path.Combine("Prefab", "Player", arrow.name), shotPoint.position, shotPoint.rotation);
+            if (animatedArms.playerControler.facingRight)
+                newArrow.GetComponent<Rigidbody2D>().velocity = -transform.right * launchForce;
+            else
+                newArrow.GetComponent<Rigidbody2D>().velocity = transform.right * launchForce;
+        }
+        
     }
 
 
