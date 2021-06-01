@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviourPun
     public HealthBar healthbar;
     public EnemyHealth health;
     public EnemySO enemySO;
+    private Health phealth = null;
     private PhotonView PV;
     private Animator animator;
     public bool cooling;
@@ -68,8 +69,8 @@ public class EnemyController : MonoBehaviourPun
         if (other.gameObject.CompareTag("Player") && cooling)
         {
             GameObject player = other.gameObject;
-            Health health = player.GetComponent<Health>();
-            health.numOfHits -= enemySO.damage;
+            phealth = player.GetComponent<Health>();
+            PV.RPC("Dommage", RpcTarget.All);
             cooling = false;
             Cooler();
         }  
@@ -84,12 +85,17 @@ public class EnemyController : MonoBehaviourPun
     {
         yield return new WaitForSeconds(2f);
         wait = true;
-        
     }
 
     [PunRPC]
     void DestroyOnline()
     {
         Destroy(this.gameObject);
+    }
+
+    [PunRPC]
+    public void Dommage()
+    {
+        phealth.numOfHits -= enemySO.damage;
     }
 }

@@ -5,26 +5,23 @@ using Photon.Pun;
 
 public class AttackSwordBoss : MonoBehaviourPun
 {
-    private Health health;
+    private Health health = null;
     public int damage;
+    public PhotonView PV;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Ah");
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Bh");
             GameObject player = collision.gameObject;
             health = player.GetComponent<Health>();
-            Debug.Log(health.numOfHits);
-            base.photonView.RPC("Dommage",RpcTarget.All);
+            PV.RPC("Dommage",RpcTarget.All);
         }
     }
 
     [PunRPC]
     public void Dommage()
     {
-        Debug.Log("Ch");
         health.numOfHits -= damage;
     }
 }

@@ -1682,6 +1682,7 @@ GameObject:
   - component: {fileID: 2049454620912217804}
   - component: {fileID: 7427590859459591675}
   - component: {fileID: 5874163618953832574}
+  - component: {fileID: 922326761154237500}
   m_Layer: 0
   m_Name: Hitbox
   m_TagString: Untagged
@@ -1734,6 +1735,29 @@ MonoBehaviour:
   dmg: 2
   knockbackStrength: 0
   weaponSelection: {fileID: 3203967071730261718}
+  PV: {fileID: 922326761154237500}
+--- !u!114 &922326761154237500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3750316192971192585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &4073380840126637068
 GameObject:
   m_ObjectHideFlags: 0
@@ -2190,6 +2214,7 @@ GameObject:
   - component: {fileID: 6921377215012991503}
   - component: {fileID: 3609517798834878423}
   - component: {fileID: 357143876520383550}
+  - component: {fileID: 6709968892036988007}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -2302,6 +2327,29 @@ MonoBehaviour:
   dmg: 3
   knockbackStrength: 3
   weaponSelection: {fileID: 3203967071730261718}
+  PV: {fileID: 6709968892036988007}
+--- !u!114 &6709968892036988007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4267987911791588897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &4389406916077254573
 GameObject:
   m_ObjectHideFlags: 0
@@ -3592,6 +3640,7 @@ GameObject:
   - component: {fileID: 5619418187576198633}
   - component: {fileID: 8421823494695246172}
   - component: {fileID: 185202927771182336}
+  - component: {fileID: 7885541500076573025}
   m_Layer: 0
   m_Name: Hitbox
   m_TagString: Untagged
@@ -3654,6 +3703,28 @@ MonoBehaviour:
   dmg: 5
   knockbackStrength: 6
   weaponSelection: {fileID: 3203967071730261718}
+  PV: {fileID: 7885541500076573025}
+--- !u!114 &7885541500076573025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7730880062772989538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &7937325267349778541
 GameObject:
   m_ObjectHideFlags: 0

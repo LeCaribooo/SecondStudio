@@ -6,7 +6,7 @@ using Photon.Pun;
 public class AttackPatroller : MonoBehaviourPun
 {
     public int damage;
-    private Health health =null;
+    private Health health = null;
     public PhotonView PV;
 
     private void OnTriggerEnter2D(Collider2D collision)

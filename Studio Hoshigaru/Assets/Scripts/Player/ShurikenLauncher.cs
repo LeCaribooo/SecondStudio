@@ -11,6 +11,7 @@ public class ShurikenLauncher : MonoBehaviourPun
     GameObject[] players;
     Transform itemToRotate;
     Vector2 locationInFrontOfPlayer;
+    private EnemyHealth enemyhealth;
     PlayerControler playerControler;
     Shuriken shuriken;
     public PhotonView PV;
@@ -91,14 +92,14 @@ public class ShurikenLauncher : MonoBehaviourPun
         if (other.gameObject.CompareTag("Enemy"))
         {
             GameObject enemy = other.gameObject;
-            EnemyHealth enemyhealth = other.gameObject.GetComponentInParent<EnemyHealth>();
-            enemyhealth.health -= dmg;
+            enemyhealth = other.gameObject.GetComponentInParent<EnemyHealth>();
+            PV.RPC("Dommage", RpcTarget.All);
         }
         else if (other.gameObject.CompareTag("Boss"))
         {
             GameObject enemy = other.gameObject;
-            EnemyHealth enemyhealth = other.gameObject.GetComponentInParent<EnemyHealth>();
-            enemyhealth.health -= dmg;
+            enemyhealth = other.gameObject.GetComponentInParent<EnemyHealth>();
+            PV.RPC("Dommage", RpcTarget.All);
         }
     }
 
@@ -107,4 +108,11 @@ public class ShurikenLauncher : MonoBehaviourPun
     {
         shuriken.gameObject.SetActive(isActive);
     }
+
+    [PunRPC]
+    public void Dommage()
+    {
+        enemyhealth.health -= dmg;
+    }
+
 }

@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class WarriorAttack : MonoBehaviour
+public class WarriorAttack : MonoBehaviourPun
 {
     // Start is called before the first frame update
     public int damage;
+    private Health health = null;
+    public PhotonView PV;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,9 +17,16 @@ public class WarriorAttack : MonoBehaviour
             if (GetComponentInParent<WarriorBoss>().alreadytouched)
             {
                 GameObject player = collision.gameObject;
-                player.GetComponent<Health>().numOfHits -= damage;
+                health = player.GetComponent<Health>();
+                PV.RPC("Dommage", RpcTarget.All);
                 GetComponentInParent<WarriorBoss>().alreadytouched = false;
             }
         }
+    }
+
+    [PunRPC]
+    public void Dommage()
+    {
+        health.numOfHits -= damage;
     }
 }

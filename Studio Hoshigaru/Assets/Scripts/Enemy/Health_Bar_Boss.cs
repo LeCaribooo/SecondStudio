@@ -7,22 +7,24 @@ public class Health_Bar_Boss : MonoBehaviour
 {
     public Slider slider;
 
-    public GameObject Boss;
-
+    private GameObject[] Bosses;
+    public int bossIndex;
     public int Health;
 
     public void Start()
     {
-        Health = Boss.GetComponent<EnemyHealth>().health;
+        Bosses = GameObject.FindGameObjectsWithTag("Boss");
+        Health = Bosses[bossIndex].GetComponent<EnemyHealth>().health;
         SetMaxHealth(Health);
     }
 
     public void Update()
     {
-        Health = Boss.GetComponent<EnemyHealth>().health;
+        Health = Bosses[bossIndex].GetComponent<EnemyHealth>().health;
         SetHealth(Health);
-        if (Boss == null)
+        if (Health <= 0)
         {
+            this.enabled = false;
             this.gameObject.SetActive(false);
         }
     }

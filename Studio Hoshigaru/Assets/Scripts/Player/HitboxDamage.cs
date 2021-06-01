@@ -2,34 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using Photon.Pun;
 
-public class HitboxDamage : MonoBehaviour
+public class HitboxDamage : MonoBehaviourPun
 {
     public int dmg;
     public float knockbackStrength;
     public WeaponSelection weaponSelection;
+    public PhotonView PV;
+    private EnemyHealth enemyhealth;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
             GameObject enemy = other.gameObject;
-            EnemyHealth enemyhealth = other.gameObject.GetComponentInParent<EnemyHealth>();
-            enemyhealth.health -= dmg;
-            if(other.gameObject.name == "patroller(Clone)")
-                Knockback(enemy, other.gameObject.GetComponent<Rigidbody2D>());
-            else
+            enemyhealth = other.gameObject.GetComponentInParent<EnemyHealth>();
+            PV.RPC("Dommage", RpcTarget.All);
+            if (other.gameObject.name == "shinigami(Clone)")
             {
                 other.gameObject.GetComponent<AIPath>().enabled = false;
                 Knockback(enemy, other.gameObject.GetComponent<Rigidbody2D>());
                 StartCoroutine(Wait(other));
             }
+            else
+                Knockback(enemy, other.gameObject.GetComponent<Rigidbody2D>());
         }
         else if(other.gameObject.CompareTag("Boss"))
         {
             GameObject enemy = other.gameObject;
-            EnemyHealth enemyhealth = other.gameObject.GetComponentInParent<EnemyHealth>();
-            enemyhealth.health -= dmg;
+            enemyhealth = other.gameObject.GetComponentInParent<EnemyHealth>();
+            PV.RPC("Dommage", RpcTarget.All);
         }
     }
 
@@ -57,5 +60,11 @@ public class HitboxDamage : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    [PunRPC]
+    public void Dommage()
+    {
+        enemyhealth.health -= dmg;
     }
 }

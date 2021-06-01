@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2595132955130299075}
   - component: {fileID: 492466604163183301}
   - component: {fileID: 2047794979639512594}
+  - component: {fileID: 7097332499822500476}
   m_Layer: 0
   m_Name: hitbox2
   m_TagString: Untagged
@@ -71,6 +72,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
+  PV: {fileID: 7097332499822500476}
+--- !u!114 &7097332499822500476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2286305424931133173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &5363428200257442399
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,6 +443,7 @@ GameObject:
   - component: {fileID: 5363428201009395990}
   - component: {fileID: 5363428201009395989}
   - component: {fileID: 2959364470176944398}
+  - component: {fileID: 6681274474447677904}
   m_Layer: 0
   m_Name: hitbox1
   m_TagString: Untagged
@@ -480,6 +504,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
+  PV: {fileID: 6681274474447677904}
+--- !u!114 &6681274474447677904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5363428201009395991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &5363428201901562273
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,6 +719,7 @@ GameObject:
   - component: {fileID: 7184484723945809291}
   - component: {fileID: 5709694145342551053}
   - component: {fileID: 2504323541624257410}
+  - component: {fileID: 6237188116933206267}
   m_Layer: 0
   m_Name: hitbox3
   m_TagString: Untagged
@@ -733,3 +780,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
+  PV: {fileID: 6237188116933206267}
+--- !u!114 &6237188116933206267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6133930035512701424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
