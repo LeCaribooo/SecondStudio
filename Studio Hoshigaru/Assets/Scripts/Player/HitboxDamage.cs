@@ -18,7 +18,10 @@ public class HitboxDamage : MonoBehaviourPun
         {
             GameObject enemy = other.gameObject;
             enemyhealth = other.gameObject.GetComponentInParent<EnemyHealth>();
-            PV.RPC("Dommage", RpcTarget.All);
+            if (PV.IsMine)
+            {
+                PV.RPC("Dommage", RpcTarget.All);
+            }
             if (other.gameObject.name == "shinigami(Clone)")
             {
                 other.gameObject.GetComponent<AIPath>().enabled = false;
@@ -32,7 +35,8 @@ public class HitboxDamage : MonoBehaviourPun
         {
             GameObject enemy = other.gameObject;
             enemyhealth = other.gameObject.GetComponentInParent<EnemyHealth>();
-            PV.RPC("Dommage", RpcTarget.All);
+            if(PV.IsMine)
+                PV.RPC("Dommage", RpcTarget.All);
         }
     }
 

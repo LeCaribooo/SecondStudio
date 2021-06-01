@@ -34,11 +34,10 @@ public class Arrow : MonoBehaviourPun
         else if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Boss")
         {
             EnemyHealth enemyhealth = collision.gameObject.GetComponentInParent<EnemyHealth>();
-            PV.RPC("Dommage", RpcTarget.All);
             if (PV.IsMine)
             {
+                PV.RPC("Dommage", RpcTarget.All);
                 PV.RPC("DestroyOnline", RpcTarget.All);
-
             }
         }
         else

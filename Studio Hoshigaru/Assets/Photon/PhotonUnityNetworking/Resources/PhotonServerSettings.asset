@@ -38,6 +38,7 @@ MonoBehaviour:
   - DestroyBlock
   - DestroyOnline
   - DestroyRpc
+  - Dommage
   - IsTrigger
   - PlayerReady
   - RandomRoomNumber_rpc
@@ -55,7 +56,6 @@ MonoBehaviour:
   - SetSwordActive
   - Unload
   - VoteRPC
-  - Dommage
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

@@ -70,7 +70,8 @@ public class EnemyController : MonoBehaviourPun
         {
             GameObject player = other.gameObject;
             phealth = player.GetComponent<Health>();
-            PV.RPC("Dommage", RpcTarget.All);
+            if(PV.IsMine)
+                PV.RPC("Dommage", RpcTarget.All);
             cooling = false;
             Cooler();
         }  

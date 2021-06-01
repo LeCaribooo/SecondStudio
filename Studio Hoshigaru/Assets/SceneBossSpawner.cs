@@ -13,7 +13,8 @@ public class SceneBossSpawner : MonoBehaviourPun
     {
         for (int i = 0; i < bosses.Length; i++)
         {
-            PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", bosses[i].name), spawnPoints[i].position, Quaternion.identity);
+            if(PhotonNetwork.IsMasterClient)
+                PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", bosses[i].name), spawnPoints[i].position, Quaternion.identity);
         }
     }
 

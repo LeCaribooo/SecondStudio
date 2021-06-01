@@ -15,7 +15,8 @@ public class AttackPatroller : MonoBehaviourPun
         {
             GameObject player = collision.gameObject;
             health = player.GetComponent<Health>();
-            PV.RPC("Dommage", RpcTarget.All);
+            if(PV.IsMine)
+                PV.RPC("Dommage", RpcTarget.All);
             GetComponentInParent<Patroller>().alreadyAttacked = true;
         }
     }

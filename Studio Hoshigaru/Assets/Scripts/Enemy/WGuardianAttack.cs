@@ -18,7 +18,8 @@ public class WGuardianAttack : MonoBehaviourPun
             {
                 GameObject player = collision.gameObject;
                 health = player.GetComponent<Health>();
-                PV.RPC("Dommage", RpcTarget.All);
+                if(PV.IsMine)
+                    PV.RPC("Dommage", RpcTarget.All);
                 GetComponentInParent<GuardianWarrior>().alreadytouched = false;
             }
         }

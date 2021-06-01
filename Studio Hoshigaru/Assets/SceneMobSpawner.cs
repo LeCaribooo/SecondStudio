@@ -13,7 +13,8 @@ public class SceneMobSpawner : MonoBehaviourPun
     {
         for (int i = 0; i < positions.Length; i++)
         {
-            PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", mob.name), positions[i].position, Quaternion.identity);
+            if (PhotonNetwork.IsMasterClient)
+                PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", mob.name), positions[i].position, Quaternion.identity);
         }
     }
 }
