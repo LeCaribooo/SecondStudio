@@ -69,9 +69,7 @@ public class EnemyController : MonoBehaviourPun
         if (other.gameObject.CompareTag("Player") && cooling)
         {
             GameObject player = other.gameObject;
-            phealth = player.GetComponent<Health>();
-            if(PV.IsMine)
-                PV.RPC("Dommage", RpcTarget.All);
+            player.GetComponent<Health>().numOfHits -= enemySO.damage;
             cooling = false;
             Cooler();
         }  
@@ -92,11 +90,5 @@ public class EnemyController : MonoBehaviourPun
     void DestroyOnline()
     {
         Destroy(this.gameObject);
-    }
-
-    [PunRPC]
-    public void Dommage()
-    {
-        phealth.numOfHits -= enemySO.damage;
     }
 }

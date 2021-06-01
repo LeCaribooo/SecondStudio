@@ -6,7 +6,6 @@ using Photon.Pun;
 public class AttackPatroller : MonoBehaviourPun
 {
     public int damage;
-    private Health health = null;
     public PhotonView PV;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -14,16 +13,8 @@ public class AttackPatroller : MonoBehaviourPun
         if(collision.gameObject.CompareTag("Player") && !GetComponentInParent<Patroller>().alreadyAttacked)
         {
             GameObject player = collision.gameObject;
-            health = player.GetComponent<Health>();
-            if(PV.IsMine)
-                PV.RPC("Dommage", RpcTarget.All);
+            player.GetComponent<Health>().numOfHits -= damage;
             GetComponentInParent<Patroller>().alreadyAttacked = true;
         }
-    }
-
-    [PunRPC]
-    public void Dommage()
-    {
-        health.numOfHits -= damage;
     }
 }

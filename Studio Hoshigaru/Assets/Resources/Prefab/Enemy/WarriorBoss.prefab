@@ -72,7 +72,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
-  PV: {fileID: 7097332499822500476}
 --- !u!114 &7097332499822500476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,6 +380,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 2944018907554812351}
   - {fileID: 3586499382640318279}
+  - {fileID: 8710726715530746258}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -504,7 +504,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
-  PV: {fileID: 6681274474447677904}
 --- !u!114 &6681274474447677904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -780,7 +779,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
-  PV: {fileID: 6237188116933206267}
 --- !u!114 &6237188116933206267
 MonoBehaviour:
   m_ObjectHideFlags: 0

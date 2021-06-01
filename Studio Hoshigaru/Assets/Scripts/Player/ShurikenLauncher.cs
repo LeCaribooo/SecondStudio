@@ -92,16 +92,12 @@ public class ShurikenLauncher : MonoBehaviourPun
         if (other.gameObject.CompareTag("Enemy"))
         {
             GameObject enemy = other.gameObject;
-            enemyhealth = other.gameObject.GetComponentInParent<EnemyHealth>();
-            if(PV.IsMine)
-                PV.RPC("Dommage", RpcTarget.All);
+            other.gameObject.GetComponentInParent<EnemyHealth>().health -= dmg;
         }
         else if (other.gameObject.CompareTag("Boss"))
         {
             GameObject enemy = other.gameObject;
-            enemyhealth = other.gameObject.GetComponentInParent<EnemyHealth>();
-            if (PV.IsMine)
-                PV.RPC("Dommage", RpcTarget.All);
+            other.gameObject.GetComponentInParent<EnemyHealth>().health -= dmg;
         }
     }
 
@@ -110,11 +106,4 @@ public class ShurikenLauncher : MonoBehaviourPun
     {
         shuriken.gameObject.SetActive(isActive);
     }
-
-    [PunRPC]
-    public void Dommage()
-    {
-        enemyhealth.health -= dmg;
-    }
-
 }

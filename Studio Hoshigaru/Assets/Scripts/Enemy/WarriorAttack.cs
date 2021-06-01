@@ -7,8 +7,6 @@ public class WarriorAttack : MonoBehaviourPun
 {
     // Start is called before the first frame update
     public int damage;
-    private Health health = null;
-    public PhotonView PV;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,17 +15,9 @@ public class WarriorAttack : MonoBehaviourPun
             if (GetComponentInParent<WarriorBoss>().alreadytouched)
             {
                 GameObject player = collision.gameObject;
-                health = player.GetComponent<Health>();
-                if(PV.IsMine)
-                    PV.RPC("Dommage", RpcTarget.All);
+                player.GetComponent<Health>().numOfHits -= damage;
                 GetComponentInParent<WarriorBoss>().alreadytouched = false;
             }
         }
-    }
-
-    [PunRPC]
-    public void Dommage()
-    {
-        health.numOfHits -= damage;
     }
 }

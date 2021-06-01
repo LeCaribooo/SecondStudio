@@ -6,10 +6,10 @@ using System.IO;
 
 public class SceneBossSpawner : MonoBehaviourPun
 {
-    public Transform[] spawnPoints;
-    public GameObject[] bosses;
+    [SerializeField] Transform[] spawnPoints;
+    [SerializeField] GameObject[] bosses;
 
-    private void Start()
+    void Start()
     {
         for (int i = 0; i < bosses.Length; i++)
         {

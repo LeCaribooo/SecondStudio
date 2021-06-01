@@ -10,18 +10,13 @@ public class HitboxDamage : MonoBehaviourPun
     public float knockbackStrength;
     public WeaponSelection weaponSelection;
     public PhotonView PV;
-    private EnemyHealth enemyhealth;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
             GameObject enemy = other.gameObject;
-            enemyhealth = other.gameObject.GetComponentInParent<EnemyHealth>();
-            if (PV.IsMine)
-            {
-                PV.RPC("Dommage", RpcTarget.All);
-            }
+            other.gameObject.GetComponentInParent<EnemyHealth>().health -= dmg;
             if (other.gameObject.name == "shinigami(Clone)")
             {
                 other.gameObject.GetComponent<AIPath>().enabled = false;
@@ -34,9 +29,7 @@ public class HitboxDamage : MonoBehaviourPun
         else if(other.gameObject.CompareTag("Boss"))
         {
             GameObject enemy = other.gameObject;
-            enemyhealth = other.gameObject.GetComponentInParent<EnemyHealth>();
-            if(PV.IsMine)
-                PV.RPC("Dommage", RpcTarget.All);
+            other.gameObject.GetComponentInParent<EnemyHealth>().health -= dmg;
         }
     }
 
@@ -64,11 +57,5 @@ public class HitboxDamage : MonoBehaviourPun
             default:
                 break;
         }
-    }
-
-    [PunRPC]
-    public void Dommage()
-    {
-        enemyhealth.health -= dmg;
     }
 }

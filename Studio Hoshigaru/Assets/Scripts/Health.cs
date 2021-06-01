@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 
-public class Health : MonoBehaviour
+public class Health : MonoBehaviourPun, IPunObservable
 {
     public PlayerSO playerSO;
 
@@ -58,7 +58,6 @@ public class Health : MonoBehaviour
                         hearts[i].sprite = hquarterHeart;
                         break;
                 }
-                    
             }
 
             if (i < numOfHearts)
@@ -69,6 +68,18 @@ public class Health : MonoBehaviour
             {
                 hearts[i].enabled = false;
             }
+        }
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(numOfHits);
+        }
+        else
+        {
+            numOfHits = (int)stream.ReceiveNext();
         }
     }
 }

@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
 using System.IO;
 
-public class PlayerControler : MonoBehaviour
+public class PlayerControler : MonoBehaviourPun
 {
     public PlayerSO playerSO;
 
@@ -25,7 +26,7 @@ public class PlayerControler : MonoBehaviour
     public Transform groundCheck;     //Coordonnées des pieds du character
     private float checkRadius;         //Radius de check
     private LayerMask whatIsGround;    //Layer qui select quel layer est le ground
- 
+
     private int extraJumpsValue;
     private int extraJumps;
 
@@ -43,7 +44,7 @@ public class PlayerControler : MonoBehaviour
     public Canvas UI;
 
     public Camera camera;
-    
+
     private static PlayerControler playerInstance;
 
     void Awake()
@@ -67,7 +68,7 @@ public class PlayerControler : MonoBehaviour
 
     public void disableForBow()
     {
-        if(ws.actualWeaponString == "hasBow")
+        if (ws.actualWeaponString == "hasBow")
         {
             mainSprite.enabled = false;
             armlessSprite.enabled = true;
@@ -112,20 +113,20 @@ public class PlayerControler : MonoBehaviour
     {
         if (PV.IsMine)
         {
-             Move();
+            Move();
             if ((facingRight && movementInput > 0) || (!facingRight && movementInput < 0))
             {
                 Flip();
             }
         }
     }
-    
+
     private void Update()
     {
         if (PV.IsMine)
         {
             Jump();
-        }   
+        }
     }
 
     void Jump()
@@ -140,7 +141,7 @@ public class PlayerControler : MonoBehaviour
         }
         else
         {
-            canAttack = false; 
+            canAttack = false;
             animator.SetBool("isJumping", true);
         }
 
@@ -153,20 +154,20 @@ public class PlayerControler : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space) && !isGrounded && extraJumps == extraJumpsValue)
         {
-            if(jumpTimeCounter > 0)
+            if (jumpTimeCounter > 0)
             {
                 movementSpeed = 3;
                 rb.velocity = Vector2.up * jumpForce;
                 jumpTimeCounter -= Time.deltaTime;
             }
-        }           
+        }
     }
-    
+
     void Move()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
         movementInput = Input.GetAxisRaw("Horizontal");
-        if(movementInput == 0)
+        if (movementInput == 0)
         {
             animator.SetBool("isRunning", false);
         }

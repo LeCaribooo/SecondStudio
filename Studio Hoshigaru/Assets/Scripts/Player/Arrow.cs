@@ -9,7 +9,6 @@ public class Arrow : MonoBehaviourPun
     bool hasHit;
     public int dmg;
     public PhotonView PV;
-    private EnemyHealth enemyhealth;
 
     // Start is called before the first frame update
     void Start()
@@ -33,10 +32,9 @@ public class Arrow : MonoBehaviourPun
         }
         else if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Boss")
         {
-            EnemyHealth enemyhealth = collision.gameObject.GetComponentInParent<EnemyHealth>();
+            collision.gameObject.GetComponentInParent<EnemyHealth>().health -= dmg;
             if (PV.IsMine)
             {
-                PV.RPC("Dommage", RpcTarget.All);
                 PV.RPC("DestroyOnline", RpcTarget.All);
             }
         }
@@ -53,11 +51,5 @@ public class Arrow : MonoBehaviourPun
     void DestroyOnline()
     {
         Destroy(this.gameObject);
-    }
-
-    [PunRPC]
-    public void Dommage()
-    {
-        enemyhealth.health -= dmg;
     }
 }
