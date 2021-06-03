@@ -601,7 +601,7 @@ MonoBehaviour:
   hammer: {fileID: 21300000, guid: 7957c85db74ff85b5a494fd5e09a44fa, type: 3}
   shuriken: {fileID: 21300000, guid: 1a7a11ca3eecba742a03faf7eef65b2c, type: 3}
   naked: {fileID: 21300000, guid: 1a2567ec034510f42816acee0171f31c, type: 3}
-  playersInGame: []
+  affectedPlayer: {fileID: 0}
 --- !u!1 &4092675904269871952
 GameObject:
   m_ObjectHideFlags: 0

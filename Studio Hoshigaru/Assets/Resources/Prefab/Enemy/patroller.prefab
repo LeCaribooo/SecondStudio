@@ -805,6 +805,7 @@ GameObject:
   - component: {fileID: 7788710083642730291}
   - component: {fileID: 5331833850057047466}
   - component: {fileID: 6490033299691850484}
+  - component: {fileID: 7853416432377584756}
   m_Layer: 0
   m_Name: patroller
   m_TagString: Enemy
@@ -945,6 +946,7 @@ MonoBehaviour:
   attackMode: 0
   alreadyAttacked: 0
   source: {fileID: 0}
+  lootExperience: {fileID: 7853416432377584756}
   castPos: {fileID: 1620005525219524062}
   castJump: {fileID: 1620005526276346455}
   baseCastDist: 0.1
@@ -1148,3 +1150,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7853416432377584756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7788710083642730289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e2de32d2cd7a24795ac6f2d84247c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootedExperience: 10

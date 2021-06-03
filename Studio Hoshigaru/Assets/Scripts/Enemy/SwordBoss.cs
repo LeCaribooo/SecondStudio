@@ -36,6 +36,7 @@ public class SwordBoss : MonoBehaviourPun
     string facingDirection;
     private bool lifended = false;
     Vector3 baseScale;
+    [SerializeField] LootExperience lootExperience;
     // Start is called before the first frame update
     void Start()
     {
@@ -127,6 +128,7 @@ public class SwordBoss : MonoBehaviourPun
         }
         if(lifended)
         {
+            base.photonView.RPC("SendExperience", RpcTarget.All);
             base.photonView.RPC("DestroyOnline", RpcTarget.All);
             lifended = false;
         }
@@ -134,6 +136,7 @@ public class SwordBoss : MonoBehaviourPun
 
     public void Destroy()
     {
+        
         lifended = true;
     }
 
@@ -243,7 +246,6 @@ public class SwordBoss : MonoBehaviourPun
         Debug.DrawLine(castPos.position, targetPos, Color.green);
         if (Physics2D.Linecast(castPos.position, targetPos, 1 << LayerMask.NameToLayer("Ground")))
         {
-
             val = true;
         }
         else
@@ -318,6 +320,17 @@ public class SwordBoss : MonoBehaviourPun
         transform.localScale = newScale;
         facingDirection = newDIrection;
     }
+
+    [PunRPC]
+    void SendExperience()
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        for (int i = 0; i < players.Length; i++)
+        {
+            players[i].GetComponent<PlayerExperience>().experience += lootExperience.lootedExperience;
+        }
+    }
+
 
     [PunRPC]
 

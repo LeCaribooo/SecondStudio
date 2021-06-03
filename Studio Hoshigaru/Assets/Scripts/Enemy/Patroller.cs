@@ -14,6 +14,7 @@ public class Patroller : MonoBehaviourPun
     public bool attackMode;
     public bool alreadyAttacked;
     public AudioSource source;
+    [SerializeField] LootExperience lootExperience;
     #region Patrolling
     [SerializeField]
     Transform castPos;
@@ -73,6 +74,7 @@ public class Patroller : MonoBehaviourPun
     {
         if(dead)
         {
+            base.photonView.RPC("SendExperience", RpcTarget.All);
             base.photonView.RPC("DestroyOnline", RpcTarget.All);
         }
         healthbar.SetHealth(health.health);
@@ -132,11 +134,13 @@ public class Patroller : MonoBehaviourPun
             anim.SetBool("canWalk", false);
             anim.SetBool("death", true);
             hitbox.SetActive(false);
+            
         }
     }
 
     public void Destroy()
     {
+        
         dead = true;
     }
 
@@ -314,10 +318,20 @@ public class Patroller : MonoBehaviourPun
     }
 
     [PunRPC]
+    void SendExperience()
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        for (int i = 0; i < players.Length; i++)
+        {
+            players[i].GetComponent<PlayerExperience>().experience += lootExperience.lootedExperience;
+        }
+    }
 
+    [PunRPC]
     void DestroyOnline()
     {
         Destroy(this.gameObject);
+     
     }
 
 }

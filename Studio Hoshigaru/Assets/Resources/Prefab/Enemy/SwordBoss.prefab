@@ -353,6 +353,7 @@ GameObject:
   - component: {fileID: 1552343560486496023}
   - component: {fileID: 7307653459671240214}
   - component: {fileID: 3849822083929154003}
+  - component: {fileID: 4676571183335360735}
   m_Layer: 0
   m_Name: SwordBoss
   m_TagString: Boss
@@ -468,6 +469,7 @@ MonoBehaviour:
   target: {fileID: 0}
   castPos: {fileID: 4357222470124380216}
   dead: 0
+  lootExperience: {fileID: 4676571183335360735}
 --- !u!114 &368871082802375636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -600,3 +602,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4676571183335360735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8420983721660901938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e2de32d2cd7a24795ac6f2d84247c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootedExperience: 50

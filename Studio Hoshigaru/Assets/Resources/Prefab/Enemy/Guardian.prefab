@@ -803,6 +803,7 @@ GameObject:
   - component: {fileID: 5599938863259524299}
   - component: {fileID: 5599938863259524298}
   - component: {fileID: 7520886672737142355}
+  - component: {fileID: -1074955830707883134}
   m_Layer: 0
   m_Name: Guardian
   m_TagString: Enemy
@@ -943,6 +944,7 @@ MonoBehaviour:
   attackMode: 0
   alreadyAttacked: 0
   source: {fileID: 0}
+  lootExperience: {fileID: -1074955830707883134}
   castPos: {fileID: 4024703244228560423}
   castJump: {fileID: 4024703242937379246}
   baseCastDist: 0.2
@@ -1050,3 +1052,16 @@ CapsuleCollider2D:
   m_Offset: {x: 0.35, y: -1.25}
   m_Size: {x: 1.25, y: 2.5}
   m_Direction: 0
+--- !u!114 &-1074955830707883134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5599938863259524296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e2de32d2cd7a24795ac6f2d84247c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootedExperience: 10

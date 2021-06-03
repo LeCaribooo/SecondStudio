@@ -17,7 +17,7 @@ public class EnemyController : MonoBehaviourPun
     public bool cooling;
     public bool wait;
     public AudioSource source;
-
+    [SerializeField] LootExperience lootExperience;
     public int maxHealth;
 
 
@@ -60,6 +60,7 @@ public class EnemyController : MonoBehaviourPun
     {
         if (health.health <= 0)
         {
+            base.photonView.RPC("SendExperience", RpcTarget.All);
             base.photonView.RPC("DestroyOnline", RpcTarget.All);
         }
     }
@@ -85,6 +86,17 @@ public class EnemyController : MonoBehaviourPun
         yield return new WaitForSeconds(2f);
         wait = true;
     }
+
+    [PunRPC]
+    void SendExperience()
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        for (int i = 0; i < players.Length; i++)
+        {
+            players[i].GetComponent<PlayerExperience>().experience += lootExperience.lootedExperience;
+        }
+    }
+
 
     [PunRPC]
     void DestroyOnline()

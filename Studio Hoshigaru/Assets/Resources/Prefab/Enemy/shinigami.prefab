@@ -358,6 +358,7 @@ GameObject:
   - component: {fileID: 2899963581931513594}
   - component: {fileID: 7888305841925413207}
   - component: {fileID: 1758866480282582225}
+  - component: {fileID: 8250831250610377401}
   m_Layer: 0
   m_Name: shinigami
   m_TagString: Enemy
@@ -629,6 +630,7 @@ MonoBehaviour:
   cooling: 0
   wait: 0
   source: {fileID: -6183132291914553830}
+  lootExperience: {fileID: 8250831250610377401}
   maxHealth: 0
 --- !u!114 &613044386813125153
 MonoBehaviour:
@@ -765,6 +767,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8250831250610377401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7560377424807072096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e2de32d2cd7a24795ac6f2d84247c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootedExperience: 10
 --- !u!1 &8782251193979717272
 GameObject:
   m_ObjectHideFlags: 0

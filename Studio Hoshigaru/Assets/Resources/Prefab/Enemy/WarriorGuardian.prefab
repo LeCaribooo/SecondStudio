@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1213014846633028207}
   - component: {fileID: 3835952796605919478}
   - component: {fileID: 6100916994925377750}
+  - component: {fileID: 8503799490228548144}
   m_Layer: 0
   m_Name: WarriorGuardian
   m_TagString: Enemy
@@ -286,6 +287,20 @@ MonoBehaviour:
   cooling2: 0
   cooling3: 0
   target: {fileID: 0}
+  lootExperience: {fileID: 0}
+--- !u!114 &8503799490228548144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213014846633028205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e2de32d2cd7a24795ac6f2d84247c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootedExperience: 10
 --- !u!1 &3043252978205405406
 GameObject:
   m_ObjectHideFlags: 0

@@ -42,6 +42,7 @@ public class PlayerControler : MonoBehaviourPun
     public SpriteRenderer armlessSprite;
 
     public Canvas UI;
+    public Canvas OtherNames;
 
     public Camera camera;
 
@@ -103,6 +104,10 @@ public class PlayerControler : MonoBehaviourPun
         if (!PV.IsMine)
         {
             UI.enabled = false;
+        }
+        else
+        {
+            OtherNames.enabled = false;
         }
         extraJumps = extraJumpsValue;
         rb = GetComponent<Rigidbody2D>();

@@ -53,6 +53,8 @@ public class GuardianWarrior : MonoBehaviourPun
 
     public Transform target;
 
+    [SerializeField] LootExperience lootExperience;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -184,6 +186,7 @@ public class GuardianWarrior : MonoBehaviourPun
         }
         if (lifeEnded)
         {
+            base.photonView.RPC("SendExperience", RpcTarget.All);
             base.photonView.RPC("DestroyOnline", RpcTarget.All);
             lifeEnded = false;
         }
@@ -431,6 +434,7 @@ public class GuardianWarrior : MonoBehaviourPun
     {
         if (health.health <= 0)
         {
+            
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
             hitbox1.SetActive(false);
             hitbox2.SetActive(false);
@@ -446,6 +450,16 @@ public class GuardianWarrior : MonoBehaviourPun
     public void Destroy()
     {
         lifeEnded = true;
+    }
+
+    [PunRPC]
+    void SendExperience()
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        for (int i = 0; i < players.Length; i++)
+        {
+            players[i].GetComponent<PlayerExperience>().experience += lootExperience.lootedExperience;
+        }
     }
 
     [PunRPC]
