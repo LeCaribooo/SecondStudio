@@ -24,7 +24,7 @@ public class Bow : MonoBehaviour
 
     void Update()
     {
-        if (PV.IsMine)
+        if (PV.IsMine && !CanvasPlayerManager.isWeaponSelectionOpen)
         {
             if (Input.GetMouseButtonDown(0) && animator.GetInteger("AttackStatus") == 0 && canShoot)
             {

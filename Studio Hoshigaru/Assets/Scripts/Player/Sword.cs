@@ -29,7 +29,7 @@ public class Sword : MonoBehaviour
     public void Attack()
     {
         //On reset le tout 
-        if (!pc.canAttack || time > 0.8) 
+        if (!pc.canAttack || time > 0.8 || CanvasPlayerManager.isWeaponSelectionOpen) 
         {
             UpdateAttack(false,0) ;
         }

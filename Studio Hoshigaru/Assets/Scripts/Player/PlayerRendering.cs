@@ -13,14 +13,13 @@ public class PlayerRendering : MonoBehaviourPunCallbacks
     GameObject[] playersInScene;
     [SerializeField] Text otherPlayerName;
 
- 
+
     // Start is called before the first frame update
     void Start()
     {
         playersInScene = GameObject.FindGameObjectsWithTag("Player");
         playersOnline = PhotonNetwork.PlayerList;
         playersInScene = SortPlayer();
-        Debug.Log("Online " + playersOnline.Length + "In scene " + playersInScene.Length);
         for (int i = 0; i < playersOnline.Length; i++)
         {
             if (!playersOnline[i].IsLocal)

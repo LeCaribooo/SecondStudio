@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CanvasPlayerManager : MonoBehaviour
 {
-    bool isWeaponSelectionOpen = false;
+    public static bool isWeaponSelectionOpen = false;
     public GameObject weaponSelection;
 
     void Update()

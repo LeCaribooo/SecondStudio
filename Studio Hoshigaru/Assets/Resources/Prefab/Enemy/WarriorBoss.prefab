@@ -361,6 +361,7 @@ MonoBehaviour:
   cooling2: 0
   cooling3: 0
   target: {fileID: 0}
+  lootExperience: {fileID: 8257383971894694753}
 --- !u!114 &3464304827933929258
 MonoBehaviour:
   m_ObjectHideFlags: 0

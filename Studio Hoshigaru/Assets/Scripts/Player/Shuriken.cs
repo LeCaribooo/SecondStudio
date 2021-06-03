@@ -32,7 +32,7 @@ public class Shuriken : MonoBehaviour
 
     void Update()
     {
-        if (PV.IsMine)
+        if (PV.IsMine && !CanvasPlayerManager.isWeaponSelectionOpen)
         {
             if (Input.GetMouseButtonDown(0) && numberOfShuriken > 0 && playerControler.canAttack)
             {

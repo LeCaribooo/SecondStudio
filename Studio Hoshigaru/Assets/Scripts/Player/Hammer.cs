@@ -26,7 +26,7 @@ public class Hammer : MonoBehaviour
 
     void Attack()
     {
-        if (Input.GetMouseButtonDown(0) && pc.canAttack)
+        if (Input.GetMouseButtonDown(0) && pc.canAttack && !CanvasPlayerManager.isWeaponSelectionOpen)
         {
             animator.SetInteger("AttackStatus", 1);
         }

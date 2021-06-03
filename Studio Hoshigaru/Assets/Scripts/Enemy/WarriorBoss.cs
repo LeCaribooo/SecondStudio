@@ -365,11 +365,6 @@ public class WarriorBoss : MonoBehaviourPun
     {
         if (health.health <= 0)
         {
-            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-            for (int i = 0; i < players.Length; i++)
-            {
-                players[i].GetComponent<PlayerExperience>().experience += lootExperience.lootedExperience;
-            }
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
             hitbox1.SetActive(false);
             hitbox2.SetActive(false);
