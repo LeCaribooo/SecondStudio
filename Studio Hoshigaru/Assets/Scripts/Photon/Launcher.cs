@@ -20,6 +20,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     [SerializeField] GameObject playerListPrefab;
     [SerializeField] Text readyUpText;
     [SerializeField] Text playerNameText;
+    [SerializeField] Button startButton;
 
     private List<PlayerListItem> playerList = new List<PlayerListItem>();
 
@@ -34,8 +35,15 @@ public class Launcher : MonoBehaviourPunCallbacks
     void Start()
     {
         Debug.Log("Connecting to Master");
-        PhotonNetwork.ConnectUsingSettings();
-        PhotonNetwork.AutomaticallySyncScene = true;
+        if (!PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.ConnectUsingSettings();
+            PhotonNetwork.AutomaticallySyncScene = true;
+        }
+        else
+        {
+            MenuManager.Instance.OpenMenu("title");
+        }
     }
 
     public override void OnConnectedToMaster()
@@ -46,8 +54,11 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
-        MenuManager.Instance.OpenMenu("main");
-        Debug.Log("Joined Lobby");
+        if (PhotonNetwork.NickName == "")
+        {
+            MenuManager.Instance.OpenMenu("main");
+            Debug.Log("Joined Lobby");
+        }
     }
 
     public void CreateRoom()
@@ -104,6 +115,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     public override void OnLeftRoom()
     {
         MenuManager.Instance.OpenMenu("title");
+        ready = false;
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
@@ -138,6 +150,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public void OnClick_StartGame()
     {
+        startButton.interactable = false;
         if (PhotonNetwork.IsMasterClient)
         {
             for (int i = 0; i < playerList.Count(); i++)
@@ -172,14 +185,15 @@ public class Launcher : MonoBehaviourPunCallbacks
                 playerList[index].text.color = Color.green;
             else
                 playerList[index].text.color = Color.white;
-        }
-            
-            
+        }  
     }
 
     public void OnClick_ValidButton()
     {
         PhotonNetwork.NickName = playerNameText.text;
     }
+
+
+   
 
 }

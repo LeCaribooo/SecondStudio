@@ -9,7 +9,7 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] GameObject readyUp;
     [SerializeField] GameObject startGame;
 
-    void Start()
+    private void OnEnable()
     {
         if (PhotonNetwork.LocalPlayer.IsMasterClient)
         {
@@ -19,5 +19,11 @@ public class ButtonManager : MonoBehaviour
         {
             readyUp.SetActive(true);
         }
+    }
+
+    private void OnDisable()
+    {
+        startGame.SetActive(false);
+        readyUp.SetActive(false);
     }
 }

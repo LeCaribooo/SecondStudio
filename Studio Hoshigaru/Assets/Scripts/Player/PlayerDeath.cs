@@ -14,7 +14,10 @@ public class PlayerDeath : MonoBehaviourPun
     public Rigidbody2D rb;
     public Camera camera;
     bool isDead = false;
-   
+
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,25 +36,27 @@ public class PlayerDeath : MonoBehaviourPun
                 base.photonView.RPC("Unload", RpcTarget.All);
             }
         }
-
-        if(SceneManager.GetActiveScene().buildIndex == 4)
-        {
-            Destroy(this.gameObject);
-        }
     }
 
     public void Death()
     {
+        if(PhotonNetwork.IsMasterClient)
+            PhotonNetwork.Instantiate(Path.Combine("Prefab", "Player", "DeadPlayer"), transform.position, Quaternion.identity, 0);
         camera.gameObject.SetActive(false);
-        PhotonNetwork.Instantiate(Path.Combine("Prefab", "Player", "DeadPlayer"), transform.position, Quaternion.identity, 0); ;
     }
 
-    [PunRPC]
+   [PunRPC]
    void Unload()
     {
         animator.SetTrigger("isDead");
         playerControler.enabled = false;
         gameObject.tag = "Untagged";
    }
+
+    [PunRPC]
+    void DestroyOnline()
+    {
+        Destroy(this.gameObject);
+    }
 
 }

@@ -3899,9 +3899,9 @@ GameObject:
   - component: {fileID: 1590451858}
   - component: {fileID: 1590451857}
   - component: {fileID: 1590451856}
-  - component: {fileID: 1590451855}
-  - component: {fileID: 1590451860}
   - component: {fileID: 1590451861}
+  - component: {fileID: 1590451860}
+  - component: {fileID: 1590451855}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3932,6 +3932,7 @@ MonoBehaviour:
     type: 3}
   readyUpText: {fileID: 578615509}
   playerNameText: {fileID: 1565666549}
+  startButton: {fileID: 1567526828}
 --- !u!114 &1590451856
 MonoBehaviour:
   m_ObjectHideFlags: 0

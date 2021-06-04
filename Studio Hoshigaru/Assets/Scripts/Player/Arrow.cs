@@ -32,6 +32,7 @@ public class Arrow : MonoBehaviourPun
         }
         else if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Boss")
         {
+            Debug.Log("On a touché un enemi");
             collision.gameObject.GetComponentInParent<EnemyHealth>().health -= dmg;
             if (PV.IsMine)
             {
