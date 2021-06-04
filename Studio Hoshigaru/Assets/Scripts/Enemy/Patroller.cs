@@ -75,6 +75,18 @@ public class Patroller : MonoBehaviourPun
         {
             base.photonView.RPC("DestroyOnline", RpcTarget.All);
         }
+        if(target != null && target.GetComponent<Health>().numOfHits <= 0)
+        {
+            hotZone.GetComponent<HotZoneCheck>().inRange = false;
+            hotZone.SetActive(false);
+            triggerArea.SetActive(true);
+            inRange = false;
+            target = null;
+            if (cooling == false)
+            {
+                Move();
+            }
+        }
         healthbar.SetHealth(health.health);
         Death();
         if (!attackMode && !cooling && finishedAttack && !anim.GetCurrentAnimatorStateInfo(0).IsName("death"))
@@ -127,7 +139,6 @@ public class Patroller : MonoBehaviourPun
         if (health.health <= 0)
         {
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
-            anim.SetBool("idle", false);
             anim.SetBool("attack", false);
             anim.SetBool("canWalk", false);
             anim.SetBool("death", true);

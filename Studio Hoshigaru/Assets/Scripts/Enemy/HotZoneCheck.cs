@@ -5,7 +5,7 @@ using UnityEngine;
 public class HotZoneCheck : MonoBehaviour
 {
     private Patroller enemyParent;
-    private bool inRange;
+    public bool inRange;
     private Animator anim;
 
     private void Awake()

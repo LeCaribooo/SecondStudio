@@ -75,6 +75,16 @@ public class GuardianWarrior : MonoBehaviourPun
     {
         healthbar.SetHealth(health.health);
         dead = Death();
+        if(!dead && target != null && target.GetComponent<Health>().numOfHits <= 0)
+        {
+            hotZone.SetActive(false);
+            triggerArea.SetActive(true);
+            target = null;
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("walk"))
+            {
+               anim.SetBool("walk", false);
+            }
+        }
         if (!dead && attack1ended && attack2ended && attack3ended)
         {
             if (!attack1cooling)
