@@ -43,6 +43,7 @@ MonoBehaviour:
   - RandomRoomNumber_rpc
   - RPC_ChangeReadyState
   - SendCountWaves
+  - SendExperience
   - SendMessage
   - SendRoomCleared
   - SendWinProgress
@@ -55,7 +56,6 @@ MonoBehaviour:
   - SetSwordActive
   - Unload
   - VoteRPC
-  - SendExperience
   DisableAutoOpenWizard: 1
-  ShowSettings: 1
+  ShowSettings: 0
   DevRegionSetOnce: 1

@@ -361,10 +361,10 @@ MonoBehaviour:
   level: {fileID: 1848519188049853796}
   weapon: {fileID: 2734346728412278274}
   health: {fileID: 6820084138087061052}
-  bow: {fileID: 21300000, guid: c161ab4b76aad3f43acca197a1615ef4, type: 3}
-  sword: {fileID: 21300000, guid: 3f335ea8127ea9f48956cc11cbace550, type: 3}
-  hammer: {fileID: 21300000, guid: 7957c85db74ff85b5a494fd5e09a44fa, type: 3}
-  shuriken: {fileID: 21300000, guid: 1a7a11ca3eecba742a03faf7eef65b2c, type: 3}
+  bow: {fileID: 21300000, guid: be53106a03d5c7643a158cf226b366fa, type: 3}
+  sword: {fileID: 21300000, guid: 8f1f1c0a5bcf20746bbc5b66c8bd6974, type: 3}
+  hammer: {fileID: 21300000, guid: 7fbdd282a3a3ecd4ca7ce9d33649bb23, type: 3}
+  shuriken: {fileID: 21300000, guid: 76232f681da6aba408e280649c018d18, type: 3}
   naked: {fileID: 21300000, guid: 1a2567ec034510f42816acee0171f31c, type: 3}
   affectedPlayer: {fileID: 0}
 --- !u!1 &3479856557410197176
