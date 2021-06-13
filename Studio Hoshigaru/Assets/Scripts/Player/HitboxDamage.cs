@@ -4,19 +4,39 @@ using UnityEngine;
 using Pathfinding;
 using Photon.Pun;
 
-public class HitboxDamage : MonoBehaviourPun
+public class HitboxDamage : MonoBehaviourPun, IPunObservable
 {
+
+    public PlayerControler playerControler;
+
+
     public int dmg;
     public float knockbackStrength;
     public WeaponSelection weaponSelection;
     public PhotonView PV;
+
+    int dmgDealt;
+    float knockBackDealt;
+
+    private void Start()
+    {
+        playerControler = GetComponentInParent<PlayerControler>();
+        dmgDealt = dmg + playerControler.playerForce;
+        knockBackDealt = knockbackStrength + playerControler.playerKnockback;
+    }
+
+
+    private void Update()
+    {
+        dmgDealt = dmg + playerControler.playerForce;
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
             GameObject enemy = other.gameObject;
-            other.gameObject.GetComponentInParent<EnemyHealth>().health -= dmg;
+            other.gameObject.GetComponentInParent<EnemyHealth>().health -= dmgDealt;
             if (other.gameObject.name == "shinigami(Clone)")
             {
                 other.gameObject.GetComponent<AIPath>().enabled = false;
@@ -29,7 +49,7 @@ public class HitboxDamage : MonoBehaviourPun
         else if(other.gameObject.CompareTag("Boss"))
         {
             GameObject enemy = other.gameObject;
-            other.gameObject.GetComponentInParent<EnemyHealth>().health -= dmg;
+            other.gameObject.GetComponentInParent<EnemyHealth>().health -= dmgDealt;
         }
     }
 
@@ -50,12 +70,26 @@ public class HitboxDamage : MonoBehaviourPun
             case "hasShuriken":
                 Vector2 direction = rdb2.transform.position - transform.position;
                 direction.y = 0;
-                rdb2.AddForce(direction.normalized * knockbackStrength, ForceMode2D.Impulse);
+                rdb2.AddForce(direction.normalized * knockBackDealt, ForceMode2D.Impulse);
                 break;
             case "hasBow":
                 break;
             default:
                 break;
+        }
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(knockBackDealt);
+            stream.SendNext(dmgDealt);
+        }
+        else
+        {
+            knockBackDealt = (float)stream.ReceiveNext();
+            dmgDealt = (int)stream.ReceiveNext();
         }
     }
 }

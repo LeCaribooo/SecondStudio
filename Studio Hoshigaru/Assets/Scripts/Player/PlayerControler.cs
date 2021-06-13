@@ -6,17 +6,20 @@ using Photon.Pun;
 using Photon.Realtime;
 using System.IO;
 
-public class PlayerControler : MonoBehaviourPun
+public class PlayerControler : MonoBehaviourPun, IPunObservable
 {
     public PlayerSO playerSO;
 
     public PhotonView PV;
 
-    private float movementSpeed;       //Speed du joueur
-    private float jumpForce;           //Puissance de saut
+    public float movementSpeed;       //Speed du joueur
+    public float jumpForce;           //Puissance de saut
     private float movementInput;       //(-1 ou 1 Gauche Droite)
     private float jumpTimeCounter;
     private float jumpTime;
+
+    public int playerForce;
+    public float playerKnockback;
 
     private Rigidbody2D rb;
     public Animator animator;
@@ -27,7 +30,7 @@ public class PlayerControler : MonoBehaviourPun
     private float checkRadius;         //Radius de check
     private LayerMask whatIsGround;    //Layer qui select quel layer est le ground
 
-    private int extraJumpsValue;
+    public int extraJumpsValue;
     private int extraJumps;
 
     [HideInInspector] public bool facingRight = true;
@@ -203,4 +206,23 @@ public class PlayerControler : MonoBehaviourPun
             Physics2D.IgnoreCollision(hitbox, other);
         }
     }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(movementSpeed);
+            stream.SendNext(jumpForce);
+            stream.SendNext(extraJumpsValue);
+            stream.SendNext(playerForce);
+        }
+        else
+        {
+            movementSpeed = (int)stream.ReceiveNext();
+            jumpForce = (int)stream.ReceiveNext();
+            extraJumpsValue = (int)stream.ReceiveNext();
+            playerForce = (int)stream.ReceiveNext();
+        }
+    }
+
 }

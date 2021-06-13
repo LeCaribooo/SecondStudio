@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class ShurikenLauncher : MonoBehaviourPun
+public class ShurikenLauncher : MonoBehaviourPun, IPunObservable
 {
     bool go;
 
@@ -17,6 +17,8 @@ public class ShurikenLauncher : MonoBehaviourPun
     public PhotonView PV;
     public bool facingRight = false;
     public int dmg;
+
+    int dmgDealt;
 
     void Start()
     {
@@ -35,7 +37,7 @@ public class ShurikenLauncher : MonoBehaviourPun
         {
             locationInFrontOfPlayer = new Vector2(player.transform.position.x - 5, player.transform.position.y);
         }
-
+        dmgDealt = dmg + playerControler.playerForce;
         StartCoroutine(Boom());
     }
 
@@ -92,12 +94,12 @@ public class ShurikenLauncher : MonoBehaviourPun
         if (other.gameObject.CompareTag("Enemy"))
         {
             GameObject enemy = other.gameObject;
-            other.gameObject.GetComponentInParent<EnemyHealth>().health -= dmg;
+            other.gameObject.GetComponentInParent<EnemyHealth>().health -= dmgDealt;
         }
         else if (other.gameObject.CompareTag("Boss"))
         {
             GameObject enemy = other.gameObject;
-            other.gameObject.GetComponentInParent<EnemyHealth>().health -= dmg;
+            other.gameObject.GetComponentInParent<EnemyHealth>().health -= dmgDealt;
         }
     }
 
@@ -105,5 +107,18 @@ public class ShurikenLauncher : MonoBehaviourPun
     void SetGameObjectActive(bool isActive)
     {
         shuriken.gameObject.SetActive(isActive);
+    }
+
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(dmgDealt);
+        }
+        else
+        {
+            dmgDealt = (int)stream.ReceiveNext();
+        }
     }
 }
