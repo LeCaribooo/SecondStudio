@@ -12,7 +12,7 @@ public class AptitudeManager : MonoBehaviour
     [SerializeField] private PlayerRunes playerRunes;
     public Aptitude[] aptitudes;
     public GameObject description;
-    [SerializeField] public Text text;
+    [HideInInspector] public Text text;
 
     public Sprite locked;
     public Sprite unlocked;
@@ -27,9 +27,17 @@ public class AptitudeManager : MonoBehaviour
     {
         for (int i = 0; i < aptitudes.Length; i++)
         {
-            if (aptitudes[i].state == State.LOCKED && aptitudes[i].levelNeeded <= playerExperience.level && aptitudes[i].canBuy)
+            if(aptitudes[i].levelNeeded != 0)
             {
-                aptitudes[i].state = State.UNLOCKED;
+                Debug.Log("Is locked ? " + (aptitudes[i].state == State.LOCKED));
+                Debug.Log("Is level good ? " + (aptitudes[i].levelNeeded <= playerExperience.level));
+                Debug.Log("Can buy ?" + aptitudes[i].canBuy);
+                if (aptitudes[i].state == State.LOCKED && aptitudes[i].levelNeeded <= playerExperience.level && aptitudes[i].canBuy)
+                {
+                    Debug.Log("On peut me débloquer");
+
+                    aptitudes[i].state = State.UNLOCKED;
+                }
             }
         }
     }

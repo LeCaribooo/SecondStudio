@@ -27,7 +27,8 @@ public class Aptitude : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     void Start()
     {
         aptitudeManager = GetComponentInParent<AptitudeManager>();
-        canBuy = CheckIfCanBuy();
+        if(!canBuy)
+            canBuy = CheckIfCanBuy();
     }
 
     void Update()
@@ -71,6 +72,10 @@ public class Aptitude : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             state = State.BOUGHT;
             aptitudeManager.playerExperience.point -= cost;
             button.interactable = false;
+            for (int i = 0; i < closestAptitude.Length; i++)
+            {
+                closestAptitude[i].canBuy = true;
+            }
             aptitudeManager.EvaluateSkillTree();
         }
     }

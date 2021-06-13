@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1735268984172521709}
   - component: {fileID: 4676504708171297505}
   - component: {fileID: 4883212163844077083}
-  - component: {fileID: 7184472105855191466}
   - component: {fileID: 1899607358546328154}
   m_Layer: 5
   m_Name: Aptitudes
@@ -100,22 +99,6 @@ MonoBehaviour:
   - {fileID: 0}
   canBuy: 0
   button: {fileID: 1899607358546328154}
---- !u!58 &7184472105855191466
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2266997051234585934}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 1.104393, y: 0.9128796}
-  serializedVersion: 2
-  m_Radius: 417.64526
 --- !u!114 &1899607358546328154
 MonoBehaviour:
   m_ObjectHideFlags: 0
