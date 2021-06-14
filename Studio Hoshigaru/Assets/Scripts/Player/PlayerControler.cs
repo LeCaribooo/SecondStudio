@@ -6,17 +6,21 @@ using Photon.Pun;
 using Photon.Realtime;
 using System.IO;
 
-public class PlayerControler : MonoBehaviourPun
+public class PlayerControler : MonoBehaviourPun, IPunObservable
 {
     public PlayerSO playerSO;
 
     public PhotonView PV;
 
-    private float movementSpeed;       //Speed du joueur
-    private float jumpForce;           //Puissance de saut
+    public float speedBoost;
+    public float movementSpeed;       //Speed du joueur
+    public float jumpForce;           //Puissance de saut
     private float movementInput;       //(-1 ou 1 Gauche Droite)
     private float jumpTimeCounter;
     private float jumpTime;
+
+    public int playerForce;
+    public float playerKnockback;
 
     private Rigidbody2D rb;
     public Animator animator;
@@ -27,13 +31,14 @@ public class PlayerControler : MonoBehaviourPun
     private float checkRadius;         //Radius de check
     private LayerMask whatIsGround;    //Layer qui select quel layer est le ground
 
-    private int extraJumpsValue;
+    public int extraJumpsValue;
     private int extraJumps;
 
     [HideInInspector] public bool facingRight = true;
 
     private PlayerDeath playerDeath;
     [SerializeField] private Bow bow;
+    [SerializeField] private TripleShot tripleShot;
 
     public bool canAttack;
 
@@ -66,6 +71,11 @@ public class PlayerControler : MonoBehaviourPun
     {
         bow.Shoot();
     }
+    
+    public void TripleShootWithBow()
+    {
+        tripleShot.PowerShoot();
+    }
 
     public void disableForBow()
     {
@@ -84,7 +94,7 @@ public class PlayerControler : MonoBehaviourPun
 
     void PlayerSO()
     {
-        movementSpeed = playerSO.movementSpeed;
+        movementSpeed = playerSO.movementSpeed + speedBoost;
         jumpForce = playerSO.jumpForce;
         isGrounded = playerSO.isGrounded;
         checkRadius = playerSO.checkRadius;
@@ -96,6 +106,8 @@ public class PlayerControler : MonoBehaviourPun
 
     void Start()
     {
+        //Physics2D.IgnoreLayerCollision(9, 10);
+        Physics2D.IgnoreLayerCollision(9, 9);
         DontDestroyOnLoad(this.gameObject);
         canAttack = true;
         PlayerSO();
@@ -138,7 +150,7 @@ public class PlayerControler : MonoBehaviourPun
     {
         if (isGrounded)
         {
-            movementSpeed = playerSO.movementSpeed;
+            movementSpeed = playerSO.movementSpeed + speedBoost;
             extraJumps = extraJumpsValue;
             jumpTimeCounter = jumpTime;
             canAttack = true;
@@ -196,11 +208,27 @@ public class PlayerControler : MonoBehaviourPun
         animator.SetInteger("AttackStatus", AttackStatus);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void playAnim()
     {
-        if (other.gameObject.CompareTag("Player"))
+        animator.Play("idle");
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
         {
-            Physics2D.IgnoreCollision(hitbox, other);
+            stream.SendNext(movementSpeed);
+            stream.SendNext(jumpForce);
+            stream.SendNext(extraJumpsValue);
+            stream.SendNext(playerForce);
+        }
+        else
+        {
+            movementSpeed = (int)stream.ReceiveNext();
+            jumpForce = (int)stream.ReceiveNext();
+            extraJumpsValue = (int)stream.ReceiveNext();
+            playerForce = (int)stream.ReceiveNext();
         }
     }
+
 }

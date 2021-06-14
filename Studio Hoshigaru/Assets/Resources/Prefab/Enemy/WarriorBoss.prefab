@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 5363428200257442398}
   - component: {fileID: 5363428200257442397}
   - component: {fileID: 7477376654962125426}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: warriorboss_colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +269,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 5
 --- !u!70 &5363428200864473281
 CapsuleCollider2D:
@@ -664,7 +664,7 @@ GameObject:
   - component: {fileID: 5408138612748712104}
   m_Layer: 0
   m_Name: TriggerArea
-  m_TagString: Untagged
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

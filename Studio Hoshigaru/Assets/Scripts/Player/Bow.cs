@@ -24,7 +24,7 @@ public class Bow : MonoBehaviour
 
     void Update()
     {
-        if (PV.IsMine && !CanvasPlayerManager.isWeaponSelectionOpen)
+        if (PV.IsMine && !CanvasPlayerManager.isMenuOpen)
         {
             if (Input.GetMouseButtonDown(0) && animator.GetInteger("AttackStatus") == 0 && canShoot)
             {
@@ -57,7 +57,6 @@ public class Bow : MonoBehaviour
             else
                 newArrow.GetComponent<Rigidbody2D>().velocity = transform.right * launchForce;
         }
-        
     }
 
 
@@ -74,6 +73,7 @@ public class Bow : MonoBehaviour
         }
         return position;
     }
+
 
     private void OnDisable()
     {

@@ -69,7 +69,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!95 &1213014846633028212
 Animator:
@@ -604,7 +604,7 @@ GameObject:
   - component: {fileID: 1422447587464204673}
   m_Layer: 0
   m_Name: triggerArea
-  m_TagString: Untagged
+  m_TagString: Trigger
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1095,7 +1095,7 @@ GameObject:
   - component: {fileID: 7690206893356343909}
   - component: {fileID: 7690206893356343911}
   - component: {fileID: 7690206893356343910}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: warrior_colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}

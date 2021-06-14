@@ -39,6 +39,7 @@ public class Arrow : MonoBehaviourPun
                 PV.RPC("DestroyOnline", RpcTarget.All);
             }
         }
+        else if (collision.CompareTag("Trigger")) { }
         else
         {
             if (PV.IsMine)

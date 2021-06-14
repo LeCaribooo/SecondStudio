@@ -5,23 +5,45 @@ using Photon.Pun;
 
 public class CanvasPlayerManager : MonoBehaviour
 {
+    public static bool isMenuOpen = false;
     public static bool isWeaponSelectionOpen = false;
+    public static bool isAptitudeOpen = false;
+
     public GameObject weaponSelection;
+    public GameObject aptitudes;
     [SerializeField] PhotonView PV;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && PV.IsMine)
+        isMenuOpen = isAptitudeOpen || isWeaponSelectionOpen;
+       
+        if(PV.IsMine)
         {
-            if (isWeaponSelectionOpen)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                weaponSelection.SetActive(false);
+                if (isWeaponSelectionOpen)
+                {
+                    weaponSelection.SetActive(false);
+                }
+                else
+                {
+                    weaponSelection.SetActive(true);
+                }
+                isWeaponSelectionOpen = !isWeaponSelectionOpen;
             }
-            else
+            if (Input.GetKeyDown(KeyCode.F))
             {
-                weaponSelection.SetActive(true);
+                if (isWeaponSelectionOpen)
+                {
+                    aptitudes.SetActive(false);
+                }
+                else
+                {
+                    aptitudes.SetActive(true);
+                }
+                isWeaponSelectionOpen = !isWeaponSelectionOpen;
             }
-            isWeaponSelectionOpen = !isWeaponSelectionOpen;
+
         }
     }
 }

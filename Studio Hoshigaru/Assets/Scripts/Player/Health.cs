@@ -8,7 +8,7 @@ public class Health : MonoBehaviourPun, IPunObservable
 {
     public PlayerSO playerSO;
 
-    private int numOfHearts;
+    public int numOfHearts;
     public int numOfHits;
 
     public Image[] hearts;
@@ -18,14 +18,25 @@ public class Health : MonoBehaviourPun, IPunObservable
     public Sprite hquarterHeart;
     public Sprite fullHeart;
 
+    public int defense;
+
+    public int regen;
+    public int regenTime;
+    bool canRegen;
+
     void Start()
     {
+        canRegen = true;
+        regen = 0;
+        defense = 0;
         numOfHearts = playerSO.numOfHearts;
         numOfHits = playerSO.numOfHits;
     } 
 
     void Update()
     {
+        if(canRegen)
+            StartCoroutine(Regen());
         if(numOfHits > numOfHearts * 4)
         {
             numOfHits = numOfHearts * 4;
@@ -71,15 +82,32 @@ public class Health : MonoBehaviourPun, IPunObservable
         }
     }
 
+    IEnumerator Regen()
+    {
+        canRegen = false;
+        yield return new WaitForSeconds(60);
+        if(numOfHits + regen <= numOfHearts * 4)
+        {
+            numOfHits += regen;
+        }
+        canRegen = true;
+    }
+
+
+
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
         {
             stream.SendNext(numOfHits);
+            stream.SendNext(defense);
+            stream.SendNext(regen);
         }
         else
         {
             numOfHits = (int)stream.ReceiveNext();
+            defense = (int)stream.ReceiveNext();
+            regen = (int)stream.ReceiveNext();
         }
     }
 }
