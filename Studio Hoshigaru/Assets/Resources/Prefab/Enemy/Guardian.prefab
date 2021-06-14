@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 4024703243638068416}
   - component: {fileID: 4024703243638068418}
   - component: {fileID: 4024703243638068419}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: patroller_colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -648,7 +648,7 @@ GameObject:
   - component: {fileID: 4024703244751288546}
   m_Layer: 0
   m_Name: triggerArea
-  m_TagString: Untagged
+  m_TagString: Trigger
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -853,7 +853,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!95 &5599938863259524305
 Animator:
@@ -1037,6 +1037,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  isBleeding: 0
+  dotDmgs: 0
+  nbOfDots: 0
+  timeBetweenDots: 0
 --- !u!70 &7520886672737142355
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -33,24 +33,28 @@ public class HitboxDamage : MonoBehaviourPun, IPunObservable
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (isActiveAndEnabled)
         {
-            GameObject enemy = other.gameObject;
-            other.gameObject.GetComponentInParent<EnemyHealth>().health -= dmgDealt;
-            if (other.gameObject.name == "shinigami(Clone)")
+            if (other.gameObject.CompareTag("Enemy"))
             {
-                other.gameObject.GetComponent<AIPath>().enabled = false;
-                Knockback(enemy, other.gameObject.GetComponent<Rigidbody2D>());
-                StartCoroutine(Wait(other));
+                GameObject enemy = other.gameObject;
+                other.gameObject.GetComponentInParent<EnemyHealth>().health -= dmgDealt;
+                if (other.gameObject.name == "shinigami(Clone)")
+                {
+                    other.gameObject.GetComponent<AIPath>().enabled = false;
+                    Knockback(enemy, other.gameObject.GetComponent<Rigidbody2D>());
+                    StartCoroutine(Wait(other));
+                }
+                else
+                    Knockback(enemy, other.gameObject.GetComponent<Rigidbody2D>());
             }
-            else
-                Knockback(enemy, other.gameObject.GetComponent<Rigidbody2D>());
+            else if (other.gameObject.CompareTag("Boss"))
+            {
+                GameObject enemy = other.gameObject;
+                other.gameObject.GetComponentInParent<EnemyHealth>().health -= dmgDealt;
+            }
         }
-        else if(other.gameObject.CompareTag("Boss"))
-        {
-            GameObject enemy = other.gameObject;
-            other.gameObject.GetComponentInParent<EnemyHealth>().health -= dmgDealt;
-        }
+        
     }
 
     IEnumerator Wait(Collider2D other)

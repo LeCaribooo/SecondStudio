@@ -66,7 +66,6 @@ public class Player_portal : MonoBehaviourPun
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-
         if (collision.gameObject.tag == "Player" &&  collision.gameObject == getMinePlayer())
         {
             IsThisPortal = true;

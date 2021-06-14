@@ -38,6 +38,7 @@ public class PlayerControler : MonoBehaviourPun, IPunObservable
 
     private PlayerDeath playerDeath;
     [SerializeField] private Bow bow;
+    [SerializeField] private TripleShot tripleShot;
 
     public bool canAttack;
 
@@ -70,6 +71,11 @@ public class PlayerControler : MonoBehaviourPun, IPunObservable
     {
         bow.Shoot();
     }
+    
+    public void TripleShootWithBow()
+    {
+        tripleShot.PowerShoot();
+    }
 
     public void disableForBow()
     {
@@ -100,6 +106,8 @@ public class PlayerControler : MonoBehaviourPun, IPunObservable
 
     void Start()
     {
+        //Physics2D.IgnoreLayerCollision(9, 10);
+        Physics2D.IgnoreLayerCollision(9, 9);
         DontDestroyOnLoad(this.gameObject);
         canAttack = true;
         PlayerSO();
@@ -200,12 +208,9 @@ public class PlayerControler : MonoBehaviourPun, IPunObservable
         animator.SetInteger("AttackStatus", AttackStatus);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void playAnim()
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            Physics2D.IgnoreCollision(hitbox, other);
-        }
+        animator.Play("idle");
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
