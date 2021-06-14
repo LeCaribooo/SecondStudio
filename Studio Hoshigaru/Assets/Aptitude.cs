@@ -35,7 +35,7 @@ public class Aptitude : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if(!canBuy)
             canBuy = CheckIfCanBuy();
-        if (state == State.UNLOCKED)
+        if (state == State.UNLOCKED && aptitudeManager.playerExperience.point >= cost)
         {
             icon.sprite = aptitudeManager.unlocked;
             button.interactable = true;
@@ -56,7 +56,7 @@ public class Aptitude : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         for (int i = 0; i < closestAptitude.Length; i++)
         {
-            if (closestAptitude[i].canBuy)
+            if (closestAptitude[i].canBuy && closestAptitude[i].state == State.BOUGHT)
             {
                 return true;
             }

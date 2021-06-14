@@ -29,13 +29,8 @@ public class AptitudeManager : MonoBehaviour
         {
             if(aptitudes[i].levelNeeded != 0)
             {
-                Debug.Log("Is locked ? " + (aptitudes[i].state == State.LOCKED));
-                Debug.Log("Is level good ? " + (aptitudes[i].levelNeeded <= playerExperience.level));
-                Debug.Log("Can buy ?" + aptitudes[i].canBuy);
                 if (aptitudes[i].state == State.LOCKED && aptitudes[i].levelNeeded <= playerExperience.level && aptitudes[i].canBuy)
                 {
-                    Debug.Log("On peut me débloquer");
-
                     aptitudes[i].state = State.UNLOCKED;
                 }
             }
@@ -71,7 +66,7 @@ public class AptitudeManager : MonoBehaviour
     
     public void AddSpeed(int speed)
     {
-        playerControler.movementSpeed += speed;
+        playerControler.speedBoost += speed;
     }
 
     public void AddJumpForce(int jumpForce)

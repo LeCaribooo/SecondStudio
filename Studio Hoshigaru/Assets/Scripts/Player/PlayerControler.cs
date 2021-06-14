@@ -12,6 +12,7 @@ public class PlayerControler : MonoBehaviourPun, IPunObservable
 
     public PhotonView PV;
 
+    public float speedBoost;
     public float movementSpeed;       //Speed du joueur
     public float jumpForce;           //Puissance de saut
     private float movementInput;       //(-1 ou 1 Gauche Droite)
@@ -87,7 +88,7 @@ public class PlayerControler : MonoBehaviourPun, IPunObservable
 
     void PlayerSO()
     {
-        movementSpeed = playerSO.movementSpeed;
+        movementSpeed = playerSO.movementSpeed + speedBoost;
         jumpForce = playerSO.jumpForce;
         isGrounded = playerSO.isGrounded;
         checkRadius = playerSO.checkRadius;
@@ -141,7 +142,7 @@ public class PlayerControler : MonoBehaviourPun, IPunObservable
     {
         if (isGrounded)
         {
-            movementSpeed = playerSO.movementSpeed;
+            movementSpeed = playerSO.movementSpeed + speedBoost;
             extraJumps = extraJumpsValue;
             jumpTimeCounter = jumpTime;
             canAttack = true;

@@ -2387,6 +2387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSO: {fileID: 11400000, guid: 1e73ed30c3a5b314481ae0d8edc1699b, type: 2}
   PV: {fileID: -5198743702041084537}
+  speedBoost: 0
   movementSpeed: 0
   jumpForce: 0
   playerForce: 0
@@ -10329,7 +10330,7 @@ PrefabInstance:
     - target: {fileID: 1899607358546328154, guid: 721c9a9ff21640e47a1fac5d68f651ff,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1899607358546328154, guid: 721c9a9ff21640e47a1fac5d68f651ff,
         type: 3}
@@ -10344,7 +10345,12 @@ PrefabInstance:
     - target: {fileID: 1899607358546328154, guid: 721c9a9ff21640e47a1fac5d68f651ff,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899607358546328154, guid: 721c9a9ff21640e47a1fac5d68f651ff,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_FloatArgument
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2266997051234585934, guid: 721c9a9ff21640e47a1fac5d68f651ff,
         type: 3}
