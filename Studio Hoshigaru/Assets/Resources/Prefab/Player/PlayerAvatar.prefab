@@ -4426,6 +4426,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7916688171233255165}
+  - component: {fileID: 3935973438710625014}
   m_Layer: 5
   m_Name: Runes
   m_TagString: Untagged
@@ -4455,6 +4456,19 @@ RectTransform:
   m_AnchoredPosition: {x: -437.40002, y: -266}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3935973438710625014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7123761729063707226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 969f8d6abc7c4f444b903cdc30cd0cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!1 &7187952739060370819
 GameObject:
   m_ObjectHideFlags: 0

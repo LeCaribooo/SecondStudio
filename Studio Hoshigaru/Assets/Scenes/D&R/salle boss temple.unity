@@ -48004,7 +48004,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 548742580}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1383479576}
@@ -63803,7 +63803,6 @@ MonoBehaviour:
   bosses:
   - {fileID: 5363428200864473283, guid: 89ed761a3e7fc704f83838581dc67e57, type: 3}
   - {fileID: 8420983721660901938, guid: d739a896405395a4abdcfc4507434324, type: 3}
-  PV: {fileID: 2004856154}
 --- !u!1 &2005905250
 GameObject:
   m_ObjectHideFlags: 0
