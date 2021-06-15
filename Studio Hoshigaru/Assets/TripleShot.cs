@@ -25,7 +25,7 @@ public class TripleShot : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(1) && canShoot)
             {
-                animator.Play("tripleShot");
+                animator.SetBool("isTripleShooting", true);
                 StartCoroutine(Wait());
             }
         }
@@ -58,6 +58,6 @@ public class TripleShot : MonoBehaviour
             else
                 botArrow.GetComponent<Rigidbody2D>().velocity = transform.right * launchForce;
         }
-
+       
     }
 }

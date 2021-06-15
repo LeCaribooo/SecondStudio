@@ -580,6 +580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03c22cc0df6746641a3e9b173e018299, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PV: {fileID: -5198743702041084537}
   playerControler: {fileID: 8745890432335679497}
   rb: {fileID: 8745890432335679496}
   dashSpeed: 10
@@ -1703,7 +1704,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -2.7003174, y: 19.5}
+  m_AnchoredPosition: {x: -2.7003784, y: 19.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &3243729740064713068
@@ -2114,7 +2115,7 @@ MonoBehaviour:
   crossShotBottom: {fileID: 3268713836859147743}
   animatedArms: {fileID: 958806729095387024}
   shootCooldown: 10
-  PV: {fileID: 1437431021835623129}
+  PV: {fileID: -5198743702041084537}
 --- !u!1 &3623393794180184515
 GameObject:
   m_ObjectHideFlags: 0
@@ -2794,6 +2795,15 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 1
     Name: isDead
+  - Type: 4
+    SynchronizeType: 2
+    Name: isCharging
+  - Type: 4
+    SynchronizeType: 2
+    Name: isEstocing
+  - Type: 4
+    SynchronizeType: 2
+    Name: isTripleShooting
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
@@ -3659,6 +3669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerControler: {fileID: 8745890432335679497}
   rb: {fileID: 8745890432335679496}
+  PV: {fileID: -5198743702041084537}
   dashSpeed: 8
   dashTime: 0.25
   dashCooldown: 2
@@ -5107,19 +5118,6 @@ RectTransform:
   m_AnchoredPosition: {x: -437.40002, y: -266}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3935973438710625014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7123761729063707226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 969f8d6abc7c4f444b903cdc30cd0cae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!1 &7187952739060370819
 GameObject:
   m_ObjectHideFlags: 0

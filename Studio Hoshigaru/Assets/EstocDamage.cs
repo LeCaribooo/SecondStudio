@@ -11,12 +11,6 @@ public class EstocDamage : MonoBehaviour
         
     }
 
-    private void Update()
-    {
-        Debug.Log("EstocDamage" + isActiveAndEnabled);
-    }
-
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
        

@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using System.IO;
 
 public class Charge : MonoBehaviour
 {
-
+    [SerializeField] PhotonView PV;
     [SerializeField] PlayerControler playerControler;
     [SerializeField] Rigidbody2D rb;
     public float dashSpeed;
@@ -31,22 +33,25 @@ public class Charge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (dashEnded && canDash)
+        if (PV.IsMine)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse1))
+            if (dashEnded && canDash)
             {
-                Instantiate(dashEffect, dashEffectSpawnPoint.position, Quaternion.identity);
-                if (playerControler.facingRight)
-                    StartCoroutine(Dash(-1f));
-                else
-                    StartCoroutine(Dash(1f));
+                if (Input.GetKeyDown(KeyCode.Mouse1))
+                {
+                    PhotonNetwork.Instantiate(Path.Combine("Sprites", "Player", "charge", dashEffect.name), dashEffectSpawnPoint.position, Quaternion.identity) ;
+                    if (playerControler.facingRight)
+                        StartCoroutine(Dash(-1f));
+                    else
+                        StartCoroutine(Dash(1f));
+                }
             }
         }
     }
 
     IEnumerator Dash(float direction)
     {
-        anim.Play("charge");
+        anim.SetBool("isCharging", true);
         playerControler.enabled = false;
         sprite.enabled = true;
         collider2D.enabled = true;
@@ -61,7 +66,8 @@ public class Charge : MonoBehaviour
         sprite.enabled = false;
         dashEnded = true;
         rb.gravityScale = gravity;
-        anim.Play("idle");
+        anim.SetBool("isCharging", false);
+
         StartCoroutine(Cooldown());
     }
 

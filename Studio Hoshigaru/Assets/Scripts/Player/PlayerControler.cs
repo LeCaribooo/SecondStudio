@@ -75,8 +75,13 @@ public class PlayerControler : MonoBehaviourPun, IPunObservable
     public void TripleShootWithBow()
     {
         tripleShot.PowerShoot();
+        
     }
 
+    public void SetIsTripleShooting()
+    {
+        animator.SetBool("isTripleShooting", false);
+    }
     public void disableForBow()
     {
         if (ws.actualWeaponString == "hasBow")
@@ -208,9 +213,10 @@ public class PlayerControler : MonoBehaviourPun, IPunObservable
         animator.SetInteger("AttackStatus", AttackStatus);
     }
 
-    public void playAnim()
+    public void SetIsEstocing()
     {
-        animator.Play("idle");
+        animator.SetBool("isEstocing", false);
+
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -224,8 +230,8 @@ public class PlayerControler : MonoBehaviourPun, IPunObservable
         }
         else
         {
-            movementSpeed = (int)stream.ReceiveNext();
-            jumpForce = (int)stream.ReceiveNext();
+            movementSpeed = (float)stream.ReceiveNext();
+            jumpForce = (float)stream.ReceiveNext();
             extraJumpsValue = (int)stream.ReceiveNext();
             playerForce = (int)stream.ReceiveNext();
         }
