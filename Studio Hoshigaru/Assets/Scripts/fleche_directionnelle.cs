@@ -5,9 +5,13 @@ using UnityEngine;
 public class fleche_directionnelle : MonoBehaviour
 {
     
-    public Transform target;
+    private Transform target;
     // Start is called before the first frame update
     // Update is called once per frame
+    private void Start()
+    {
+        target = GameObject.Find("target").GetComponent<Transform>();
+    }
     void Update()
     {
         Vector3 targetPosition = target.transform.position;
