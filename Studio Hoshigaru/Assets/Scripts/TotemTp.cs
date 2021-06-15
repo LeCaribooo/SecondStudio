@@ -8,7 +8,7 @@ public class TotemTp : MonoBehaviourPun
 {
     public string nametotem;
 
-
+    public reinitialiseposition reinitialiseposition;
     public TotemTp PairWith;
 
     public Text PressT;
@@ -78,6 +78,7 @@ public class TotemTp : MonoBehaviourPun
             {
                 GameObject player = getMinePlayer();
                 player.transform.position = PairWith.transform.position;
+                reinitialiseposition.reinit = true;
                 StartCoroutine(Decompte());
                 HasPressT = false;
             }
