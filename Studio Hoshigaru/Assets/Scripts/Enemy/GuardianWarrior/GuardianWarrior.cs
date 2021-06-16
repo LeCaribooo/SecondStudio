@@ -66,8 +66,8 @@ public class GuardianWarrior : MonoBehaviourPun
         cooling3 = maxcooling3;
         health = GetComponent<EnemyHealth>();
         health.health = Maxhealth;
-        healthbar.SetMaxHealth(Maxhealth);
         rb2d = GetComponent<Rigidbody2D>();
+        healthbar.SetMaxHealth(Maxhealth);
         baseScale = transform.localScale;
         facingDirection = RIGHT;
     }
@@ -259,7 +259,7 @@ public class GuardianWarrior : MonoBehaviourPun
                 }
                 else
                 {
-                    rb2d.velocity = new Vector2(0, rb2d.velocity.y);
+                    rb2d.velocity = Vector2.up * 3f;
                 }
             }
             else
