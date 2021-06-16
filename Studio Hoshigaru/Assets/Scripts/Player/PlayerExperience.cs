@@ -7,21 +7,24 @@ public class PlayerExperience : MonoBehaviour
     public int level;
     public int experience;
     public int point = 0;
-    [SerializeField] int expForNextLevel;
+    public int expForNextLevel;
     [SerializeField] XPBar xpBar;
     [SerializeField] AptitudeManager aptitudeManager;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        xpBar.SetMaxXP(expForNextLevel,experience);
+        Debug.LogWarning("Start");
+        xpBar.SetMaxXP(expForNextLevel, experience);
         xpBar.SetLevel(level);
     }
 
     // Update is called once per frame
     void Update()
     {
-        xpBar.SetXP(experience);
+        xpBar.SetMaxXP(expForNextLevel, experience);
+        xpBar.SetLevel(level);
         if(experience >= expForNextLevel)
         {
             level++;

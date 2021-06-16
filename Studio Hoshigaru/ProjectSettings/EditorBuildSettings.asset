@@ -29,9 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Phase 3/TreeLevel.unity
     guid: cce92b36aa3fddb4a87830d5be8fddad
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/D&R/Level3.unity
     guid: 5c78d510078e62c43822fd8dd5157e8a
