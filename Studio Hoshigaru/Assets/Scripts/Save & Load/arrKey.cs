@@ -5,8 +5,8 @@ using UnityEngine;
 public class arrKey : MonoBehaviour
 {
     public static string[] int_key = new string[]
-    { 
-        "load",
+    {
+        "nbplayer",
         "nbHeart",
         "numOfHits",
         "defense",
@@ -36,6 +36,10 @@ public class arrKey : MonoBehaviour
     public static string[] string_key = new string[]
     {
         "scene",
+        "player1",
+        "player2",
+        "player3",
+        "player4",
 
     };
 }

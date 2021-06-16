@@ -9,8 +9,6 @@ public class SaveGame : MonoBehaviourPun
 {
     public Canvas echap;
     public Image LoadOrSave;
-    public Image ChooseLoad;
-    public Image ChooseSave;
 
 
     private GameObject MyPlayer;
@@ -50,40 +48,26 @@ public class SaveGame : MonoBehaviourPun
     {
         Debug.Log("affiche : " + affiche);
         affiche = !affiche;
-
-        echap.gameObject.SetActive(affiche);
-        ChooseSave.gameObject.SetActive(false);
-        ChooseLoad.gameObject.SetActive(false);
+        if (MyPlayer == PhotonNetwork.IsMasterClient)
+        {
+            echap.gameObject.SetActive(affiche);
+        }
+        
         
     }
 
-    public void CloseEchap()
-    {
-        affiche = false;
-        echap.gameObject.SetActive(affiche);
-        LoadOrSave.gameObject.SetActive(true);
-        ChooseSave.gameObject.SetActive(false);
-        ChooseLoad.gameObject.SetActive(false);
-    }
 
-    public void WichLoad()
-    {
-        LoadOrSave.gameObject.SetActive(false);
-        ChooseLoad.gameObject.SetActive(true);
-        ChooseSave.gameObject.SetActive(false);
-    }
-
-    public void WichSave()
-    {
-        LoadOrSave.gameObject.SetActive(false);
-        ChooseLoad.gameObject.SetActive(false);
-        ChooseSave.gameObject.SetActive(true);
-    }
 
     public void save()
     {
 
         Debug.LogWarning("Saving...");
+        //Game Setting
+        MultiProfile.SetInt("nbplayer", PhotonNetwork.PlayerList.Length);
+        for (int i = 1; i <= PhotonNetwork.PlayerList.Length; i++)
+        {
+            MultiProfile.SetString("player" + i , PhotonNetwork.PlayerList[i].NickName);
+        }
         //Scene
         MultiProfile.SetString("scene", SceneManager.GetActiveScene().name);
         //Position

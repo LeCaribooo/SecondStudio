@@ -7,9 +7,9 @@ public class MultiProfile : MonoBehaviour
 {
     private static string currentProfile; //Layer de selection
   
-    public void currentP(Button button)
+    public void currentP(string cp)
     {
-        currentProfile = button.GetComponentInChildren<Text>().text;
+        currentProfile = cp;
         Debug.LogWarning("/!\\ CURRENT PROFILE : " + currentProfile + " /!\\");
     }
 
