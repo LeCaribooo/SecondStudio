@@ -14,6 +14,7 @@ public class GolemTrigger : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
+            script.anim.SetBool("Block0", false);
             script.Triggered = true;
         }
     }
