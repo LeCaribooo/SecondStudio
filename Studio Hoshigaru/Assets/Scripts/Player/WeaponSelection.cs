@@ -13,6 +13,11 @@ public class WeaponSelection : MonoBehaviourPun
     public GameObject actualWeapon = null;
     public string actualWeaponString = "";
 
+    public GameObject swordButton;
+    public GameObject bowButton;
+    public GameObject hammerButton;
+    public GameObject shurikenButton;
+
 
     private void Update()
     {
@@ -128,6 +133,31 @@ public class WeaponSelection : MonoBehaviourPun
     }
 
 
+    public void OnClick_ActiveButton(string function)
+    {
+        base.photonView.RPC(function, RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void ActiveSword()
+    {
+        swordButton.SetActive(true);
+    }
+    [PunRPC]
+    public void ActiveBow()
+    {
+        bowButton.SetActive(true);
+    }
+    [PunRPC]
+    public void ActiveShuriken()
+    {
+        shurikenButton.SetActive(true);
+    }
+    [PunRPC]
+    public void ActiveHammer()
+    {
+        hammerButton.SetActive(true);
+    }
 
 }
 

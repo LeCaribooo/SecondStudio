@@ -38,13 +38,11 @@ public class TotemTp : MonoBehaviourPun
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-
         if (collision.gameObject.tag == "Player" && collision.gameObject == getMinePlayer())
         {
             OnIt = true;
             thisOne = true;
         }
-
     }
 
     private void OnTriggerExit2D(Collider2D collision)

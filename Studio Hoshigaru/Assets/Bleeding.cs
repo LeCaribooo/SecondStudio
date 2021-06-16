@@ -9,6 +9,10 @@ public class Bleeding : MonoBehaviour
     [SerializeField] int nbOfDots;
     [SerializeField] float timeBetweenDots;
 
+    private void Start()
+    {
+        
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {

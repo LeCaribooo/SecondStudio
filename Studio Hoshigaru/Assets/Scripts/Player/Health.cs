@@ -93,8 +93,6 @@ public class Health : MonoBehaviourPun, IPunObservable
         canRegen = true;
     }
 
-
-
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
