@@ -66,7 +66,7 @@ public class SaveGame : MonoBehaviourPun
         MultiProfile.SetInt("nbplayer", PhotonNetwork.PlayerList.Length);
         for (int i = 1; i <= PhotonNetwork.PlayerList.Length; i++)
         {
-            MultiProfile.SetString("player" + i , PhotonNetwork.PlayerList[i].NickName);
+            MultiProfile.SetString("player" + i , PhotonNetwork.PlayerList[i-1].NickName);
         }
         //Scene
         MultiProfile.SetString("scene", SceneManager.GetActiveScene().name);

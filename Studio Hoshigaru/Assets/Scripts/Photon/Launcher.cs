@@ -10,6 +10,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 {
     public static Launcher Instance;
 
+    public static bool loadSavefile;
 
     [SerializeField] InputField roomNameInputField;
     [SerializeField] Text errorText;
@@ -193,7 +194,10 @@ public class Launcher : MonoBehaviourPunCallbacks
         PhotonNetwork.NickName = playerNameText.text;
     }
 
-
+    public void lSavefile(bool bol)
+    {
+        loadSavefile = bol;
+    }
    
 
 }

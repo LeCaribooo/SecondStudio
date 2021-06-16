@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class MultiProfile : MonoBehaviour
 {
     private static string currentProfile; //Layer de selection
+    private static string playerName;
   
     public void currentP(string cp)
     {
         currentProfile = cp;
         Debug.LogWarning("/!\\ CURRENT PROFILE : " + currentProfile + " /!\\");
     }
+
 
     //Surcharge des opérateurs 
     
@@ -32,17 +34,17 @@ public class MultiProfile : MonoBehaviour
 
     public static void SetInt(string key, int defaultValue)
     {
-        PlayerPrefs.SetInt(currentProfile + key, defaultValue);
+        PlayerPrefs.SetInt(currentProfile  + key, defaultValue);
     }
 
     public static void SetFloat(string key, float defaultValue)
     {
-        PlayerPrefs.SetFloat(currentProfile + key, defaultValue);
+        PlayerPrefs.SetFloat(currentProfile  + key, defaultValue);
     }
 
     public static void SetString(string key, string defaultValue)
     {
-        PlayerPrefs.SetString(currentProfile + key, defaultValue);
+        PlayerPrefs.SetString(currentProfile  + key, defaultValue);
     }
 
     public static bool HasKey(string key)

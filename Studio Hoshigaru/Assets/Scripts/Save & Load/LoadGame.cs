@@ -38,7 +38,8 @@ public class LoadGame : MonoBehaviourPun
         if (MultiProfile.HasKey("x"))
         {
             Debug.LogWarning("Loading...");
-            MultiProfile.SetInt("load", 1);
+            //Game Setting
+            int nbplayers = MultiProfile.GetInt("nbplayer");
             //Scene
             PhotonNetwork.LoadLevel(MultiProfile.GetString("scene"));
             //Position
