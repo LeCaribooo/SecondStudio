@@ -6,44 +6,48 @@ using Photon.Pun;
 public class CanvasPlayerManager : MonoBehaviour
 {
     public static bool isMenuOpen = false;
-    public static bool isWeaponSelectionOpen = false;
+    public static bool isInventoryOpen = false;
     public static bool isAptitudeOpen = false;
 
-    public GameObject weaponSelection;
+    public GameObject inventory;
     public GameObject aptitudes;
     [SerializeField] PhotonView PV;
 
     void Update()
     {
-        isMenuOpen = isAptitudeOpen || isWeaponSelectionOpen;
+        isMenuOpen = isAptitudeOpen || isInventoryOpen;
        
         if(PV.IsMine)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if (isWeaponSelectionOpen)
+                if (isInventoryOpen)
                 {
-                    weaponSelection.SetActive(false);
+                    inventory.SetActive(false);
                 }
                 else
                 {
-                    weaponSelection.SetActive(true);
+                    inventory.SetActive(true);
+                    aptitudes.SetActive(false);
+                    isAptitudeOpen = false;
+
                 }
-                isWeaponSelectionOpen = !isWeaponSelectionOpen;
+                isInventoryOpen = !isInventoryOpen;
             }
             if (Input.GetKeyDown(KeyCode.F))
             {
-                if (isWeaponSelectionOpen)
+                if (isAptitudeOpen)
                 {
                     aptitudes.SetActive(false);
                 }
                 else
                 {
                     aptitudes.SetActive(true);
+                    inventory.SetActive(false);
+                    isInventoryOpen = false;
                 }
-                isWeaponSelectionOpen = !isWeaponSelectionOpen;
+                isAptitudeOpen = !isAptitudeOpen;
             }
-
         }
     }
 }
