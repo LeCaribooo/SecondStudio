@@ -319,6 +319,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  isBleeding: 0
+  dotDmgs: 0
+  nbOfDots: 0
+  timeBetweenDots: 0
 --- !u!114 &5304983912780777330
 MonoBehaviour:
   m_ObjectHideFlags: 0
