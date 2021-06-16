@@ -237,4 +237,20 @@ public class PlayerControler : MonoBehaviourPun, IPunObservable
         }
     }
 
+    public void StopHere()
+    {
+        animator.SetBool("isRunning", false);
+        animator.SetBool("isJumping", false);
+        animator.SetBool("isCharging", false);
+        animator.SetBool("isEstocing", false);
+        animator.SetBool("isTripleShooting", false);
+        animator.SetInteger("AttackStatus", 0);
+        rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+    }
+
+    public void MoveHere()
+    {
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+    }
+
 }
