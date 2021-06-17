@@ -88,7 +88,10 @@ public class Waves : MonoBehaviourPun
                 Debug.Log("Start Waves");
                 DecompteCanvas.gameObject.SetActive(false);
                 W_inprogress = false;
-                WavesFct();
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    WavesFct();
+                }    
                 time = 6f;
             }
             if (PhotonNetwork.IsMasterClient)
