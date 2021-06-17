@@ -25,6 +25,8 @@ public class Waves : MonoBehaviourPun
     public Portal_Back Portal_Back;
     
     public string newscene;
+
+    private int nbMobs;
     
     [SerializeField]
     private int nbWaves;
@@ -88,7 +90,7 @@ public class Waves : MonoBehaviourPun
         if (!RoomCleared && !IsClear())
         {
             GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
-            StatesWaves.text = "" + enemy.Length + "/" + mobwaves.Count + " Ennemies";
+            StatesWaves.text = "" + enemy.Length + "/" + nbMobs + " Ennemies";
         }
         //Quand c'est clear et que je suis le MasterClient
         if (IsClear() && !W_inprogress && PhotonNetwork.IsMasterClient && !RoomCleared) //Permet au MasterClient de controler l'envoie de vague et leur uptade.
@@ -125,6 +127,11 @@ public class Waves : MonoBehaviourPun
             AddMob();
         }
         Fill_mobwaves();
+        nbMobs = mobwaves.Count;
+        if (PhotonNetwork.IsMasterClient)
+        {
+            base.photonView.RPC("SendCountMob", RpcTarget.All, nbMobs);
+        }
         foreach (GameObject mob in mobwaves)
         {
             Debug.Log("Spawn & Instantiate");
@@ -162,10 +169,6 @@ public class Waves : MonoBehaviourPun
             for (int j = 0; j < nb_mob; j++)
             {
                 mobwaves.Add(enemies[i]);
-            }
-            if (PhotonNetwork.IsMasterClient)
-            {
-                base.photonView.RPC("Sendmobwave", RpcTarget.Others, mobwaves);
             }
         }
     }
@@ -212,8 +215,8 @@ public class Waves : MonoBehaviourPun
 
     [PunRPC]
     //Nombre de mob
-    void Sendmobwave(List<GameObject> mobW)
+    void SendCountMob(int mobW)
     {
-        mobwaves = mobW;
+        nbMobs = mobW;
     }
 }
