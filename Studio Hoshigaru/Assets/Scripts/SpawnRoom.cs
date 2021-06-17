@@ -6,8 +6,11 @@ using Photon.Pun;
 
 public class SpawnRoom : MonoBehaviour
 {
+    
     [SerializeField]
     private GameObject[] spawnpoint = new GameObject[4];
+
+
 
 
     // Start is called before the first frame update
@@ -24,8 +27,11 @@ public class SpawnRoom : MonoBehaviour
                 joueur.transform.position = spawn.transform.position;
             }
         }
-        
+
     }
+
+
+
 
 
 
