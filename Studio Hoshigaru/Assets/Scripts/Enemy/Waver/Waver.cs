@@ -141,18 +141,18 @@ public class Waver : MonoBehaviourPun
                     {
                         Flip(LEFT);
                     }
-                    Debug.Log("1");
+
                 }
                 else if(IsHittingWall() && !anim.GetCurrentAnimatorStateInfo(0).IsName("Death") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Attack1") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Attack2"))
                 {
                     if (CanJump())
                     {
-                        Debug.Log("2");
+
                         rb2d.velocity = Vector2.up * 3f;
                     }
                     else
                     {
-                        Debug.Log("3");
+
                         if (facingDirection == LEFT)
                         {
                             Flip(RIGHT);
@@ -165,7 +165,7 @@ public class Waver : MonoBehaviourPun
                 }
                 else if(!anim.GetCurrentAnimatorStateInfo(0).IsName("Death") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Attack1") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Attack2"))
                 {
-                    Debug.Log("4");
+
                     Move();
                 }
             }
