@@ -66,6 +66,12 @@ public class Waves : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            Debug.LogWarning(" nombre de mob chez le MG : " + nbMobs);
+            base.photonView.RPC("SendCountMob", RpcTarget.All, nbMobs);
+        }
+
         if (!RoomCleared)
         {
             CWaves.text = "" + (CountWaves + 1);
@@ -108,6 +114,12 @@ public class Waves : MonoBehaviourPun
             base.photonView.RPC("SendRoomCleared", RpcTarget.Others, RoomCleared);
 
         }
+        //Quand c'est clear et que je NE suis PAS le MC
+        if (IsClear() && !W_inprogress && !RoomCleared)
+        {
+            DecompteCanvas.gameObject.SetActive(true);
+            StatesWaves.text = "Wave Clear !";
+        }
         //Quand c'est fini
         if (RoomCleared)
         {
@@ -128,11 +140,6 @@ public class Waves : MonoBehaviourPun
         }
         Fill_mobwaves();
         nbMobs = mobwaves.Count;
-        if (PhotonNetwork.IsMasterClient)
-        {
-            Debug.LogWarning(" nombre de mob chez le MG : " + nbMobs);
-            base.photonView.RPC("SendCountMob", RpcTarget.All, nbMobs);
-        }
         foreach (GameObject mob in mobwaves)
         {
             Debug.Log("Spawn & Instantiate");
