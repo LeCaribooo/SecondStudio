@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class RunesSlot : MonoBehaviour, IDropHandler
+public class RunesSlot : MonoBehaviour, IPointerDownHandler
 {
-    private Runes actualRune;
+    public GameObject RunesManager;
+    public bool isOccupied;
 
-    public void OnDrop(PointerEventData eventData)
+    public void OnPointerDown(PointerEventData eventData)
     {
-        if(eventData.pointerDrag != null)
+        if (isOccupied)
         {
-            eventData.pointerDrag.GetComponent<DragAndDrop>().droppedOnSlot = true;
-            actualRune = eventData.pointerDrag.GetComponent<Runes>();
-            actualRune.Choose(true);
-            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+            GameObject getted = eventData.pointerEnter;
+            getted.GetComponent<Runes>().Choose(false);
+            getted.GetComponent<RectTransform>().SetParent(RunesManager.transform);
+            isOccupied = false;
         }
+        
     }
-
-    
 }

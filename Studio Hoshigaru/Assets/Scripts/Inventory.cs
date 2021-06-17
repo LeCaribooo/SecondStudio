@@ -57,6 +57,7 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        runesManager.Display();
         switch (wp.actualWeaponString)
         {
             case "hasSword":
@@ -85,13 +86,13 @@ public class Inventory : MonoBehaviour
 
     public void OnClick_ShowWeaponSelection()
     {
+        
         weaponSelection.SetActive(!isOpen);
         isOpen = !isOpen;
     }
     
     public void OnClick_CloseWeaponSelection()
     {
-        runesManager.Display();
         weaponSelection.SetActive(false);
         isOpen = false;
     }

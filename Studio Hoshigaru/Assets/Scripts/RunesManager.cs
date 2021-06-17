@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class RunesManager : MonoBehaviour
+public class RunesManager : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] WeaponSelection wp;
     [SerializeField] PlayerRunes playerRunes;
@@ -13,22 +14,9 @@ public class RunesManager : MonoBehaviour
     List<Runes> bowRunes = new List<Runes>();
     List<Runes> hammerRunes = new List<Runes>();
     List<Runes> shurikenRunes = new List<Runes>();
-    public Dictionary<string, Runes> BookOfRunes;
 
-    public Runes estoc;
-    public Runes tripleShoot;
-    public Runes bleed;
-    public Runes charge;
-    
     void Start()
     {
-        BookOfRunes = new Dictionary<string, Runes>();
-        BookOfRunes.Add("Estoc", estoc);
-        BookOfRunes.Add("TripleShoot", tripleShoot);
-        BookOfRunes.Add("Bleed", bleed);
-        BookOfRunes.Add("Charge", charge);
-
-
         for (int i = 0; i < playerRunes.nbOfRunes; i++)
         {
             runesSlot[i].SetActive(true);
@@ -59,27 +47,6 @@ public class RunesManager : MonoBehaviour
             shurikenRunes.Add(rune.gameObject.GetComponent<Runes>());
     }
 
-    public void AddRune(string str)
-    {
-        Runes Rune;
-        BookOfRunes.TryGetValue(str, out Rune);
-        if (Rune == null)
-            return;
-        GameObject rune = Instantiate(Rune.gameObject, transform.position, Quaternion.identity);
-        rune.transform.SetParent(this.transform);
-        rune.SetActive(false);
-        allRunes.Add(rune.gameObject.GetComponent<Runes>());
-        if (Rune.runesWeapon == Weapon.SWORD)
-            swordRunes.Add(rune.gameObject.GetComponent<Runes>());
-        else if (Rune.runesWeapon == Weapon.BOW)
-            bowRunes.Add(rune.gameObject.GetComponent<Runes>());
-        else if (Rune.runesWeapon == Weapon.HAMMER)
-            hammerRunes.Add(rune.gameObject.GetComponent<Runes>());
-        else
-            shurikenRunes.Add(rune.gameObject.GetComponent<Runes>());
-    }
-
-
     public void Display()
     {
         for (int i = 0; i < displayedRunes.Count; i++)
@@ -108,4 +75,33 @@ public class RunesManager : MonoBehaviour
             displayedRunes[i].gameObject.SetActive(true);
         }
     }
+
+    
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        int nextPosition = GetNextAvailableSlot();
+        if(nextPosition != 5 && !runesSlot[nextPosition].GetComponent<RunesSlot>().isOccupied)
+        {
+            GameObject actualRune = eventData.pointerEnter;
+            actualRune.GetComponent<RectTransform>().SetParent(runesSlot[nextPosition].transform);
+            actualRune.GetComponent<RectTransform>().localPosition = new Vector2(0, 0);
+            runesSlot[nextPosition].GetComponent<RunesSlot>().isOccupied = true;
+            actualRune.GetComponent<Runes>().Choose(true);
+        }
+    }
+
+
+    public int GetNextAvailableSlot()
+    {
+        for (int i = 0; i < playerRunes.nbOfRunes; i++)
+        {
+            if (!runesSlot[i].GetComponent<RunesSlot>().isOccupied)
+                return i;
+        }
+        return 5;
+    }
+
 }
+
+

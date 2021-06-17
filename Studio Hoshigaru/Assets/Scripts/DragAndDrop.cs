@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     Vector3 defaultPos;
     [HideInInspector] public bool droppedOnSlot;
@@ -26,10 +26,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         rune = GetComponent<Runes>();
     }
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        
-    }
+    
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -56,5 +53,4 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
             rectTransform.localPosition = defaultPos;
         droppedOnSlot = false;
     }
-
 }
