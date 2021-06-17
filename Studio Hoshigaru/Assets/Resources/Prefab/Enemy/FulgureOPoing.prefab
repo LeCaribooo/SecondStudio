@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: -7066604154601349354, guid: b3e58311c53735143861fb2563b99e28,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e74bf84b849a58440a5914aa6de24153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attacktimer: 1
+  attacktimer: 8
   facingDirection: right
   damage: 4
   rb2d: {fileID: 6675658524360973486}
