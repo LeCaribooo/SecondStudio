@@ -130,6 +130,7 @@ public class Waves : MonoBehaviourPun
         nbMobs = mobwaves.Count;
         if (PhotonNetwork.IsMasterClient)
         {
+            Debug.LogWarning(" nombre de mob chez le MG : " + nbMobs);
             base.photonView.RPC("SendCountMob", RpcTarget.All, nbMobs);
         }
         foreach (GameObject mob in mobwaves)
@@ -214,9 +215,10 @@ public class Waves : MonoBehaviourPun
     }
 
     [PunRPC]
-    //Nombre de mob
+    //Envoie le nb de mob
     void SendCountMob(int mobW)
     {
         nbMobs = mobW;
+        Debug.LogWarning(" nombre de mobEnvoyé " + nbMobs);
     }
 }
