@@ -46,7 +46,6 @@ MonoBehaviour:
   - PlayerReady
   - RandomRoomNumber_rpc
   - RPC_ChangeReadyState
-  - SendCountMob
   - SendCountWaves
   - SendExperience
   - SendMessage
@@ -62,6 +61,7 @@ MonoBehaviour:
   - Unload
   - Unlock
   - VoteRPC
+  - SendCountMob
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

@@ -15,6 +15,8 @@ public class PNG : MonoBehaviourPun
 
     [SerializeField] DialogueObjecty dialogue;
 
+    public GameObject store;
+
     GameObject MyPlayer;
 
     GameObject getMinePlayer()
@@ -70,7 +72,7 @@ public class PNG : MonoBehaviourPun
                 MyPlayer.GetComponent<PlayerControler>().StopHere();
                 MyPlayer.GetComponent<PlayerControler>().enabled = false;
                 UI_dialogue.gameObject.SetActive(true);
-                UI_dialogue.Begin(dialogue);
+                UI_dialogue.Begin(dialogue, store);
             }
         }
         else

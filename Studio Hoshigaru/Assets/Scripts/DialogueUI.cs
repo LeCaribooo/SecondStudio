@@ -13,22 +13,22 @@ public class DialogueUI : MonoBehaviour
 
     private TypeWriterEffect typeWriterEffect;
 
-    public void Begin(DialogueObjecty testDialogue)
+    public void Begin(DialogueObjecty testDialogue, GameObject store)
     {
         isSpeaking = true;
         typeWriterEffect = GetComponent<TypeWriterEffect>();
         CloseDialogueBox();
-        ShowDialogue(testDialogue);
+        ShowDialogue(testDialogue, store);
     }
 
-    public void ShowDialogue(DialogueObjecty dialogueObjecty)
+    public void ShowDialogue(DialogueObjecty dialogueObjecty, GameObject store)
     {
         this.gameObject.SetActive(true);
         DialogueBox.SetActive(true);
-        StartCoroutine(StepThroughDialogue(dialogueObjecty));
+        StartCoroutine(StepThroughDialogue(dialogueObjecty, store));
     }
 
-    private IEnumerator StepThroughDialogue(DialogueObjecty dialogueObjecty)
+    private IEnumerator StepThroughDialogue(DialogueObjecty dialogueObjecty, GameObject store)
     {
         foreach (string dialogue in dialogueObjecty.Dialogue)
         {
@@ -40,11 +40,10 @@ public class DialogueUI : MonoBehaviour
         isSpeaking = false;
     }
 
-    private void CloseDialogueBox()
+    public void CloseDialogueBox()
     {
         this.gameObject.SetActive(false);
         DialogueBox.gameObject.SetActive(false);
         textLabel.text = string.Empty;
-    
     }
 }

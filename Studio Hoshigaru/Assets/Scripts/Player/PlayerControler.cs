@@ -31,6 +31,8 @@ public class PlayerControler : MonoBehaviourPun, IPunObservable
     private float checkRadius;         //Radius de check
     private LayerMask whatIsGround;    //Layer qui select quel layer est le ground
 
+    public RunesManager runesManager;
+
     public int extraJumpsValue;
     private int extraJumps;
 
