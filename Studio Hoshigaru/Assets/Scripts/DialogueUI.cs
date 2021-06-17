@@ -8,10 +8,16 @@ public class DialogueUI : MonoBehaviour
 
     [SerializeField] private GameObject DialogueBox;
     [SerializeField] private TMP_Text textLabel;
-
+    private ResponseHandler responseHandler;
     public bool isSpeaking = false;
 
     private TypeWriterEffect typeWriterEffect;
+
+    private void Start()
+    {
+        responseHandler = GetComponent<ResponseHandler>();
+    }
+
 
     public void Begin(DialogueObjecty testDialogue, GameObject store)
     {
@@ -30,14 +36,24 @@ public class DialogueUI : MonoBehaviour
 
     private IEnumerator StepThroughDialogue(DialogueObjecty dialogueObjecty, GameObject store)
     {
-        foreach (string dialogue in dialogueObjecty.Dialogue)
+        for (int i = 0; i < dialogueObjecty.Dialogue.Length; i++)
         {
+            string dialogue = dialogueObjecty.Dialogue[i];
             yield return typeWriterEffect.Run(dialogue, textLabel);
+
+            if(i == dialogueObjecty.Dialogue.Length - 1 && dialogueObjecty.HasResponses) { break; }
+
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
         }
 
-        CloseDialogueBox();
-        isSpeaking = false;
+        if (dialogueObjecty.HasResponses)
+        {
+            responseHandler.ShowResponses(dialogueObjecty.Responses, store);
+        }
+        else
+        {
+            CloseDialogueBox();
+        }
     }
 
     public void CloseDialogueBox()

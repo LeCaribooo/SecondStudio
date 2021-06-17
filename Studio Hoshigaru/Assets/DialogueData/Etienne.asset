@@ -15,11 +15,8 @@ MonoBehaviour:
   dialogue:
   - Salut !
   - Tu veux etre mon pote ?
-  - 'On pourra aller fumer des joints.
-
-    Et casser la gueule au 6ieme pour leur
-    voler leur gouter.'
-  - "Et apr\xE8s on ira dire bonsoir \xE0 ta m\xE8re,\nElle aime beaucoup dire bonsoir."
-  - "Et apr\xE8s on ira dire \xE0 ton p\xE8re d'aller chercher le mot \"cocu\"\ndans
-    le dictionnaire."
-  - "Et pour finir, je te proprose d'am\xE9liorer ton marteau tu veux bien ?\n"
+  responses:
+  - responseText: Oui
+    dialogueObjecty: {fileID: 11400000, guid: 8fb87b15458c21b4abe55e0898f9980f, type: 2}
+  - responseText: Non
+    dialogueObjecty: {fileID: 11400000, guid: 0545cca17d475de4aba99b320c0ff0e6, type: 2}

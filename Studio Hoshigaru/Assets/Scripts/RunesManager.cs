@@ -25,6 +25,7 @@ public class RunesManager : MonoBehaviour, IPointerDownHandler
 
     void Update()
     {
+        Display();
         for (int i = 0; i < playerRunes.nbOfRunes; i++)
         {
             runesSlot[i].SetActive(true);

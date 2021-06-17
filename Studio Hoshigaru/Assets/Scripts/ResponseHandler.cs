@@ -63,8 +63,5 @@ public class ResponseHandler : MonoBehaviour
             dialogueUI.CloseDialogueBox();
             dialogueUI.isSpeaking = false;
         }
-        
-        
-
     }
 }
