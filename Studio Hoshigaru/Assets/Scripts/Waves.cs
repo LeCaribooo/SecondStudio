@@ -163,6 +163,10 @@ public class Waves : MonoBehaviourPun
             {
                 mobwaves.Add(enemies[i]);
             }
+            if (PhotonNetwork.IsMasterClient)
+            {
+                base.photonView.RPC("Sendmobwave", RpcTarget.Others, mobwaves);
+            }
         }
     }
 
@@ -204,5 +208,12 @@ public class Waves : MonoBehaviourPun
     void SendRoomCleared(bool roomclear)
     {
         RoomCleared = roomclear;
+    }
+
+    [PunRPC]
+    //Nombre de mob
+    void Sendmobwave(List<GameObject> mobW)
+    {
+        mobwaves = mobW;
     }
 }
