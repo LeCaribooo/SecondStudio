@@ -75,7 +75,10 @@ public class Waves : MonoBehaviourPun
         //Nouvelle vague
         if (CountWaves <= nbWaves && W_inprogress && !RoomCleared)
         {
-            StatesWaves.text = "Wave Clear !";
+            if (CountWaves > 0)
+            {
+                StatesWaves.text = "Wave Clear !";
+            }
             DecompteCanvas.gameObject.SetActive(true);
             time -= Time.deltaTime;
             int sec = (int)time;
@@ -87,11 +90,10 @@ public class Waves : MonoBehaviourPun
                 W_inprogress = false;
                 WavesFct();
                 time = 6f;
-                if (PhotonNetwork.IsMasterClient)
-                {
-                    Debug.LogWarning(" nombre de mob chez le MG : " + nbMobs);
-                    base.photonView.RPC("SendCountMob", RpcTarget.All, nbMobs);
-                }
+            }
+            if (PhotonNetwork.IsMasterClient)
+            {
+                base.photonView.RPC("SendCountMob", RpcTarget.All, nbMobs);
             }
 
         }
