@@ -131,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1274440}
   - component: {fileID: 1274439}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Global Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 28115911}
   - component: {fileID: 28115912}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 46142844}
   - component: {fileID: 46142845}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 86486933}
   - component: {fileID: 86486934}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -419,7 +419,7 @@ GameObject:
   m_Component:
   - component: {fileID: 97523914}
   - component: {fileID: 97523915}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,7 +491,7 @@ GameObject:
   m_Component:
   - component: {fileID: 109290960}
   - component: {fileID: 109290961}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -771,7 +771,7 @@ GameObject:
   m_Component:
   - component: {fileID: 208345488}
   - component: {fileID: 208345489}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -843,7 +843,7 @@ GameObject:
   m_Component:
   - component: {fileID: 280229050}
   - component: {fileID: 280229051}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -915,7 +915,7 @@ GameObject:
   m_Component:
   - component: {fileID: 285292969}
   - component: {fileID: 285292970}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -987,7 +987,7 @@ GameObject:
   m_Component:
   - component: {fileID: 285752647}
   - component: {fileID: 285752648}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1158,7 +1158,7 @@ Transform:
   m_LocalScale: {x: 3.671279, y: 3.5660136, z: 3.2773118}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &389373534
 GameObject:
@@ -1275,7 +1275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 439385623}
   - component: {fileID: 439385624}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1928,7 +1928,7 @@ GameObject:
   m_Component:
   - component: {fileID: 449592192}
   - component: {fileID: 449592193}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2075,7 +2075,7 @@ GameObject:
   m_Component:
   - component: {fileID: 478837920}
   - component: {fileID: 478837921}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2147,7 +2147,7 @@ GameObject:
   m_Component:
   - component: {fileID: 479850515}
   - component: {fileID: 479850516}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2288,7 +2288,7 @@ Transform:
   m_LocalScale: {x: 3.671279, y: 3.5660136, z: 3.2773118}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &539291086
 GameObject:
@@ -2447,7 +2447,7 @@ Transform:
   m_LocalScale: {x: 3.671279, y: 3.5660136, z: 3.2773118}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &558741190
 GameObject:
@@ -2459,7 +2459,7 @@ GameObject:
   m_Component:
   - component: {fileID: 558741191}
   - component: {fileID: 558741192}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Parametric Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2531,7 +2531,7 @@ GameObject:
   m_Component:
   - component: {fileID: 591405850}
   - component: {fileID: 591405851}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2632,7 +2632,7 @@ Transform:
   - {fileID: 979139920}
   - {fileID: 871754333}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &613017839
 MonoBehaviour:
@@ -2704,7 +2704,7 @@ GameObject:
   m_Component:
   - component: {fileID: 629591009}
   - component: {fileID: 629591010}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2776,7 +2776,7 @@ GameObject:
   m_Component:
   - component: {fileID: 655464084}
   - component: {fileID: 655464085}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3153,7 +3153,7 @@ RectTransform:
   m_Children:
   - {fileID: 394853593}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3270,7 +3270,7 @@ Transform:
   m_Children:
   - {fileID: 558741191}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &871754332
 GameObject:
@@ -3312,7 +3312,7 @@ GameObject:
   m_Component:
   - component: {fileID: 913904619}
   - component: {fileID: 913904620}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31196,7 +31196,7 @@ RectTransform:
   m_Children:
   - {fileID: 149817162}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -31243,7 +31243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1081577806}
   - component: {fileID: 1081577807}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31338,7 +31338,7 @@ RectTransform:
   - {fileID: 1024853859}
   - {fileID: 2147133047}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -31547,7 +31547,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1187823397
 GameObject:
@@ -31637,7 +31637,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1215037939}
   - component: {fileID: 1215037940}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32335,7 +32335,7 @@ Transform:
   - {fileID: 2080508180}
   - {fileID: 449592192}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1260371771
 GameObject:
@@ -32370,7 +32370,7 @@ Transform:
   - {fileID: 1077879597}
   - {fileID: 1562901363}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1260371773
 MonoBehaviour:
@@ -32399,7 +32399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1265939403}
   - component: {fileID: 1265939404}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32471,7 +32471,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1342049794}
   - component: {fileID: 1342049795}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32649,7 +32649,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1393346364
 GameObject:
@@ -32751,7 +32751,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1537636689}
   - component: {fileID: 1537636690}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33485,7 +33485,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1571653271
 MonoBehaviour:
@@ -33540,7 +33540,7 @@ Transform:
   - {fileID: 1735120628}
   - {fileID: 280229050}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1598849188
 GameObject:
@@ -33630,7 +33630,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1601213226}
   - component: {fileID: 1601213227}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33702,7 +33702,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1630953078}
   - component: {fileID: 1630953079}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33774,7 +33774,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1648481554}
   - component: {fileID: 1648481555}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33846,7 +33846,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1703660374}
   - component: {fileID: 1703660375}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33908,6 +33908,78 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &1730735989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1730735991}
+  - component: {fileID: 1730735990}
+  m_Layer: 13
+  m_Name: Global Light minimap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1730735990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730735989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 1
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1.05
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_UseNormalMap: 0
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_PointLightDistance: 3
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 72.13
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
+--- !u!4 &1730735991
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730735989}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.9, y: 1.2006547, z: -814.97894}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1735120627
 GameObject:
   m_ObjectHideFlags: 0
@@ -33918,7 +33990,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1735120628}
   - component: {fileID: 1735120629}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33990,7 +34062,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1807734932}
   - component: {fileID: 1807734933}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36761,7 +36833,7 @@ Transform:
   - {fileID: 1223433555}
   - {fileID: 1827487923}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1888854831
 GameObject:
@@ -37038,7 +37110,7 @@ Transform:
   m_Children:
   - {fileID: 2139868613}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1982318527
 GameObject:
@@ -37050,7 +37122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1982318528}
   - component: {fileID: 1982318529}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37234,7 +37306,7 @@ RectTransform:
   m_Children:
   - {fileID: 456060983}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -37378,7 +37450,7 @@ Tilemap:
       - {fileID: 6122161419676681471, guid: 5f925fb9dafff924790e4c8c1fd8b97f, type: 3}
       - {fileID: -3461057074378727891, guid: 5f925fb9dafff924790e4c8c1fd8b97f, type: 3}
       - {fileID: -4924385081812390761, guid: 5f925fb9dafff924790e4c8c1fd8b97f, type: 3}
-      m_AnimationSpeed: 4.8247585
+      m_AnimationSpeed: 4.841607
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 8, y: 6, z: 0}
@@ -37393,7 +37465,7 @@ Tilemap:
       - {fileID: 6122161419676681471, guid: 5f925fb9dafff924790e4c8c1fd8b97f, type: 3}
       - {fileID: -3461057074378727891, guid: 5f925fb9dafff924790e4c8c1fd8b97f, type: 3}
       - {fileID: -4924385081812390761, guid: 5f925fb9dafff924790e4c8c1fd8b97f, type: 3}
-      m_AnimationSpeed: 3.5152
+      m_AnimationSpeed: 3.054805
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -12, y: 7, z: 0}
@@ -37408,7 +37480,7 @@ Tilemap:
       - {fileID: 6122161419676681471, guid: 5f925fb9dafff924790e4c8c1fd8b97f, type: 3}
       - {fileID: -3461057074378727891, guid: 5f925fb9dafff924790e4c8c1fd8b97f, type: 3}
       - {fileID: -4924385081812390761, guid: 5f925fb9dafff924790e4c8c1fd8b97f, type: 3}
-      m_AnimationSpeed: 4.0551567
+      m_AnimationSpeed: 3.7891593
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 21, y: 13, z: 0}
@@ -37423,7 +37495,7 @@ Tilemap:
       - {fileID: 6122161419676681471, guid: 5f925fb9dafff924790e4c8c1fd8b97f, type: 3}
       - {fileID: -3461057074378727891, guid: 5f925fb9dafff924790e4c8c1fd8b97f, type: 3}
       - {fileID: -4924385081812390761, guid: 5f925fb9dafff924790e4c8c1fd8b97f, type: 3}
-      m_AnimationSpeed: 3.1145475
+      m_AnimationSpeed: 3.4098132
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   m_TileAssetArray:
@@ -37588,7 +37660,7 @@ Transform:
   m_LocalScale: {x: 3.671279, y: 3.5660136, z: 3.2773118}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2036794074
 GameObject:
@@ -37695,7 +37767,7 @@ Transform:
   m_LocalScale: {x: 1.62, y: 1.21, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2036794078
 MonoBehaviour:
@@ -37770,7 +37842,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2080508180}
   - component: {fileID: 2080508181}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point Light 2D (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37842,7 +37914,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2139868613}
   - component: {fileID: 2139868614}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Parametric Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}

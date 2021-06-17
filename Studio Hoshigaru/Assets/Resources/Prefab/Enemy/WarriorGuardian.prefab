@@ -225,6 +225,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  isBleeding: 0
+  dotDmgs: 0
+  nbOfDots: 0
+  timeBetweenDots: 0
 --- !u!70 &3835952796605919478
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -264,7 +268,7 @@ MonoBehaviour:
   alreadytouched: 1
   Maxhealth: 18
   baseCastDist: 0.3
-  downCastDist: 1.8
+  downCastDist: 2
   maxDistanceAttack: 1.5
   maxtimer1: 3
   maxtimer2: 7
@@ -516,7 +520,7 @@ RectTransform:
   m_GameObject: {fileID: 7690206892093305988}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 16.77172, y: 5.4414062, z: 1}
+  m_LocalScale: {x: 22.673271, y: 8.298144, z: 1}
   m_Children:
   - {fileID: 7690206893017637647}
   - {fileID: 7690206893081504103}
@@ -525,7 +529,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -443.58, y: -238.74}
+  m_AnchoredPosition: {x: -443.42, y: -237.32}
   m_SizeDelta: {x: 0.25979114, y: 0.08791387}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7690206892093305990
@@ -860,7 +864,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7690206892725907585}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.95, y: -1.041, z: 0}
+  m_LocalPosition: {x: 0.91, y: -1.041, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1213014846633028214}

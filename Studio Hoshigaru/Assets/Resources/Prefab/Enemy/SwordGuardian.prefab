@@ -501,7 +501,7 @@ RectTransform:
   m_GameObject: {fileID: 6376079431585748770}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 20.04745, y: 5.4414062, z: 1}
+  m_LocalScale: {x: 23.30516, y: 7.2098637, z: 1}
   m_Children:
   - {fileID: 4736561547067003762}
   - {fileID: 3466401691899306967}
@@ -767,6 +767,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  isBleeding: 0
+  dotDmgs: 0
+  nbOfDots: 0
+  timeBetweenDots: 0
 --- !u!212 &2365377957115724898
 SpriteRenderer:
   m_ObjectHideFlags: 0
