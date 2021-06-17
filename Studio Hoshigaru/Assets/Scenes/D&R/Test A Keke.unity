@@ -50738,7 +50738,7 @@ MonoBehaviour:
   - {fileID: 1584948639}
   - {fileID: 1978552666}
   - {fileID: 753503466}
-  smoothing: 3
+  smoothing: 10
   cam: {fileID: 0}
   wfp: {fileID: 2143200800}
 --- !u!4 &2143200799
