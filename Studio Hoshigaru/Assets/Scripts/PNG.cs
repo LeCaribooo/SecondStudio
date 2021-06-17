@@ -81,5 +81,12 @@ public class PNG : MonoBehaviourPun
         }
     }
 
+    public void OnClick_CloseStore()
+    {
+        store.SetActive(false);
+        UI_dialogue.isSpeaking = false;
+    }
+
+
 
 }
