@@ -202,7 +202,7 @@ public class GuardianSword : MonoBehaviourPun
                 }
                 else
                 {
-                    rb2d.velocity = new Vector2(0, rb2d.velocity.y);
+                    rb2d.velocity = Vector2.up * 3f;
                 }
             }
             else
