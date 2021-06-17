@@ -25,6 +25,8 @@ public class Waves : MonoBehaviourPun
     public Portal_Back Portal_Back;
     
     public string newscene;
+
+    private int nbMobs;
     
     [SerializeField]
     private int nbWaves;
@@ -64,6 +66,8 @@ public class Waves : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
+
+
         if (!RoomCleared)
         {
             CWaves.text = "" + (CountWaves + 1);
@@ -71,6 +75,10 @@ public class Waves : MonoBehaviourPun
         //Nouvelle vague
         if (CountWaves <= nbWaves && W_inprogress && !RoomCleared)
         {
+            if (CountWaves > 0)
+            {
+                StatesWaves.text = "Wave Clear !";
+            }
             DecompteCanvas.gameObject.SetActive(true);
             time -= Time.deltaTime;
             int sec = (int)time;
@@ -80,15 +88,22 @@ public class Waves : MonoBehaviourPun
                 Debug.Log("Start Waves");
                 DecompteCanvas.gameObject.SetActive(false);
                 W_inprogress = false;
-                WavesFct();
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    WavesFct();
+                }    
                 time = 6f;
+            }
+            if (PhotonNetwork.IsMasterClient)
+            {
+                base.photonView.RPC("SendCountMob", RpcTarget.All, nbMobs);
             }
 
         }
         if (!RoomCleared && !IsClear())
         {
             GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
-            StatesWaves.text = "" + enemy.Length + "/" + mobwaves.Count + " Ennemies";
+            StatesWaves.text = "" + enemy.Length + "/" + nbMobs + " Ennemies";
         }
         //Quand c'est clear et que je suis le MasterClient
         if (IsClear() && !W_inprogress && PhotonNetwork.IsMasterClient && !RoomCleared) //Permet au MasterClient de controler l'envoie de vague et leur uptade.
@@ -125,6 +140,7 @@ public class Waves : MonoBehaviourPun
             AddMob();
         }
         Fill_mobwaves();
+        nbMobs = mobwaves.Count;
         foreach (GameObject mob in mobwaves)
         {
             Debug.Log("Spawn & Instantiate");
@@ -204,5 +220,13 @@ public class Waves : MonoBehaviourPun
     void SendRoomCleared(bool roomclear)
     {
         RoomCleared = roomclear;
+    }
+
+    [PunRPC]
+    //Envoie le nb de mob
+    void SendCountMob(int mobW)
+    {
+        nbMobs = mobW;
+        Debug.LogWarning(" nombre de mobEnvoyé " + nbMobs);
     }
 }

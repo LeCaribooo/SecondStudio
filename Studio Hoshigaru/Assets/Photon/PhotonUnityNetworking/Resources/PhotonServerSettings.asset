@@ -33,6 +33,10 @@ MonoBehaviour:
   RunInBackground: 1
   StartInOfflineMode: 0
   RpcList:
+  - ActiveBow
+  - ActiveHammer
+  - ActiveShuriken
+  - ActiveSword
   - ClickRpc
   - Death
   - DestroyBlock
@@ -42,6 +46,7 @@ MonoBehaviour:
   - PlayerReady
   - RandomRoomNumber_rpc
   - RPC_ChangeReadyState
+  - SendCountMob
   - SendCountWaves
   - SendExperience
   - SendMessage
@@ -55,15 +60,8 @@ MonoBehaviour:
   - SetShurikenActive
   - SetSwordActive
   - Unload
-  - VoteRPC
   - Unlock
-  - ActiveButton
-  - ActiveSwordButton
-  - ActiveBowButton
-  - ActiveHammer
-  - ActiveShuriken
-  - ActiveBow
-  - ActiveSword
+  - VoteRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
