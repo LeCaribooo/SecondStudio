@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections;
 using System.Collections.Generic;
 
 public class ResponseHandler : MonoBehaviour
@@ -51,17 +52,25 @@ public class ResponseHandler : MonoBehaviour
         tempResponseButtons.Clear();
 
         dialogueUI.ShowDialogue(response.DialogueObjecty, store);
-        if (response.DialogueObjecty.name == "Oui")
+        if (response.ResponseText == "Oui")
         {
             if (store != null)
             {
                 store.SetActive(true);
+                StartCoroutine(Wait());
             }
         }
         else
         {
-            dialogueUI.CloseDialogueBox();
-            dialogueUI.isSpeaking = false;
+            StartCoroutine(Wait());
+            
         }
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(2);
+        dialogueUI.CloseDialogueBox();
+        dialogueUI.isSpeaking = false;
     }
 }

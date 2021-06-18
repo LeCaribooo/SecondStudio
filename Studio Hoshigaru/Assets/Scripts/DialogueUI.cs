@@ -46,12 +46,13 @@ public class DialogueUI : MonoBehaviour
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
         }
 
-        if (dialogueObjecty.HasResponses)
+        if (!dialogueObjecty.isEnd)
         {
             responseHandler.ShowResponses(dialogueObjecty.Responses, store);
         }
         else
         {
+            isSpeaking = false;
             CloseDialogueBox();
         }
     }

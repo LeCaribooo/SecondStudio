@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Etienne
   m_EditorClassIdentifier: 
   dialogue:
-  - Salut !
-  - Tu veux etre mon pote ?
+  - "Vous avez l'air sacr\xE9ment \xE0 plat !"
+  - "Comme apr\xE8s un bon coup de marteau."
+  - AHAHHAHAHAHAHHAHHAHAHAH
+  - Vous avez compris ?
+  - Bon est-ce que je peux vous aider ?
   responses:
   - responseText: Oui
     dialogueObjecty: {fileID: 11400000, guid: 8fb87b15458c21b4abe55e0898f9980f, type: 2}
