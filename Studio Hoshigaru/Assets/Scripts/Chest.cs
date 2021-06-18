@@ -10,6 +10,8 @@ public class Chest : MonoBehaviourPun
     bool OnIt;
     bool isPressed;
     GameObject onMe;
+    public GameObject cameraRenderer;
+    public PhotonView PV;
 
     private void Update()
     {
@@ -18,6 +20,7 @@ public class Chest : MonoBehaviourPun
             pressT.gameObject.SetActive(true);
             if (Input.GetKeyDown(KeyCode.T))
             {
+                base.photonView.RPC("DesactiveCameraRenderer", RpcTarget.All);
                 onMe.GetComponentInChildren<WeaponSelection>().OnClick_ActiveButton(function);
                 isPressed = true;
             }
@@ -45,6 +48,15 @@ public class Chest : MonoBehaviourPun
             onMe = null;
             OnIt = false;
             pressT.gameObject.SetActive(false);
+        }
+    }
+
+    [PunRPC]
+    public void DesactiveCameraRenderer()
+    {
+        if(cameraRenderer != null)
+        {
+            cameraRenderer.SetActive(false);
         }
     }
 }
