@@ -9,11 +9,13 @@ public class CanvasPlayerManager : MonoBehaviour
     public static bool isInventoryOpen = false;
     public static bool isAptitudeOpen = false;
     public static bool isEscapeOpen = false;
+    public static bool isTrackerOpen = false;
     
 
     public GameObject inventory;
     public GameObject aptitudes;
     public GameObject escape;
+    public GameObject tracker;
     [SerializeField] PhotonView PV;
 
     void Update()
@@ -35,6 +37,8 @@ public class CanvasPlayerManager : MonoBehaviour
                     isAptitudeOpen = false;
                     escape.SetActive(false);
                     isEscapeOpen = false;
+                    tracker.SetActive(false);
+                    isTrackerOpen = false;
                 }
                 isInventoryOpen = !isInventoryOpen;
             }
@@ -51,6 +55,8 @@ public class CanvasPlayerManager : MonoBehaviour
                     escape.SetActive(false);
                     isEscapeOpen = false;
                     isInventoryOpen = false;
+                    tracker.SetActive(false);
+                    isTrackerOpen = false;
                 }
                 isAptitudeOpen = !isAptitudeOpen;
             }
@@ -67,8 +73,29 @@ public class CanvasPlayerManager : MonoBehaviour
                     inventory.SetActive(false);
                     isInventoryOpen = false;
                     isAptitudeOpen = false;
+                    tracker.SetActive(false);
+                    isTrackerOpen = false;
                 }
                 isEscapeOpen = !isEscapeOpen;
+            }
+
+            if (Input.GetKeyDown(KeyCode.C) && tracker.GetComponent<Tracker>().fleche.objectiveManager.mode == Mode.TRACKER)
+            {
+                if (isTrackerOpen)
+                {
+                    tracker.SetActive(false);
+                }
+                else
+                {
+                    tracker.SetActive(true);
+                    aptitudes.SetActive(false);
+                    inventory.SetActive(false);
+                    escape.SetActive(false);
+                    isEscapeOpen = false;
+                    isInventoryOpen = false;
+                    isAptitudeOpen = false;
+                }
+                isTrackerOpen = !isTrackerOpen;
             }
         }
     }

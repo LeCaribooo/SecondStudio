@@ -5,6 +5,7 @@ using Photon.Pun;
 
 public class Levier : MonoBehaviourPun
 {
+    public ObjectiveManager objectiveManager;
     public GameObject[] doors;
     public SpriteRenderer spriteRenderer;
     public Sprite activatedLever;
@@ -12,6 +13,7 @@ public class Levier : MonoBehaviourPun
     bool OnIt;
     bool isPressed;
     GameObject onMe;
+    public GameObject cameraRenderer;
 
     [PunRPC]
     private void Unlock()
@@ -20,6 +22,8 @@ public class Levier : MonoBehaviourPun
         for (int i = 0; i < doors.Length; i++)
         {
             doors[i].GetComponent<Animator>().enabled = true;
+            objectiveManager.NextObjective();
+            cameraRenderer.SetActive(false);
         }
     }
 
@@ -30,7 +34,9 @@ public class Levier : MonoBehaviourPun
             pressT.gameObject.SetActive(true);
             if (Input.GetKeyDown(KeyCode.T))
             {
+                
                 base.photonView.RPC("Unlock", RpcTarget.All);
+                
                 isPressed = true;
             }
         }
