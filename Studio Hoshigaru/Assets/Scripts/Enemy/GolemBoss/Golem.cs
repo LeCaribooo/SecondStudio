@@ -154,7 +154,7 @@ public class Golem : MonoBehaviourPun
                 {
                     Reinforce();
                 }
-                else if(!immuneCooling)
+                else if(!immuneCooling && phase != 3)
                 {
                     Immune();
                 }

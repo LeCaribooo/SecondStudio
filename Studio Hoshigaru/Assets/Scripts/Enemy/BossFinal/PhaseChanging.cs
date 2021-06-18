@@ -6,6 +6,7 @@ public class PhaseChanging : MonoBehaviour
 {
     public GameObject P1;
     public GameObject P2;
+
     public bool p2;
     public bool changed;
     // Start is called before the first frame update

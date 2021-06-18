@@ -9,7 +9,8 @@ public class Warnings : MonoBehaviour
     public bool middle;
     public GameObject L;
     public Light2D light;
-    public bool end;
+    public MainBoss boss;
+    public int type;
 
     public void Start()
     {
@@ -19,11 +20,7 @@ public class Warnings : MonoBehaviour
     void Update()
     {
         if(warn)
-        {
-            if(end)
-            {
-                end = false;
-            }
+        { 
             if(!middle)
             {
                 light.intensity += 0.005f;
@@ -37,7 +34,14 @@ public class Warnings : MonoBehaviour
                 light.intensity = 0f;
                 middle = false;
                 warn = false;
-                end = true;
+                if(type == 1)
+                {
+                    boss.TentacleSpawn(transform.position);
+                }
+                else
+                {
+                    boss.MeteorSpawn(transform.position);
+                }
             }
             else if(light.intensity >= 1f)
             {

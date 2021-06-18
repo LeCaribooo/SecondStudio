@@ -39,4 +39,11 @@ public class Stockage : MonoBehaviour
     public GameObject LaserPlace3;
     public GameObject deadL;
     public GameObject deadR;
+    public GameObject BeginningFight;
+    public GameObject mainLight;
+
+    public void Start()
+    {
+        mainLight = GameObject.FindGameObjectsWithTag("Flashbang")[0];
+    }
 }
