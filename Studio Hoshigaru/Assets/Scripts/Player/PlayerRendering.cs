@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Realtime;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 public class PlayerRendering : MonoBehaviourPunCallbacks
 {
@@ -11,6 +12,8 @@ public class PlayerRendering : MonoBehaviourPunCallbacks
     [SerializeField] GameObject playerDisplay;
     Player[] playersOnline;
     GameObject[] playersInScene;
+    GameObject[] prefabs;
+    Player masterClient;
     [SerializeField] Text otherPlayerName;
 
 
@@ -19,14 +22,18 @@ public class PlayerRendering : MonoBehaviourPunCallbacks
     {
         playersInScene = GameObject.FindGameObjectsWithTag("Player");
         playersOnline = PhotonNetwork.PlayerList;
+        prefabs = new GameObject[playersOnline.Length];
         playersInScene = SortPlayer();
         for (int i = 0; i < playersOnline.Length; i++)
         {
+            if (playersOnline[i].IsMasterClient)
+                masterClient = playersOnline[i];
             if (!playersOnline[i].IsLocal)
             { 
                 playersInScene[i].GetComponentInChildren<PlayerRendering>().otherPlayerName.text = playersOnline[i].NickName;
                 GameObject player = Instantiate(playerDisplay, playerListContent);
                 player.GetComponent<PlayerDisplay>().SetUp(playersOnline[i], playersInScene[i]);
+                prefabs[i] = player;
             }
         }
     }
@@ -47,4 +54,28 @@ public class PlayerRendering : MonoBehaviourPunCallbacks
         return sortedPlayers;
     }
 
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        if (otherPlayer == masterClient)
+        {
+            Debug.Log("goddamn");
+            StartCoroutine(Leave());
+        }
+        else
+        {
+            for (int i = 0; i < playersOnline.Length; i++)
+            {
+                if (playersOnline[i] == otherPlayer)
+                    Destroy(prefabs[i]);
+            }
+        }
+    }
+
+    IEnumerator Leave()
+    {
+        PhotonNetwork.LeaveRoom();
+        while (PhotonNetwork.InRoom)
+            yield return null;
+        SceneManager.LoadScene(0);
+    }
 }

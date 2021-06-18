@@ -143,9 +143,9 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         ready = state;
         if (ready)
-            readyUpText.text = "Ready";
+            readyUpText.text = "Prêt";
         else
-            readyUpText.text = "Not ready";
+            readyUpText.text = "Pas prêt";
     }
 
     public void OnClick_StartGame()
@@ -194,6 +194,9 @@ public class Launcher : MonoBehaviourPunCallbacks
     }
 
 
-   
+   public void OnClick_QuitApplication()
+    {
+        Application.Quit();
+    }
 
 }

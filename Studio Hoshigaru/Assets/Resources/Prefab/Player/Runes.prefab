@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8906688772943360933}
   - component: {fileID: 4881657522247345754}
   - component: {fileID: 4898217149732088547}
-  - component: {fileID: 4380313661979223568}
   - component: {fileID: 8481695733415847793}
   m_Layer: 9
   m_Name: Runes
@@ -89,20 +88,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &4380313661979223568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9086627750492376335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20ea60bd119470341a9be443b653f7a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  droppedOnSlot: 0
-  canvas: {fileID: 0}
 --- !u!114 &8481695733415847793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,3 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9312d3f70628d4044a94b17a68f0cf8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  runesWeapon: 0
+  capacity: {fileID: 0}
+  isChoose: 0
+  cost: 0
+  description: 
+  image: {fileID: 0}

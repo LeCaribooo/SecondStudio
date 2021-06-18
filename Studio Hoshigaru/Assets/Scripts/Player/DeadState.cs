@@ -43,22 +43,11 @@ public class DeadState : MonoBehaviourPunCallbacks
 
     IEnumerator Leave()
     {
-        Debug.Log("Début");
         PhotonNetwork.LeaveRoom();
-        Debug.Log("PhotonNetwork.LeaveRoom");
         while (PhotonNetwork.InRoom)
-            Debug.Log("On est dans la boucle");
             yield return null;
-        Debug.Log("On a fini la boucle");
         SceneManager.LoadScene(4);
     }
-
-
-    public override void OnLeftRoom()
-    {
-        Debug.Log("Il m'appelle parceque je suis un bouffon");
-    }
-
 
     public Transform DisplayCameraWhenDead()
     {

@@ -77,8 +77,6 @@ public class RunesManager : MonoBehaviour, IPointerDownHandler
         }
     }
 
-    
-
     public void OnPointerDown(PointerEventData eventData)
     {
         int nextPosition = GetNextAvailableSlot();

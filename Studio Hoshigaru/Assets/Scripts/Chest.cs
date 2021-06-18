@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class Chest : MonoBehaviour
+public class Chest : MonoBehaviourPun
 {
     public Canvas pressT;
     public string function;
@@ -30,7 +31,7 @@ public class Chest : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && collision.gameObject.GetPhotonView().IsMine)
         {
             onMe = collision.gameObject;
             OnIt = true;
@@ -39,7 +40,7 @@ public class Chest : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && collision.gameObject.GetPhotonView().IsMine)
         {
             onMe = null;
             OnIt = false;

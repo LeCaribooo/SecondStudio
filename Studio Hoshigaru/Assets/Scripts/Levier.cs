@@ -43,7 +43,7 @@ public class Levier : MonoBehaviourPun
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && collision.gameObject.GetPhotonView().IsMine)
         {
             onMe = collision.gameObject;
             OnIt = true;
@@ -52,7 +52,7 @@ public class Levier : MonoBehaviourPun
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && collision.gameObject.GetPhotonView().IsMine)
         {
             onMe = null;
             OnIt = false;
