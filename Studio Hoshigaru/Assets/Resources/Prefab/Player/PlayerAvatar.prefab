@@ -4229,7 +4229,7 @@ MonoBehaviour:
     SynchronizeType: 2
     Name: hasShuriken
   - Type: 4
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: isDead
   - Type: 4
     SynchronizeType: 2

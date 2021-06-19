@@ -73,26 +73,17 @@ public class DeadState : MonoBehaviourPunCallbacks
         }
         return null;
     }
-    [PunRPC]
-    void DestroyOnline()
-    {
-        Destroy(this.gameObject);
-    }
 
+    [PunRPC]
     public void Respawn()
     {
-        GameObject[] dead = GameObject.FindGameObjectsWithTag("Dead");
-        for (int i = 0; i < dead.Length; i++)
-        {
-            dead[i].GetComponent<PlayerControler>().enabled = true;
-            dead[i].GetComponent<PlayerDeath>().isDead = false;
-            dead[i].GetComponent<PlayerControler>().camera.gameObject.SetActive(true);
-            dead[i].GetComponent<Health>().numOfHits = dead[i].GetComponent<Health>().numOfHearts * 4;
-            dead[i].GetComponent<PlayerControler>().MoveHere();
-            dead[i].GetComponent<PlayerControler>().animator.SetInteger("isDead", 2);
-            dead[i].tag = "Player";
-        }
-        base.photonView.RPC("DestroyOnline", RpcTarget.All);
+        myCharacter.GetComponent<PlayerControler>().camera.gameObject.SetActive(true);
+        myCharacter.GetComponent<PlayerControler>().enabled = true;
+        myCharacter.GetComponent<PlayerDeath>().isDead = false;
+        myCharacter.GetComponent<Health>().numOfHits = myCharacter.GetComponent<Health>().numOfHearts * 4;
+        myCharacter.GetComponent<PlayerControler>().MoveHere();
+        myCharacter.GetComponent<PlayerControler>().animator.SetInteger("isDead", 2);
+        myCharacter.tag = "Player";
+        Destroy(this.gameObject);
     }
-
 }

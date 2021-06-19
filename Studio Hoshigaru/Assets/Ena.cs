@@ -10,6 +10,7 @@ public class Ena : MonoBehaviour
     private bool hasPlayedExperiencDialogue = false;
     private bool hasPlayedInventoryDialogue = false;
     private bool hasPlayedBossesDialogue = false;
+    private bool hasEnabled = false;
     public Chest chest;
 
     GameObject MyPlayer;
@@ -65,13 +66,15 @@ public class Ena : MonoBehaviour
             MyPlayer.GetComponent<PlayerControler>().enabled = false;
             if(MyPlayer.GetComponentInChildren<WeaponSelection>().actualWeapon != null)
                 MyPlayer.GetComponentInChildren<WeaponSelection>().actualWeapon.SetActive(false);
+            hasEnabled = true;
         }
-        else
+        else if(hasEnabled && !dialogueUI.isSpeaking)
         {
             MyPlayer.GetComponent<PlayerControler>().enabled = true;
             MyPlayer.GetComponent<PlayerControler>().MoveHere();
             if (MyPlayer.GetComponentInChildren<WeaponSelection>().actualWeapon != null)
                 MyPlayer.GetComponentInChildren<WeaponSelection>().actualWeapon.SetActive(true);
+            hasEnabled = false;
         }
     }
 
