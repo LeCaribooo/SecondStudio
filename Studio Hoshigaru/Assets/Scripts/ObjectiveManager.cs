@@ -15,7 +15,15 @@ public class ObjectiveManager : MonoBehaviour
     public List<GameObject> objectives;
     public int actualObjectivesIndex;
     public GameObject target;
+    public Destroy_Door destroy_;
 
+    private bool hasReturned = false;
+
+    public void Awake()
+    {
+        if (!hasReturned && Destroy_Door.created)
+            NextObjective();
+    }
 
     private void Start()
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Destroy_Door : MonoBehaviour
 {
-    static bool created = false;
+    public static bool created = false;
 
     private void Awake()
     {

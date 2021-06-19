@@ -9,6 +9,7 @@ public class Ena : MonoBehaviour
     public List<DialogueObjecty> dialoguesEna = new List<DialogueObjecty>();
     private bool hasPlayedExperiencDialogue = false;
     private bool hasPlayedInventoryDialogue = false;
+    private bool hasPlayedBossesDialogue = false;
     public Chest chest;
 
     GameObject MyPlayer;
@@ -26,6 +27,13 @@ public class Ena : MonoBehaviour
         //Pas censé arrivé.
         Debug.Log("Tu n'existes pas...");
         return null;
+    }
+
+
+    public void Awake()
+    {
+        if (!hasPlayedBossesDialogue && Destroy_Door.created)
+            PlayBossesDialogue();
     }
 
 
@@ -53,6 +61,7 @@ public class Ena : MonoBehaviour
         if (dialogueUI.isSpeaking)
         {
             MyPlayer.GetComponent<PlayerControler>().StopHere();
+            MyPlayer.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
             MyPlayer.GetComponent<PlayerControler>().enabled = false;
             if(MyPlayer.GetComponentInChildren<WeaponSelection>().actualWeapon != null)
                 MyPlayer.GetComponentInChildren<WeaponSelection>().actualWeapon.SetActive(false);
@@ -80,6 +89,12 @@ public class Ena : MonoBehaviour
     {
         dialogueUI.Begin(dialoguesEna[1], null);
         hasPlayedInventoryDialogue = true;
+    }
+
+    void PlayBossesDialogue()
+    {
+        dialogueUI.Begin(dialoguesEna[3], null);
+        hasPlayedBossesDialogue = true;
     }
 
     IEnumerator Wait()
