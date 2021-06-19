@@ -11,6 +11,8 @@ public class PNG : MonoBehaviourPun
 
     private bool OnIt;
 
+    public string Name;
+
     [SerializeField] DialogueUI UI_dialogue;
 
     [SerializeField] DialogueObjecty dialogue;
@@ -44,6 +46,7 @@ public class PNG : MonoBehaviourPun
 
         if (collision.gameObject.tag == "Player" && collision.gameObject == MyPlayer)
         {
+            UI_dialogue.character.text = Name;
             OnIt = true;
         }
 
@@ -53,6 +56,7 @@ public class PNG : MonoBehaviourPun
     {
         if (collision.gameObject.tag == "Player" && collision.gameObject == MyPlayer)
         {
+            UI_dialogue.character.text = "";
             OnIt = false;
         }
     }

@@ -1070,3 +1070,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootedExperience: 10
+  runesParts: 0

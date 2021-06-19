@@ -8,6 +8,7 @@ public class DialogueUI : MonoBehaviour
 
     [SerializeField] private GameObject DialogueBox;
     [SerializeField] private TMP_Text textLabel;
+    [SerializeField] public TMP_Text character;
     private ResponseHandler responseHandler;
     public bool isSpeaking = false;
 
