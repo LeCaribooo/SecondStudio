@@ -28172,7 +28172,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.4
+  m_Intensity: 0.6
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
@@ -31878,6 +31878,11 @@ PrefabInstance:
         type: 3}
       propertyPath: viewIdField
       value: 62
+      objectReference: {fileID: 0}
+    - target: {fileID: 5514742438624128802, guid: f393ea943529633449cd939a3b05ebe3,
+        type: 3}
+      propertyPath: viewIdField
+      value: 76
       objectReference: {fileID: 0}
     - target: {fileID: 5615676544104554841, guid: f393ea943529633449cd939a3b05ebe3,
         type: 3}

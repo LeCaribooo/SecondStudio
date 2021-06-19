@@ -15,27 +15,18 @@ public class EyesAnim : MonoBehaviour
     public void EndLaser()
     {
         anim.SetBool("Laser", false);
-        if (phase == 1)
-        {
-            boss.MovingHead1();
-        }
+        boss.MovingHead();
     }
 
     public void EndMeteor()
     {
         anim.SetBool("Meteor", false);
-        if (phase == 1)
-        {
-            boss.MeteorWarn1();
-        }
+        boss.MeteorWarn();
     }
 
     public void EndTentacle()
     {
         anim.SetBool("Tentacle", false);
-        if(phase == 1)
-        {
-            boss.TentacleWarn1();
-        }
+        boss.TentacleWarn();
     }
 }

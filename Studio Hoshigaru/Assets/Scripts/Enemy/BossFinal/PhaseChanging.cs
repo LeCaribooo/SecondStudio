@@ -6,9 +6,11 @@ public class PhaseChanging : MonoBehaviour
 {
     public GameObject P1;
     public GameObject P2;
+    public GameObject P3;
 
     public bool p2;
     public bool changed;
+    public bool ended;
     // Start is called before the first frame update
 
     void Update()
@@ -18,6 +20,15 @@ public class PhaseChanging : MonoBehaviour
             P1.SetActive(false);
             P2.SetActive(true);
             changed = true;
+            p2 = false;
+        }
+        if(ended && changed && P3 != null)
+        {
+            P2.SetActive(false);
+            P3.SetActive(true);
+            P2 = P3;
+            changed = false;
         }
     }
+
 }
