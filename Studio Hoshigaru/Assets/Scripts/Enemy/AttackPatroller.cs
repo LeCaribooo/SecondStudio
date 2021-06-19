@@ -13,8 +13,11 @@ public class AttackPatroller : MonoBehaviourPun
         if(collision.gameObject.CompareTag("Player") && !GetComponentInParent<Patroller>().alreadyAttacked)
         {
             GameObject player = collision.gameObject;
-            player.GetComponent<Health>().numOfHits -= damage;
-            GetComponentInParent<Patroller>().alreadyAttacked = true;
+            if (!player.GetComponent<Health>().isInvisible)
+            {
+                player.GetComponent<Health>().numOfHits -= damage;
+                GetComponentInParent<Patroller>().alreadyAttacked = true;
+            }
         }
     }
 }

@@ -6,7 +6,7 @@ using Photon.Realtime;
 
 public class WaitingForSpawn : MonoBehaviour
 {
-    [SerializeField]PlayerRendering pr;
+    [SerializeField]Behaviour pr;
     GameObject[] playersInScene;
     Player[] playerOnline;
 

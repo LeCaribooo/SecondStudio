@@ -18,6 +18,8 @@ public class Health : MonoBehaviourPun, IPunObservable
     public Sprite hquarterHeart;
     public Sprite fullHeart;
 
+    public bool isInvisible = false;
+
     public int defense;
 
     public int regen;

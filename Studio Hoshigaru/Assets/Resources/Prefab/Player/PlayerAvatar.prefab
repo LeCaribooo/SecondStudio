@@ -4077,6 +4077,7 @@ MonoBehaviour:
   halfHeart: {fileID: 21300000, guid: e4bd34d853d8ba942b71534994026a52, type: 3}
   hquarterHeart: {fileID: 21300000, guid: d7146649021bc1045a8a07940f636924, type: 3}
   fullHeart: {fileID: 21300000, guid: 95678a91a9671b845bd50ce5969b4a88, type: 3}
+  isInvisible: 0
   defense: 0
   regen: 0
   regenTime: 0

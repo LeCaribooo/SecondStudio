@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c08f8ac255508ed4b8a344927e9e4739, type: 3}
+  m_Name: Ena - Experience
+  m_EditorClassIdentifier: 
+  dialogue:
+  - "Je vois que tu commences \xE0 r\xE9cup\xE9rer tes pouvoirs !"
+  - "Tu peux maintenant am\xE9liorer tes aptitudes physiques gr\xE2ce \xE0 l'\xE9nergie
+    que tu r\xE9cup\xE8res."
+  - Appuies sur F pour ouvrir l'arbre des aptitudes.
+  - "Continues jusqu'\xE0 trouver le gardien."
+  responses: []
+  isEnd: 1
