@@ -4130,6 +4130,7 @@ MonoBehaviour:
   capsuleCollider: {fileID: -5528596187562312331}
   rb: {fileID: 8745890432335679496}
   camera: {fileID: 5368359382360323570}
+  isDead: 0
 --- !u!114 &-5198743702041084537
 MonoBehaviour:
   m_ObjectHideFlags: 0

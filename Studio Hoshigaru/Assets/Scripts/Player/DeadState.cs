@@ -85,6 +85,7 @@ public class DeadState : MonoBehaviourPunCallbacks
         for (int i = 0; i < dead.Length; i++)
         {
             dead[i].GetComponent<PlayerControler>().enabled = true;
+            dead[i].GetComponent<PlayerDeath>().isDead = false;
             dead[i].GetComponent<PlayerControler>().camera.gameObject.SetActive(true);
             dead[i].GetComponent<Health>().numOfHits = dead[i].GetComponent<Health>().numOfHearts * 4;
             dead[i].GetComponent<PlayerControler>().MoveHere();

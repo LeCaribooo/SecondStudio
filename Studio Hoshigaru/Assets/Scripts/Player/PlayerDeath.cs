@@ -13,7 +13,7 @@ public class PlayerDeath : MonoBehaviourPun
     public CapsuleCollider2D capsuleCollider;
     public Rigidbody2D rb;
     public Camera camera;
-    bool isDead = false;
+    public bool isDead = false;
 
 
     
