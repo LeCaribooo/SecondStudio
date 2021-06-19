@@ -10,7 +10,6 @@ public class Stockage : MonoBehaviour
     public GameObject BossSideL;
     public GameObject BossSideR;
     public GameObject BossEyes;
-    public GameObject BossSmoke;
     public GameObject DamageZone;
     public GameObject Laser1;
     public GameObject Laser2;

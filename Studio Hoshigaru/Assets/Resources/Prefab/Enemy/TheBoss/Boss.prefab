@@ -1531,6 +1531,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2735526189860289615}
+  - component: {fileID: 4923017700674622193}
+  - component: {fileID: 1497012983354720742}
   m_Layer: 0
   m_Name: smokePlace
   m_TagString: Untagged
@@ -1552,6 +1554,43 @@ Transform:
   m_Father: {fileID: 4117813775273490113}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4923017700674622193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676453827303348056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 1497012983354720742}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &1497012983354720742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676453827303348056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 1
 --- !u!1 &1709302342827876500
 GameObject:
   m_ObjectHideFlags: 0
@@ -3245,7 +3284,6 @@ MonoBehaviour:
   BossSideL: {fileID: 956197283728055602}
   BossSideR: {fileID: 4223758409602367743}
   BossEyes: {fileID: 4933278663762336706}
-  BossSmoke: {fileID: 6063456077091937646}
   DamageZone: {fileID: 425167531954351369}
   Laser1: {fileID: 4969396085082120969}
   Laser2: {fileID: 2991206672840444550}
@@ -3279,7 +3317,7 @@ MonoBehaviour:
   deadR: {fileID: 7656580719566356980}
   BeginningFight: {fileID: 1228809794377138267}
   mainLight: {fileID: 0}
-  smokePlace: {fileID: 0}
+  smokePlace: {fileID: 1676453827303348056}
 --- !u!114 &629295736153942953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3311,6 +3349,12 @@ MonoBehaviour:
   timerDPSMax: 15
   movingToDamage: 0
   movingFromDamage: 0
+  moveSpeed: 2
+  moving: 0
+  illuminating: 0
+  movingback: 0
+  changing: 0
+  augmente: 0
 --- !u!114 &4948809943377728391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7297,6 +7341,7 @@ GameObject:
   - component: {fileID: 1524964676432362522}
   - component: {fileID: 1917549237591106770}
   - component: {fileID: 7170193419572249865}
+  - component: {fileID: 1556712475599180778}
   m_Layer: 0
   m_Name: P2
   m_TagString: Untagged
@@ -7459,6 +7504,19 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 1
+--- !u!114 &1556712475599180778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8376705472036793097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8045248cbf4df44c98a3128039384f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boss: {fileID: 0}
 --- !u!1 &8518364653330603300
 GameObject:
   m_ObjectHideFlags: 0

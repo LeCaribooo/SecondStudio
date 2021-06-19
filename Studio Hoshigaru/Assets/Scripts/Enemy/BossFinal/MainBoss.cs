@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using System.IO;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class MainBoss : MonoBehaviourPun
 {
@@ -28,9 +29,15 @@ public class MainBoss : MonoBehaviourPun
     private float timerDps;
     public bool movingToDamage;
     public bool movingFromDamage;
-
+    public float moveSpeed;
+    public bool moving;
+    public bool illuminating;
+    public bool movingback;
+    public bool changing;
+    public bool augmente;
     private void Start()
     {
+        augmente = true;
         timerDps = timerDPSMax;
         step = 0;
         endAttack = true;
@@ -46,16 +53,29 @@ public class MainBoss : MonoBehaviourPun
         if(beginning)
         {
             step = step % 12;
-            if(stock.DamageZone.GetComponent<EnemyHealth>().health <= 0)
+            if(moving)
             {
-                if(phase == 1)
+                moving = DeadMove1();
+                if(!moving)
                 {
-                    //PhaseSwitch();
+                    illuminating = true;
                 }
-                else
+            }
+            else if(movingback)
+            {
+                movingback = MoveBack1();
+                if(!movingback)
                 {
-                    //Death();
+                    stock.BossL.SetActive(false);
+                    stock.BossR.SetActive(false);
+                    stock.BossComplet.SetActive(true);
+                    stock.BossComplet.GetComponent<PhaseChanging>().p2 = true;
+                    stock.BossComplet.GetComponent<PhaseChanging>().P2.GetComponent<StateBoss>().boss = this;
                 }
+            }
+            else if(illuminating)
+            {
+                 LightPhase();
             }
             else if(waiting)
             {
@@ -85,6 +105,18 @@ public class MainBoss : MonoBehaviourPun
             {
                 TakeHit();
             }
+            else if (stock.DamageZone.GetComponent<EnemyHealth>().health <= 0 && !changing)
+            {
+                if (phase == 1)
+                {
+                    changing = true;
+                    PhaseSwitch();
+                }
+                else
+                {
+                    //Death();
+                }
+            }
             else if(endAttack)
             {
                 switch(step % 4)
@@ -106,6 +138,131 @@ public class MainBoss : MonoBehaviourPun
         }
     }
 
+
+
+    public void LightPhase()
+    {
+        Light2D light = stock.mainLight.GetComponent<Light2D>();
+        if(augmente)
+        {
+            light.intensity += 0.01f;
+        }
+        else
+        {
+            light.intensity -= 0.01f;
+        }
+        if(light.intensity >= 5 && augmente)
+        {
+            stock.BossL.GetComponent<PhaseChanging>().p2 = true;
+            stock.BossR.GetComponent<PhaseChanging>().p2 = true;
+            stock.BossSideL.GetComponent<PhaseChanging>().p2 = true;
+            stock.BossSideR.GetComponent<PhaseChanging>().p2 = true;
+            stock.SmokeBras.GetComponent<PhaseChanging>().p2 = true;
+            stock.SmokeCou.GetComponent<PhaseChanging>().p2 = true;
+            stock.SmokeTorse.GetComponent<PhaseChanging>().p2 = true;
+            stock.BossEyes.GetComponent<PhaseChanging>().p2 = true;
+            augmente = false;
+        }
+        else if(light.intensity <= 0.4f)
+        {
+            augmente = true;
+            light.intensity = 0.4f;
+            illuminating = false;
+            movingback = true;
+        }
+    }
+
+    public void EndChange()
+    {
+        stock.BossEyes.SetActive(true);
+        stock.SmokeCou.SetActive(true);
+        stock.SmokeBras.SetActive(true);
+        stock.SmokeTorse.SetActive(true);
+        stock.DamageZone.GetComponent<EnemyHealth>().health = MaxHp;
+        changing = false;
+        waiting = true;
+        phase = 2;
+        step = 0;
+    }
+
+    public bool MoveBack1()
+    {
+        bool result = true;
+        if (Mathf.Abs(stock.BossL.transform.position.y - stock.BossComplet.transform.position.y) > 0.01f)
+        {
+            Vector2 targetPos = new Vector2(stock.BossL.transform.position.x, stock.BossComplet.transform.position.y);
+            stock.BossL.transform.position = Vector2.MoveTowards(stock.BossL.transform.position, targetPos, Time.deltaTime * damageSpeed);
+            
+        }
+        if (Mathf.Abs(stock.BossR.transform.position.y - stock.BossComplet.transform.position.y) > 0.01f)
+        {
+            Vector2 targetPos = new Vector2(stock.BossR.transform.position.x, stock.BossComplet.transform.position.y);
+            stock.BossR.transform.position = Vector2.MoveTowards(stock.BossR.transform.position, targetPos, Time.deltaTime * damageSpeed);
+            
+        }
+        else
+        {
+            result = false;
+        }
+        return result;
+    }
+
+    public bool MoveBackR()
+    {
+        if (Mathf.Abs(stock.BossR.transform.position.y - stock.BossComplet.transform.position.y) > 0.01f)
+        {
+            Vector2 targetPos = new Vector2(stock.BossR.transform.position.x, stock.BossComplet.transform.position.y);
+            stock.BossR.transform.position = Vector2.MoveTowards(stock.BossR.transform.position, targetPos, Time.deltaTime * damageSpeed);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public void PhaseSwitch()
+    {
+        stock.BossEyes.SetActive(false);
+        stock.SmokeCou.SetActive(false);
+        stock.BossComplet.SetActive(false);
+        stock.BossL.SetActive(true);
+        stock.BossR.SetActive(true);
+        stock.SmokeTorse.SetActive(false);
+        stock.SmokeBras.SetActive(false);
+        moving = true;
+    }
+
+    public bool DeadMove1()
+    {
+        bool result = true;
+        if (Mathf.Abs(stock.BossR.transform.position.x - stock.deadR.transform.position.x) > 0.01f)
+        {
+            Vector2 targetPos = new Vector2(stock.deadR.transform.position.x, stock.BossR.transform.position.y);
+            stock.BossR.transform.position = Vector2.MoveTowards(stock.BossR.transform.position, targetPos, Time.deltaTime * damageSpeed);
+        }
+        else if (Mathf.Abs(stock.BossR.transform.position.y - stock.deadR.transform.position.y) > 0.01f)
+        {
+            Vector2 targetPos = new Vector2(stock.deadR.transform.position.x, stock.deadR.transform.position.y);
+            stock.BossR.transform.position = Vector2.MoveTowards(stock.BossR.transform.position, targetPos, Time.deltaTime * damageSpeed);
+        }
+        else
+        {
+            result = false;
+        }
+        if (Mathf.Abs(stock.BossL.transform.position.x - stock.deadL.transform.position.x) > 0.01f)
+        {
+            Vector2 targetPos = new Vector2(stock.deadL.transform.position.x, stock.BossL.transform.position.y);
+            stock.BossL.transform.position = Vector2.MoveTowards(stock.BossL.transform.position, targetPos, Time.deltaTime * damageSpeed);
+            result = true;
+        }
+        else if (Mathf.Abs(stock.BossL.transform.position.y - stock.deadL.transform.position.y) > 0.01f)
+        {
+            Vector2 targetPos = new Vector2(stock.deadL.transform.position.x, stock.deadL.transform.position.y);
+            stock.BossL.transform.position = Vector2.MoveTowards(stock.BossL.transform.position, targetPos, Time.deltaTime * damageSpeed);
+            result = true;
+        }
+        return result;
+    }
     public void Wait()
     {
         wait -= Time.deltaTime;
