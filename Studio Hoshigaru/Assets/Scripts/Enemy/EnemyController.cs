@@ -94,6 +94,7 @@ public class EnemyController : MonoBehaviourPun
         for (int i = 0; i < players.Length; i++)
         {
             players[i].GetComponent<PlayerExperience>().experience += lootExperience.lootedExperience;
+            players[i].GetComponent<PlayerRunes>().nbOfRunes += lootExperience.runesParts;
         }
     }
 

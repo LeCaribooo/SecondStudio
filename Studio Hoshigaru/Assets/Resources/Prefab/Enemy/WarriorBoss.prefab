@@ -451,6 +451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootedExperience: 50
+  runesParts: 1
 --- !u!1 &5363428201009395991
 GameObject:
   m_ObjectHideFlags: 0

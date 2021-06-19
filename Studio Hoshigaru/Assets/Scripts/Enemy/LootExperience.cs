@@ -5,5 +5,6 @@ using UnityEngine;
 public class LootExperience : MonoBehaviour
 {
     public int lootedExperience;
+    public int runesParts;
 
 }
