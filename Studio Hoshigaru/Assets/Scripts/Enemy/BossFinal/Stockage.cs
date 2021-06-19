@@ -33,6 +33,9 @@ public class Stockage : MonoBehaviour
     public GameObject SmokeR;
     public GameObject SmokeL;
     public GameObject SmokeH;
+    public GameObject SmokeCou;
+    public GameObject SmokeTorse;
+    public GameObject SmokeBras;
     public GameObject LaserPlace1;
     public GameObject LaserPlace2;
     public GameObject LaserPlace2bis;

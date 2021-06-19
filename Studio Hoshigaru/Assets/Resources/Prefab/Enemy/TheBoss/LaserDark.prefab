@@ -129,6 +129,9 @@ MonoBehaviour:
   damage: 5
   facingDirection: 
   boss: {fileID: 0}
+  wait: 1.5
+  WaitMax: 0
+  waiting: 0
 --- !u!212 &4577644650957252924
 SpriteRenderer:
   m_ObjectHideFlags: 0

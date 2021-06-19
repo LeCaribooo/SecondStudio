@@ -348,6 +348,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   facingDirection: 
+  boss: {fileID: 0}
+  wait: 1.5
+  WaitMax: 0
+  waiting: 0
 --- !u!212 &5230387537028472846
 SpriteRenderer:
   m_ObjectHideFlags: 0

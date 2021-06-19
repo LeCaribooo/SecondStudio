@@ -8,10 +8,31 @@ public class Tentacle : MonoBehaviourPun
     public int damage;
     public float alive;
     public Animator anim;
- 
+    public float wait;
+    public float WaitMax;
+    public bool waiting;
+
+    private void Start()
+    {
+        wait = WaitMax;
+    }
     void Update()
     {
         Life();
+        if(waiting)
+        {
+            Wait();
+        }
+    }
+
+    public void Wait()
+    {
+        wait -= Time.deltaTime;
+        if(wait <= 0)
+        {
+            wait = WaitMax;
+            waiting = false;
+        }
     }
 
     public void Life()
@@ -30,12 +51,25 @@ public class Tentacle : MonoBehaviourPun
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && !waiting)
         {
             GameObject player = collision.gameObject;
             player.GetComponent<Health>().numOfHits -= damage;
+            waiting = true;
         }
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && !waiting)
+        {
+            GameObject player = collision.gameObject;
+            player.GetComponent<Health>().numOfHits -= damage;
+            waiting = true;
+        }
+    }
+
+
 
     public void Destroy()
     {

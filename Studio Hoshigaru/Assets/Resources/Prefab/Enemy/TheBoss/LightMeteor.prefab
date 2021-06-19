@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 22
   m_Sprite: {fileID: 21300000, guid: e02fbe38672977343bfe17d48af5f796, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -212,7 +212,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02b7fecf61364ae41b85d133fd7d7056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
-  movementSpeed: 5
+  damage: 3
+  movementSpeed: 7
   alive: 10
-  shootdir: {x: 0, y: 0, z: 0}
+  wait: 1
+  WaitMax: 0
+  waiting: 0
