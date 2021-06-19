@@ -7,6 +7,7 @@ public class Laser : MonoBehaviourPun
 {
     public int damage;
     public string facingDirection;
+    public MainBoss boss;
 
     private void Start()
     {
@@ -24,6 +25,12 @@ public class Laser : MonoBehaviourPun
             GameObject player = collision.gameObject;
             player.GetComponent<Health>().numOfHits -= damage;
         }
+    }
+
+    public void EndLaser()
+    {
+        boss.facingDirection = facingDirection;
+        boss.movingFromLaser = true;
     }
 
     public void Destroy()

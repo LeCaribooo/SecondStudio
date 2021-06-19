@@ -10,11 +10,16 @@ public class Meteor : MonoBehaviourPun
     Rigidbody2D rb2d;
     // Start is called before the first frame update
 
+    private void Start()
+    {
+        rb2d = GetComponent<Rigidbody2D>();
+    }
+
     // Update is called once per frame
     void Update()
     {
         Death();
-        rb2d.velocity = new Vector2(rb2d.velocity.y, -movementSpeed);
+        rb2d.velocity = new Vector2(rb2d.velocity.x, -movementSpeed);
     }
 
 

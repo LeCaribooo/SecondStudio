@@ -17,7 +17,7 @@ public class EyesAnim : MonoBehaviour
         anim.SetBool("Laser", false);
         if (phase == 1)
         {
-            boss.TentacleWarn1();
+            boss.MovingHead1();
         }
     }
 

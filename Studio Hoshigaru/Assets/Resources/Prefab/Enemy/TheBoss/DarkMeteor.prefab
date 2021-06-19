@@ -213,6 +213,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  movementSpeed: 5
+  movementSpeed: 7
   alive: 10
-  shootdir: {x: 0, y: 0, z: 0}
