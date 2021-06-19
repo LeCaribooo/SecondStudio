@@ -207,5 +207,5 @@ MonoBehaviour:
   alive: 15
   anim: {fileID: 4742464409212399925}
   wait: 3
-  WaitMax: 0
+  WaitMax: 3
   waiting: 0

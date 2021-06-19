@@ -44,7 +44,7 @@ public class Stockage : MonoBehaviour
     public GameObject deadR;
     public GameObject BeginningFight;
     public GameObject mainLight;
-
+    public GameObject smokePlace;
     public void Start()
     {
         mainLight = GameObject.FindGameObjectsWithTag("Flashbang")[0];
