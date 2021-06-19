@@ -8,6 +8,7 @@ TagManager:
   - Portal
   - Boss
   - Trigger
+  - Dead
   layers:
   - Default
   - TransparentFX

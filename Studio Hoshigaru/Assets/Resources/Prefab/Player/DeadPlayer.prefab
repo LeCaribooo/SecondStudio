@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 2590874269692955149}
+  myCharacter: {fileID: 0}
 --- !u!114 &-2807124795297209320
 MonoBehaviour:
   m_ObjectHideFlags: 0

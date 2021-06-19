@@ -80,6 +80,11 @@ public class PlayerControler : MonoBehaviourPun, IPunObservable
         
     }
 
+    public void SetDeath(int i)
+    {
+        animator.SetInteger("isDead", i);
+    }
+
     public void SetIsTripleShooting()
     {
         animator.SetBool("isTripleShooting", false);

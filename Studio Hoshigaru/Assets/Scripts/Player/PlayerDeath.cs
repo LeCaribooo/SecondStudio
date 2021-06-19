@@ -40,17 +40,21 @@ public class PlayerDeath : MonoBehaviourPun
 
     public void Death()
     {
-        if(PhotonNetwork.IsMasterClient)
-            PhotonNetwork.Instantiate(Path.Combine("Prefab", "Player", "DeadPlayer"), transform.position, Quaternion.identity, 0);
+        if (PhotonNetwork.IsMasterClient)
+        {
+            GameObject me = PhotonNetwork.Instantiate(Path.Combine("Prefab", "Player", "DeadPlayer"), transform.position, Quaternion.identity, 0);
+            me.GetComponent<DeadState>().myCharacter = this.gameObject;
+        }
         camera.gameObject.SetActive(false);
     }
 
    [PunRPC]
    void Unload()
     {
-        animator.SetTrigger("isDead");
+        animator.SetInteger("isDead", 1);
+        playerControler.StopHere();
         playerControler.enabled = false;
-        gameObject.tag = "Untagged";
+        gameObject.tag = "Dead";
    }
 
     [PunRPC]

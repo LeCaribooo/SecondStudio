@@ -13,6 +13,7 @@ public class DeadState : MonoBehaviourPunCallbacks
     public Canvas UI;
     private PhotonView PV;
     bool can = false;
+    public GameObject myCharacter;
 
     private void Awake()
     {
@@ -54,8 +55,8 @@ public class DeadState : MonoBehaviourPunCallbacks
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         if (players.Length == 0 && !can)
         {
-            StartCoroutine(Leave());
-            parallaxing.enabled = false;
+            //S'occuper de tp back;
+            Respawn();
             can = true;
             return null;
         }
@@ -72,4 +73,25 @@ public class DeadState : MonoBehaviourPunCallbacks
         }
         return null;
     }
+    [PunRPC]
+    void DestroyOnline()
+    {
+        Destroy(this.gameObject);
+    }
+
+    public void Respawn()
+    {
+        GameObject[] dead = GameObject.FindGameObjectsWithTag("Dead");
+        for (int i = 0; i < dead.Length; i++)
+        {
+            dead[i].GetComponent<PlayerControler>().enabled = true;
+            dead[i].GetComponent<PlayerControler>().camera.gameObject.SetActive(true);
+            dead[i].GetComponent<Health>().numOfHits = dead[i].GetComponent<Health>().numOfHearts * 4;
+            dead[i].GetComponent<PlayerControler>().MoveHere();
+            dead[i].GetComponent<PlayerControler>().animator.SetInteger("isDead", 2);
+            dead[i].tag = "Player";
+        }
+        base.photonView.RPC("DestroyOnline", RpcTarget.All);
+    }
+
 }
