@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 894855763411338210}
   - component: {fileID: 6775411564513195274}
   - component: {fileID: 4577644650957252924}
+  - component: {fileID: 4503369028952157444}
   m_Layer: 0
   m_Name: LaserDark
   m_TagString: Untagged
@@ -126,12 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f456c086789c4346a0df9956f424a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
   facingDirection: 
   boss: {fileID: 0}
-  wait: 1.5
-  WaitMax: 1.5
-  waiting: 0
 --- !u!212 &4577644650957252924
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -182,6 +179,47 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4503369028952157444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894855763411338213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 1
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_UseNormalMap: 0
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_PointLightDistance: 3
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -1.1807612, y: -0.07385237, z: 0}
+  - {x: 1.3330998, y: -0.07845934, z: 0}
+  - {x: 1.3283392, y: 0.10149425, z: 0}
+  - {x: -1.1783812, y: 0.11301185, z: 0}
 --- !u!1 &2573484309114099258
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,6 +393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7226738333439626032}
   - component: {fileID: 2477114337056380734}
+  - component: {fileID: 7992128380594738635}
   m_Layer: 0
   m_Name: Hitbox
   m_TagString: Untagged
@@ -402,3 +441,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.112837076, y: 0.27495554}
   m_EdgeRadius: 0
+--- !u!114 &7992128380594738635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8826257078893098641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73a4e1a109f781f4ab48bea415c32fc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+  wait: 1
+  WaitMax: 1
+  waiting: 0
