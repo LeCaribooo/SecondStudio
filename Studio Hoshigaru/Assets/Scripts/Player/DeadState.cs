@@ -25,13 +25,6 @@ public class DeadState : MonoBehaviourPunCallbacks
     {
         PV = GetComponent<PhotonView>();
         GetMyAvatar();
-        if (PV.IsMine)
-        { 
-            parallaxing = GameObject.Find("_GameMaster").GetComponent<Parallaxing>();
-            parallaxing.cam = DisplayCameraWhenDead();
-            UI.gameObject.SetActive(true);
-        }
-        base.photonView.RPC("SetTag", RpcTarget.All);
     }
 
     // Update is called once per frame
@@ -103,6 +96,13 @@ public class DeadState : MonoBehaviourPunCallbacks
                 break;
             }
         }
+        if (PV.IsMine)
+        {
+            parallaxing = GameObject.Find("_GameMaster").GetComponent<Parallaxing>();
+            parallaxing.cam = DisplayCameraWhenDead();
+            UI.gameObject.SetActive(true);
+        }
+        base.photonView.RPC("SetTag", RpcTarget.All);
     }
 
     [PunRPC]
