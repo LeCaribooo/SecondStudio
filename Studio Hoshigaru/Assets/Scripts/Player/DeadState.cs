@@ -24,13 +24,13 @@ public class DeadState : MonoBehaviourPunCallbacks
     void Start()
     {
         PV = GetComponent<PhotonView>();
+        GetMyAvatar();
         if (PV.IsMine)
         { 
             parallaxing = GameObject.Find("_GameMaster").GetComponent<Parallaxing>();
             parallaxing.cam = DisplayCameraWhenDead();
             UI.gameObject.SetActive(true);
         }
-        GetMyAvatar();
         base.photonView.RPC("SetTag", RpcTarget.All);
     }
 
@@ -56,7 +56,12 @@ public class DeadState : MonoBehaviourPunCallbacks
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         if (players.Length == 0 && !can)
         {
-            StartCoroutine(RespawnCor());
+            GameObject[] deads = GameObject.FindGameObjectsWithTag("Dead");
+            for (int i = 0; i < deads.Length; i++)
+            {
+                deads[i].GetComponent<PlayerControler>().camera.gameObject.SetActive(false);
+            }
+            base.photonView.RPC("Respawn", RpcTarget.All);
             can = true;
             return myCharacter.GetComponent<PlayerControler>().camera.transform;
         }
@@ -87,26 +92,13 @@ public class DeadState : MonoBehaviourPunCallbacks
         Destroy(this.gameObject);
     }
 
-
-    IEnumerator RespawnCor()
-    {
-        yield return new WaitForSeconds(3);
-        base.photonView.RPC("Respawn", RpcTarget.All);
-    }
-
     void GetMyAvatar()
     {
-        GameObject[] deads = GameObject.FindGameObjectsWithTag("Dead");
+        GameObject[] deads = GameObject.FindGameObjectsWithTag("Player");
         for (int i = 0; i < deads.Length; i++)
         {
             if (deads[i].GetPhotonView().Owner == PV.Owner)
                 myCharacter = deads[i];
         }
-    }
-
-    [PunRPC]
-    void SetTag()
-    {
-        myCharacter.tag = "Dead";
     }
 }
