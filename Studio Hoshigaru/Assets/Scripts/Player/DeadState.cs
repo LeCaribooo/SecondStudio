@@ -25,12 +25,12 @@ public class DeadState : MonoBehaviourPunCallbacks
     {
         PV = GetComponent<PhotonView>();
         if (PV.IsMine)
-        {
-            base.photonView.RPC("SendAll", RpcTarget.All);
+        { 
             parallaxing = GameObject.Find("_GameMaster").GetComponent<Parallaxing>();
             parallaxing.cam = DisplayCameraWhenDead();
             UI.gameObject.SetActive(true);
         }
+        GetMyAvatar();
     }
 
     // Update is called once per frame
@@ -87,10 +87,14 @@ public class DeadState : MonoBehaviourPunCallbacks
         Destroy(this.gameObject);
     }
 
-    [PunRPC]
-
-    public void SendAll()
+    //
+    void GetMyAvatar()
     {
-        myCharacter = myCharacter;
+        GameObject[] deads = GameObject.FindGameObjectsWithTag("Dead");
+        for (int i = 0; i < deads.Length; i++)
+        {
+            if (deads[i].GetPhotonView().Owner == PV.Owner)
+                myCharacter = deads[i];
+        }
     }
 }

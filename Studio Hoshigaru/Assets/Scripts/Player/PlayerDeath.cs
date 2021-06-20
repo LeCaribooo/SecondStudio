@@ -40,7 +40,6 @@ public class PlayerDeath : MonoBehaviourPun
         if (PV.IsMine)
         {
             GameObject me = PhotonNetwork.Instantiate(Path.Combine("Prefab", "Player", "DeadPlayer"), transform.position, Quaternion.identity, 0);
-            me.GetComponent<DeadState>().myCharacter = this.gameObject;
             camera.gameObject.SetActive(false);
         }
 
