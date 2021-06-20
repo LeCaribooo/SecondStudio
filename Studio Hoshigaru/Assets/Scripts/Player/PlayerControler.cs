@@ -259,10 +259,4 @@ public class PlayerControler : MonoBehaviourPun, IPunObservable
     {
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
-
-    private void OnEnable()
-    {
-        GameObject.Find("_GameMaster").GetComponent<Parallaxing>().cam = this.transform;
-    }
-
 }

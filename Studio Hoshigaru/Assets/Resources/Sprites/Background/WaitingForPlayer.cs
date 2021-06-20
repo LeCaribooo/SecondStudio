@@ -7,18 +7,13 @@ public class WaitingForPlayer : MonoBehaviour
 {
     private PlayerControler playerControler;
     bool check = false;
-    private Transform cam = null;
+    private Transform cam;
     public Parallaxing parallaxing;
 
     void Update()
     {
         if(!check)
             CheckCam();
-        else
-        {
-            parallaxing.enabled = true;
-            parallaxing.cam = cam;
-        }
     }
 
     void CheckCam()
@@ -35,8 +30,9 @@ public class WaitingForPlayer : MonoBehaviour
                 cam = playerControler.camera.transform;
                 Camera.main.gameObject.SetActive(false);
                 check = true;
+                parallaxing.enabled = true;
+                parallaxing.cam = cam;
             }
         }
-
     }
 }

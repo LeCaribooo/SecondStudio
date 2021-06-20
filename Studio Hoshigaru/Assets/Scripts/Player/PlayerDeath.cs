@@ -15,9 +15,6 @@ public class PlayerDeath : MonoBehaviourPun
     public Camera camera;
     public bool isDead = false;
 
-
-    
-
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +34,6 @@ public class PlayerDeath : MonoBehaviourPun
             }
         }
     }
-
     public void Death()
     {
         if (PhotonNetwork.IsMasterClient)
@@ -53,6 +49,7 @@ public class PlayerDeath : MonoBehaviourPun
     {
         animator.SetInteger("isDead", 1);
         playerControler.StopHere();
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
         playerControler.enabled = false;
         gameObject.tag = "Dead";
    }
@@ -62,5 +59,4 @@ public class PlayerDeath : MonoBehaviourPun
     {
         Destroy(this.gameObject);
     }
-
 }

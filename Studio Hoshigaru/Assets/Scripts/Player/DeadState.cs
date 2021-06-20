@@ -35,7 +35,6 @@ public class DeadState : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        //PV.RPC("DestroyOnline", RpcTarget.All);
         if (PV.IsMine)
         {
             parallaxing.cam = DisplayCameraWhenDead();
@@ -56,9 +55,9 @@ public class DeadState : MonoBehaviourPunCallbacks
         if (players.Length == 0 && !can)
         {
             //S'occuper de tp back;
-            Respawn();
+            base.photonView.RPC("Respawn", RpcTarget.All);
             can = true;
-            return null;
+            return myCharacter.GetComponent<PlayerControler>().camera.transform;
         }
         else if (players.Length != 0)
         {
@@ -77,13 +76,13 @@ public class DeadState : MonoBehaviourPunCallbacks
     [PunRPC]
     public void Respawn()
     {
+        myCharacter.tag = "Player";
         myCharacter.GetComponent<PlayerControler>().camera.gameObject.SetActive(true);
         myCharacter.GetComponent<PlayerControler>().enabled = true;
         myCharacter.GetComponent<PlayerDeath>().isDead = false;
         myCharacter.GetComponent<Health>().numOfHits = myCharacter.GetComponent<Health>().numOfHearts * 4;
         myCharacter.GetComponent<PlayerControler>().MoveHere();
         myCharacter.GetComponent<PlayerControler>().animator.SetInteger("isDead", 2);
-        myCharacter.tag = "Player";
         Destroy(this.gameObject);
     }
 }
