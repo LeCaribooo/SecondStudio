@@ -111,6 +111,8 @@ public class Waves : MonoBehaviourPun
                 string sceneload = oldscene;
                 PhotonNetwork.LoadLevel(sceneload);
                 Debug.Log("Room Loaded");
+                RoomCleared = true;
+                first = false;
             }
         }
         //Quand c'est clear et que je suis le MasterClient
