@@ -24704,7 +24704,7 @@ MonoBehaviour:
   Ready: {fileID: 450106198}
   readyUpText: {fileID: 823197218}
   scene:
-  - Level1
+  - FinalFight
   IsThisPortal: 0
 --- !u!61 &1561846262
 BoxCollider2D:
