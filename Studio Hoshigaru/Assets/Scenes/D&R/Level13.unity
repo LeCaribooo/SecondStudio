@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -14199,6 +14199,7 @@ MonoBehaviour:
   StatesWaves: {fileID: 454778078}
   CWaves: {fileID: 1938135469}
   Portal_Back: {fileID: 1417735524}
+  oldscene: TreeLevel
   newscene: BeforeBoss
   nbWaves: 3
   plusMobWaves_MAX: 03000000

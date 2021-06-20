@@ -131,7 +131,7 @@ public class DeadState : MonoBehaviourPunCallbacks
 
     IEnumerator delay()
     {
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(1.0f);
         check = true;
     }
 }

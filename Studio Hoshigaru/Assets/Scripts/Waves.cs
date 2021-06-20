@@ -12,7 +12,7 @@ public class Waves : MonoBehaviourPun
     private int CountWaves = 1;
     
     private bool W_inprogress = true;
-    
+    private bool first = true;
     public bool RoomCleared = false;
 
 
@@ -23,7 +23,8 @@ public class Waves : MonoBehaviourPun
     public Text CWaves;
 
     public Portal_Back Portal_Back;
-    
+
+    public string oldscene;
     public string newscene;
 
     private int nbMobs;
@@ -104,6 +105,14 @@ public class Waves : MonoBehaviourPun
         {
             GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
             StatesWaves.text = "" + enemy.Length + "/" + nbMobs + " Ennemies";
+            GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
+            if (player.Length == 0)
+            {
+                Debug.LogWarning("Bande de noob");
+                RoomCleared = true;
+                first = false;
+                StartCoroutine(delayspawn());
+            }
         }
         //Quand c'est clear et que je suis le MasterClient
         if (IsClear() && !W_inprogress && PhotonNetwork.IsMasterClient && !RoomCleared) //Permet au MasterClient de controler l'envoie de vague et leur uptade.
@@ -122,12 +131,23 @@ public class Waves : MonoBehaviourPun
 
         }
         //Quand c'est fini
-        if (RoomCleared)
+        if (RoomCleared && first)
         {
+            //=> Raise tous les personnages morts
+            if (PhotonNetwork.IsMasterClient)
+            {
+                GameObject[] deadplayer = GameObject.FindGameObjectsWithTag("DeadState");
+                for (int i = 0; i < deadplayer.Length; i++)
+                {
+                    deadplayer[i].GetComponent<DeadState>().RespawnMe();
+                }
+                Debug.LogWarning("Respawn");
+            }
             CWaves.text = "" + nbWaves;
             StatesWaves.text = "Room Cleared !";
             DecompteCanvas.gameObject.SetActive(false);
             Portal_Back.gameObject.SetActive(true);
+            first = false;
         } 
     }
 
@@ -228,5 +248,14 @@ public class Waves : MonoBehaviourPun
     {
         nbMobs = mobW;
         Debug.LogWarning(" nombre de mobEnvoyé " + nbMobs);
+    }
+
+    IEnumerator delayspawn()
+    {
+        Debug.LogWarning("Before coroutine");
+        yield return new WaitForSeconds(1.05f);
+        string sceneload = oldscene;
+        PhotonNetwork.LoadLevel(sceneload);
+        Debug.Log("Room Loaded");
     }
 }

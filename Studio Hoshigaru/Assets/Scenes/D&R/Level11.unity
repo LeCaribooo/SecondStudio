@@ -6509,6 +6509,7 @@ MonoBehaviour:
   StatesWaves: {fileID: 1844794364}
   CWaves: {fileID: 657930018}
   Portal_Back: {fileID: 1482303293}
+  oldscene: TreeLevel
   newscene: TreeLevel
   nbWaves: 3
   plusMobWaves_MAX: 03000000
@@ -6840,8 +6841,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 992434337}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 51.177, y: 33.4, z: -14.535}
-  m_LocalScale: {x: 1.6269, y: 1.7547641, z: 1.6269}
+  m_LocalPosition: {x: 68.381, y: 33.4, z: -14.535}
+  m_LocalScale: {x: 2.2369874, y: 1.7547641, z: 1.6269}
   m_Children:
   - {fileID: 747144008}
   - {fileID: 999114552}
