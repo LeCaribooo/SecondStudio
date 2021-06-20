@@ -14,7 +14,7 @@ public class PlayerDeath : MonoBehaviourPun
     public Rigidbody2D rb;
     public Camera camera;
     public bool isDead = false;
-    GameObject me
+
 
     // Start is called before the first frame update
     void Start()
@@ -39,8 +39,8 @@ public class PlayerDeath : MonoBehaviourPun
     {
         if (PV.IsMine)
         {
-            me = PhotonNetwork.Instantiate(Path.Combine("Prefab", "Player", "DeadPlayer"), transform.position, Quaternion.identity, 0);
-            base.photonView.RPC("SendAllMe", RpcTarget.All);
+            GameObject me = PhotonNetwork.Instantiate(Path.Combine("Prefab", "Player", "DeadPlayer"), transform.position, Quaternion.identity, 0);
+            me.GetComponent<DeadState>().myCharacter = this.gameObject;
             camera.gameObject.SetActive(false);
         }
 
@@ -60,12 +60,5 @@ public class PlayerDeath : MonoBehaviourPun
     void DestroyOnline()
     {
         Destroy(this.gameObject);
-    }
-
-    [PunRPC]
-
-    void SendAllMe()
-    {
-        me.GetComponent<DeadState>().myCharacter = this.gameObject;
     }
 }

@@ -6,7 +6,7 @@ using Photon.Pun;
 using Photon.Realtime;
 
 
-public class DeadState : MonoBehaviourPunCallbacks
+public class DeadState : MonoBehaviourPunCallbacks, IPunObservable
 {
     int actualDisplay = 0;
     Parallaxing parallaxing;
@@ -84,5 +84,17 @@ public class DeadState : MonoBehaviourPunCallbacks
         myCharacter.GetComponent<PlayerControler>().MoveHere();
         myCharacter.GetComponent<PlayerControler>().animator.SetInteger("isDead", 2);
         Destroy(this.gameObject);
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(myCharacter);
+        }
+        else
+        {
+            myCharacter = (GameObject)stream.ReceiveNext();
+        }
     }
 }
