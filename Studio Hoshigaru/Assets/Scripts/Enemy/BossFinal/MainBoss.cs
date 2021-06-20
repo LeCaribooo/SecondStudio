@@ -32,11 +32,15 @@ public class MainBoss : MonoBehaviourPun
     public float moveSpeed;
     public bool moving;
     public bool illuminating;
+    public bool flash;
     public bool movingback;
     public bool falling;
     public bool changing;
     public bool augmente;
     public bool check;
+    public bool dead;
+    public bool blinding;
+    public bool aveugle;
     private void Start()
     {
         augmente = true;
@@ -52,10 +56,23 @@ public class MainBoss : MonoBehaviourPun
     }
     private void Update()
     {
+
         if(beginning)
         {
             step = step % 12;
-            if(moving)
+            if(flash)
+            {
+                FlashBang();
+            }
+            else if(blinding)
+            {
+                Blind();
+            }
+            else if(aveugle)
+            {
+                Aveuglement();
+            }
+            else if(moving)
             {
                 moving = DeadMove1();
                 if(!moving)
@@ -64,10 +81,10 @@ public class MainBoss : MonoBehaviourPun
                     waiting1 = true;
                 }
             }
-            if(falling)
+            else if(falling)
             {
                 falling = DeadMove2();
-                if(!falling)
+                if(!falling && phase != 3)
                 {
                     wait = maxWait * 1.5f;
                     waiting = true;
@@ -130,11 +147,12 @@ public class MainBoss : MonoBehaviourPun
                 {
                     endAttack = false;
                     changing = true;
+                    stock.BossComplet.GetComponent<PhaseChanging>().P1.SetActive(false);
                     PhaseSwitch();
                 }
                 else
                 {
-                    //Death();
+                    Death();
                 }
             }
             else if(endAttack)
@@ -159,7 +177,128 @@ public class MainBoss : MonoBehaviourPun
         }
     }
 
+    public void Aveuglement()
+    {
+        Light2D light = stock.mainLight.GetComponent<Light2D>();
+        if (augmente)
+        {
+            light.intensity += 0.01f;
+        }
+        else
+        {
+            light.intensity -= 0.01f;
+        }
+        if (light.intensity >= 2 && augmente)
+        {
+            stock.BossEyes.SetActive(false);
+            stock.SmokeCou.SetActive(false);
+            stock.BossComplet.SetActive(false);
+            stock.BossL.SetActive(true);
+            stock.BossR.SetActive(true);
+            stock.SmokeTorse.SetActive(false);
+            stock.SmokeBras.SetActive(false);
+            stock.SmokeH.SetActive(false);
+            stock.SmokeL.SetActive(false);
+            stock.SmokeR.SetActive(false);
+            augmente = false;
+        }
+        else if (light.intensity <= 0.6f && !augmente)
+        {
+            aveugle = false;
+            moving = true;
+            augmente = true;
+            light.intensity = 0.6f;
+        }
+    }
 
+    public void Blind()
+    {
+        Light2D light = stock.mainLight.GetComponent<Light2D>();
+        if (augmente)
+        {
+            light.intensity += 0.01f;
+        }
+        else
+        {
+            light.intensity -= 0.01f;
+        }
+        if (light.intensity >= 2 && augmente)
+        {
+            stock.BossEyes.SetActive(true);
+            stock.SmokeCou.SetActive(true);
+            stock.SmokeBras.SetActive(true);
+            stock.SmokeTorse.SetActive(true);
+            stock.SmokeH.SetActive(true);
+            stock.SmokeL.SetActive(true);
+            stock.SmokeR.SetActive(true);
+            stock.DamageZone.GetComponent<EnemyHealth>().health = MaxHp;
+            augmente = false;
+        }
+
+        else if (light.intensity <= 0.6f && !augmente)
+        {
+            blinding = false;
+            light.intensity = 0.6f;
+            changing = false;
+            waiting = true;
+            phase += 1;
+            step = 0;
+            endAttack = true;
+            augmente = true;
+        }
+    }
+
+    public void Death()
+    {
+        phase = 3;
+        stock.BossEyes.SetActive(false);
+        stock.BossComplet.GetComponent<PhaseChanging>().P3.GetComponent<Death>().boss = this;
+        stock.BossComplet.GetComponent<PhaseChanging>().P3.GetComponent<Animator>().SetBool("Dead", true);
+    }
+
+    public void Empty()
+    {
+        stock.BossComplet.SetActive(false);
+        stock.BossL.SetActive(true);
+        stock.BossR.SetActive(true);
+        flash = true;
+        Clear();
+    }
+
+    public void FlashBang()
+    {
+        
+        Light2D light = stock.mainLight.GetComponent<Light2D>();
+        if (augmente)
+        {
+            light.intensity += 0.01f;
+        }
+        else
+        {
+            light.intensity -= 0.01f;
+        }
+        if (light.intensity >= 5 && augmente)
+        {
+            stock.SmokeBras.SetActive(false);
+            stock.SmokeCou.SetActive(false);
+            stock.SmokeTorse.SetActive(false);
+            stock.SmokeH.SetActive(false);
+            stock.SmokeL.SetActive(false);
+            stock.SmokeR.SetActive(false);
+            stock.BossL.GetComponent<PhaseChanging>().p1 = true;
+            stock.BossR.GetComponent<PhaseChanging>().p1 = true;
+            augmente = false;
+        }
+        else if (light.intensity <= 0.6f && !augmente)
+        {
+            Debug.Log("gné");
+            augmente = true;
+            light.intensity = 0.6f;
+            flash = false;
+            dead = true;
+            waiting = true;
+        }
+    }
 
     public void LightPhase()
     {
@@ -184,10 +323,10 @@ public class MainBoss : MonoBehaviourPun
             stock.BossEyes.GetComponent<PhaseChanging>().p2 = true;
             augmente = false;
         }
-        else if(light.intensity <= 0.6f)
+        else if(light.intensity <= 0.6f && !augmente)
         {
             augmente = true;
-            light.intensity = 0.4f;
+            light.intensity = 0.6f;
             illuminating = false;
             movingback = true;
         }
@@ -195,16 +334,7 @@ public class MainBoss : MonoBehaviourPun
 
     public void EndChange()
     {
-        stock.BossEyes.SetActive(true);
-        stock.SmokeCou.SetActive(true);
-        stock.SmokeBras.SetActive(true);
-        stock.SmokeTorse.SetActive(true);
-        stock.DamageZone.GetComponent<EnemyHealth>().health = MaxHp;
-        changing = false;
-        waiting = true;
-        phase += 1;
-        step = 0;
-        endAttack = true;
+        blinding = true;
     }
 
     public bool MoveBack1()
@@ -258,14 +388,7 @@ public class MainBoss : MonoBehaviourPun
     }
     public void PhaseSwitch()
     {
-        stock.BossEyes.SetActive(false);
-        stock.SmokeCou.SetActive(false);
-        stock.BossComplet.SetActive(false);
-        stock.BossL.SetActive(true);
-        stock.BossR.SetActive(true);
-        stock.SmokeTorse.SetActive(false);
-        stock.SmokeBras.SetActive(false);
-        moving = true;
+        aveugle = true;
         Clear();
     }
 
@@ -314,6 +437,11 @@ public class MainBoss : MonoBehaviourPun
             {
                 illuminating = true;
                 check = false;
+            }
+            else if(dead)
+            {
+                dead = false;
+                falling = true;
             }
             waiting = false;
             

@@ -16,7 +16,6 @@ public class EnemyController : MonoBehaviourPun
     private Animator animator;
     public bool cooling;
     public bool wait;
-    public AudioSource source;
     [SerializeField] LootExperience lootExperience;
     public int maxHealth;
 
@@ -30,8 +29,6 @@ public class EnemyController : MonoBehaviourPun
         healthbar.SetMaxHealth(health.health);
         animator = GetComponent<Animator>();
         cooling = true;
-        source = GetComponent<AudioSource>();
-        source.Play();
     }
     private void FixedUpdate()
     {

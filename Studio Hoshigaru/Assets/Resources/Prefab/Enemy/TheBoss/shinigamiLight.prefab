@@ -198,7 +198,6 @@ MonoBehaviour:
   enemySO: {fileID: 11400000, guid: 24e9a6bfa7ffee6428697809afd7fb51, type: 2}
   cooling: 0
   wait: 0
-  source: {fileID: 0}
   lootExperience: {fileID: 358997886789740145}
   maxHealth: 0
 --- !u!114 &358997886789740151

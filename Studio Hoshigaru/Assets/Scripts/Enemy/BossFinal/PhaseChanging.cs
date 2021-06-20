@@ -8,6 +8,7 @@ public class PhaseChanging : MonoBehaviour
     public GameObject P2;
     public GameObject P3;
 
+    public bool p1;
     public bool p2;
     public bool changed;
     public bool ended;
@@ -21,6 +22,13 @@ public class PhaseChanging : MonoBehaviour
             P2.SetActive(true);
             changed = true;
             p2 = false;
+        }
+        if(p1 && changed)
+        {
+            P2.SetActive(false);
+            P1.SetActive(true);
+            changed = true;
+            p1 = false;
         }
         if(ended && changed && P3 != null)
         {

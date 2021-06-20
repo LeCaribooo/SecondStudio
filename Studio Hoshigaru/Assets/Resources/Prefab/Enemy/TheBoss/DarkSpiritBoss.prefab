@@ -472,6 +472,7 @@ MonoBehaviour:
   dotDmgs: 0
   nbOfDots: 0
   timeBetweenDots: 0
+  die: 0
 --- !u!114 &5384786495901109177
 MonoBehaviour:
   m_ObjectHideFlags: 0
