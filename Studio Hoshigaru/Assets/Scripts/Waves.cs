@@ -12,7 +12,7 @@ public class Waves : MonoBehaviourPun
     private int CountWaves = 1;
     
     private bool W_inprogress = true;
-    
+    private bool first = true;
     public bool RoomCleared = false;
 
 
@@ -122,12 +122,16 @@ public class Waves : MonoBehaviourPun
 
         }
         //Quand c'est fini
-        if (RoomCleared)
+        if (RoomCleared && first)
         {
+            //=> Raise tous les personnages morts
+            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Dead");
+            gameObject.GetComponent<DeadState>().RespawnMe();
             CWaves.text = "" + nbWaves;
             StatesWaves.text = "Room Cleared !";
             DecompteCanvas.gameObject.SetActive(false);
             Portal_Back.gameObject.SetActive(true);
+            first = false;
         } 
     }
 
