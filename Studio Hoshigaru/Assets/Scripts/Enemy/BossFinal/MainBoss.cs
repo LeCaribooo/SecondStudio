@@ -191,7 +191,7 @@ public class MainBoss : MonoBehaviourPun
         if (light.intensity >= 2 && augmente)
         {
             stock.BossEyes.SetActive(false);
-            stock.SmokeCou.SetActive(false);
+            stock.SmokeCou.GetComponent<PhaseChanging>().P1.GetComponent<Animator>().SetBool("Reduce", true);
             stock.BossComplet.SetActive(false);
             stock.BossL.SetActive(true);
             stock.BossR.SetActive(true);
@@ -225,7 +225,7 @@ public class MainBoss : MonoBehaviourPun
         if (light.intensity >= 2 && augmente)
         {
             stock.BossEyes.SetActive(true);
-            stock.SmokeCou.SetActive(true);
+            stock.SmokeCou.GetComponent<PhaseChanging>().P2.SetActive(true);
             stock.SmokeBras.SetActive(true);
             stock.SmokeTorse.SetActive(true);
             stock.SmokeH.SetActive(true);
@@ -280,7 +280,7 @@ public class MainBoss : MonoBehaviourPun
         if (light.intensity >= 5 && augmente)
         {
             stock.SmokeBras.SetActive(false);
-            stock.SmokeCou.SetActive(false);
+            stock.SmokeCou.GetComponent<PhaseChanging>().P1.GetComponent<Animator>().SetBool("Reduce", true);
             stock.SmokeTorse.SetActive(false);
             stock.SmokeH.SetActive(false);
             stock.SmokeL.SetActive(false);
