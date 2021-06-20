@@ -101,4 +101,11 @@ public class DeadState : MonoBehaviourPunCallbacks
                 myCharacter = deads[i];
         }
     }
+
+    [PunRPC]
+
+    void SetTag()
+    {
+        myCharacter.tag = "Dead";
+    } 
 }
