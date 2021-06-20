@@ -23,7 +23,8 @@ public class Waves : MonoBehaviourPun
     public Text CWaves;
 
     public Portal_Back Portal_Back;
-    
+
+    public string oldscene;
     public string newscene;
 
     private int nbMobs;
@@ -104,6 +105,13 @@ public class Waves : MonoBehaviourPun
         {
             GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
             StatesWaves.text = "" + enemy.Length + "/" + nbMobs + " Ennemies";
+            GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
+            if (player.Length == 0)
+            {
+                string sceneload = oldscene;
+                PhotonNetwork.LoadLevel(sceneload);
+                Debug.Log("Room Loaded");
+            }
         }
         //Quand c'est clear et que je suis le MasterClient
         if (IsClear() && !W_inprogress && PhotonNetwork.IsMasterClient && !RoomCleared) //Permet au MasterClient de controler l'envoie de vague et leur uptade.
