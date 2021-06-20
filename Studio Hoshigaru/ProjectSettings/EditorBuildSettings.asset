@@ -74,4 +74,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/D&R/FinalFight.unity
     guid: 888c6ab8acf01124ea8b45aa972bd146
+  - enabled: 1
+    path: Assets/Scenes/Menu/CreditScene.unity
+    guid: ff7670cf7be05ed448f41208acaa4ac4
   m_configObjects: {}
