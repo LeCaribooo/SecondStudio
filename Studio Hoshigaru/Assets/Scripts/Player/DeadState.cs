@@ -55,8 +55,7 @@ public class DeadState : MonoBehaviourPunCallbacks
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         if (players.Length == 0 && !can)
         {
-            //S'occuper de tp back;
-            base.photonView.RPC("Respawn", RpcTarget.All);
+            StartCoroutine(RespawnCor());
             can = true;
             return myCharacter.GetComponent<PlayerControler>().camera.transform;
         }
@@ -87,7 +86,13 @@ public class DeadState : MonoBehaviourPunCallbacks
         Destroy(this.gameObject);
     }
 
-    //
+
+    IEnumerator RespawnCor()
+    {
+        yield return new WaitForSeconds(3);
+        base.photonView.RPC("Respawn", RpcTarget.All);
+    }
+
     void GetMyAvatar()
     {
         GameObject[] deads = GameObject.FindGameObjectsWithTag("Dead");
