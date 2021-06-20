@@ -47,6 +47,7 @@ Transform:
   - {fileID: 7690206892709107175}
   - {fileID: 4391591768350824139}
   - {fileID: 392901744907500612}
+  - {fileID: 999260921141974370}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -229,6 +230,7 @@ MonoBehaviour:
   dotDmgs: 0
   nbOfDots: 0
   timeBetweenDots: 0
+  die: 0
 --- !u!70 &3835952796605919478
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -287,6 +289,7 @@ MonoBehaviour:
   hotZone: {fileID: 7690206892980678169}
   triggerArea: {fileID: 7690206892175920710}
   healthbar: {fileID: 7690206892093305989}
+  Enemy: {fileID: 5604834533352382545}
   cooling1: 0
   cooling2: 0
   cooling3: 0
@@ -305,6 +308,77 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootedExperience: 10
+--- !u!1 &1981095366870197191
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 999260921141974370}
+  - component: {fileID: 1950642647649435097}
+  - component: {fileID: 5604834533352382545}
+  m_Layer: 0
+  m_Name: HitEnemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &999260921141974370
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981095366870197191}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.06, y: 0, z: 0}
+  m_LocalScale: {x: 1.39219, y: 2.8049998, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1213014846633028214}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1950642647649435097
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981095366870197191}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &5604834533352382545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981095366870197191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0282a4b7c41e7d42b4ccca8850004ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hittingEnemy: 0
 --- !u!1 &3043252978205405406
 GameObject:
   m_ObjectHideFlags: 0

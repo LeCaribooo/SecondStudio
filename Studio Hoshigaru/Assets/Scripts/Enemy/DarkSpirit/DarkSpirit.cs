@@ -23,6 +23,7 @@ public class DarkSpirit : MonoBehaviourPun
     private float cooldown;
     public float waitermax;
     private float wait;
+    public HittingEnemy Enemy;
 
     public float attackDistance;
     public int Maxhealth;
@@ -106,8 +107,9 @@ public class DarkSpirit : MonoBehaviourPun
                     Move();
                 }
             }
-            else if (IsNearEdge() && !anim.GetCurrentAnimatorStateInfo(0).IsName("Death") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Throwing"))
+            else if ((IsNearEdge() || Enemy.hittingEnemy) && !anim.GetCurrentAnimatorStateInfo(0).IsName("Death") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Throwing"))
             {
+                Enemy.hittingEnemy = false;
                 if (facingDirection == LEFT)
                 {
                     Flip(RIGHT);

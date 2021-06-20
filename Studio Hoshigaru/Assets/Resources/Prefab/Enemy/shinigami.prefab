@@ -294,7 +294,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &2383834580606235447
 MonoBehaviour:
@@ -467,7 +467,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7560377424807072096}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 18c8e3a6d8b9c8149936b7c47d742401, type: 3}
@@ -649,6 +649,7 @@ MonoBehaviour:
   dotDmgs: 0
   nbOfDots: 0
   timeBetweenDots: 0
+  die: 0
 --- !u!114 &1950793993701476826
 MonoBehaviour:
   m_ObjectHideFlags: 0

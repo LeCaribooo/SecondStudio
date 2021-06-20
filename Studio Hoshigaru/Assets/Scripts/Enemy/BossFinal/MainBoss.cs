@@ -242,6 +242,20 @@ public class MainBoss : MonoBehaviourPun
             return false;
         }
     }
+
+    public void Clear()
+    {
+        GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] boss = GameObject.FindGameObjectsWithTag("Boss");
+        for (int i = boss.Length-1; i >= 0; i--)
+        {
+            boss[i].GetComponent<EnemyHealth>().die = true;
+        }
+        for (int j = enemy.Length-1; j >= 0; j--)
+        {
+            enemy[j].GetComponent<EnemyHealth>().die = true;
+        }
+    }
     public void PhaseSwitch()
     {
         stock.BossEyes.SetActive(false);
@@ -252,6 +266,7 @@ public class MainBoss : MonoBehaviourPun
         stock.SmokeTorse.SetActive(false);
         stock.SmokeBras.SetActive(false);
         moving = true;
+        Clear();
     }
 
     public bool DeadMove2()
@@ -343,6 +358,38 @@ public class MainBoss : MonoBehaviourPun
         else
         {
             movingToDamage = false;
+            int i = GameObject.FindGameObjectsWithTag("Player").Length;
+            Transform[] spawnshini = {stock.shinigami1.transform, stock.shinigami2.transform, stock.shinigami3.transform, stock.shinigami4.transform, stock.shinigami5.transform, stock.shinigami6.transform, stock.shinigami7.transform, stock.shinigami8.transform };
+            Transform[] spawndark = {stock.dark1.transform, stock.dark2.transform, stock.dark3.transform, stock.dark4.transform, stock.dark5.transform, stock.dark6.transform, stock.dark7.transform, stock.dark8.transform};
+            if (phase == 1)
+            {
+                if(step == 3 || step == 11)
+                {
+                    for(int j = 0; j < i*2;j += 2)
+                    {
+                        PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "shinigami"), spawnshini[j].position, Quaternion.identity);
+                        PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss" ,"DarkSpiritBoss"), spawndark[j].position, Quaternion.identity);
+                    }
+                    
+                }
+                else if(step == 7)
+                {
+                    for(int j = 1; j < i*2; j+=2)
+                    {
+                        PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "shinigami"), spawnshini[j].position, Quaternion.identity);
+                        PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss" ,"DarkSpiritBoss"), spawndark[j].position, Quaternion.identity);
+                    }
+
+                }
+            }
+            else
+            {
+                for (int j = 0; j < i * 2; j++)
+                {
+                    PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "shinigamiLight"), spawnshini[j].position, Quaternion.identity);
+                    PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss" ,"DarkSpiritBoss"), spawndark[j].position, Quaternion.identity);
+                }
+            }
             stock.DamageZone.SetActive(true);
             DPSing = true;
         }

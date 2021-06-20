@@ -23,6 +23,7 @@ public class BadJuju : MonoBehaviourPun
     private float cooldown;
     public float waitermax;
     private float wait;
+    public HittingEnemy Enemy;
 
     public float attackDistance;
     public int Maxhealth;
@@ -104,8 +105,9 @@ public class BadJuju : MonoBehaviourPun
                     Move();
                 }
             }
-            else if(IsNearEdge() && !anim.GetCurrentAnimatorStateInfo(0).IsName("death") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack"))
+            else if((IsNearEdge() || Enemy.hittingEnemy) && !anim.GetCurrentAnimatorStateInfo(0).IsName("death") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack"))
             {
+                Enemy.hittingEnemy = false;
                 if (facingDirection == LEFT)
                 {
                     Flip(RIGHT);

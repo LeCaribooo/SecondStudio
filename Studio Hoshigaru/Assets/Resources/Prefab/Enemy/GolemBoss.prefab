@@ -248,6 +248,7 @@ MonoBehaviour:
   dotDmgs: 0
   nbOfDots: 0
   timeBetweenDots: 0
+  die: 0
 --- !u!70 &2966622179715750914
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -284,6 +285,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 8003735641893837207}
   - {fileID: 5080297820837666267}
+  - {fileID: 1416510654577655277}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

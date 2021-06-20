@@ -12,16 +12,22 @@ public class EnemyHealth : MonoBehaviour, IPunObservable
     private int dotTaken;
     public float timeBetweenDots;
     private bool hasBleed;
-
+    private float countdown;
+    public bool die;
     private void Start()
     {
         hasBleed = false;
         isBleeding = false;
         dotTaken = 0;
+        countdown = 5f;
     }
 
     private void Update()
     {
+        if(die)
+        {
+            Death();
+        }
         if (isBleeding && !hasBleed)
         {
             StartCoroutine(Cooldown());
@@ -65,4 +71,16 @@ public class EnemyHealth : MonoBehaviour, IPunObservable
             isBleeding = (bool)stream.ReceiveNext();
         }
     }
+
+    public void Death()
+    {
+        countdown -= Time.deltaTime;
+        if(countdown <= 0)
+        {
+            die = false;
+            countdown = 5f;
+            health = 0;
+        }
+    }
+
 }

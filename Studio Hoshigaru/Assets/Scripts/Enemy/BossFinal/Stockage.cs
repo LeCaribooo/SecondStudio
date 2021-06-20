@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Stockage : MonoBehaviour
 {
+    
     public GameObject BossComplet;
     public GameObject BossL;
     public GameObject BossR;
@@ -44,6 +45,22 @@ public class Stockage : MonoBehaviour
     public GameObject BeginningFight;
     public GameObject mainLight;
     public GameObject smokePlace;
+    public GameObject shinigami1;
+    public GameObject shinigami2;
+    public GameObject shinigami3;
+    public GameObject shinigami4;
+    public GameObject shinigami5;
+    public GameObject shinigami6;
+    public GameObject shinigami7;
+    public GameObject shinigami8;
+    public GameObject dark1;
+    public GameObject dark2;
+    public GameObject dark3;
+    public GameObject dark4;
+    public GameObject dark5;
+    public GameObject dark6;
+    public GameObject dark7;
+    public GameObject dark8;
     public void Start()
     {
         mainLight = GameObject.FindGameObjectsWithTag("Flashbang")[0];
