@@ -502,7 +502,7 @@ MonoBehaviour:
   healthbar: {fileID: 5384786495153871425}
   anim: {fileID: 5384786495901109179}
   Maxcooldown: 10
-  waitermax: 10
+  waitermax: 5
   Maxhealth: 20
   waiting: 0
   attackEnd: 1
