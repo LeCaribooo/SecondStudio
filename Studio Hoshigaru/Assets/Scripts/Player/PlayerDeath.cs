@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using System.IO;
 using UnityEngine.SceneManagement;
-public class PlayerDeath : MonoBehaviourPun
+public class PlayerDeath : MonoBehaviourPun, IPunObservable
 {
     private Health health;
     private PhotonView PV;
@@ -58,5 +58,17 @@ public class PlayerDeath : MonoBehaviourPun
     void DestroyOnline()
     {
         Destroy(this.gameObject);
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(isDead);
+        }
+        else
+        {
+            isDead = (bool)stream.ReceiveNext();
+        }
     }
 }

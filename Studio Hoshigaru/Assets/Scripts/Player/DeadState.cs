@@ -14,6 +14,8 @@ public class DeadState : MonoBehaviourPunCallbacks
     private PhotonView PV;
     bool can = false;
     public GameObject myCharacter;
+    GameObject[] players;
+    bool allDead = false;
 
     private void Awake()
     {
@@ -23,6 +25,7 @@ public class DeadState : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
+        players = GameObject.FindGameObjectsWithTag("Player");
         PV = GetComponent<PhotonView>();
         GetMyAvatar();
         if (PV.IsMine)
@@ -39,6 +42,7 @@ public class DeadState : MonoBehaviourPunCallbacks
     {
         if (PV.IsMine)
         {
+            allDead = needToRespawn();
             parallaxing.cam = DisplayCameraWhenDead();
         }   
     }
@@ -53,8 +57,7 @@ public class DeadState : MonoBehaviourPunCallbacks
 
     public Transform DisplayCameraWhenDead()
     {
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        if (players.Length == 0 && !can)
+        if (allDead && !can)
         {
             GameObject[] deads = GameObject.FindGameObjectsWithTag("Dead");
             for (int i = 0; i < deads.Length; i++)
@@ -107,4 +110,14 @@ public class DeadState : MonoBehaviourPunCallbacks
     {
         myCharacter.tag = "Dead";
     } 
+
+    bool needToRespawn()
+    {
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (!players[i].GetComponent<PlayerDeath>().isDead)
+                return false;
+        }
+        return true;
+    }
 }
