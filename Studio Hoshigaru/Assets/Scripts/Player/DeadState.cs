@@ -83,7 +83,6 @@ public class DeadState : MonoBehaviourPunCallbacks
     public void Respawn()
     {
         myCharacter.tag = "Player";
-        myCharacter.GetComponent<PlayerControler>().camera.gameObject.SetActive(true);
         myCharacter.GetComponent<PlayerControler>().enabled = true;
         myCharacter.GetComponent<PlayerDeath>().isDead = false;
         myCharacter.GetComponent<Health>().numOfHits = myCharacter.GetComponent<Health>().numOfHearts * 4;

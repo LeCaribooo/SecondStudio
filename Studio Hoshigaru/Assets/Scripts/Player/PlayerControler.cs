@@ -259,4 +259,12 @@ public class PlayerControler : MonoBehaviourPun, IPunObservable
     {
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
+
+    public void OnEnable()
+    {
+        if (PV.IsMine)
+        {
+            camera.gameObject.SetActive(true);
+        }
+    }
 }
