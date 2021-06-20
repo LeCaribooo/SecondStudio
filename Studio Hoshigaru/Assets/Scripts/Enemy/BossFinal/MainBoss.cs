@@ -518,7 +518,7 @@ public class MainBoss : MonoBehaviourPun
                 for (int j = 0; j < i * 2; j++)
                 {
                     PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "shinigamiLight"), spawnshini[j].position, Quaternion.identity);
-                    PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss" ,"DarkSpiritBoss"), spawndark[j].position, Quaternion.identity);
+                    PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss" ,"LightSpiritBoss"), spawndark[j].position, Quaternion.identity);
                 }
             }
             stock.DamageZone.SetActive(true);
