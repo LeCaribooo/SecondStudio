@@ -27,6 +27,7 @@ public class BossDarkSpirit : MonoBehaviourPun
     public bool lifeEnded;
     public EnemyHealth health;
 
+
     [SerializeField] LootExperience lootExperience;
 
 

@@ -148,6 +148,8 @@ public class MainBoss : MonoBehaviourPun
                     endAttack = false;
                     changing = true;
                     stock.BossComplet.GetComponent<PhaseChanging>().P1.SetActive(false);
+                    stock.BossL.SetActive(true);
+                    stock.BossR.SetActive(true);
                     PhaseSwitch();
                 }
                 else
@@ -192,11 +194,12 @@ public class MainBoss : MonoBehaviourPun
         {
             stock.BossEyes.SetActive(false);
             stock.SmokeCou.GetComponent<PhaseChanging>().P1.GetComponent<Animator>().SetBool("Reduce", true);
+            stock.SmokeTorse.GetComponent<PhaseChanging>().P1.GetComponent<Animator>().SetBool("Reduce", true);
             stock.BossComplet.SetActive(false);
-            stock.BossL.SetActive(true);
-            stock.BossR.SetActive(true);
-            stock.SmokeTorse.SetActive(false);
-            stock.SmokeBras.SetActive(false);
+            stock.SmokeBras.GetComponent<PhaseChangingBras>().P1.SetActive(false);
+            stock.SmokeBras.GetComponent<PhaseChangingBras>().L1.SetActive(true);
+            stock.SmokeBras.GetComponent<PhaseChangingBras>().R1.SetActive(true);
+            stock.SmokeBras.GetComponent<PhaseChangingBras>().H1.SetActive(true);
             stock.SmokeH.SetActive(false);
             stock.SmokeL.SetActive(false);
             stock.SmokeR.SetActive(false);
@@ -226,8 +229,10 @@ public class MainBoss : MonoBehaviourPun
         {
             stock.BossEyes.SetActive(true);
             stock.SmokeCou.GetComponent<PhaseChanging>().P2.SetActive(true);
-            stock.SmokeBras.SetActive(true);
-            stock.SmokeTorse.SetActive(true);
+            stock.SmokeTorse.GetComponent<PhaseChanging>().P2.SetActive(true);
+            stock.SmokeBras.GetComponent<PhaseChangingBras>().L2.SetActive(true);
+            stock.SmokeBras.GetComponent<PhaseChangingBras>().R2.SetActive(true);
+            stock.SmokeBras.GetComponent<PhaseChangingBras>().H2.SetActive(true);
             stock.SmokeH.SetActive(true);
             stock.SmokeL.SetActive(true);
             stock.SmokeR.SetActive(true);
@@ -267,7 +272,6 @@ public class MainBoss : MonoBehaviourPun
 
     public void FlashBang()
     {
-        
         Light2D light = stock.mainLight.GetComponent<Light2D>();
         if (augmente)
         {
@@ -279,9 +283,12 @@ public class MainBoss : MonoBehaviourPun
         }
         if (light.intensity >= 5 && augmente)
         {
-            stock.SmokeBras.SetActive(false);
-            stock.SmokeCou.GetComponent<PhaseChanging>().P1.GetComponent<Animator>().SetBool("Reduce", true);
-            stock.SmokeTorse.SetActive(false);
+            stock.SmokeBras.GetComponent<PhaseChangingBras>().P2.SetActive(false);
+            stock.SmokeBras.GetComponent<PhaseChangingBras>().L3.SetActive(true);
+            stock.SmokeBras.GetComponent<PhaseChangingBras>().R3.SetActive(true);
+            stock.SmokeBras.GetComponent<PhaseChangingBras>().H3.SetActive(true);
+            stock.SmokeCou.GetComponent<PhaseChanging>().P2.GetComponent<Animator>().SetBool("Reduce", true);
+            stock.SmokeTorse.GetComponent<PhaseChanging>().P2.GetComponent<Animator>().SetBool("Reduce", true);
             stock.SmokeH.SetActive(false);
             stock.SmokeL.SetActive(false);
             stock.SmokeR.SetActive(false);
@@ -291,7 +298,6 @@ public class MainBoss : MonoBehaviourPun
         }
         else if (light.intensity <= 0.6f && !augmente)
         {
-            Debug.Log("gné");
             augmente = true;
             light.intensity = 0.6f;
             flash = false;
@@ -317,9 +323,6 @@ public class MainBoss : MonoBehaviourPun
             stock.BossR.GetComponent<PhaseChanging>().p2 = true;
             stock.BossSideL.GetComponent<PhaseChanging>().p2 = true;
             stock.BossSideR.GetComponent<PhaseChanging>().p2 = true;
-            stock.SmokeBras.GetComponent<PhaseChanging>().p2 = true;
-            stock.SmokeCou.GetComponent<PhaseChanging>().p2 = true;
-            stock.SmokeTorse.GetComponent<PhaseChanging>().p2 = true;
             stock.BossEyes.GetComponent<PhaseChanging>().p2 = true;
             augmente = false;
         }
