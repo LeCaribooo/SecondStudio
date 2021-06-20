@@ -150,7 +150,6 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public void OnClick_StartGame()
     {
-        startButton.interactable = false;
         if (PhotonNetwork.IsMasterClient)
         {
             for (int i = 0; i < playerList.Count(); i++)
@@ -158,7 +157,7 @@ public class Launcher : MonoBehaviourPunCallbacks
                 if (!playerList[i].Ready)
                    return;
             }
-
+            startButton.interactable = false;
             PhotonNetwork.CurrentRoom.IsOpen = false;
             PhotonNetwork.CurrentRoom.IsVisible = false;
             PhotonNetwork.LoadLevel(1);
