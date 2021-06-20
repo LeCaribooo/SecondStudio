@@ -125,8 +125,15 @@ public class Waves : MonoBehaviourPun
         if (RoomCleared && first)
         {
             //=> Raise tous les personnages morts
-            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Dead");
-            gameObject.GetComponent<DeadState>().RespawnMe();
+            if (PhotonNetwork.IsMasterClient)
+            {
+                GameObject[] deadplayer = GameObject.FindGameObjectsWithTag("DeadState");
+                for (int i = 0; i < deadplayer.Length; i++)
+                {
+                    deadplayer[i].GetComponent<DeadState>().RespawnMe();
+                }
+                Debug.LogWarning("Respawn");
+            }
             CWaves.text = "" + nbWaves;
             StatesWaves.text = "Room Cleared !";
             DecompteCanvas.gameObject.SetActive(false);

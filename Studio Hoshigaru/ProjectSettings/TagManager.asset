@@ -9,6 +9,7 @@ TagManager:
   - Boss
   - Trigger
   - Dead
+  - DeadState
   layers:
   - Default
   - TransparentFX
