@@ -2895,7 +2895,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3045181835450250518}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &6236384682747679975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4130,6 +4130,7 @@ MonoBehaviour:
   capsuleCollider: {fileID: -5528596187562312331}
   rb: {fileID: 8745890432335679496}
   camera: {fileID: 5368359382360323570}
+  isDead: 0
 --- !u!114 &-5198743702041084537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4207,7 +4208,7 @@ MonoBehaviour:
     SynchronizeType: 2
     Name: AttackStatus
   - Type: 9
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: takeOf
   - Type: 4
     SynchronizeType: 2
@@ -4228,7 +4229,7 @@ MonoBehaviour:
     SynchronizeType: 2
     Name: hasShuriken
   - Type: 4
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: isDead
   - Type: 4
     SynchronizeType: 2
@@ -7371,8 +7372,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3087806031876957732}
   - component: {fileID: 5368359382360323570}
+  - component: {fileID: 6450836074168962258}
   - component: {fileID: 2783579247754196197}
-  - component: {fileID: 1860674531761857421}
   - component: {fileID: 2149825148688748990}
   m_Layer: 9
   m_Name: Camera
@@ -7440,15 +7441,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &2783579247754196197
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6894599944977472564}
-  m_Enabled: 1
---- !u!114 &1860674531761857421
+--- !u!114 &6450836074168962258
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7463,6 +7456,14 @@ MonoBehaviour:
   target: {fileID: 8606346153712435183}
   smoothSpeed: 0.05
   offset: {x: 0, y: 1.3, z: -2}
+--- !u!81 &2783579247754196197
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6894599944977472564}
+  m_Enabled: 1
 --- !u!114 &2149825148688748990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9695,7 +9696,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9011731124680519355}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &1707933843603087664
 MonoBehaviour:
   m_ObjectHideFlags: 0

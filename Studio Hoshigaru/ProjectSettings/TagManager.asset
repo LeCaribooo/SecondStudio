@@ -8,7 +8,7 @@ TagManager:
   - Portal
   - Boss
   - Trigger
-  - Flashbang
+  - Dead
   layers:
   - Default
   - TransparentFX

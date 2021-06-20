@@ -13,28 +13,32 @@ public class DeadState : MonoBehaviourPunCallbacks
     public Canvas UI;
     private PhotonView PV;
     bool can = false;
+    public GameObject myCharacter;
+    bool check;
+    bool coroustart;
 
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
+        PV = GetComponent<PhotonView>();
+        GetMyAvatar();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        PV = GetComponent<PhotonView>();
         if (PV.IsMine)
         {
             parallaxing = GameObject.Find("_GameMaster").GetComponent<Parallaxing>();
             parallaxing.cam = DisplayCameraWhenDead();
             UI.gameObject.SetActive(true);
         }
+        base.photonView.RPC("SetTag", RpcTarget.All);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //PV.RPC("DestroyOnline", RpcTarget.All);
         if (PV.IsMine)
         {
             parallaxing.cam = DisplayCameraWhenDead();
@@ -52,12 +56,26 @@ public class DeadState : MonoBehaviourPunCallbacks
     public Transform DisplayCameraWhenDead()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        if (players.Length == 0 && !can)
+        if (players.Length == 0 && !coroustart)
         {
-            StartCoroutine(Leave());
-            parallaxing.enabled = false;
-            can = true;
-            return null;
+            StartCoroutine(delay());
+            coroustart = true;
+            return myCharacter.GetComponent<PlayerControler>().camera.transform;
+        }
+        else if (check)
+        {
+            GameObject[] deads = GameObject.FindGameObjectsWithTag("Dead");
+            for (int i = 0; i < deads.Length; i++)
+            {
+                deads[i].GetComponent<PlayerControler>().camera.gameObject.SetActive(false);
+            }
+            base.photonView.RPC("Respawn", RpcTarget.All);
+            check = false;
+            return myCharacter.GetComponent<PlayerControler>().camera.transform;
+        }
+        else if (players.Length == 0)
+        {
+            return myCharacter.GetComponent<PlayerControler>().camera.transform;
         }
         else if (players.Length != 0)
         {
@@ -71,5 +89,44 @@ public class DeadState : MonoBehaviourPunCallbacks
             return players[actualDisplay].GetComponent<PlayerControler>().camera.transform;
         }
         return null;
+    }
+
+
+    [PunRPC]
+    public void Respawn()
+    {
+        myCharacter.GetComponent<PlayerControler>().enabled = true;
+        myCharacter.GetComponent<PlayerDeath>().isDead = false;
+        myCharacter.GetComponent<Health>().numOfHits = myCharacter.GetComponent<Health>().numOfHearts * 4;
+        myCharacter.GetComponent<PlayerControler>().MoveHere();
+        myCharacter.GetComponent<PlayerControler>().animator.SetInteger("isDead", 2);
+        myCharacter.tag = "Player";
+        Destroy(this.gameObject);
+    }
+
+    void GetMyAvatar()
+    {
+        GameObject[] deads = GameObject.FindGameObjectsWithTag("Player");
+        for (int i = 0; i < deads.Length; i++)
+        {
+            if (deads[i].GetPhotonView().Owner == PV.Owner)
+            {
+                Debug.Log(PV.Owner.UserId);
+                myCharacter = deads[i];
+                break;
+            }
+        }
+    }
+
+    [PunRPC]
+    void SetTag()
+    {
+        myCharacter.tag = "Dead";
+    } 
+
+    IEnumerator delay()
+    {
+        yield return new WaitForSeconds(0.25f);
+        check = true;
     }
 }

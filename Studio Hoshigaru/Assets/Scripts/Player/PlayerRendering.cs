@@ -58,7 +58,6 @@ public class PlayerRendering : MonoBehaviourPunCallbacks
     {
         if (otherPlayer == masterClient)
         {
-            Debug.Log("goddamn");
             StartCoroutine(Leave());
         }
         else

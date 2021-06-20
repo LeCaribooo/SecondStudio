@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using System.IO;
 using UnityEngine.SceneManagement;
-public class PlayerDeath : MonoBehaviourPun
+public class PlayerDeath : MonoBehaviourPun, IPunObservable
 {
     private Health health;
     private PhotonView PV;
@@ -13,10 +13,8 @@ public class PlayerDeath : MonoBehaviourPun
     public CapsuleCollider2D capsuleCollider;
     public Rigidbody2D rb;
     public Camera camera;
-    bool isDead = false;
+    public bool isDead = false;
 
-
-    
 
     // Start is called before the first frame update
     void Start()
@@ -37,20 +35,23 @@ public class PlayerDeath : MonoBehaviourPun
             }
         }
     }
-
     public void Death()
     {
-        if(PhotonNetwork.IsMasterClient)
-            PhotonNetwork.Instantiate(Path.Combine("Prefab", "Player", "DeadPlayer"), transform.position, Quaternion.identity, 0);
-        camera.gameObject.SetActive(false);
+        if (PV.IsMine)
+        {
+            GameObject me = PhotonNetwork.Instantiate(Path.Combine("Prefab", "Player", "DeadPlayer"), transform.position, Quaternion.identity, 0);
+            camera.gameObject.SetActive(false);
+        }
+
     }
 
    [PunRPC]
    void Unload()
     {
-        animator.SetTrigger("isDead");
+        animator.SetInteger("isDead", 1);
+        playerControler.StopHere();
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
         playerControler.enabled = false;
-        gameObject.tag = "Untagged";
    }
 
     [PunRPC]
@@ -59,4 +60,15 @@ public class PlayerDeath : MonoBehaviourPun
         Destroy(this.gameObject);
     }
 
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(isDead);
+        }
+        else
+        {
+            isDead = (bool)stream.ReceiveNext();
+        }
+    }
 }

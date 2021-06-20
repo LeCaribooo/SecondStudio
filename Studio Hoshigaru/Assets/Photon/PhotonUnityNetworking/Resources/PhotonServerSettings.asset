@@ -46,6 +46,7 @@ MonoBehaviour:
   - IsTrigger
   - PlayerReady
   - RandomRoomNumber_rpc
+  - Respawn
   - RPC_ChangeReadyState
   - SendCountMob
   - SendCountWaves
@@ -60,6 +61,7 @@ MonoBehaviour:
   - SetHammerActive
   - SetShurikenActive
   - SetSwordActive
+  - SetTag
   - Unload
   - Unlock
   - VoteRPC
