@@ -37,6 +37,7 @@ public class GuardianWarrior : MonoBehaviourPun
     public GameObject hotZone;
     public GameObject triggerArea;
     public HealthBar healthbar;
+    public HittingEnemy Enemy;
 
     private float timer1;
     private float timer2;
@@ -156,8 +157,9 @@ public class GuardianWarrior : MonoBehaviourPun
                 anim.SetBool("attack3", false);
                 anim.SetBool("walk", false);
             }
-            else if (IsNearEdge() && !anim.GetCurrentAnimatorStateInfo(0).IsName("death") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack1") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack2") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack3"))
+            else if ((IsNearEdge() || Enemy.hittingEnemy) && !anim.GetCurrentAnimatorStateInfo(0).IsName("death") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack1") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack2") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack3"))
             {
+                Enemy.hittingEnemy = false;
                 if (facingDirection == LEFT)
                 {
                     Flip(RIGHT);

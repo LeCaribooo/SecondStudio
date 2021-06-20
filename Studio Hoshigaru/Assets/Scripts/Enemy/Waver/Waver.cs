@@ -19,6 +19,7 @@ public class Waver : MonoBehaviourPun
     public Transform castJump;
     public float baseCastDist;
     public float downCastDist;
+    public HittingEnemy Enemy;
 
 
     public float attackDistance;
@@ -131,8 +132,9 @@ public class Waver : MonoBehaviourPun
             }
             else if(attack1End && attack2End)
             {
-                if(IsNearEdge() && !anim.GetCurrentAnimatorStateInfo(0).IsName("Death") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Attack1") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Attack2"))
+                if((IsNearEdge() || Enemy.hittingEnemy) && !anim.GetCurrentAnimatorStateInfo(0).IsName("Death") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Attack1") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Attack2"))
                 {
+                    Enemy.hittingEnemy = false;
                     if (facingDirection == LEFT)
                     {
                         Flip(RIGHT);

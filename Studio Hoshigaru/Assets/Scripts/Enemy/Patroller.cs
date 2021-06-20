@@ -14,6 +14,7 @@ public class Patroller : MonoBehaviourPun
     public bool attackMode;
     public bool alreadyAttacked;
     public AudioSource source;
+    public HittingEnemy Enemy;
     [SerializeField] LootExperience lootExperience;
     #region Patrolling
     [SerializeField]
@@ -100,8 +101,9 @@ public class Patroller : MonoBehaviourPun
             anim.SetBool("attack", false);
             Cooldown();
         }
-        if (IsNearEdge() && target == null && finishedAttack && !anim.GetCurrentAnimatorStateInfo(0).IsName("death"))
+        if ((IsNearEdge() || Enemy.hittingEnemy) && target == null && finishedAttack && !anim.GetCurrentAnimatorStateInfo(0).IsName("death"))
         {
+            Enemy.hittingEnemy = false;
             if (facingDirection == LEFT)
             {
                 Flip(RIGHT);

@@ -39,7 +39,7 @@ public class HitboxDamage : MonoBehaviourPun, IPunObservable
             {
                 GameObject enemy = other.gameObject;
                 other.gameObject.GetComponentInParent<EnemyHealth>().health -= dmgDealt;
-                if (other.gameObject.name == "shinigami(Clone)")
+                if (other.gameObject.name == "shinigami(Clone)"|| other.gameObject.name == "shinigamiLight(Clone)")
                 {
                     other.gameObject.GetComponent<AIPath>().enabled = false;
                     Knockback(enemy, other.gameObject.GetComponent<Rigidbody2D>());
@@ -53,6 +53,7 @@ public class HitboxDamage : MonoBehaviourPun, IPunObservable
                 GameObject enemy = other.gameObject;
                 other.gameObject.GetComponentInParent<EnemyHealth>().health -= dmgDealt;
             }
+            
         }
         
     }

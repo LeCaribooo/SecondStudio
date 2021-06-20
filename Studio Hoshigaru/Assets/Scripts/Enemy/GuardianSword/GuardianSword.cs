@@ -18,7 +18,8 @@ public class GuardianSword : MonoBehaviourPun
     public int dmg;
     public int maxHealth;
     public GameObject hitbox;
-    
+    public HittingEnemy Enemy;
+
     public EnemyHealth health;
     public bool chargeCooling;
     public bool attackCooling;
@@ -135,8 +136,9 @@ public class GuardianSword : MonoBehaviourPun
             }
             if (endAttackCharge && endAttackSword)
             {
-                if (!dead && IsNearEdge() && !anim.GetCurrentAnimatorStateInfo(0).IsName("death") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack") && !anim.GetCurrentAnimatorStateInfo(0).IsName("charge"))
+                if (!dead && (IsNearEdge() || Enemy.hittingEnemy) && !anim.GetCurrentAnimatorStateInfo(0).IsName("death") && !anim.GetCurrentAnimatorStateInfo(0).IsName("attack") && !anim.GetCurrentAnimatorStateInfo(0).IsName("charge"))
                 {
+                    Enemy.hittingEnemy = false;
                     if (facingDirection == LEFT)
                     {
                         Flip(RIGHT);
@@ -271,8 +273,9 @@ public class GuardianSword : MonoBehaviourPun
 
     public void Charging()
     {
-        if (IsHittingWall())
+        if (IsHittingWall() || Enemy.hittingEnemy)
         {
+            Enemy.hittingEnemy = false;
             ChargeStopped();
         }
         else
