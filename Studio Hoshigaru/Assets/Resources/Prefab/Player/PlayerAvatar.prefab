@@ -4208,7 +4208,7 @@ MonoBehaviour:
     SynchronizeType: 2
     Name: AttackStatus
   - Type: 9
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: takeOf
   - Type: 4
     SynchronizeType: 2
