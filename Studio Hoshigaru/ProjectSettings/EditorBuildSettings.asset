@@ -53,4 +53,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/D&R/Level8.unity
     guid: 2050654c575eab142b956f1965bdc956
+  - enabled: 1
+    path: Assets/Scenes/D&R/Level9.unity
+    guid: 398b429d37f2b7647965b3bd4587a86f
+  - enabled: 1
+    path: Assets/Scenes/D&R/Level10.unity
+    guid: 55a12676c15aaaa46abb669f60ff8880
+  - enabled: 1
+    path: Assets/Scenes/D&R/Level11.unity
+    guid: 2dc68d91951359b4f87dc94b38d5171e
+  - enabled: 1
+    path: Assets/Scenes/D&R/Level12.unity
+    guid: dec61ded94c198d4786219e745f8ed57
+  - enabled: 1
+    path: Assets/Scenes/D&R/Level13.unity
+    guid: 3c7798d7278cfb34299e6ce4871b5689
+  - enabled: 1
+    path: Assets/Scenes/Phase 3/BeforeBoss.unity
+    guid: 937d986cc9bd69f4c86e561710dcb05c
   m_configObjects: {}

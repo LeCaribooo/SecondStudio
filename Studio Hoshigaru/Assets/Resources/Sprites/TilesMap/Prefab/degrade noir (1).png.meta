@@ -1,0 +1,929 @@
+fileFormatVersion: 2
+guid: aeae25d8acdbd824eb11b587d07dd612
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -742246801914035843
+    second: degrade noir (1)_0
+  - first:
+      213: 4266705469737606173
+    second: degrade noir (1)_1
+  - first:
+      213: -1691640142953132699
+    second: degrade noir (1)_2
+  - first:
+      213: -3001381096681059576
+    second: degrade noir (1)_3
+  - first:
+      213: -7614049359122725913
+    second: degrade noir (1)_4
+  - first:
+      213: -7030380391573878468
+    second: degrade noir (1)_5
+  - first:
+      213: -2852872017348025718
+    second: degrade noir (1)_6
+  - first:
+      213: 4893049541773694045
+    second: degrade noir (1)_7
+  - first:
+      213: -3867988285757825759
+    second: degrade noir (1)_8
+  - first:
+      213: 4854635837001290170
+    second: degrade noir (1)_9
+  - first:
+      213: -5045939441473720800
+    second: degrade noir (1)_10
+  - first:
+      213: -5348110927863610591
+    second: degrade noir (1)_11
+  - first:
+      213: 3474417901885852675
+    second: degrade noir (1)_12
+  - first:
+      213: 929169262038223594
+    second: degrade noir (1)_13
+  - first:
+      213: -2107408035551776853
+    second: degrade noir (1)_14
+  - first:
+      213: -270757243496284520
+    second: degrade noir (1)_15
+  - first:
+      213: -5292082996234885257
+    second: degrade noir (1)_16
+  - first:
+      213: -4166547532536266543
+    second: degrade noir (1)_17
+  - first:
+      213: -8268428828691186445
+    second: degrade noir (1)_18
+  - first:
+      213: 6948708490693279870
+    second: degrade noir (1)_19
+  - first:
+      213: 1555215805478890410
+    second: degrade noir (1)_20
+  - first:
+      213: -3016764925629602429
+    second: degrade noir (1)_21
+  - first:
+      213: 6419158008968036175
+    second: degrade noir (1)_22
+  - first:
+      213: -7059957950939264473
+    second: degrade noir (1)_23
+  - first:
+      213: 1890490508457803448
+    second: degrade noir (1)_24
+  - first:
+      213: 1577951292954265726
+    second: degrade noir (1)_25
+  - first:
+      213: 3563651303295871368
+    second: degrade noir (1)_26
+  - first:
+      213: 2086198213475745245
+    second: degrade noir (1)_27
+  - first:
+      213: 7392439828982457825
+    second: degrade noir (1)_28
+  - first:
+      213: -6698536325630775966
+    second: degrade noir (1)_29
+  - first:
+      213: 2621667875209205191
+    second: degrade noir (1)_30
+  - first:
+      213: -1617671348640219211
+    second: degrade noir (1)_31
+  - first:
+      213: -529634194859496631
+    second: degrade noir (1)_32
+  - first:
+      213: 3016638264133718966
+    second: degrade noir (1)_33
+  - first:
+      213: 2760067396597473114
+    second: degrade noir (1)_34
+  - first:
+      213: -3989115386151058912
+    second: degrade noir (1)_35
+  - first:
+      213: 5042852807386333696
+    second: degrade noir (1)_36
+  - first:
+      213: 1700170757324003270
+    second: degrade noir (1)_37
+  - first:
+      213: -6188251043110548941
+    second: degrade noir (1)_38
+  - first:
+      213: -989177471545684178
+    second: degrade noir (1)_39
+  - first:
+      213: 6278714271100111039
+    second: degrade noir (1)_40
+  - first:
+      213: -6630907147466866599
+    second: degrade noir (1)_41
+  - first:
+      213: 4297536622304129663
+    second: degrade noir (1)_42
+  - first:
+      213: -1351919086339124064
+    second: degrade noir (1)_43
+  - first:
+      213: 3429182613531407135
+    second: degrade noir (1)_44
+  - first:
+      213: -4510963908912921601
+    second: degrade noir (1)_45
+  - first:
+      213: 3910570313044320915
+    second: degrade noir (1)_46
+  - first:
+      213: -3870915514940279556
+    second: degrade noir (1)_47
+  - first:
+      213: 8459607230359805462
+    second: degrade noir (1)_48
+  - first:
+      213: 6998369265684113872
+    second: degrade noir (1)_49
+  - first:
+      213: 1698031160924914270
+    second: degrade noir (1)_50
+  - first:
+      213: 1767204031446611597
+    second: degrade noir (1)_51
+  - first:
+      213: 1481909667941251122
+    second: degrade noir (1)_52
+  - first:
+      213: 6112490559681838821
+    second: degrade noir (1)_53
+  - first:
+      213: -4279058028514272597
+    second: degrade noir (1)_54
+  - first:
+      213: 2204442151877644032
+    second: degrade noir (1)_55
+  - first:
+      213: -2383854638871673886
+    second: degrade noir (1)_56
+  - first:
+      213: -1160838627171100088
+    second: degrade noir (1)_57
+  - first:
+      213: 1724235461444761012
+    second: degrade noir (1)_58
+  - first:
+      213: 6217821012334516963
+    second: degrade noir (1)_59
+  - first:
+      213: 786186523815256783
+    second: degrade noir (1)_60
+  - first:
+      213: -5702064082046670908
+    second: degrade noir (1)_61
+  - first:
+      213: -68129624614009278
+    second: degrade noir (1)_62
+  - first:
+      213: 7749931449605273636
+    second: degrade noir (1)_63
+  - first:
+      213: -6238881845675910312
+    second: degrade noir (1)_64
+  - first:
+      213: 2277845808970669399
+    second: degrade noir (1)_65
+  - first:
+      213: -7610945576115812968
+    second: degrade noir (1)_66
+  - first:
+      213: -239521979402725161
+    second: degrade noir (1)_67
+  - first:
+      213: -3397105522729689886
+    second: degrade noir (1)_68
+  - first:
+      213: 520151694402688639
+    second: degrade noir (1)_69
+  - first:
+      213: 3694610226011833117
+    second: degrade noir (1)_70
+  - first:
+      213: -5128021061967135454
+    second: degrade noir (1)_71
+  - first:
+      213: -1422536356034331556
+    second: degrade noir (1)_72
+  - first:
+      213: 4167839793298834253
+    second: degrade noir (1)_73
+  - first:
+      213: 2921789298924997591
+    second: degrade noir (1)_74
+  - first:
+      213: -6296770199834965305
+    second: degrade noir (1)_75
+  - first:
+      213: 7704995007562291547
+    second: degrade noir (1)_76
+  - first:
+      213: 1528876656671381501
+    second: degrade noir (1)_77
+  - first:
+      213: -228242205659378914
+    second: degrade noir (1)_78
+  - first:
+      213: -2495125416162447258
+    second: degrade noir (1)_79
+  - first:
+      213: 9108296676063767848
+    second: degrade noir (1)_80
+  - first:
+      213: 3879056667922373277
+    second: degrade noir (1)_81
+  - first:
+      213: 6661673483290756538
+    second: degrade noir (1)_82
+  - first:
+      213: -4779181311834901727
+    second: degrade noir (1)_83
+  - first:
+      213: -7415412611641201996
+    second: degrade noir (1)_84
+  - first:
+      213: -2087832415009110856
+    second: degrade noir (1)_85
+  - first:
+      213: 8343974738077515744
+    second: degrade noir (1)_86
+  - first:
+      213: 7974894884220928493
+    second: degrade noir (1)_87
+  - first:
+      213: -6380294823992402293
+    second: degrade noir (1)_88
+  - first:
+      213: 2899004300204096132
+    second: degrade noir (1)_89
+  - first:
+      213: 4909139134454646322
+    second: degrade noir (1)_90
+  - first:
+      213: -3682501729553071291
+    second: degrade noir (1)_91
+  - first:
+      213: -7828070075974928782
+    second: degrade noir (1)_92
+  - first:
+      213: -5498615061253655111
+    second: degrade noir (1)_93
+  - first:
+      213: -974788877382553453
+    second: degrade noir (1)_94
+  - first:
+      213: 2877443642280085937
+    second: degrade noir (1)_95
+  - first:
+      213: 6862583938919683127
+    second: degrade noir (1)_96
+  - first:
+      213: -349143786894145404
+    second: degrade noir (1)_97
+  - first:
+      213: 450256812729040625
+    second: degrade noir (1)_98
+  - first:
+      213: 2616173833006445192
+    second: degrade noir (1)_99
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: degrade noir (1)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d718e3c577203b5f0800000000000000
+      internalID: -742246801914035843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: degrade noir (1)_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1c1decc402663b30800000000000000
+      internalID: 4266705469737606173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: degrade noir (1)_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56dcc7fa0461688e0800000000000000
+      internalID: -1691640142953132699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: degrade noir (1)_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80bc0c86bc3f856d0800000000000000
+      internalID: -3001381096681059576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: degrade noir (1)_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e30337e276755690800000000000000
+      internalID: -7614049359122725913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: degrade noir (1)_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c390e5c48421f6e90800000000000000
+      internalID: -7030380391573878468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: degrade noir (1)_6
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a82a150f3009868d0800000000000000
+      internalID: -2852872017348025718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: degrade noir (1)_7
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d541fcd32aa97e340800000000000000
+      internalID: 4893049541773694045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: degrade noir (1)_8
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12d5808c525225ac0800000000000000
+      internalID: -3867988285757825759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: degrade noir (1)_9
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab1d752a2912f5340800000000000000
+      internalID: 4854635837001290170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: degrade noir (1)_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02e63d000d839f9b0800000000000000
+      internalID: -5045939441473720800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: degrade noir (1)_11
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1230e455271b7c5b0800000000000000
+      internalID: -5348110927863610591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: degrade noir (1)_12
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30c0a2b6cac973030800000000000000
+      internalID: 3474417901885852675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: degrade noir (1)_13
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aea0008558215ec00800000000000000
+      internalID: 929169262038223594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: degrade noir (1)_14
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bafe124ae8bf0c2e0800000000000000
+      internalID: -2107408035551776853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: degrade noir (1)_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89e3a09b8b31e3cf0800000000000000
+      internalID: -270757243496284520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: degrade noir (1)_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 777e887bd8ebe86b0800000000000000
+      internalID: -5292082996234885257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: degrade noir (1)_17
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d0456f28137d26c0800000000000000
+      internalID: -4166547532536266543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: degrade noir (1)_18
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fc334fc9c3a04d80800000000000000
+      internalID: -8268428828691186445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: degrade noir (1)_19
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7083837e85ce6060800000000000000
+      internalID: 6948708490693279870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: degrade noir (1)_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aab64a2098c359510800000000000000
+      internalID: 1555215805478890410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: degrade noir (1)_21
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3856dfc984c4226d0800000000000000
+      internalID: -3016764925629602429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: degrade noir (1)_22
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4fb4a1f23e651950800000000000000
+      internalID: 6419158008968036175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: degrade noir (1)_23
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72a021d16adf50e90800000000000000
+      internalID: -7059957950939264473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: degrade noir (1)_24
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8beffd7e91f5c3a10800000000000000
+      internalID: 1890490508457803448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
