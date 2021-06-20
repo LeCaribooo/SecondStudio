@@ -13837,6 +13837,7 @@ MonoBehaviour:
   StatesWaves: {fileID: 1645419277}
   CWaves: {fileID: 51932145}
   Portal_Back: {fileID: 155079752}
+  oldscene: Village
   newscene: Village
   nbWaves: 3
   plusMobWaves_MAX: 03000000

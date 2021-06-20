@@ -69300,6 +69300,7 @@ MonoBehaviour:
   StatesWaves: {fileID: 775848243}
   CWaves: {fileID: 522739700}
   Portal_Back: {fileID: 706269902}
+  oldscene: Village
   newscene: Village
   nbWaves: 3
   plusMobWaves_MAX: 03000000

@@ -108,11 +108,10 @@ public class Waves : MonoBehaviourPun
             GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
             if (player.Length == 0)
             {
-                string sceneload = oldscene;
-                PhotonNetwork.LoadLevel(sceneload);
-                Debug.Log("Room Loaded");
+                Debug.LogWarning("Bande de noob");
                 RoomCleared = true;
                 first = false;
+                StartCoroutine(delayspawn());
             }
         }
         //Quand c'est clear et que je suis le MasterClient
@@ -249,5 +248,14 @@ public class Waves : MonoBehaviourPun
     {
         nbMobs = mobW;
         Debug.LogWarning(" nombre de mobEnvoyé " + nbMobs);
+    }
+
+    IEnumerator delayspawn()
+    {
+        Debug.LogWarning("Before coroutine");
+        yield return new WaitForSeconds(1.05f);
+        string sceneload = oldscene;
+        PhotonNetwork.LoadLevel(sceneload);
+        Debug.Log("Room Loaded");
     }
 }
