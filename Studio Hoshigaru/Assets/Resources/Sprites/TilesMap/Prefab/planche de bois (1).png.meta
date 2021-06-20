@@ -1,0 +1,872 @@
+fileFormatVersion: 2
+guid: b54fbec6ea554ba4cae707cd7fb64e71
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5041412975653674060
+    second: planche de bois (1)_0
+  - first:
+      213: 3206694094741626812
+    second: planche de bois (1)_1
+  - first:
+      213: -5542763319833093142
+    second: planche de bois (1)_2
+  - first:
+      213: -8142734145810802099
+    second: planche de bois (1)_3
+  - first:
+      213: -7243293293561203308
+    second: planche de bois (1)_4
+  - first:
+      213: 8981706760390788383
+    second: planche de bois (1)_5
+  - first:
+      213: 5233032064212781061
+    second: planche de bois (1)_6
+  - first:
+      213: 5879825782452564814
+    second: planche de bois (1)_7
+  - first:
+      213: -5435499234916149130
+    second: planche de bois (1)_8
+  - first:
+      213: -717929739263100191
+    second: planche de bois (1)_9
+  - first:
+      213: 3128304859692897779
+    second: planche de bois (1)_10
+  - first:
+      213: 6222729047003466762
+    second: planche de bois (1)_11
+  - first:
+      213: -6500027298791129883
+    second: planche de bois (1)_12
+  - first:
+      213: -261220102381855939
+    second: planche de bois (1)_13
+  - first:
+      213: -3592870693577787924
+    second: planche de bois (1)_14
+  - first:
+      213: -7168394402753436727
+    second: planche de bois (1)_15
+  - first:
+      213: -8837644715595009364
+    second: planche de bois (1)_16
+  - first:
+      213: 9028571380858669554
+    second: planche de bois (1)_17
+  - first:
+      213: 7176912705734214805
+    second: planche de bois (1)_18
+  - first:
+      213: 6677088592059352649
+    second: planche de bois (1)_19
+  - first:
+      213: -236016301747489248
+    second: planche de bois (1)_20
+  - first:
+      213: -2364671316264777501
+    second: planche de bois (1)_21
+  - first:
+      213: 8722545663475297612
+    second: planche de bois (1)_22
+  - first:
+      213: -8684854700532236040
+    second: planche de bois (1)_23
+  - first:
+      213: 5261079427467182568
+    second: planche de bois (1)_24
+  - first:
+      213: 6050767897125672053
+    second: planche de bois (1)_25
+  - first:
+      213: -4370087653445859829
+    second: planche de bois (1)_26
+  - first:
+      213: 1063321313455855333
+    second: planche de bois (1)_27
+  - first:
+      213: -2468698845235281769
+    second: planche de bois (1)_28
+  - first:
+      213: 958934314792995345
+    second: planche de bois (1)_29
+  - first:
+      213: 844084314336975707
+    second: planche de bois (1)_30
+  - first:
+      213: 4811426580362702551
+    second: planche de bois (1)_31
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: planche de bois (1)_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b32e14fb9d490ab0800000000000000
+      internalID: -5041412975653674060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_1
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbfda641a47708c20800000000000000
+      internalID: 3206694094741626812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_2
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeb984f90262413b0800000000000000
+      internalID: -5542763319833093142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_3
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4ad08abf623ffe80800000000000000
+      internalID: -8142734145810802099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_4
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 495b0594027aa7b90800000000000000
+      internalID: -7243293293561203308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_5
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1541d126be65ac70800000000000000
+      internalID: 8981706760390788383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_6
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 508c1a5cfe67f9840800000000000000
+      internalID: 5233032064212781061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_7
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e43b4408566599150800000000000000
+      internalID: 5879825782452564814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_8
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6785aed8e3a3194b0800000000000000
+      internalID: -5435499234916149130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_9
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eab885b4b66906f0800000000000000
+      internalID: -717929739263100191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_10
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f59f1702b8f96b20800000000000000
+      internalID: 3128304859692897779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_11
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0c852c49139b5650800000000000000
+      internalID: 6222729047003466762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_12
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ec76314c934bc5a0800000000000000
+      internalID: -6500027298791129883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_13
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3b965d63b5ff5cf0800000000000000
+      internalID: -261220102381855939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_14
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce57269d32f832ec0800000000000000
+      internalID: -3592870693577787924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_15
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c3abfd354fb48c90800000000000000
+      internalID: -7168394402753436727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_16
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca2f9db74f06a5580800000000000000
+      internalID: -8837644715595009364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_17
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f9c651e5ddeb4d70800000000000000
+      internalID: 9028571380858669554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_18
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5948649b414899360800000000000000
+      internalID: 7176912705734214805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_19
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 946c28f92b8c9ac50800000000000000
+      internalID: 6677088592059352649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_20
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 026b32d8c6089bcf0800000000000000
+      internalID: -236016301747489248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_21
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e88b7767fffe2fd0800000000000000
+      internalID: -2364671316264777501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_22
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4da1902115bc0970800000000000000
+      internalID: 8722545663475297612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_23
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f005e80aa2397780800000000000000
+      internalID: -8684854700532236040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_24
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e10c496ddb130940800000000000000
+      internalID: 5261079427467182568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_25
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57453861855a8f350800000000000000
+      internalID: 6050767897125672053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_26
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b060a03de645a53c0800000000000000
+      internalID: -4370087653445859829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_27
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e653a2d91da1ce00800000000000000
+      internalID: 1063321313455855333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_28
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7908550ea7b6dbdd0800000000000000
+      internalID: -2468698845235281769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_29
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11a4b2cbda1de4d00800000000000000
+      internalID: 958934314792995345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_30
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5bd884363ac6bb00800000000000000
+      internalID: 844084314336975707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planche de bois (1)_31
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7de24699bfe95c240800000000000000
+      internalID: 4811426580362702551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
