@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class Tentacle : MonoBehaviourPun
+public class Tentacle : MonoBehaviourPun, IPunObservable
 {
     public int damage;
     public float alive;
@@ -76,6 +76,18 @@ public class Tentacle : MonoBehaviourPun
         base.photonView.RPC("DestroyOnline", RpcTarget.All);
     }
 
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(wait);
+        }
+        else
+        {
+            wait = (float)stream.ReceiveNext();
+        }
+    }
 
     [PunRPC]
 

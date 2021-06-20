@@ -6853,14 +6853,14 @@ MonoBehaviour:
   step: 0
   stock: {fileID: 0}
   DPSing: 0
-  beginning: 0
+  beginning: 1
   maxWait: 7
   maxWait1: 3
   waiting: 0
   waiting1: 0
   endAttack: 0
   phase: 0
-  MaxHp: 300
+  MaxHp: 50
   laserSpeed: 12
   damageSpeed: 4
   movingToLaser: 0
@@ -6902,6 +6902,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 5512765457487913178}
+  - {fileID: 9193955687397639880}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

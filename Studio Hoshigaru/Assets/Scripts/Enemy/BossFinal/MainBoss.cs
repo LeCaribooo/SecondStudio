@@ -5,7 +5,7 @@ using Photon.Pun;
 using System.IO;
 using UnityEngine.Experimental.Rendering.Universal;
 
-public class MainBoss : MonoBehaviourPun
+public class MainBoss : MonoBehaviourPun, IPunObservable
 {
     public int step;
     public Stockage stock;
@@ -1163,6 +1163,27 @@ public class MainBoss : MonoBehaviourPun
         else
         {
             PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "LightMeteor"), pos, Quaternion.Euler(0, 0, 90));
+        }
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(step);
+            stream.SendNext(phase);
+            stream.SendNext(timerDps);
+            stream.SendNext(wait);
+            stream.SendNext(wait1);
+
+        }
+        else
+        {
+            step = (int)stream.ReceiveNext();
+            phase = (int)stream.ReceiveNext();
+            timerDps = (float)stream.ReceiveNext();
+            wait = (float)stream.ReceiveNext();
+            wait1 = (float)stream.ReceiveNext();
         }
     }
 }

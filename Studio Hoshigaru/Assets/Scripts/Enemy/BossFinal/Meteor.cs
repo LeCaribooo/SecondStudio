@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-public class Meteor : MonoBehaviourPun
+public class Meteor : MonoBehaviourPun,IPunObservable
 {
     public int damage;
     public float movementSpeed;
@@ -78,5 +78,17 @@ public class Meteor : MonoBehaviourPun
     void DestroyOnline()
     {
         Destroy(this.gameObject);
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if(stream.IsWriting)
+        {
+            stream.SendNext(wait);
+        }
+        else
+        {
+            wait = (float)stream.ReceiveNext();
+        }
     }
 }
