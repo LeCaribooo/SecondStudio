@@ -64,12 +64,7 @@ public class DeadState : MonoBehaviourPunCallbacks
         }
         else if (check)
         {
-            GameObject[] deads = GameObject.FindGameObjectsWithTag("Dead");
-            for (int i = 0; i < deads.Length; i++)
-            {
-                deads[i].GetComponent<PlayerControler>().camera.gameObject.SetActive(false);
-            }
-            base.photonView.RPC("Respawn", RpcTarget.All);
+            RespawnMe();
             check = false;
             return myCharacter.GetComponent<PlayerControler>().camera.transform;
         }
@@ -123,6 +118,16 @@ public class DeadState : MonoBehaviourPunCallbacks
     {
         myCharacter.tag = "Dead";
     } 
+
+    public void RespawnMe()
+    {
+        GameObject[] deads = GameObject.FindGameObjectsWithTag("Dead");
+        for (int i = 0; i < deads.Length; i++)
+        {
+            deads[i].GetComponent<PlayerControler>().camera.gameObject.SetActive(false);
+        }
+        base.photonView.RPC("Respawn", RpcTarget.All);
+    }
 
     IEnumerator delay()
     {
