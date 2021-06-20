@@ -14,6 +14,7 @@ public class DarkBullet : MonoBehaviourPun
     public Transform castPos2;
     public float baseCastDist;
     public Vector3 shootdir;
+    public float Cooldown;
 
     // Start is called before the first frame updateZ
     void Start()
@@ -24,6 +25,7 @@ public class DarkBullet : MonoBehaviourPun
         {
             GetComponentInChildren<SpriteRenderer>().flipX = true;
         }
+        Cooldown = 30;
     }
 
 
@@ -39,7 +41,18 @@ public class DarkBullet : MonoBehaviourPun
         {
             Rush();
         }
+        IsDead();
     }
+
+    public void IsDead()
+    {
+        Cooldown -= Time.deltaTime;
+        if(Cooldown <= 0)
+        {
+            Destroy();
+        }
+    }
+
     public void Rush()
     {
         float vX = -attackSpeed;
