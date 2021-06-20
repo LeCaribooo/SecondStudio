@@ -62,7 +62,7 @@ public class Ena : MonoBehaviour
         if (dialogueUI.isSpeaking)
         {
             MyPlayer.GetComponent<PlayerControler>().StopHere();
-            MyPlayer.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+            MyPlayer.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             MyPlayer.GetComponent<PlayerControler>().enabled = false;
             if(MyPlayer.GetComponentInChildren<WeaponSelection>().actualWeapon != null)
                 MyPlayer.GetComponentInChildren<WeaponSelection>().actualWeapon.SetActive(false);

@@ -31,6 +31,7 @@ public class DeadState : MonoBehaviourPunCallbacks
             UI.gameObject.SetActive(true);
         }
         GetMyAvatar();
+        base.photonView.RPC("SetTag", RpcTarget.All);
     }
 
     // Update is called once per frame
@@ -101,5 +102,11 @@ public class DeadState : MonoBehaviourPunCallbacks
             if (deads[i].GetPhotonView().Owner == PV.Owner)
                 myCharacter = deads[i];
         }
+    }
+
+    [PunRPC]
+    void SetTag()
+    {
+        myCharacter.tag = "Dead";
     }
 }

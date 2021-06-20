@@ -52,7 +52,6 @@ public class PlayerDeath : MonoBehaviourPun
         playerControler.StopHere();
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
         playerControler.enabled = false;
-        gameObject.tag = "Dead";
    }
 
     [PunRPC]
