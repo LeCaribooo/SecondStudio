@@ -14,17 +14,19 @@ public class DeadState : MonoBehaviourPunCallbacks
     private PhotonView PV;
     bool can = false;
     public GameObject myCharacter;
+    bool check;
+    bool coroustart;
 
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
+        PV = GetComponent<PhotonView>();
         GetMyAvatar();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        PV = GetComponent<PhotonView>();
         if (PV.IsMine)
         {
             parallaxing = GameObject.Find("_GameMaster").GetComponent<Parallaxing>();
@@ -54,7 +56,13 @@ public class DeadState : MonoBehaviourPunCallbacks
     public Transform DisplayCameraWhenDead()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        if (players.Length == 0 && !can)
+        if (players.Length == 0 && !coroustart)
+        {
+            StartCoroutine(delay());
+            coroustart = true;
+            return myCharacter.GetComponent<PlayerControler>().camera.transform;
+        }
+        else if (check)
         {
             GameObject[] deads = GameObject.FindGameObjectsWithTag("Dead");
             for (int i = 0; i < deads.Length; i++)
@@ -62,7 +70,11 @@ public class DeadState : MonoBehaviourPunCallbacks
                 deads[i].GetComponent<PlayerControler>().camera.gameObject.SetActive(false);
             }
             base.photonView.RPC("Respawn", RpcTarget.All);
-            can = true;
+            check = false;
+            return myCharacter.GetComponent<PlayerControler>().camera.transform;
+        }
+        else if (players.Length == 0)
+        {
             return myCharacter.GetComponent<PlayerControler>().camera.transform;
         }
         else if (players.Length != 0)
@@ -78,6 +90,7 @@ public class DeadState : MonoBehaviourPunCallbacks
         }
         return null;
     }
+
 
     [PunRPC]
     public void Respawn()
@@ -106,9 +119,14 @@ public class DeadState : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-
     void SetTag()
     {
         myCharacter.tag = "Dead";
     } 
+
+    IEnumerator delay()
+    {
+        yield return new WaitForSeconds(0.25f);
+        check = true;
+    }
 }
