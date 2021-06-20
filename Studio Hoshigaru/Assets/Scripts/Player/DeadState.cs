@@ -14,8 +14,6 @@ public class DeadState : MonoBehaviourPunCallbacks
     private PhotonView PV;
     bool can = false;
     public GameObject myCharacter;
-    GameObject[] players;
-    bool allDead = false;
 
     private void Awake()
     {
@@ -25,7 +23,6 @@ public class DeadState : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        players = GameObject.FindGameObjectsWithTag("Player");
         PV = GetComponent<PhotonView>();
         GetMyAvatar();
         if (PV.IsMine)
@@ -42,7 +39,6 @@ public class DeadState : MonoBehaviourPunCallbacks
     {
         if (PV.IsMine)
         {
-            allDead = needToRespawn();
             parallaxing.cam = DisplayCameraWhenDead();
         }   
     }
@@ -57,7 +53,8 @@ public class DeadState : MonoBehaviourPunCallbacks
 
     public Transform DisplayCameraWhenDead()
     {
-        if (allDead && !can)
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        if (players.Length == 0 && !can)
         {
             GameObject[] deads = GameObject.FindGameObjectsWithTag("Dead");
             for (int i = 0; i < deads.Length; i++)
@@ -85,12 +82,12 @@ public class DeadState : MonoBehaviourPunCallbacks
     [PunRPC]
     public void Respawn()
     {
-        myCharacter.tag = "Player";
         myCharacter.GetComponent<PlayerControler>().enabled = true;
         myCharacter.GetComponent<PlayerDeath>().isDead = false;
         myCharacter.GetComponent<Health>().numOfHits = myCharacter.GetComponent<Health>().numOfHearts * 4;
         myCharacter.GetComponent<PlayerControler>().MoveHere();
         myCharacter.GetComponent<PlayerControler>().animator.SetInteger("isDead", 2);
+        myCharacter.tag = "Player";
         Destroy(this.gameObject);
     }
 
@@ -100,7 +97,11 @@ public class DeadState : MonoBehaviourPunCallbacks
         for (int i = 0; i < deads.Length; i++)
         {
             if (deads[i].GetPhotonView().Owner == PV.Owner)
+            {
+                Debug.Log(PV.Owner.UserId);
                 myCharacter = deads[i];
+                break;
+            }
         }
     }
 
@@ -110,14 +111,4 @@ public class DeadState : MonoBehaviourPunCallbacks
     {
         myCharacter.tag = "Dead";
     } 
-
-    bool needToRespawn()
-    {
-        for (int i = 0; i < players.Length; i++)
-        {
-            if (!players[i].GetComponent<PlayerDeath>().isDead)
-                return false;
-        }
-        return true;
-    }
 }
