@@ -13,7 +13,6 @@ public class GolemFade : MonoBehaviour
     void Start()
     {
         volume = 0f;
-        boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<Golem>();
         GetComponent<AudioSource>().volume = volume;
         GetComponent<AudioSource>().clip = musics[0];
         GetComponent<AudioSource>().Play();
@@ -22,7 +21,10 @@ public class GolemFade : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(boss == null)
+        {
+            boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<Golem>();
+        }
         if (boss.deade && !check)
         {
             if (GetComponent<AudioSource>().volume > 0.00)
