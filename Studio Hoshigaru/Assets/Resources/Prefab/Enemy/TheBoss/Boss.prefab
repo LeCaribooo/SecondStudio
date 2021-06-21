@@ -7242,6 +7242,9 @@ MonoBehaviour:
   intensity1: 0
   end: 0
   laserEnd: 0
+  music1Stop: 0
+  music2Begin: 0
+  music2End: 0
 --- !u!114 &3711384677511610086
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,18 +7,17 @@ public class launchmusic : MonoBehaviour
 {
     public AudioClip[] musics;
     private float volume;
-    private int musiccount = 0;
     private bool check = false;
-    private bool changemusic = false;
-
-
+    public MainBoss boss;
+    public bool end;
 
     // Start is called before the first frame update
     void Start()
     {
         volume = 0f;
+        boss = GameObject.FindGameObjectWithTag("BossF").GetComponent<MainBoss>();
         GetComponent<AudioSource>().volume = volume;
-        GetComponent<AudioSource>().clip = musics[musiccount];
+        GetComponent<AudioSource>().clip = musics[0];
         GetComponent<AudioSource>().Play();
     }
 
@@ -26,31 +25,33 @@ public class launchmusic : MonoBehaviour
     void Update()
     {
 
-        if (changemusic)
+        if (boss.music1Stop)
         {
-            if (GetComponent<AudioSource>().volume > 0.05)
+            if (GetComponent<AudioSource>().volume > 0.00)
             {
-                volume -= 0.01f;
+                volume -= 0.0005f;
                 GetComponent<AudioSource>().volume = volume;
 
             }
             else
             {
                 GetComponent<AudioSource>().Stop();
-                musiccount = (musiccount + 1) % 2;
-                GetComponent<AudioSource>().clip = musics[musiccount];
-                GetComponent<AudioSource>().Play();
-                changemusic = false;
+                GetComponent<AudioSource>().clip = musics[1];
                 check = false;
             }
+            if(boss.music2Begin)
+            {
+                GetComponent<AudioSource>().Play();
+                boss.music1Stop = false;
+            }
         }
-        else
+        else if(!boss.music2End)
         {
             if (!check)
             {
                 if (GetComponent<AudioSource>().volume < 1)
                 {
-                    volume += 0.001f;                    
+                    volume += 0.001f;
                     GetComponent<AudioSource>().volume = volume;
                 }
                 else
@@ -59,45 +60,28 @@ public class launchmusic : MonoBehaviour
                 }
             }
         }
-        
-    }
-
-    /*private void OnTriggerExit2D()
-    {
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        foreach (GameObject player in players)
+        else if(!end)
         {
-            PhotonView PV = player.GetComponent<PhotonView>();
-            if (PV.IsMine)
+            if (GetComponent<AudioSource>().volume > 0.00)
             {
-                if (collider2D.tag == "Player")
-                {
-                    check = false;
-                    break;
-                }
+                volume -= 0.01f;
+                GetComponent<AudioSource>().volume = volume;
+            }
+            else
+            {
+                GetComponent<AudioSource>().Stop();
+                GetComponent<AudioSource>().clip = musics[2];
+                end = true;
             }
         }
-    }*/
-
-    private void OnTriggerEnter2D(Collider2D collider2D)
-    {
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        if (collider2D.tag == "Player")
+        else
         {
-            foreach (GameObject player in players)
+            if (GetComponent<AudioSource>().volume < 1)
             {
-                if (player.GetPhotonView().IsMine)
-                {
-                    changemusic = true;
-                    break;
-                }
+                volume += 0.001f;
+                GetComponent<AudioSource>().volume = volume;
             }
         }
-            
-            
-                
+
     }
-
-    
-
 }

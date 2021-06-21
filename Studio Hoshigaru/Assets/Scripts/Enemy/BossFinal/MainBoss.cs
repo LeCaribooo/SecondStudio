@@ -44,6 +44,9 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
     public float intensity1;
     public bool end;
     public bool laserEnd;
+    public bool music1Stop;
+    public bool music2Begin;
+    public bool music2End;
 
     Light2D light;
     EyesAnim eyes1;
@@ -334,6 +337,7 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
             stock.BossL.GetComponent<PhaseChanging>().p1 = true;
             stock.BossR.GetComponent<PhaseChanging>().p1 = true;
             augmente = false;
+            music2End = true;
         }
         else if (intensity1 <= 0.6f && !augmente)
         {
@@ -374,6 +378,7 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
             intensity1 = 0.6f;
             illuminating = false;
             movingback = true;
+            music2Begin = true;
         }
     }
 
@@ -434,6 +439,7 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
     public void PhaseSwitch()
     {
         aveugle = true;
+        music1Stop = true;
         Clear();
     }
 
@@ -1385,6 +1391,9 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
             stream.SendNext(intensity1);
             stream.SendNext(end);
             stream.SendNext(laserEnd);
+            stream.SendNext(music1Stop);
+            stream.SendNext(music2Begin);
+            stream.SendNext(music2End);
         }
         else
         {
@@ -1424,6 +1433,9 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
             intensity1 = (float)stream.ReceiveNext();
             end = (bool)stream.ReceiveNext();
             laserEnd = (bool)stream.ReceiveNext();
+            music1Stop = (bool)stream.ReceiveNext(); ;
+            music2Begin = (bool)stream.ReceiveNext(); ;
+            music2End = (bool)stream.ReceiveNext();
         }
     }
 }
