@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class SmokeCou : MonoBehaviour
+public class SmokeCou : MonoBehaviourPun
 {
     public GameObject smoke;
     public void Grow()
@@ -12,6 +13,12 @@ public class SmokeCou : MonoBehaviour
 
     public void End()
     {
-        smoke.SetActive(false);
+        base.photonView.RPC("SmokeA", RpcTarget.All, false);
+    }
+
+    [PunRPC]
+    public void SmokeA(bool active)
+    {
+        smoke.SetActive(active);
     }
 }

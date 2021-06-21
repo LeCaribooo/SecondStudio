@@ -5,7 +5,7 @@ using Photon.Pun;
 using System.IO;
 using UnityEngine.Experimental.Rendering.Universal;
 
-public class MainBoss : MonoBehaviourPun
+public class MainBoss : MonoBehaviourPun, IPunObservable
 {
     public int step;
     public Stockage stock;
@@ -41,6 +41,18 @@ public class MainBoss : MonoBehaviourPun
     public bool dead;
     public bool blinding;
     public bool aveugle;
+    public float intensity1;
+    Light2D light;
+    EyesAnim eyes1;
+    EyesAnim eyes2;
+    Warnings warn1;
+    Warnings warn2;
+    Warnings warn3;
+    Warnings warn4;
+    Warnings warn5;
+    Warnings warn6;
+    Warnings warn7;
+
     private void Start()
     {
         augmente = true;
@@ -52,11 +64,11 @@ public class MainBoss : MonoBehaviourPun
         waiting = true;
         wait1 = maxWait1;
         wait = maxWait;
-        stock.DamageZone.GetComponent<EnemyHealth>().health = MaxHp;
+        base.photonView.RPC("HPSet", RpcTarget.All, MaxHp);
+        base.photonView.RPC("GetLight", RpcTarget.All);
     }
     private void Update()
-    {
-
+    { 
         if(beginning)
         {
             step = step % 12;
@@ -95,11 +107,11 @@ public class MainBoss : MonoBehaviourPun
                 movingback = MoveBack1();
                 if(!movingback)
                 {
-                    stock.BossL.SetActive(false);
-                    stock.BossR.SetActive(false);
-                    stock.BossComplet.SetActive(true);
+                    base.photonView.RPC("LActive", RpcTarget.All, false);
+                    base.photonView.RPC("RActive", RpcTarget.All, false);
+                    base.photonView.RPC("CompletActive", RpcTarget.All, true);
                     stock.BossComplet.GetComponent<PhaseChanging>().p2 = true;
-                    stock.BossComplet.GetComponent<PhaseChanging>().P2.GetComponent<StateBoss>().boss = this;
+                    base.photonView.RPC("BCBossP2", RpcTarget.All);
                 }
             }
             else if(illuminating)
@@ -147,9 +159,9 @@ public class MainBoss : MonoBehaviourPun
                 {
                     endAttack = false;
                     changing = true;
-                    stock.BossComplet.GetComponent<PhaseChanging>().P1.SetActive(false);
-                    stock.BossL.SetActive(true);
-                    stock.BossR.SetActive(true);
+                    base.photonView.RPC("BossCP1", RpcTarget.All, false);
+                    base.photonView.RPC("LActive", RpcTarget.All, true);
+                    base.photonView.RPC("RActive", RpcTarget.All, true);
                     PhaseSwitch();
                 }
                 else
@@ -181,69 +193,74 @@ public class MainBoss : MonoBehaviourPun
 
     public void Aveuglement()
     {
-        Light2D light = stock.mainLight.GetComponent<Light2D>();
+
         if (augmente)
         {
-            light.intensity += 0.01f;
+            intensity1 += 0.01f;
+            light.intensity = intensity1;
         }
         else
         {
-            light.intensity -= 0.01f;
+            intensity1 -= 0.01f;
+            light.intensity = intensity1;
         }
-        if (light.intensity >= 2 && augmente)
+        if (intensity1 >= 2 && augmente)
         {
-            stock.BossEyes.SetActive(false);
+            base.photonView.RPC("EyesActive", RpcTarget.All, false);
             stock.SmokeCou.GetComponent<PhaseChanging>().P1.GetComponent<Animator>().SetBool("Reduce", true);
             stock.SmokeTorse.GetComponent<PhaseChanging>().P1.GetComponent<Animator>().SetBool("Reduce", true);
-            stock.BossComplet.SetActive(false);
-            stock.SmokeBras.GetComponent<PhaseChangingBras>().P1.SetActive(false);
-            stock.SmokeBras.GetComponent<PhaseChangingBras>().L1.SetActive(true);
-            stock.SmokeBras.GetComponent<PhaseChangingBras>().R1.SetActive(true);
-            stock.SmokeBras.GetComponent<PhaseChangingBras>().H1.SetActive(true);
-            stock.SmokeH.SetActive(false);
-            stock.SmokeL.SetActive(false);
-            stock.SmokeR.SetActive(false);
+            base.photonView.RPC("CompletActive", RpcTarget.All, false);
+            base.photonView.RPC("P1", RpcTarget.All, false);
+            base.photonView.RPC("L1", RpcTarget.All, true);
+            base.photonView.RPC("R1", RpcTarget.All, true);
+            base.photonView.RPC("H1", RpcTarget.All, true);
+            base.photonView.RPC("SmokeHActive", RpcTarget.All, false);
+            base.photonView.RPC("SmokeLActive", RpcTarget.All, false);
+            base.photonView.RPC("SmokeRActive", RpcTarget.All, false);
             augmente = false;
         }
-        else if (light.intensity <= 0.6f && !augmente)
+        else if (intensity1 <= 0.6f && !augmente)
         {
             aveugle = false;
             moving = true;
             augmente = true;
             light.intensity = 0.6f;
+            intensity1 = 0.6f;
         }
     }
 
     public void Blind()
     {
-        Light2D light = stock.mainLight.GetComponent<Light2D>();
         if (augmente)
         {
-            light.intensity += 0.01f;
+            intensity1 += 0.01f;
+            light.intensity = intensity1;
         }
         else
         {
-            light.intensity -= 0.01f;
+            intensity1 -= 0.01f;
+            light.intensity = intensity1;
         }
-        if (light.intensity >= 2 && augmente)
+        if (intensity1 >= 2 && augmente)
         {
-            stock.BossEyes.SetActive(true);
-            stock.SmokeCou.GetComponent<PhaseChanging>().P2.SetActive(true);
-            stock.SmokeTorse.GetComponent<PhaseChanging>().P2.SetActive(true);
-            stock.SmokeBras.GetComponent<PhaseChangingBras>().L2.SetActive(true);
-            stock.SmokeBras.GetComponent<PhaseChangingBras>().R2.SetActive(true);
-            stock.SmokeBras.GetComponent<PhaseChangingBras>().H2.SetActive(true);
-            stock.SmokeH.SetActive(true);
-            stock.SmokeL.SetActive(true);
-            stock.SmokeR.SetActive(true);
-            stock.DamageZone.GetComponent<EnemyHealth>().health = MaxHp;
+            base.photonView.RPC("EyesActive", RpcTarget.All, true);
+            base.photonView.RPC("CouP2", RpcTarget.All, true);
+            base.photonView.RPC("TorseP2", RpcTarget.All, true);
+            base.photonView.RPC("L2", RpcTarget.All, true);
+            base.photonView.RPC("R2", RpcTarget.All, true);
+            base.photonView.RPC("H2", RpcTarget.All, true);
+            base.photonView.RPC("SmokeHActive", RpcTarget.All, true);
+            base.photonView.RPC("SmokeLActive", RpcTarget.All, true);
+            base.photonView.RPC("SmokeRActive", RpcTarget.All, true);
+            base.photonView.RPC("HPSet", RpcTarget.All, MaxHp);
             augmente = false;
         }
 
-        else if (light.intensity <= 0.6f && !augmente)
+        else if (intensity1 <= 0.6f && !augmente)
         {
             blinding = false;
             light.intensity = 0.6f;
+            intensity1 = 0.06f;
             changing = false;
             waiting = true;
             phase += 1;
@@ -256,50 +273,52 @@ public class MainBoss : MonoBehaviourPun
     public void Death()
     {
         phase = 3;
-        stock.BossEyes.SetActive(false);
-        stock.BossComplet.GetComponent<PhaseChanging>().P3.GetComponent<Death>().boss = this;
+        base.photonView.RPC("EyesActive", RpcTarget.All, false);
+        base.photonView.RPC("DeaD", RpcTarget.All);
         stock.BossComplet.GetComponent<PhaseChanging>().P3.GetComponent<Animator>().SetBool("Dead", true);
     }
 
     public void Empty()
     {
-        stock.BossComplet.SetActive(false);
-        stock.BossL.SetActive(true);
-        stock.BossR.SetActive(true);
+        base.photonView.RPC("CompletActive", RpcTarget.All,false );
+        base.photonView.RPC("LActive", RpcTarget.All, true);
+        base.photonView.RPC("RActive", RpcTarget.All, true);
         flash = true;
         Clear();
     }
 
     public void FlashBang()
     {
-        Light2D light = stock.mainLight.GetComponent<Light2D>();
         if (augmente)
         {
-            light.intensity += 0.01f;
+            intensity1 += 0.01f;
+            light.intensity = intensity1;
         }
         else
         {
-            light.intensity -= 0.01f;
+            intensity1 -= 0.01f;
+            light.intensity = intensity1;
         }
-        if (light.intensity >= 5 && augmente)
+        if (intensity1 >= 5 && augmente)
         {
-            stock.SmokeBras.GetComponent<PhaseChangingBras>().P2.SetActive(false);
-            stock.SmokeBras.GetComponent<PhaseChangingBras>().L3.SetActive(true);
-            stock.SmokeBras.GetComponent<PhaseChangingBras>().R3.SetActive(true);
-            stock.SmokeBras.GetComponent<PhaseChangingBras>().H3.SetActive(true);
+            base.photonView.RPC("P2", RpcTarget.All, false);
+            base.photonView.RPC("L3", RpcTarget.All, true);
+            base.photonView.RPC("R3", RpcTarget.All, true);
+            base.photonView.RPC("H3", RpcTarget.All, true);
             stock.SmokeCou.GetComponent<PhaseChanging>().P2.GetComponent<Animator>().SetBool("Reduce", true);
             stock.SmokeTorse.GetComponent<PhaseChanging>().P2.GetComponent<Animator>().SetBool("Reduce", true);
-            stock.SmokeH.SetActive(false);
-            stock.SmokeL.SetActive(false);
-            stock.SmokeR.SetActive(false);
+            base.photonView.RPC("SmokeHActive", RpcTarget.All, false);
+            base.photonView.RPC("SmokeLActive", RpcTarget.All, false);
+            base.photonView.RPC("SmokeRActive", RpcTarget.All, false);
             stock.BossL.GetComponent<PhaseChanging>().p1 = true;
             stock.BossR.GetComponent<PhaseChanging>().p1 = true;
             augmente = false;
         }
-        else if (light.intensity <= 0.6f && !augmente)
+        else if (intensity1 <= 0.6f && !augmente)
         {
             augmente = true;
             light.intensity = 0.6f;
+            intensity1 = 0.6f;
             flash = false;
             dead = true;
             waiting = true;
@@ -308,16 +327,17 @@ public class MainBoss : MonoBehaviourPun
 
     public void LightPhase()
     {
-        Light2D light = stock.mainLight.GetComponent<Light2D>();
-        if(augmente)
+        if (augmente)
         {
-            light.intensity += 0.01f;
+            intensity1 += 0.01f;
+            light.intensity = intensity1;
         }
         else
         {
-            light.intensity -= 0.01f;
+            intensity1 -= 0.01f;
+            light.intensity = intensity1;
         }
-        if(light.intensity >= 5 && augmente)
+        if (intensity1 >= 5 && augmente)
         {
             stock.BossL.GetComponent<PhaseChanging>().p2 = true;
             stock.BossR.GetComponent<PhaseChanging>().p2 = true;
@@ -326,10 +346,11 @@ public class MainBoss : MonoBehaviourPun
             stock.BossEyes.GetComponent<PhaseChanging>().p2 = true;
             augmente = false;
         }
-        else if(light.intensity <= 0.6f && !augmente)
+        else if(intensity1 <= 0.6f && !augmente)
         {
             augmente = true;
             light.intensity = 0.6f;
+            intensity1 = 0.6f;
             illuminating = false;
             movingback = true;
         }
@@ -473,7 +494,7 @@ public class MainBoss : MonoBehaviourPun
             timerDps = timerDPSMax;
             DPSing = false;
             movingFromDamage = true;
-            stock.DamageZone.SetActive(false);
+            base.photonView.RPC("ActiveDamage", RpcTarget.All, false);
         }
     }
 
@@ -521,7 +542,7 @@ public class MainBoss : MonoBehaviourPun
                     PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss" ,"LightSpiritBoss"), spawndark[j].position, Quaternion.identity);
                 }
             }
-            stock.DamageZone.SetActive(true);
+            base.photonView.RPC("ActiveDamage", RpcTarget.All, true);
             DPSing = true;
         }
     }
@@ -554,17 +575,17 @@ public class MainBoss : MonoBehaviourPun
         endAttack = false;
         if (phase == 1)
         {
-            EyesAnim eyes = stock.BossEyes.GetComponent<PhaseChanging>().P1.GetComponent<EyesAnim>();
-            eyes.boss = this;
-            eyes.phase = 1;
-            eyes.anim.SetBool("Laser", true);
+            base.photonView.RPC("Eyes1", RpcTarget.All);
+            base.photonView.RPC("Eyes1B", RpcTarget.All);
+            eyes1.phase = 1;
+            eyes1.anim.SetBool("Laser", true);
         }
         else
         {
-            EyesAnim eyes = stock.BossEyes.GetComponent<PhaseChanging>().P2.GetComponent<EyesAnim>();
-            eyes.boss = this;
-            eyes.phase = 1;
-            eyes.anim.SetBool("Laser", true);
+            base.photonView.RPC("Eyes2", RpcTarget.All);
+            base.photonView.RPC("Eyes2B", RpcTarget.All);
+            eyes2.phase = 1;
+            eyes2.anim.SetBool("Laser", true);
         }
     }
 
@@ -605,7 +626,6 @@ public class MainBoss : MonoBehaviourPun
             {
                 movingToLaser = false;
                 Shooting("left");
-                Debug.Log("1");
             }
         }
     }
@@ -719,26 +739,25 @@ public class MainBoss : MonoBehaviourPun
                 GameObject l = PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "LaserDark"), stock.Laser1.transform.position, Quaternion.identity);
                 Laser laser = l.GetComponent<Laser>();
                 laser.facingDirection = facingdirection;
-                laser.boss = this;
+                base.photonView.RPC("LaserB", RpcTarget.All,laser);
             }
             else if (step == 6)
             {
                 GameObject l = PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "LaserDark"), stock.Laser3.transform.position, Quaternion.identity);
                 Laser laser = l.GetComponent<Laser>();
                 laser.facingDirection = facingdirection;
-                laser.boss = this;
+                base.photonView.RPC("LaserB", RpcTarget.All, laser);
             }
             else if (step == 10)
             {
                 GameObject l = PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "LaserDark"), stock.Laser2.transform.position, Quaternion.identity);
                 Laser laser = l.GetComponent<Laser>();
                 laser.facingDirection = facingdirection;
-                laser.boss = this;
+                base.photonView.RPC("LaserB", RpcTarget.All, laser);
             }
         }
         else
         {
-            Debug.Log("2");
             if (step == 2)
             {
                 GameObject l = PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "LaserLight"), stock.Laser1.transform.position, Quaternion.identity);
@@ -746,9 +765,9 @@ public class MainBoss : MonoBehaviourPun
                 Laser laser = l.GetComponent<Laser>();
                 Laser laser2 = l2.GetComponent<Laser>();
                 laser.facingDirection = facingdirection;
-                laser.boss = this;
+                base.photonView.RPC("LaserB", RpcTarget.All, laser);
                 laser2.facingDirection = facingdirection;
-                laser2.boss = this;
+                base.photonView.RPC("LaserB", RpcTarget.All, laser2);
             }
             else if (step == 6)
             {
@@ -758,9 +777,9 @@ public class MainBoss : MonoBehaviourPun
                 Laser laser = l.GetComponent<Laser>();
                 Laser laser2 = l2.GetComponent<Laser>();
                 laser.facingDirection = facingdirection;
-                laser.boss = this;
+                base.photonView.RPC("LaserB", RpcTarget.All, laser);
                 laser2.facingDirection = facingdirection;
-                laser2.boss = this;
+                base.photonView.RPC("LaserB", RpcTarget.All, laser2);
             }
             else if (step == 10)
             {
@@ -769,9 +788,9 @@ public class MainBoss : MonoBehaviourPun
                 Laser laser = l.GetComponent<Laser>();
                 Laser laser2 = l2.GetComponent<Laser>();
                 laser.facingDirection = facingdirection;
-                laser.boss = this;
+                base.photonView.RPC("LaserB", RpcTarget.All, laser);
                 laser2.facingDirection = facingdirection;
-                laser2.boss = this;
+                base.photonView.RPC("LaserB", RpcTarget.All, laser2);
             }
         }
     }
@@ -781,20 +800,20 @@ public class MainBoss : MonoBehaviourPun
         {
             if (step == 2)
             {
-                stock.BossComplet.SetActive(false);
-                stock.BossSideL.SetActive(true);
+                base.photonView.RPC("CompletActive", RpcTarget.All, false);
+                base.photonView.RPC("SLActive", RpcTarget.All, true);
                 movingToLaser = true;
             }
             else if (step == 6)
             {
-                stock.BossComplet.SetActive(false);
-                stock.BossSideL.SetActive(true);
+                base.photonView.RPC("CompletActive", RpcTarget.All, false);
+                base.photonView.RPC("SLActive", RpcTarget.All, true);
                 movingToLaser = true;
             }
             else if (step == 10)
             {
-                stock.BossComplet.SetActive(false);
-                stock.BossSideR.SetActive(true);
+                base.photonView.RPC("CompletActive", RpcTarget.All, false);
+                base.photonView.RPC("SRActive", RpcTarget.All, true);
                 movingToLaser = true;
             }
         }
@@ -802,14 +821,14 @@ public class MainBoss : MonoBehaviourPun
         {
             if (step == 2 || step == 10)
             {
-                stock.BossComplet.SetActive(false);
-                stock.BossSideL.SetActive(true);
+                base.photonView.RPC("CompletActive", RpcTarget.All, false);
+                base.photonView.RPC("SLActive", RpcTarget.All, true);
                 movingToLaser = true;
             }
             else
             {
-                stock.BossComplet.SetActive(false);
-                stock.BossSideR.SetActive(true);
+                base.photonView.RPC("CompletActive", RpcTarget.All, false);
+                base.photonView.RPC("SRActive", RpcTarget.All, true);
                 movingToLaser = true;
             }
         }
@@ -817,8 +836,8 @@ public class MainBoss : MonoBehaviourPun
 
     public void LaserEndedL()
     {
-        stock.BossSideL.SetActive(false);
-        stock.BossComplet.SetActive(true);
+        base.photonView.RPC("SLActive", RpcTarget.All, false);
+        base.photonView.RPC("CompletActive", RpcTarget.All, true);
         waiting = true;
         endAttack = true;
         step += 1;
@@ -826,8 +845,8 @@ public class MainBoss : MonoBehaviourPun
 
     public void LaserEndedR()
     {
-        stock.BossSideR.SetActive(false);
-        stock.BossComplet.SetActive(true);
+        base.photonView.RPC("SRActive", RpcTarget.All, false);
+        base.photonView.RPC("CompletActive", RpcTarget.All, true);
         waiting = true;
         endAttack = true;
         step += 1;
@@ -838,17 +857,17 @@ public class MainBoss : MonoBehaviourPun
         endAttack = false;
         if (phase == 1)
         {
-            EyesAnim eyes = stock.BossEyes.GetComponent<PhaseChanging>().P1.GetComponent<EyesAnim>();
-            eyes.boss = this;
-            eyes.phase = 1;
-            eyes.anim.SetBool("Meteor", true);
+            base.photonView.RPC("Eyes1", RpcTarget.All);
+            base.photonView.RPC("Eyes1B", RpcTarget.All);
+            eyes1.phase = 1;
+            eyes1.anim.SetBool("Meteor", true);
         }
         else
         {
-            EyesAnim eyes = stock.BossEyes.GetComponent<PhaseChanging>().P2.GetComponent<EyesAnim>();
-            eyes.boss = this;
-            eyes.phase = 1;
-            eyes.anim.SetBool("Meteor", true);
+            base.photonView.RPC("Eyes2", RpcTarget.All);
+            base.photonView.RPC("Eyes2B", RpcTarget.All);
+            eyes2.phase = 1;
+            eyes2.anim.SetBool("Meteor", true);
         }
     }
 
@@ -857,17 +876,17 @@ public class MainBoss : MonoBehaviourPun
         endAttack = false;
         if (phase == 1)
         {
-            EyesAnim eyes = stock.BossEyes.GetComponent<PhaseChanging>().P1.GetComponent<EyesAnim>();
-            eyes.boss = this;
-            eyes.phase = 1;
-            eyes.anim.SetBool("Tentacle", true);
+            base.photonView.RPC("Eyes1", RpcTarget.All);
+            base.photonView.RPC("Eyes1B", RpcTarget.All);
+            eyes1.phase = 1;
+            eyes1.anim.SetBool("Tentacle", true);
         }
         else
         {
-            EyesAnim eyes = stock.BossEyes.GetComponent<PhaseChanging>().P2.GetComponent<EyesAnim>();
-            eyes.boss = this;
-            eyes.phase = 1;
-            eyes.anim.SetBool("Tentacle", true);
+            base.photonView.RPC("Eyes2", RpcTarget.All);
+            base.photonView.RPC("Eyes2B", RpcTarget.All);
+            eyes2.phase = 1;
+            eyes2.anim.SetBool("Tentacle", true);
         }
     }
 
@@ -880,16 +899,16 @@ public class MainBoss : MonoBehaviourPun
         {
             if (step == 0)
             {
-                Warnings warn5 = stock.Tentacule1.GetComponent<Warnings>();
-                Warnings warn1 = stock.Tentacule2.GetComponent<Warnings>();
-                Warnings warn2 = stock.Tentacule4.GetComponent<Warnings>();
-                Warnings warn3 = stock.Tentacule6.GetComponent<Warnings>();
-                Warnings warn4 = stock.Tentacule7.GetComponent<Warnings>();
-                warn1.boss = this;
-                warn2.boss = this;
-                warn3.boss = this;
-                warn4.boss = this;
-                warn5.boss = this;
+                warn5 = stock.Tentacule1.GetComponent<Warnings>();
+                warn1 = stock.Tentacule2.GetComponent<Warnings>();
+                warn2 = stock.Tentacule4.GetComponent<Warnings>();
+                warn3 = stock.Tentacule6.GetComponent<Warnings>();
+                warn4 = stock.Tentacule7.GetComponent<Warnings>();
+                base.photonView.RPC("W", RpcTarget.All,warn1);
+                base.photonView.RPC("W", RpcTarget.All, warn2);
+                base.photonView.RPC("W", RpcTarget.All, warn3);
+                base.photonView.RPC("W", RpcTarget.All, warn4);
+                base.photonView.RPC("W", RpcTarget.All, warn5);
                 warn1.warn = true;
                 warn2.warn = true;
                 warn3.warn = true;
@@ -904,16 +923,16 @@ public class MainBoss : MonoBehaviourPun
             }
             else if (step == 4)
             {
-                Warnings warn1 = stock.Tentacule1.GetComponent<Warnings>();
-                Warnings warn2 = stock.Tentacule3.GetComponent<Warnings>();
-                Warnings warn3 = stock.Tentacule5.GetComponent<Warnings>();
-                Warnings warn4 = stock.Tentacule4.GetComponent<Warnings>();
-                Warnings warn5 = stock.Tentacule7.GetComponent<Warnings>();
-                warn1.boss = this;
-                warn2.boss = this;
-                warn3.boss = this;
-                warn4.boss = this;
-                warn5.boss = this;
+                warn1 = stock.Tentacule1.GetComponent<Warnings>();
+                warn2 = stock.Tentacule3.GetComponent<Warnings>();
+                warn3 = stock.Tentacule5.GetComponent<Warnings>();
+                warn4 = stock.Tentacule4.GetComponent<Warnings>();
+                warn5 = stock.Tentacule7.GetComponent<Warnings>();
+                base.photonView.RPC("W", RpcTarget.All, warn1);
+                base.photonView.RPC("W", RpcTarget.All, warn2);
+                base.photonView.RPC("W", RpcTarget.All, warn3);
+                base.photonView.RPC("W", RpcTarget.All, warn4);
+                base.photonView.RPC("W", RpcTarget.All, warn5);
                 warn1.warn = true;
                 warn2.warn = true;
                 warn3.warn = true;
@@ -928,16 +947,16 @@ public class MainBoss : MonoBehaviourPun
             }
             else if (step == 8)
             {
-                Warnings warn1 = stock.Tentacule3.GetComponent<Warnings>();
-                Warnings warn2 = stock.Tentacule5.GetComponent<Warnings>();
-                Warnings warn3 = stock.Tentacule6.GetComponent<Warnings>();
-                Warnings warn4 = stock.Tentacule4.GetComponent<Warnings>();
-                Warnings warn5 = stock.Tentacule1.GetComponent<Warnings>();
-                warn1.boss = this;
-                warn2.boss = this;
-                warn3.boss = this;
-                warn4.boss = this;
-                warn5.boss = this;
+                warn1 = stock.Tentacule3.GetComponent<Warnings>();
+                warn2 = stock.Tentacule5.GetComponent<Warnings>();
+                warn3 = stock.Tentacule6.GetComponent<Warnings>();
+                warn4 = stock.Tentacule4.GetComponent<Warnings>();
+                warn5 = stock.Tentacule1.GetComponent<Warnings>();
+                base.photonView.RPC("W", RpcTarget.All, warn1);
+                base.photonView.RPC("W", RpcTarget.All, warn2);
+                base.photonView.RPC("W", RpcTarget.All, warn3);
+                base.photonView.RPC("W", RpcTarget.All, warn4);
+                base.photonView.RPC("W", RpcTarget.All, warn5);
                 warn1.warn = true;
                 warn2.warn = true;
                 warn3.warn = true;
@@ -954,20 +973,20 @@ public class MainBoss : MonoBehaviourPun
         else
         {
 
-            Warnings warn1 = stock.Tentacule1.GetComponent<Warnings>();
-            Warnings warn2 = stock.Tentacule2.GetComponent<Warnings>();
-            Warnings warn3 = stock.Tentacule3.GetComponent<Warnings>();
-            Warnings warn4 = stock.Tentacule4.GetComponent<Warnings>();
-            Warnings warn5 = stock.Tentacule5.GetComponent<Warnings>();
-            Warnings warn6 = stock.Tentacule6.GetComponent<Warnings>();
-            Warnings warn7 = stock.Tentacule7.GetComponent<Warnings>();
-            warn1.boss = this;
-            warn2.boss = this;
-            warn3.boss = this;
-            warn4.boss = this;
-            warn5.boss = this;
-            warn6.boss = this;
-            warn7.boss = this;
+            warn1 = stock.Tentacule1.GetComponent<Warnings>();
+            warn2 = stock.Tentacule2.GetComponent<Warnings>();
+            warn3 = stock.Tentacule3.GetComponent<Warnings>();
+            warn4 = stock.Tentacule4.GetComponent<Warnings>();
+            warn5 = stock.Tentacule5.GetComponent<Warnings>();
+            warn6 = stock.Tentacule6.GetComponent<Warnings>();
+            warn7 = stock.Tentacule7.GetComponent<Warnings>();
+            base.photonView.RPC("W", RpcTarget.All, warn1);
+            base.photonView.RPC("W", RpcTarget.All, warn2);
+            base.photonView.RPC("W", RpcTarget.All, warn3);
+            base.photonView.RPC("W", RpcTarget.All, warn4);
+            base.photonView.RPC("W", RpcTarget.All, warn5);
+            base.photonView.RPC("W", RpcTarget.All, warn6);
+            base.photonView.RPC("W", RpcTarget.All, warn7);
             warn1.warn = true;
             warn2.warn = true;
             warn3.warn = true;
@@ -994,12 +1013,12 @@ public class MainBoss : MonoBehaviourPun
         {
             if (step == 1)
             {
-                Warnings warn1 = stock.Meteor1.GetComponent<Warnings>();
-                Warnings warn2 = stock.Meteor4.GetComponent<Warnings>();
-                Warnings warn3 = stock.Meteor6.GetComponent<Warnings>();
-                warn1.boss = this;
-                warn2.boss = this;
-                warn3.boss = this;
+                warn1 = stock.Meteor1.GetComponent<Warnings>();
+                warn2 = stock.Meteor4.GetComponent<Warnings>();
+                warn3 = stock.Meteor6.GetComponent<Warnings>();
+                base.photonView.RPC("W", RpcTarget.All, warn1);
+                base.photonView.RPC("W", RpcTarget.All, warn2);
+                base.photonView.RPC("W", RpcTarget.All, warn3);
                 warn1.warn = true;
                 warn2.warn = true;
                 warn3.warn = true;
@@ -1010,14 +1029,14 @@ public class MainBoss : MonoBehaviourPun
             }
             else if (step == 5)
             {
-                Warnings warn1 = stock.Meteor2.GetComponent<Warnings>();
-                Warnings warn2 = stock.Meteor5.GetComponent<Warnings>();
-                Warnings warn3 = stock.Meteor7.GetComponent<Warnings>();
-                Warnings warn4 = stock.Meteor8.GetComponent<Warnings>();
-                warn1.boss = this;
-                warn2.boss = this;
-                warn3.boss = this;
-                warn4.boss = this;
+                warn1 = stock.Meteor2.GetComponent<Warnings>();
+                warn2 = stock.Meteor5.GetComponent<Warnings>();
+                warn3 = stock.Meteor7.GetComponent<Warnings>();
+                warn4 = stock.Meteor8.GetComponent<Warnings>();
+                base.photonView.RPC("W", RpcTarget.All, warn1);
+                base.photonView.RPC("W", RpcTarget.All, warn2);
+                base.photonView.RPC("W", RpcTarget.All, warn3);
+                base.photonView.RPC("W", RpcTarget.All, warn4);
                 warn1.warn = true;
                 warn2.warn = true;
                 warn3.warn = true;
@@ -1030,16 +1049,16 @@ public class MainBoss : MonoBehaviourPun
             }
             else if (step == 9)
             {
-                Warnings warn1 = stock.Meteor1.GetComponent<Warnings>();
-                Warnings warn2 = stock.Meteor2.GetComponent<Warnings>();
-                Warnings warn3 = stock.Meteor3.GetComponent<Warnings>();
-                Warnings warn5 = stock.Meteor5.GetComponent<Warnings>();
-                Warnings warn4 = stock.Meteor8.GetComponent<Warnings>();
-                warn1.boss = this;
-                warn2.boss = this;
-                warn3.boss = this;
-                warn4.boss = this;
-                warn5.boss = this;
+                warn1 = stock.Meteor1.GetComponent<Warnings>();
+                warn2 = stock.Meteor2.GetComponent<Warnings>();
+                warn3 = stock.Meteor3.GetComponent<Warnings>();
+                warn5 = stock.Meteor5.GetComponent<Warnings>();
+                warn4 = stock.Meteor8.GetComponent<Warnings>();
+                base.photonView.RPC("W", RpcTarget.All, warn1);
+                base.photonView.RPC("W", RpcTarget.All, warn2);
+                base.photonView.RPC("W", RpcTarget.All, warn3);
+                base.photonView.RPC("W", RpcTarget.All, warn4);
+                base.photonView.RPC("W", RpcTarget.All, warn5);
                 warn1.warn = true;
                 warn2.warn = true;
                 warn3.warn = true;
@@ -1057,18 +1076,18 @@ public class MainBoss : MonoBehaviourPun
         {
             if(step == 1)
             {
-                Warnings warn1 = stock.Meteor1.GetComponent<Warnings>();
-                Warnings warn2 = stock.Meteor2.GetComponent<Warnings>();
-                Warnings warn3 = stock.Meteor3.GetComponent<Warnings>();
-                Warnings warn5 = stock.Meteor5.GetComponent<Warnings>();
-                Warnings warn6 = stock.Meteor6.GetComponent<Warnings>();
-                Warnings warn4 = stock.Meteor8.GetComponent<Warnings>();
-                warn1.boss = this;
-                warn2.boss = this;
-                warn3.boss = this;
-                warn4.boss = this;
-                warn5.boss = this;
-                warn6.boss = this;
+                warn1 = stock.Meteor1.GetComponent<Warnings>();
+                warn2 = stock.Meteor2.GetComponent<Warnings>();
+                warn3 = stock.Meteor3.GetComponent<Warnings>();
+                warn5 = stock.Meteor5.GetComponent<Warnings>();
+                warn6 = stock.Meteor6.GetComponent<Warnings>();
+                warn4 = stock.Meteor8.GetComponent<Warnings>();
+                base.photonView.RPC("W", RpcTarget.All, warn1);
+                base.photonView.RPC("W", RpcTarget.All, warn2);
+                base.photonView.RPC("W", RpcTarget.All, warn3);
+                base.photonView.RPC("W", RpcTarget.All, warn4);
+                base.photonView.RPC("W", RpcTarget.All, warn5);
+                base.photonView.RPC("W", RpcTarget.All, warn6);
                 warn1.warn = true;
                 warn2.warn = true;
                 warn3.warn = true;
@@ -1085,18 +1104,18 @@ public class MainBoss : MonoBehaviourPun
             }
             else if (step == 5)
             {
-                Warnings warn1 = stock.Meteor1.GetComponent<Warnings>();
-                Warnings warn2 = stock.Meteor7.GetComponent<Warnings>();
-                Warnings warn3 = stock.Meteor3.GetComponent<Warnings>();
-                Warnings warn5 = stock.Meteor4.GetComponent<Warnings>();
-                Warnings warn6 = stock.Meteor6.GetComponent<Warnings>();
-                Warnings warn4 = stock.Meteor8.GetComponent<Warnings>();
-                warn1.boss = this;
-                warn2.boss = this;
-                warn3.boss = this;
-                warn4.boss = this;
-                warn5.boss = this;
-                warn6.boss = this;
+                warn1 = stock.Meteor1.GetComponent<Warnings>();
+                warn2 = stock.Meteor7.GetComponent<Warnings>();
+                warn3 = stock.Meteor3.GetComponent<Warnings>();
+                warn5 = stock.Meteor4.GetComponent<Warnings>();
+                warn6 = stock.Meteor6.GetComponent<Warnings>();
+                warn4 = stock.Meteor8.GetComponent<Warnings>();
+                base.photonView.RPC("W", RpcTarget.All, warn1);
+                base.photonView.RPC("W", RpcTarget.All, warn2);
+                base.photonView.RPC("W", RpcTarget.All, warn3);
+                base.photonView.RPC("W", RpcTarget.All, warn4);
+                base.photonView.RPC("W", RpcTarget.All, warn5);
+                base.photonView.RPC("W", RpcTarget.All, warn6);
                 warn1.warn = true;
                 warn2.warn = true;
                 warn3.warn = true;
@@ -1113,18 +1132,18 @@ public class MainBoss : MonoBehaviourPun
             }
             else if (step == 9)
             {
-                Warnings warn1 = stock.Meteor1.GetComponent<Warnings>();
-                Warnings warn2 = stock.Meteor2.GetComponent<Warnings>();
-                Warnings warn3 = stock.Meteor4.GetComponent<Warnings>();
-                Warnings warn5 = stock.Meteor5.GetComponent<Warnings>();
-                Warnings warn6 = stock.Meteor7.GetComponent<Warnings>();
-                Warnings warn4 = stock.Meteor8.GetComponent<Warnings>();
-                warn1.boss = this;
-                warn2.boss = this;
-                warn3.boss = this;
-                warn4.boss = this;
-                warn5.boss = this;
-                warn6.boss = this;
+                warn1 = stock.Meteor1.GetComponent<Warnings>();
+                warn2 = stock.Meteor2.GetComponent<Warnings>();
+                warn3 = stock.Meteor4.GetComponent<Warnings>();
+                warn5 = stock.Meteor5.GetComponent<Warnings>();
+                warn6 = stock.Meteor7.GetComponent<Warnings>();
+                warn4 = stock.Meteor8.GetComponent<Warnings>();
+                base.photonView.RPC("W", RpcTarget.All, warn1);
+                base.photonView.RPC("W", RpcTarget.All, warn2);
+                base.photonView.RPC("W", RpcTarget.All, warn3);
+                base.photonView.RPC("W", RpcTarget.All, warn4);
+                base.photonView.RPC("W", RpcTarget.All, warn5);
+                base.photonView.RPC("W", RpcTarget.All, warn6);
                 warn1.warn = true;
                 warn2.warn = true;
                 warn3.warn = true;
@@ -1163,6 +1182,266 @@ public class MainBoss : MonoBehaviourPun
         else
         {
             PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "LightMeteor"), pos, Quaternion.Euler(0, 0, 90));
+        }
+    }
+    [PunRPC]
+    public void BCBossP2()
+    {
+        stock.BossComplet.GetComponent<PhaseChanging>().P2.GetComponent<StateBoss>().boss = this;
+    }
+    [PunRPC]
+    public void HPSet(int hp)
+    {
+        stock.DamageZone.GetComponent<EnemyHealth>().health = hp;
+    }
+
+    [PunRPC]
+    public void CompletActive(bool active)
+    {
+        stock.BossComplet.SetActive(active);
+    }
+    [PunRPC]
+    public void LActive(bool active)
+    {
+        stock.BossL.SetActive(active);
+    }
+    [PunRPC]
+    public void RActive(bool active)
+    {
+        stock.BossR.SetActive(active);
+    }
+    [PunRPC]
+    public void SLActive(bool active)
+    {
+        stock.BossSideL.SetActive(active);
+    }
+    [PunRPC]
+    public void SRActive(bool active)
+    {
+        stock.BossSideL.SetActive(active);
+    }
+    [PunRPC]
+    public void SmokeTActive(bool active)
+    {
+        stock.SmokeTorse.SetActive(active);
+    }
+    [PunRPC]
+    public void SmokeCActive(bool active)
+    {
+        stock.SmokeCou.SetActive(active);
+    }
+    [PunRPC]
+    public void DamageActive(bool active)
+    {
+        stock.DamageZone.SetActive(active);
+    }
+    [PunRPC]
+    public void EyesActive(bool active)
+    {
+        stock.BossEyes.SetActive(active);
+    }
+    [PunRPC]
+    public void SmokeLActive(bool active)
+    {
+        stock.SmokeL.SetActive(active);
+    }
+    [PunRPC]
+    public void SmokeRActive(bool active)
+    {
+        stock.SmokeR.SetActive(active);
+    }
+    [PunRPC]
+    public void SmokeHActive(bool active)
+    {
+        stock.SmokeH.SetActive(active);
+    }
+    [PunRPC]
+    public void BossCP1(bool active)
+    {
+        stock.BossComplet.GetComponent<PhaseChanging>().P1.SetActive(active);
+    }
+
+    [PunRPC]
+    public void P2(bool active)
+    {
+        stock.SmokeBras.GetComponent<PhaseChangingBras>().P2.SetActive(active);
+    }
+    [PunRPC]
+    public void P1(bool active)
+    {
+        stock.SmokeBras.GetComponent<PhaseChangingBras>().P1.SetActive(active);
+    }
+    [PunRPC]
+    public void L1(bool active)
+    {
+        stock.SmokeBras.GetComponent<PhaseChangingBras>().L1.SetActive(active);
+    }
+    [PunRPC]
+    public void H1(bool active)
+    {
+        stock.SmokeBras.GetComponent<PhaseChangingBras>().H1.SetActive(active);
+    }
+    [PunRPC]
+    public void R1(bool active)
+    {
+        stock.SmokeBras.GetComponent<PhaseChangingBras>().R1.SetActive(active);
+    }
+    [PunRPC]
+    public void L2(bool active)
+    {
+        stock.SmokeBras.GetComponent<PhaseChangingBras>().L2.SetActive(active);
+    }
+    [PunRPC]
+    public void R2(bool active)
+    {
+        stock.SmokeBras.GetComponent<PhaseChangingBras>().R2.SetActive(active);
+    }
+    [PunRPC]
+    public void H2(bool active)
+    {
+        stock.SmokeBras.GetComponent<PhaseChangingBras>().H2.SetActive(active);
+    }
+    [PunRPC]
+    public void L3(bool active)
+    {
+        stock.SmokeBras.GetComponent<PhaseChangingBras>().L3.SetActive(active);
+    }
+    [PunRPC]
+    public void R3(bool active)
+    {
+        stock.SmokeBras.GetComponent<PhaseChangingBras>().R3.SetActive(active);
+    }
+    [PunRPC]
+    public void H3(bool active)
+    {
+        stock.SmokeBras.GetComponent<PhaseChangingBras>().H3.SetActive(active);
+    }
+    [PunRPC]
+    public void CouP2(bool active)
+    {
+        stock.SmokeCou.GetComponent<PhaseChanging>().P2.SetActive(active);
+    }
+    [PunRPC]
+    public void TorseP2(bool active)
+    {
+        stock.SmokeTorse.GetComponent<PhaseChanging>().P2.SetActive(active);
+    }
+    [PunRPC]
+    public void GetLight()
+    {
+        light = stock.mainLight.GetComponent<Light2D>();
+    }
+    [PunRPC]
+    public void Eyes1()
+    {
+        eyes1 = stock.BossEyes.GetComponent<PhaseChanging>().P1.GetComponent<EyesAnim>();
+    }
+    [PunRPC]
+    public void Eyes2()
+    {
+        eyes2 = stock.BossEyes.GetComponent<PhaseChanging>().P2.GetComponent<EyesAnim>();
+    }
+    [PunRPC]
+    public void Eyes1B()
+    {
+        eyes1.boss = this;
+    }
+    [PunRPC]
+    public void Eyes2B()
+    {
+        eyes2.boss = this;
+    }
+    [PunRPC]
+    public void DeaD()
+    {
+        stock.BossComplet.GetComponent<PhaseChanging>().P3.GetComponent<Death>().boss = this;
+    }
+    [PunRPC]
+    public void LaserB(Laser l)
+    {
+        l.boss = this;
+    }
+    [PunRPC]
+    public void W(Warnings w)
+    {
+        w.boss = this;
+    }
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(step);
+            stream.SendNext(phase);
+            stream.SendNext(timerDps);
+            stream.SendNext(wait);
+            stream.SendNext(wait1);
+            stream.SendNext(DPSing);
+            stream.SendNext(beginning);
+            stream.SendNext(maxWait);
+            stream.SendNext(maxWait1);
+            stream.SendNext(waiting);
+            stream.SendNext(waiting1);
+            stream.SendNext(endAttack);
+            stream.SendNext(facingDirection);
+            stream.SendNext(MaxHp);
+            stream.SendNext(laserSpeed);
+            stream.SendNext(damageSpeed);
+            stream.SendNext(movingToLaser);
+            stream.SendNext(movingFromLaser);
+            stream.SendNext(timerDPSMax);
+            stream.SendNext(movingToDamage);
+            stream.SendNext(movingFromDamage);
+            stream.SendNext(moveSpeed);
+            stream.SendNext(moving);
+            stream.SendNext(illuminating);
+            stream.SendNext(flash);
+            stream.SendNext(movingback);
+            stream.SendNext(falling);
+            stream.SendNext(changing);
+            stream.SendNext(augmente);
+            stream.SendNext(check);
+            stream.SendNext(dead);
+            stream.SendNext(blinding);
+            stream.SendNext(aveugle);
+            stream.SendNext(intensity1);
+
+        }
+        else
+        {
+            step = (int)stream.ReceiveNext();
+            phase = (int)stream.ReceiveNext();
+            timerDps = (float)stream.ReceiveNext();
+            wait = (float)stream.ReceiveNext();
+            wait1 = (float)stream.ReceiveNext();
+            DPSing = (bool)stream.ReceiveNext();
+            beginning = (bool)stream.ReceiveNext();
+            waiting = (bool)stream.ReceiveNext();
+            waiting1 = (bool)stream.ReceiveNext();
+            endAttack = (bool)stream.ReceiveNext();
+            movingToLaser = (bool)stream.ReceiveNext();
+            movingFromLaser = (bool)stream.ReceiveNext();
+            movingToDamage = (bool)stream.ReceiveNext();
+            movingFromDamage = (bool)stream.ReceiveNext();
+            moving = (bool)stream.ReceiveNext(); ;
+            illuminating = (bool)stream.ReceiveNext(); 
+            flash = (bool)stream.ReceiveNext();
+            movingback = (bool)stream.ReceiveNext();
+            falling = (bool)stream.ReceiveNext();
+            changing = (bool)stream.ReceiveNext();
+            augmente  = (bool)stream.ReceiveNext();
+            check = (bool)stream.ReceiveNext();
+            dead  = (bool)stream.ReceiveNext();
+            blinding = (bool)stream.ReceiveNext();
+            aveugle = (bool)stream.ReceiveNext();
+            MaxHp = (int)stream.ReceiveNext();
+            timerDPSMax = (int)stream.ReceiveNext();
+            maxWait = (float)stream.ReceiveNext();
+            maxWait1 = (float)stream.ReceiveNext();
+            laserSpeed = (float)stream.ReceiveNext();
+            damageSpeed = (float)stream.ReceiveNext();
+            moveSpeed = (float)stream.ReceiveNext();
+            facingDirection = (string)stream.ReceiveNext();
+            intensity1 = (float)stream.ReceiveNext();
         }
     }
 }

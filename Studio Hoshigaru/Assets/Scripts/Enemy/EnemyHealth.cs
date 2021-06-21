@@ -63,12 +63,16 @@ public class EnemyHealth : MonoBehaviour, IPunObservable
             {
                 stream.SendNext(health);
                 stream.SendNext(isBleeding);
+                stream.SendNext(die);
+                stream.SendNext(countdown);
             }   
         }
         else
         {
             health = (int)stream.ReceiveNext();
             isBleeding = (bool)stream.ReceiveNext();
+            die = (bool)stream.ReceiveNext();
+            countdown = (float)stream.ReceiveNext();
         }
     }
 
