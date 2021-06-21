@@ -59095,7 +59095,7 @@ RectTransform:
   m_GameObject: {fileID: 1183327805}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.2753868, y: 1, z: 1}
+  m_LocalScale: {x: 2.7088795, y: 1, z: 1}
   m_Children:
   - {fileID: 880283940}
   - {fileID: 1128165778}
@@ -59104,7 +59104,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 61, y: 78.4}
+  m_AnchoredPosition: {x: 136, y: 78}
   m_SizeDelta: {x: 128.4, y: 13.47137}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1183327807
@@ -59120,6 +59120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1183327808}
+  tag: Boss
   bossIndex: 0
   Health: 0
 --- !u!114 &1183327808
@@ -59184,6 +59185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b181fbb453537d46bd4d54d3f1176da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tag: Boss
   hb: {fileID: 1183327807}
   numberOfBosses: 2
 --- !u!1 &1189755093
@@ -59770,7 +59772,7 @@ RectTransform:
   m_GameObject: {fileID: 1362429106}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.2753868, y: 1, z: 1}
+  m_LocalScale: {x: -2.708879, y: 1, z: 1}
   m_Children:
   - {fileID: 1253658096}
   - {fileID: 2046539663}
@@ -59779,7 +59781,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 61, y: 109}
+  m_AnchoredPosition: {x: 851.7, y: 78}
   m_SizeDelta: {x: 128.4, y: 13.47137}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1362429108
@@ -59795,6 +59797,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1362429109}
+  tag: Boss
   bossIndex: 1
   Health: 0
 --- !u!114 &1362429109
@@ -59859,6 +59862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b181fbb453537d46bd4d54d3f1176da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tag: Boss
   hb: {fileID: 1362429108}
   numberOfBosses: 2
 --- !u!1 &1371429935

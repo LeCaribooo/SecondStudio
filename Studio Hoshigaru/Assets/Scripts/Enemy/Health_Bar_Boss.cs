@@ -6,14 +6,14 @@ using UnityEngine.UI;
 public class Health_Bar_Boss : MonoBehaviour
 {
     public Slider slider;
-
+    public string tag;
     private GameObject[] Bosses;
     public int bossIndex;
     public int Health;
 
     public void Start()
     {
-        Bosses = GameObject.FindGameObjectsWithTag("Boss");
+        Bosses = GameObject.FindGameObjectsWithTag("tag");
         Health = Bosses[bossIndex].GetComponent<EnemyHealth>().health;
         SetMaxHealth(Health);
     }
