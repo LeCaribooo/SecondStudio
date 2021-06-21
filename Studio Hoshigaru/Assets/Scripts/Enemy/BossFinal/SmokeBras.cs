@@ -13,7 +13,7 @@ public class SmokeBras : MonoBehaviourPun
         base.photonView.RPC("SmokeA", RpcTarget.All, false);
         if (Growed != null)
         {
-            base.photonView.RPC("GrowedA", RpcTarget.All, false);
+            base.photonView.RPC("GrowedA", RpcTarget.All, true);
         }
     }
 
