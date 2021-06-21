@@ -441,8 +441,9 @@ GameObject:
   - component: {fileID: 1338689638539972717}
   - component: {fileID: 8166803498042713447}
   - component: {fileID: 434392607536240083}
-  - component: {fileID: 4370624086512166736}
-  - component: {fileID: 464729741833542018}
+  - component: {fileID: 5058309317125979946}
+  - component: {fileID: 713195753783632527}
+  - component: {fileID: 8934562350947161741}
   m_Layer: 0
   m_Name: Smoke3H
   m_TagString: Untagged
@@ -546,7 +547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoke: {fileID: 254867730837953215}
---- !u!114 &4370624086512166736
+--- !u!114 &5058309317125979946
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -564,11 +565,12 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 464729741833542018}
+  - {fileID: 713195753783632527}
+  - {fileID: 8934562350947161741}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &464729741833542018
+--- !u!114 &713195753783632527
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -583,6 +585,24 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 1
+--- !u!114 &8934562350947161741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254867730837953215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers:
+  - SynchronizeType: 2
+    LayerIndex: 0
 --- !u!1 &557807511971798459
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,8 +615,9 @@ GameObject:
   - component: {fileID: 5746330877038538613}
   - component: {fileID: 7916030260294170297}
   - component: {fileID: 7805884512057072382}
-  - component: {fileID: 9056576910904003438}
-  - component: {fileID: 8017137493978396442}
+  - component: {fileID: 8197704427261196371}
+  - component: {fileID: 609795976470555597}
+  - component: {fileID: 2151838937177175720}
   m_Layer: 0
   m_Name: Smoke2H
   m_TagString: Untagged
@@ -701,7 +722,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoke: {fileID: 557807511971798459}
   Growed: {fileID: 729260854563016276}
---- !u!114 &9056576910904003438
+--- !u!114 &8197704427261196371
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -719,11 +740,30 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 8017137493978396442}
+  - {fileID: 609795976470555597}
+  - {fileID: 2151838937177175720}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &8017137493978396442
+--- !u!114 &609795976470555597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557807511971798459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers:
+  - SynchronizeType: 2
+    LayerIndex: 0
+--- !u!114 &2151838937177175720
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1244,8 +1284,9 @@ GameObject:
   - component: {fileID: 4480628742051618936}
   - component: {fileID: 1103816332263346826}
   - component: {fileID: 8028972895788980844}
-  - component: {fileID: 7209281891017080347}
-  - component: {fileID: 7246546689873667414}
+  - component: {fileID: 7914440198036316576}
+  - component: {fileID: 2445287640604306160}
+  - component: {fileID: 2294659829410393050}
   m_Layer: 0
   m_Name: Smoke1R
   m_TagString: Untagged
@@ -1349,7 +1390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoke: {fileID: 936318439467115455}
---- !u!114 &7209281891017080347
+--- !u!114 &7914440198036316576
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1367,11 +1408,30 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 7246546689873667414}
+  - {fileID: 2445287640604306160}
+  - {fileID: 2294659829410393050}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &7246546689873667414
+--- !u!114 &2445287640604306160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936318439467115455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers:
+  - SynchronizeType: 2
+    LayerIndex: 0
+--- !u!114 &2294659829410393050
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1509,8 +1569,9 @@ GameObject:
   - component: {fileID: 7231323977502103273}
   - component: {fileID: 3100497855176780297}
   - component: {fileID: 8562183291786808379}
-  - component: {fileID: 1207161901385982374}
-  - component: {fileID: 2833689918602526583}
+  - component: {fileID: 6923635918956329546}
+  - component: {fileID: 8343867157081669253}
+  - component: {fileID: 4366858383121208602}
   m_Layer: 0
   m_Name: Smoke3R
   m_TagString: Untagged
@@ -1614,7 +1675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoke: {fileID: 1444724294182666157}
---- !u!114 &1207161901385982374
+--- !u!114 &6923635918956329546
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1632,11 +1693,12 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 2833689918602526583}
+  - {fileID: 8343867157081669253}
+  - {fileID: 4366858383121208602}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &2833689918602526583
+--- !u!114 &8343867157081669253
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1651,6 +1713,24 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 1
+--- !u!114 &4366858383121208602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444724294182666157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers:
+  - SynchronizeType: 2
+    LayerIndex: 0
 --- !u!1 &1539366312725831707
 GameObject:
   m_ObjectHideFlags: 0
@@ -1774,8 +1854,9 @@ GameObject:
   - component: {fileID: 560031923802322855}
   - component: {fileID: 5607097883324345401}
   - component: {fileID: 2026386049068782495}
-  - component: {fileID: 1342641470146493284}
-  - component: {fileID: 5983019840121840315}
+  - component: {fileID: 2440796804589241006}
+  - component: {fileID: 6985355716324761673}
+  - component: {fileID: 8210210743326911213}
   m_Layer: 0
   m_Name: Smoke1H
   m_TagString: Untagged
@@ -1879,7 +1960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoke: {fileID: 1655175766344264653}
---- !u!114 &1342641470146493284
+--- !u!114 &2440796804589241006
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1897,11 +1978,12 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 5983019840121840315}
+  - {fileID: 6985355716324761673}
+  - {fileID: 8210210743326911213}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &5983019840121840315
+--- !u!114 &6985355716324761673
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1916,6 +1998,24 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 1
+--- !u!114 &8210210743326911213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655175766344264653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers:
+  - SynchronizeType: 2
+    LayerIndex: 0
 --- !u!1 &1877572081950970172
 GameObject:
   m_ObjectHideFlags: 0
@@ -8753,8 +8853,9 @@ GameObject:
   - component: {fileID: 7989095118845230322}
   - component: {fileID: 8274853324453403693}
   - component: {fileID: 8765506063076897689}
-  - component: {fileID: 6672448200372739493}
-  - component: {fileID: 5847026794701596929}
+  - component: {fileID: 3458512619018133914}
+  - component: {fileID: 4052254735743180428}
+  - component: {fileID: 1864840430238529562}
   m_Layer: 0
   m_Name: Smoke2L
   m_TagString: Untagged
@@ -8859,7 +8960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoke: {fileID: 7418899046266177225}
   Growed: {fileID: 0}
---- !u!114 &6672448200372739493
+--- !u!114 &3458512619018133914
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8877,11 +8978,30 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 5847026794701596929}
+  - {fileID: 4052254735743180428}
+  - {fileID: 1864840430238529562}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &5847026794701596929
+--- !u!114 &4052254735743180428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7418899046266177225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers:
+  - SynchronizeType: 2
+    LayerIndex: 0
+--- !u!114 &1864840430238529562
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9157,8 +9277,9 @@ GameObject:
   - component: {fileID: 7587887303886605646}
   - component: {fileID: 5358587093513627652}
   - component: {fileID: 841444586695898274}
-  - component: {fileID: 8809101312292317605}
-  - component: {fileID: 8531491204276993853}
+  - component: {fileID: 1350882264974387366}
+  - component: {fileID: 1776006826515913337}
+  - component: {fileID: 1440471426501940214}
   m_Layer: 0
   m_Name: Smoke3L
   m_TagString: Untagged
@@ -9262,7 +9383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoke: {fileID: 7827811240069920700}
---- !u!114 &8809101312292317605
+--- !u!114 &1350882264974387366
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9280,11 +9401,30 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 8531491204276993853}
+  - {fileID: 1776006826515913337}
+  - {fileID: 1440471426501940214}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &8531491204276993853
+--- !u!114 &1776006826515913337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7827811240069920700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers:
+  - SynchronizeType: 2
+    LayerIndex: 0
+--- !u!114 &1440471426501940214
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10037,8 +10177,9 @@ GameObject:
   - component: {fileID: 4170758108175235194}
   - component: {fileID: 4606453763361739814}
   - component: {fileID: 657967722257205698}
-  - component: {fileID: 7926376606250042544}
-  - component: {fileID: 5245425006683333469}
+  - component: {fileID: 2191606508593985198}
+  - component: {fileID: 5386443609980447281}
+  - component: {fileID: 8811667055240125536}
   m_Layer: 0
   m_Name: Smoke1L
   m_TagString: Untagged
@@ -10142,7 +10283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoke: {fileID: 8358443778887903790}
---- !u!114 &7926376606250042544
+--- !u!114 &2191606508593985198
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10160,11 +10301,12 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 5245425006683333469}
+  - {fileID: 8811667055240125536}
+  - {fileID: 5386443609980447281}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &5245425006683333469
+--- !u!114 &5386443609980447281
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10179,6 +10321,24 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 1
+--- !u!114 &8811667055240125536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8358443778887903790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers:
+  - SynchronizeType: 2
+    LayerIndex: 0
 --- !u!1 &8438874034210844156
 GameObject:
   m_ObjectHideFlags: 0
@@ -10977,8 +11137,9 @@ GameObject:
   - component: {fileID: 5324226531738438499}
   - component: {fileID: 7508315320305662648}
   - component: {fileID: 3486743461330582948}
-  - component: {fileID: 327869971294004545}
-  - component: {fileID: 347796580182624159}
+  - component: {fileID: 8465280549268331949}
+  - component: {fileID: 2590935087945696888}
+  - component: {fileID: 197308141151218382}
   m_Layer: 0
   m_Name: Smoke2R
   m_TagString: Untagged
@@ -11083,7 +11244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoke: {fileID: 8973965717153152683}
   Growed: {fileID: 0}
---- !u!114 &327869971294004545
+--- !u!114 &8465280549268331949
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11101,11 +11262,30 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 347796580182624159}
+  - {fileID: 2590935087945696888}
+  - {fileID: 197308141151218382}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &347796580182624159
+--- !u!114 &2590935087945696888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973965717153152683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers:
+  - SynchronizeType: 2
+    LayerIndex: 0
+--- !u!114 &197308141151218382
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
