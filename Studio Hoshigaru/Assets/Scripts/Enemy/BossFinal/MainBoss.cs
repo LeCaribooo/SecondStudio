@@ -139,6 +139,7 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
             }
             else if (movingFromLaser)
             {
+                base.photonView.RPC("CompletActive", RpcTarget.All, false);
                 MoveFromLaser(facingDirection);
             }
             else if (movingToDamage)

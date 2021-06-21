@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class Laser : MonoBehaviourPun,IPunObservable
+public class Laser : MonoBehaviourPun, IPunObservable
 {
-    
+
     public string facingDirection;
     public MainBoss boss;
 
