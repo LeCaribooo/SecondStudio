@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using System.IO;
 
-public class Golem : MonoBehaviourPun
+public class Golem : MonoBehaviourPun,IPunObservable
 {
     public int Maxhp;
     public int laserCooldownMax;
@@ -270,7 +270,10 @@ public class Golem : MonoBehaviourPun
 
     public void Attacking()
     {
-        PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "shockwave"), ShockPos.position, Quaternion.identity);
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "shockwave"), ShockPos.position, Quaternion.identity);
+        }
     }
 
     public void EndAttack()
@@ -283,8 +286,10 @@ public class Golem : MonoBehaviourPun
 
     public void Laser()     
     {
-        
-       PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "Laser"),LaserPos.position,Quaternion.identity);
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "Laser"), LaserPos.position, Quaternion.identity);
+        }
     }
 
     public void LaserStop()
@@ -331,7 +336,10 @@ public class Golem : MonoBehaviourPun
 
     public void Throw()
     {
-        GameObject newMissile = PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "FulgureOPoing"), FulguroPos.position, Quaternion.identity);
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "FulgureOPoing"), FulguroPos.position, Quaternion.identity);
+        }
     }
 
     public void ThrowEnd()
@@ -591,5 +599,89 @@ public class Golem : MonoBehaviourPun
     void DestroyOnline()
     {
         Destroy(this.gameObject);
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if(stream.IsWriting)
+        {
+            stream.SendNext(Maxhp);
+            stream.SendNext(laserCooldownMax);
+            stream.SendNext(attackCooldownMax);
+            stream.SendNext(reinforceCooldownMax);
+            stream.SendNext(throwCooldownMax);
+            stream.SendNext(immuneCooldownMax);
+            stream.SendNext(CooldownMax);
+            stream.SendNext(phase);
+            stream.SendNext(LaserEnd);
+            stream.SendNext(ThrowingEnd);
+            stream.SendNext(AttackEnd);
+            stream.SendNext(ReinforceEnd);
+            stream.SendNext(ImmuneEnd);
+            stream.SendNext(Triggered);
+            stream.SendNext(attackDistance);
+            stream.SendNext(movementSpeed);
+            stream.SendNext(dead);
+            stream.SendNext(lifeEnded);
+            stream.SendNext(baseCastDist);
+            stream.SendNext(downCastDist);
+            stream.SendNext(jumpForce);
+            stream.SendNext(ground);
+            stream.SendNext(grounded);
+            stream.SendNext(deade);
+            stream.SendNext(laserCooling);
+            stream.SendNext(waiting);
+            stream.SendNext(attackCooling);
+            stream.SendNext(reinforceCooling);
+            stream.SendNext(immuneCooling);
+            stream.SendNext(throwCooling);
+            stream.SendNext(laserCooldown);
+            stream.SendNext(cooldown);
+            stream.SendNext(attackCooldown);
+            stream.SendNext(throwCooldown);
+            stream.SendNext(reinforceCooldown);
+            stream.SendNext(immuneCooldown);
+            stream.SendNext(facingdirection);
+        }
+        else
+        {
+            Maxhp = (int)stream.ReceiveNext();
+            laserCooldownMax = (int)stream.ReceiveNext();
+            attackCooldownMax = (int)stream.ReceiveNext();
+            reinforceCooldownMax = (int)stream.ReceiveNext();
+            throwCooldownMax = (int)stream.ReceiveNext();
+            immuneCooldownMax = (int)stream.ReceiveNext();
+            CooldownMax = (int)stream.ReceiveNext();
+            phase = (int)stream.ReceiveNext();
+            LaserEnd = (bool)stream.ReceiveNext();
+            ThrowingEnd = (bool)stream.ReceiveNext();
+            AttackEnd = (bool)stream.ReceiveNext();
+            ReinforceEnd = (bool)stream.ReceiveNext();
+            ImmuneEnd = (bool)stream.ReceiveNext();
+            Triggered = (bool)stream.ReceiveNext();
+            attackDistance = (float)stream.ReceiveNext();
+            movementSpeed = (float)stream.ReceiveNext();
+            dead = (bool) stream.ReceiveNext();
+            lifeEnded = (bool)stream.ReceiveNext();
+            baseCastDist = (float)stream.ReceiveNext();
+            downCastDist = (float)stream.ReceiveNext();
+            jumpForce = (float)stream.ReceiveNext();
+            ground = (float)stream.ReceiveNext();
+            grounded = (bool) stream.ReceiveNext();
+            deade= (bool) stream.ReceiveNext();
+            laserCooling = (bool)stream.ReceiveNext();
+            waiting = (bool) stream.ReceiveNext();
+            attackCooling = (bool) stream.ReceiveNext();
+            reinforceCooling= (bool) stream.ReceiveNext();
+            immuneCooling = (bool) stream.ReceiveNext();
+            throwCooling= (bool) stream.ReceiveNext();
+            laserCooldown = (float) stream.ReceiveNext();
+            cooldown = (float) stream.ReceiveNext();
+            attackCooldown = (float) stream.ReceiveNext();
+            throwCooldown = (float) stream.ReceiveNext();
+            reinforceCooldown = (float) stream.ReceiveNext();
+            immuneCooldown = (float) stream.ReceiveNext();
+            facingdirection = (string)stream.ReceiveNext();
+        }
     }
 }

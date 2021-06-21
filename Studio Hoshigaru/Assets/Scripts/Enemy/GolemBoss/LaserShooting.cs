@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-public class LaserShooting : MonoBehaviourPun
+public class LaserShooting : MonoBehaviourPun, IPunObservable
 {
     // Start is called before the first frame update
     public int damage;
@@ -47,5 +47,19 @@ public class LaserShooting : MonoBehaviourPun
     void DestroyOnline()
     {
         Destroy(this.gameObject);
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if(stream.IsWriting)
+        {
+            stream.SendNext(damage);
+            stream.SendNext(facingDirection);
+        }
+        else
+        {
+            damage = (int)stream.ReceiveNext();
+            facingDirection = (string)stream.ReceiveNext();
+        }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class FulgurOPoing : MonoBehaviourPun
+public class FulgurOPoing : MonoBehaviourPun,IPunObservable
 {
     public float attacktimer;
     public string facingDirection = "right";
@@ -103,5 +103,31 @@ public class FulgurOPoing : MonoBehaviourPun
     void DestroyOnline()
     {
         Destroy(this.gameObject);
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(attacktimer);
+            stream.SendNext(facingDirection);
+            stream.SendNext(damage);
+            stream.SendNext(placementSpeed);
+            stream.SendNext(attackSpeed);
+            stream.SendNext(y);
+            stream.SendNext(move);
+            stream.SendNext(placed);
+}
+        else
+        {
+            attacktimer = (float)stream.ReceiveNext();
+            facingDirection = (string)stream.ReceiveNext();
+            damage = (int)stream.ReceiveNext();
+            placementSpeed = (float)stream.ReceiveNext();
+            attackSpeed = (float)stream.ReceiveNext();
+            y = (float)stream.ReceiveNext();
+            move = (bool)stream.ReceiveNext();
+            placed = (bool)stream.ReceiveNext();
+        }
     }
 }

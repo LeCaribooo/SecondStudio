@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1100778451095065605}
   - component: {fileID: 8473298748383338876}
   - component: {fileID: 207647887287035569}
-  - component: {fileID: 3808386481492601287}
   - component: {fileID: 7345861711644556911}
   - component: {fileID: 1552211484867103082}
   - component: {fileID: 4022979823678682917}
@@ -148,28 +147,6 @@ MonoBehaviour:
   damage: 4
   boss: {fileID: 0}
   facingDirection: 
---- !u!114 &3808386481492601287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5302548286208652496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 0
-  OwnershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 0}
-  viewIdField: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!114 &7345861711644556911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,6 +200,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 7345861711644556911}
   - {fileID: 1552211484867103082}
+  - {fileID: 207647887287035569}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

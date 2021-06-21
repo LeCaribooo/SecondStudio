@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class ShockWave : MonoBehaviourPun
+public class ShockWave : MonoBehaviourPun,IPunObservable
 {
 
     public int damage;
@@ -47,5 +47,19 @@ public class ShockWave : MonoBehaviourPun
     void DestroyOnline()
     {
         Destroy(this.gameObject);
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(damage);
+            stream.SendNext(facingDirection);
+        }
+        else
+        {
+            damage = (int)stream.ReceiveNext();
+            facingDirection = (string)stream.ReceiveNext();
+        }
     }
 }
