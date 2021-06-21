@@ -1182,7 +1182,7 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
     [PunRPC]
     public void SRActive(bool active)
     {
-        stock.BossSideL.SetActive(active);
+        stock.BossSideR.SetActive(active);
     }
     [PunRPC]
     public void SmokeTActive(bool active)
