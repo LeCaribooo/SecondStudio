@@ -57,17 +57,14 @@ public class EnemyHealth : MonoBehaviour, IPunObservable
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if (stream.IsWriting)
+        if (stream.IsWriting && PhotonNetwork.IsMasterClient)
         {
-            if (PhotonNetwork.IsMasterClient)
-            {
-                stream.SendNext(health);
-                stream.SendNext(isBleeding);
-                stream.SendNext(die);
-                stream.SendNext(countdown);
-            }   
+            stream.SendNext(health);
+            stream.SendNext(isBleeding);
+            stream.SendNext(die);
+            stream.SendNext(countdown);
         }
-        else
+        else if(!PhotonNetwork.IsMasterClient)
         {
             health = (int)stream.ReceiveNext();
             isBleeding = (bool)stream.ReceiveNext();

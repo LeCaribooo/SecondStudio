@@ -494,7 +494,7 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
             timerDps = timerDPSMax;
             DPSing = false;
             movingFromDamage = true;
-            base.photonView.RPC("ActiveDamage", RpcTarget.All, false);
+            base.photonView.RPC("DamageActive", RpcTarget.All, false);
         }
     }
 
@@ -519,8 +519,11 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
                 {
                     for(int j = 0; j < i*2;j += 2)
                     {
-                        PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "shinigami"), spawnshini[j].position, Quaternion.identity);
-                        PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss" ,"DarkSpiritBoss"), spawndark[j].position, Quaternion.identity);
+                        if (PhotonNetwork.IsMasterClient)
+                        {
+                            PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "shinigami"), spawnshini[j].position, Quaternion.identity);
+                            PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "DarkSpiritBoss"), spawndark[j].position, Quaternion.identity);
+                        }
                     }
                     
                 }
@@ -528,8 +531,11 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
                 {
                     for(int j = 1; j < i*2; j+=2)
                     {
-                        PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "shinigami"), spawnshini[j].position, Quaternion.identity);
-                        PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss" ,"DarkSpiritBoss"), spawndark[j].position, Quaternion.identity);
+                        if (PhotonNetwork.IsMasterClient)
+                        {
+                            PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "shinigami"), spawnshini[j].position, Quaternion.identity);
+                            PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "DarkSpiritBoss"), spawndark[j].position, Quaternion.identity);
+                        }
                     }
 
                 }
@@ -538,11 +544,14 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
             {
                 for (int j = 0; j < i * 2; j++)
                 {
-                    PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "shinigamiLight"), spawnshini[j].position, Quaternion.identity);
-                    PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss" ,"LightSpiritBoss"), spawndark[j].position, Quaternion.identity);
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "shinigamiLight"), spawnshini[j].position, Quaternion.identity);
+                        PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "LightSpiritBoss"), spawndark[j].position, Quaternion.identity);
+                    }
                 }
             }
-            base.photonView.RPC("ActiveDamage", RpcTarget.All, true);
+            base.photonView.RPC("DamageActive", RpcTarget.All, true);
             DPSing = true;
         }
     }
@@ -736,27 +745,31 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
         {
             if (step == 2)
             {
-                GameObject l = PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "LaserDark"), stock.Laser1.transform.position, Quaternion.identity);
-                Laser laser = l.GetComponent<Laser>();
-                laser.facingDirection = facingdirection;
+                    GameObject l = PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "LaserDark"), stock.Laser1.transform.position, Quaternion.identity);
+                    Laser laser = l.GetComponent<Laser>();
+                    laser.facingDirection = facingdirection;
             }
             else if (step == 6)
             {
-                GameObject l = PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "LaserDark"), stock.Laser3.transform.position, Quaternion.identity);
-                Laser laser = l.GetComponent<Laser>();
-                laser.facingDirection = facingdirection;
+                    GameObject l = PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "LaserDark"), stock.Laser3.transform.position, Quaternion.identity);
+                    Laser laser = l.GetComponent<Laser>();
+                    laser.facingDirection = facingdirection;
             }
             else if (step == 10)
             {
-                GameObject l = PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "LaserDark"), stock.Laser2.transform.position, Quaternion.identity);
-                Laser laser = l.GetComponent<Laser>();
-                laser.facingDirection = facingdirection;
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    GameObject l = PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "LaserDark"), stock.Laser2.transform.position, Quaternion.identity);
+                    Laser laser = l.GetComponent<Laser>();
+                    laser.facingDirection = facingdirection;
+                }
             }
         }
         else
         {
             if (step == 2)
             {
+
                 GameObject l = PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "LaserLight"), stock.Laser1.transform.position, Quaternion.identity);
                 GameObject l2 = PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "LaserLight"), stock.Laser2.transform.position, Quaternion.identity);
                 Laser laser = l.GetComponent<Laser>();
@@ -1104,11 +1117,17 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
     {
         if (phase == 1)
         {
-            PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "DarkTentacle"), pos, Quaternion.identity);
+            if (PhotonNetwork.IsMasterClient)
+            {
+                PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "DarkTentacle"), pos, Quaternion.identity);
+            }
         }
         else
         {
-            PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "LightTentacle"), pos, Quaternion.identity);
+            if (PhotonNetwork.IsMasterClient)
+            {
+                PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "LightTentacle"), pos, Quaternion.identity);
+            }
         }
     }
 
@@ -1116,11 +1135,17 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
     {
         if (phase == 1)
         {
-            PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "DarkMeteor"), pos, Quaternion.Euler(0, 0, 90));
+            if (PhotonNetwork.IsMasterClient)
+            {
+                PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "DarkMeteor"), pos, Quaternion.Euler(0, 0, 90));
+            }
         }
         else
         {
-            PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "LightMeteor"), pos, Quaternion.Euler(0, 0, 90));
+            if (PhotonNetwork.IsMasterClient)
+            {
+                PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "LightMeteor"), pos, Quaternion.Euler(0, 0, 90));
+            }
         }
     }
     [PunRPC]

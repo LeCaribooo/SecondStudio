@@ -454,6 +454,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  wait: 1
-  WaitMax: 1
-  waiting: 0

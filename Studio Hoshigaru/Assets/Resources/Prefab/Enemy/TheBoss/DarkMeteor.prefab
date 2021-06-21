@@ -289,9 +289,6 @@ MonoBehaviour:
   damage: 3
   movementSpeed: 7
   alive: 10
-  wait: 1
-  WaitMax: 1.5
-  waiting: 0
 --- !u!114 &3870596522779899711
 MonoBehaviour:
   m_ObjectHideFlags: 0

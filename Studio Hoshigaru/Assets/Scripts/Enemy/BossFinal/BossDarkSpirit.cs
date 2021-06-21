@@ -52,28 +52,31 @@ public class BossDarkSpirit : MonoBehaviourPun
         if (!dead)
         {
             target = TargetChoose();
-            if (target.position.x < transform.position.x && facingDirection == RIGHT)
+            if (target != null)
             {
-                Flip(LEFT);
-            }
-            else if (target.position.x > transform.position.x && facingDirection == LEFT)
-            {
-                Flip(RIGHT);
-            }
-            if (attackCooling)
-            {
-                AttackCooling();
-            }
-            if (waiting || !attackEnd)
-            {
-                Wait();
-            }
-            else if (target != null)
-            {
-                if (!attackCooling)
+                if (target.position.x < transform.position.x && facingDirection == RIGHT)
                 {
-                    
-                    Attack();
+                    Flip(LEFT);
+                }
+                else if (target.position.x > transform.position.x && facingDirection == LEFT)
+                {
+                    Flip(RIGHT);
+                }
+                if (attackCooling)
+                {
+                    AttackCooling();
+                }
+                if (waiting || !attackEnd)
+                {
+                    Wait();
+                }
+                else if (target != null)
+                {
+                    if (!attackCooling)
+                    {
+
+                        Attack();
+                    }
                 }
             }
         }
