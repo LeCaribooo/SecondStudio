@@ -455,7 +455,7 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
     public void Wait()
     {
         wait -= Time.deltaTime;
-        if(wait <= 0)
+        if (wait <= 0)
         {
             wait = maxWait;
             if(check)
@@ -846,6 +846,7 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
         waiting = true;
         endAttack = true;
         step += 1;
+        base.photonView.RPC("CompletActive", RpcTarget.All, true);
     }
 
     public void LaserEndedR()
@@ -855,6 +856,7 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
         waiting = true;
         endAttack = true;
         step += 1;
+        base.photonView.RPC("CompletActive", RpcTarget.All, true);
     }
 
     public void MeteorBegin()
