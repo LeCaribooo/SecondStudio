@@ -252,6 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootedExperience: 50
+  runesParts: 0
 --- !u!114 &3877864405771930384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -852,7 +853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13914a4ac8bf4ed4a956ab33966c42dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 4
+  damage: 5
 --- !u!1 &3877864406827308279
 GameObject:
   m_ObjectHideFlags: 0
@@ -923,7 +924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13914a4ac8bf4ed4a956ab33966c42dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 4
+  damage: 5
 --- !u!1 &3877864406958264332
 GameObject:
   m_ObjectHideFlags: 0

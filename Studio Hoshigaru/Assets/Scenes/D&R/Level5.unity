@@ -2846,6 +2846,36 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &186003942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 186003943}
+  m_Layer: 0
+  m_Name: SpawnWave (9)
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &186003943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186003942}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 35.62421, y: 5.6191564, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 776087267}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &196476770
 GameObject:
   m_ObjectHideFlags: 0
@@ -5260,6 +5290,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &386052376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 386052377}
+  m_Layer: 0
+  m_Name: SpawnWave (11)
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &386052377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386052376}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -39.21579, y: 10.949156, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 776087267}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &393258260
 GameObject:
   m_ObjectHideFlags: 0
@@ -7363,6 +7423,55 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &611646733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 611646735}
+  - component: {fileID: 611646734}
+  m_Layer: 0
+  m_Name: ObjectivesManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &611646734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611646733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 695b7b6e9c710624488c078712d2adb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  objectives:
+  - {fileID: 1793047024}
+  actualObjectivesIndex: 0
+  target: {fileID: 0}
+  destroy_: {fileID: 0}
+--- !u!4 &611646735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611646733}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 60, y: 21.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &611966345
 GameObject:
   m_ObjectHideFlags: 0
@@ -9513,8 +9622,8 @@ MonoBehaviour:
   oldscene: Village
   newscene: Village
   nbWaves: 3
-  plusMobWaves_MAX: 03000000
-  plusMobWaves_MIN: 00000000
+  plusMobWaves_MAX: 070000000500000003000000
+  plusMobWaves_MIN: 050000000300000001000000
   spawnpoint:
   - {fileID: 618875131}
   - {fileID: 998643317}
@@ -9525,10 +9634,15 @@ MonoBehaviour:
   - {fileID: 1983257281}
   - {fileID: 1033177491}
   - {fileID: 39663603}
+  - {fileID: 186003942}
+  - {fileID: 1688288027}
+  - {fileID: 386052376}
   enemies:
-  - {fileID: 7560377424807072096, guid: fb6cb79b307e02b48a8469b8314b4645, type: 3}
-  INIT_nbenemies_EACH_MAX: 02000000
-  INIT_nbenemies_EACH_MIN: 01000000
+  - {fileID: 7788710083642730289, guid: 75edefe58a42da24a81f6354a74d2620, type: 3}
+  - {fileID: 5050500322922451757, guid: 656fba76813950c419134dfb5c0a7b66, type: 3}
+  - {fileID: 3877864405771930378, guid: bf777310f51c8864bb9ec1b01cae65f8, type: 3}
+  INIT_nbenemies_EACH_MAX: 050000000100000000000000
+  INIT_nbenemies_EACH_MIN: 050000000100000000000000
 --- !u!4 &776087267
 Transform:
   m_ObjectHideFlags: 0
@@ -9549,6 +9663,9 @@ Transform:
   - {fileID: 1983257282}
   - {fileID: 1033177492}
   - {fileID: 39663604}
+  - {fileID: 186003943}
+  - {fileID: 1688288028}
+  - {fileID: 386052377}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -93624,6 +93741,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1688288027
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1688288028}
+  m_Layer: 0
+  m_Name: SpawnWave (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1688288028
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688288027}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -26.215788, y: -1.9108438, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 776087267}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1690014548
 GameObject:
   m_ObjectHideFlags: 0

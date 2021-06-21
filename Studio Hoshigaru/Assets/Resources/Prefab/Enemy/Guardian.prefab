@@ -550,7 +550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d4dddd80ee1ac4cbc178b97a9e4207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 2
   PV: {fileID: 5532895139662128418}
 --- !u!114 &5532895139662128418
 MonoBehaviour:
@@ -788,7 +788,7 @@ GameObject:
   - component: {fileID: 4024703244776427219}
   m_Layer: 0
   m_Name: patroller_sprites
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
