@@ -274,5 +274,13 @@ public class PlayerControler : MonoBehaviourPun, IPunObservable
             master.GetComponent<Parallaxing>().cam = camera.transform;
 
         }
+        if (!PV.IsMine)
+        {
+            UI.enabled = false;
+        }
+        else
+        {
+            OtherNames.enabled = false;
+        }
     }
 }

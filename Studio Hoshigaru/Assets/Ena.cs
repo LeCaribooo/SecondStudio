@@ -13,6 +13,8 @@ public class Ena : MonoBehaviour
     private bool hasEnabled = false;
     public Chest chest;
 
+    public static bool isEnabled = false;
+
     GameObject MyPlayer;
 
     GameObject getMinePlayer()
@@ -33,7 +35,7 @@ public class Ena : MonoBehaviour
 
     public void Awake()
     {
-        if (!hasPlayedBossesDialogue && Destroy_Door.created)
+        if (!hasPlayedBossesDialogue && isEnabled)
             PlayBossesDialogue();
     }
 
@@ -43,7 +45,9 @@ public class Ena : MonoBehaviour
     {
         MyPlayer = getMinePlayer();
         dialogueUI.character.text = "Ena";
-        dialogueUI.Begin(dialoguesEna[0], null);    
+        if(!isEnabled)
+            dialogueUI.Begin(dialoguesEna[0], null);
+        isEnabled = true;
     }
 
     // Update is called once per frame

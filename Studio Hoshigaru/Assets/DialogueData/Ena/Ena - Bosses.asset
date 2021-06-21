@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c08f8ac255508ed4b8a344927e9e4739, type: 3}
   m_Name: Ena - Bosses
   m_EditorClassIdentifier: 
-  dialogue: []
+  dialogue:
+  - Tu as vaincu les gardiens du temple. L'espoir renait.
+  - Je ne peux plus t'accompagner. L'espoir du monde respose sur toi.
+  - Merci, mon enfant...
   responses: []
-  isEnd: 0
+  isEnd: 1

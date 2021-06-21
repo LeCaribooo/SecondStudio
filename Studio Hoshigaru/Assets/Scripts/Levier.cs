@@ -21,27 +21,25 @@ public class Levier : MonoBehaviourPun
         spriteRenderer.sprite = activatedLever;
         for (int i = 0; i < doors.Length; i++)
         {
+            isPressed = true;
             doors[i].GetComponent<Animator>().enabled = true;
-            objectiveManager.NextObjective();
             cameraRenderer.SetActive(false);
         }
     }
 
     private void Update()
     {
-        if (OnIt)
+        if (OnIt && !isPressed)
         {
             pressT.gameObject.SetActive(true);
             if (Input.GetKeyDown(KeyCode.T))
             {
-                
-                base.photonView.RPC("Unlock", RpcTarget.All);
-                
-                isPressed = true;
+                base.photonView.RPC("Unlock", RpcTarget.All);   
             }
         }
         if(isPressed)
         {
+            objectiveManager.NextObjective();
             pressT.gameObject.SetActive(false);
             this.enabled = false;
         }
