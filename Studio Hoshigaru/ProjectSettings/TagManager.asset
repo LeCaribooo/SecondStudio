@@ -10,6 +10,8 @@ TagManager:
   - Trigger
   - Dead
   - DeadState
+  - Flashbang
+  - BossF
   layers:
   - Default
   - TransparentFX
