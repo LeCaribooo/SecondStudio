@@ -22,7 +22,7 @@ public class BossTemple : MonoBehaviourPun
     private bool Done = true;
     private bool BlockDestroy;
     private bool SendRoomClear;
-    private bool first;
+    private bool first = true;
 
     [SerializeField]
     private GameObject[] spawnpoint = new GameObject[8];
