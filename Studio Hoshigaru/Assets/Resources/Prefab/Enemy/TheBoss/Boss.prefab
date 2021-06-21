@@ -441,6 +441,8 @@ GameObject:
   - component: {fileID: 1338689638539972717}
   - component: {fileID: 8166803498042713447}
   - component: {fileID: 434392607536240083}
+  - component: {fileID: 4370624086512166736}
+  - component: {fileID: 464729741833542018}
   m_Layer: 0
   m_Name: Smoke3H
   m_TagString: Untagged
@@ -544,6 +546,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoke: {fileID: 254867730837953215}
+--- !u!114 &4370624086512166736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254867730837953215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 464729741833542018}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &464729741833542018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254867730837953215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 1
 --- !u!1 &557807511971798459
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,6 +595,8 @@ GameObject:
   - component: {fileID: 5746330877038538613}
   - component: {fileID: 7916030260294170297}
   - component: {fileID: 7805884512057072382}
+  - component: {fileID: 9056576910904003438}
+  - component: {fileID: 8017137493978396442}
   m_Layer: 0
   m_Name: Smoke2H
   m_TagString: Untagged
@@ -660,6 +701,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoke: {fileID: 557807511971798459}
   Growed: {fileID: 729260854563016276}
+--- !u!114 &9056576910904003438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557807511971798459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 8017137493978396442}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &8017137493978396442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557807511971798459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 1
 --- !u!1 &587734854609450611
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,6 +934,7 @@ GameObject:
   - component: {fileID: 7529256103230122944}
   - component: {fileID: 8161094198048821229}
   - component: {fileID: 8161094198048821228}
+  - component: {fileID: 7086177516026276759}
   m_Layer: 0
   m_Name: Smoke2
   m_TagString: Untagged
@@ -978,6 +1057,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 8161094198048821228}
+  - {fileID: 7086177516026276759}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -999,6 +1079,21 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
+--- !u!114 &7086177516026276759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729260854563016276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 1
 --- !u!1 &822842559541826273
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,6 +1244,8 @@ GameObject:
   - component: {fileID: 4480628742051618936}
   - component: {fileID: 1103816332263346826}
   - component: {fileID: 8028972895788980844}
+  - component: {fileID: 7209281891017080347}
+  - component: {fileID: 7246546689873667414}
   m_Layer: 0
   m_Name: Smoke1R
   m_TagString: Untagged
@@ -1252,6 +1349,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoke: {fileID: 936318439467115455}
+--- !u!114 &7209281891017080347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936318439467115455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 7246546689873667414}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &7246546689873667414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936318439467115455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 1
 --- !u!1 &1401059134513026044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1375,6 +1509,8 @@ GameObject:
   - component: {fileID: 7231323977502103273}
   - component: {fileID: 3100497855176780297}
   - component: {fileID: 8562183291786808379}
+  - component: {fileID: 1207161901385982374}
+  - component: {fileID: 2833689918602526583}
   m_Layer: 0
   m_Name: Smoke3R
   m_TagString: Untagged
@@ -1478,6 +1614,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoke: {fileID: 1444724294182666157}
+--- !u!114 &1207161901385982374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444724294182666157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 2833689918602526583}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &2833689918602526583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444724294182666157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 1
 --- !u!1 &1539366312725831707
 GameObject:
   m_ObjectHideFlags: 0
@@ -1601,6 +1774,8 @@ GameObject:
   - component: {fileID: 560031923802322855}
   - component: {fileID: 5607097883324345401}
   - component: {fileID: 2026386049068782495}
+  - component: {fileID: 1342641470146493284}
+  - component: {fileID: 5983019840121840315}
   m_Layer: 0
   m_Name: Smoke1H
   m_TagString: Untagged
@@ -1704,6 +1879,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoke: {fileID: 1655175766344264653}
+--- !u!114 &1342641470146493284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655175766344264653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 5983019840121840315}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &5983019840121840315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655175766344264653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 1
 --- !u!1 &1877572081950970172
 GameObject:
   m_ObjectHideFlags: 0
@@ -2493,6 +2705,7 @@ GameObject:
   - component: {fileID: 8161094198048821219}
   - component: {fileID: 8161094198048821218}
   - component: {fileID: 7293851622805052205}
+  - component: {fileID: 4049634801744986450}
   m_Layer: 0
   m_Name: Smoke2
   m_TagString: Untagged
@@ -2615,6 +2828,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 8161094198048821218}
+  - {fileID: 4049634801744986450}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -2632,7 +2846,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowLayerWeightsInspector: 1
   ShowParameterInspector: 1
-  m_SynchronizeParameters: []
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 2
+    Name: Reduce
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
@@ -2649,6 +2866,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoke: {fileID: 2699597323583162684}
+--- !u!114 &4049634801744986450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2699597323583162684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 1
 --- !u!1 &2840537725659726481
 GameObject:
   m_ObjectHideFlags: 0
@@ -3686,6 +3918,7 @@ GameObject:
   - component: {fileID: 7082114138344764092}
   - component: {fileID: 8161094198048821226}
   - component: {fileID: 8161094198048821225}
+  - component: {fileID: 233881730517623078}
   m_Layer: 0
   m_Name: Smoke1
   m_TagString: Untagged
@@ -3808,6 +4041,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 8161094198048821225}
+  - {fileID: 233881730517623078}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -3827,11 +4061,26 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters:
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: Reduce
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
+--- !u!114 &233881730517623078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3349394298575681621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 1
 --- !u!1 &3412793498950085931
 GameObject:
   m_ObjectHideFlags: 0
@@ -8504,6 +8753,8 @@ GameObject:
   - component: {fileID: 7989095118845230322}
   - component: {fileID: 8274853324453403693}
   - component: {fileID: 8765506063076897689}
+  - component: {fileID: 6672448200372739493}
+  - component: {fileID: 5847026794701596929}
   m_Layer: 0
   m_Name: Smoke2L
   m_TagString: Untagged
@@ -8608,6 +8859,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoke: {fileID: 7418899046266177225}
   Growed: {fileID: 0}
+--- !u!114 &6672448200372739493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7418899046266177225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 5847026794701596929}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &5847026794701596929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7418899046266177225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 1
 --- !u!1 &7551867820043819643
 GameObject:
   m_ObjectHideFlags: 0
@@ -8869,6 +9157,8 @@ GameObject:
   - component: {fileID: 7587887303886605646}
   - component: {fileID: 5358587093513627652}
   - component: {fileID: 841444586695898274}
+  - component: {fileID: 8809101312292317605}
+  - component: {fileID: 8531491204276993853}
   m_Layer: 0
   m_Name: Smoke3L
   m_TagString: Untagged
@@ -8972,6 +9262,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoke: {fileID: 7827811240069920700}
+--- !u!114 &8809101312292317605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7827811240069920700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 8531491204276993853}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &8531491204276993853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7827811240069920700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 1
 --- !u!1 &7848790146097442129
 GameObject:
   m_ObjectHideFlags: 0
@@ -9257,6 +9584,7 @@ GameObject:
   - component: {fileID: 8161094198048821204}
   - component: {fileID: 8161094198048821203}
   - component: {fileID: 4825762765594090736}
+  - component: {fileID: 9095804993553463426}
   m_Layer: 0
   m_Name: Smoke1
   m_TagString: Untagged
@@ -9379,6 +9707,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 8161094198048821203}
+  - {fileID: 9095804993553463426}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -9398,7 +9727,7 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters:
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: Reduce
   m_SynchronizeLayers:
   - SynchronizeType: 2
@@ -9416,6 +9745,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoke: {fileID: 8036193393481258891}
+--- !u!114 &9095804993553463426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8036193393481258891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 1
 --- !u!1 &8058792205276833716
 GameObject:
   m_ObjectHideFlags: 0
@@ -9693,6 +10037,8 @@ GameObject:
   - component: {fileID: 4170758108175235194}
   - component: {fileID: 4606453763361739814}
   - component: {fileID: 657967722257205698}
+  - component: {fileID: 7926376606250042544}
+  - component: {fileID: 5245425006683333469}
   m_Layer: 0
   m_Name: Smoke1L
   m_TagString: Untagged
@@ -9796,6 +10142,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoke: {fileID: 8358443778887903790}
+--- !u!114 &7926376606250042544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8358443778887903790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 5245425006683333469}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &5245425006683333469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8358443778887903790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 1
 --- !u!1 &8438874034210844156
 GameObject:
   m_ObjectHideFlags: 0
@@ -9811,6 +10194,7 @@ GameObject:
   - component: {fileID: 8161094198048821216}
   - component: {fileID: 8161094198048821231}
   - component: {fileID: 646948014668160169}
+  - component: {fileID: 1212587967378718923}
   m_Layer: 0
   m_Name: Smoke1
   m_TagString: Untagged
@@ -9933,6 +10317,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 8161094198048821231}
+  - {fileID: 1212587967378718923}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -9950,7 +10335,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowLayerWeightsInspector: 1
   ShowParameterInspector: 1
-  m_SynchronizeParameters: []
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 2
+    Name: Reduce
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
@@ -9967,6 +10355,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoke: {fileID: 8438874034210844156}
+--- !u!114 &1212587967378718923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8438874034210844156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 1
 --- !u!1 &8621941252495597004
 GameObject:
   m_ObjectHideFlags: 0
@@ -10093,6 +10496,7 @@ GameObject:
   - component: {fileID: 8161094198048821207}
   - component: {fileID: 8161094198048821206}
   - component: {fileID: 1627970002794108465}
+  - component: {fileID: 2972825515578183674}
   m_Layer: 0
   m_Name: Smoke2
   m_TagString: Untagged
@@ -10215,6 +10619,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 8161094198048821206}
+  - {fileID: 2972825515578183674}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -10234,7 +10639,7 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters:
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: Reduce
   m_SynchronizeLayers:
   - SynchronizeType: 2
@@ -10252,6 +10657,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoke: {fileID: 8630455337564583184}
+--- !u!114 &2972825515578183674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8630455337564583184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 1
 --- !u!1 &8683807441901964536
 GameObject:
   m_ObjectHideFlags: 0
@@ -10557,6 +10977,8 @@ GameObject:
   - component: {fileID: 5324226531738438499}
   - component: {fileID: 7508315320305662648}
   - component: {fileID: 3486743461330582948}
+  - component: {fileID: 327869971294004545}
+  - component: {fileID: 347796580182624159}
   m_Layer: 0
   m_Name: Smoke2R
   m_TagString: Untagged
@@ -10661,6 +11083,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoke: {fileID: 8973965717153152683}
   Growed: {fileID: 0}
+--- !u!114 &327869971294004545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973965717153152683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 347796580182624159}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &347796580182624159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973965717153152683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 1
 --- !u!1 &9078584583887622982
 GameObject:
   m_ObjectHideFlags: 0
