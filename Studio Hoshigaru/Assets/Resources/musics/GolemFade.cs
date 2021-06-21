@@ -12,8 +12,8 @@ public class GolemFade : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        volume = 0f;
-        GetComponent<AudioSource>().volume = volume;
+        volume = 1f;
+        GetComponent<AudioSource>().volume = 1f;
         GetComponent<AudioSource>().clip = musics[0];
         GetComponent<AudioSource>().Play();
     }

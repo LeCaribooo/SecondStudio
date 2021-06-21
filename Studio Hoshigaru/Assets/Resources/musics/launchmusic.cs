@@ -14,7 +14,7 @@ public class launchmusic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        volume = 0f;
+        volume = 1f;
         boss = GameObject.FindGameObjectWithTag("BossF").GetComponent<MainBoss>();
         GetComponent<AudioSource>().volume = volume;
         GetComponent<AudioSource>().clip = musics[0];

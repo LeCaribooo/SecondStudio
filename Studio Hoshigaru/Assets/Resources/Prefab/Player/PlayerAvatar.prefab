@@ -4165,7 +4165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   experience: 0
-  point: 30
+  point: 0
   expForNextLevel: 10
   xpBar: {fileID: 8129185390682792371}
   aptitudeManager: {fileID: 5113850010521263055}

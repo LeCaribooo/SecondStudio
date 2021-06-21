@@ -16,12 +16,13 @@ public class ObjectiveManager : MonoBehaviour
     public int actualObjectivesIndex;
     public GameObject target;
     public Destroy_Door destroy_;
+    public bool InRoom = false;
 
     private bool hasReturned = false;
 
     public void Awake()
     {
-        if (!hasReturned && Destroy_Door.created)
+        if (!hasReturned && Destroy_Door.created && InRoom)
             NextObjective();
     }
 
