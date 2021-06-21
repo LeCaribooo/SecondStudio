@@ -451,7 +451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e098955e6f34fb048a12e4fab3ea2a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 3
   PV: {fileID: 6722847633926835103}
 --- !u!114 &6722847633926835103
 MonoBehaviour:
@@ -470,7 +470,8 @@ MonoBehaviour:
   prefixField: -1
   Synchronization: 0
   OwnershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -545,7 +546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e098955e6f34fb048a12e4fab3ea2a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 3
   PV: {fileID: 4656657957115489763}
 --- !u!114 &4656657957115489763
 MonoBehaviour:
@@ -564,7 +565,8 @@ MonoBehaviour:
   prefixField: -1
   Synchronization: 0
   OwnershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -892,7 +894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e098955e6f34fb048a12e4fab3ea2a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 3
   PV: {fileID: 1404641353134048898}
 --- !u!114 &1404641353134048898
 MonoBehaviour:
@@ -911,7 +913,8 @@ MonoBehaviour:
   prefixField: -1
   Synchronization: 0
   OwnershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

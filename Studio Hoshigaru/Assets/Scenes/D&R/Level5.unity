@@ -9750,8 +9750,8 @@ MonoBehaviour:
   oldscene: Village
   newscene: Village
   nbWaves: 3
-  plusMobWaves_MAX: 070000000500000003000000
-  plusMobWaves_MIN: 050000000300000001000000
+  plusMobWaves_MAX: 060000000200000003000000
+  plusMobWaves_MIN: 040000000200000001000000
   spawnpoint:
   - {fileID: 618875131}
   - {fileID: 998643317}
@@ -9769,8 +9769,8 @@ MonoBehaviour:
   - {fileID: 7788710083642730289, guid: 75edefe58a42da24a81f6354a74d2620, type: 3}
   - {fileID: 5050500322922451757, guid: 656fba76813950c419134dfb5c0a7b66, type: 3}
   - {fileID: 3877864405771930378, guid: bf777310f51c8864bb9ec1b01cae65f8, type: 3}
-  INIT_nbenemies_EACH_MAX: 050000000100000000000000
-  INIT_nbenemies_EACH_MIN: 050000000100000000000000
+  INIT_nbenemies_EACH_MAX: 040000000100000000000000
+  INIT_nbenemies_EACH_MIN: 040000000100000000000000
 --- !u!4 &776087267
 Transform:
   m_ObjectHideFlags: 0
