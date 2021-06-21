@@ -146,7 +146,10 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
             }
             else if (movingFromLaser)
             {
-                base.photonView.RPC("CompletActive", RpcTarget.All, false);
+                if (!laserEnd)
+                {
+                    base.photonView.RPC("CompletActive", RpcTarget.All, false);
+                }
                 MoveFromLaser(facingDirection);
             }
             else if (movingToDamage)
@@ -182,7 +185,6 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
                 if(stock.BossComplet.activeInHierarchy)
                 {
                     waiting = true;
-                    laserEnd = false;
                 }
                 else
                 {
@@ -486,8 +488,8 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
                 dead = false;
                 falling = true;
             }
+            laserEnd = false;
             waiting = false;
-            
         }
     }
 

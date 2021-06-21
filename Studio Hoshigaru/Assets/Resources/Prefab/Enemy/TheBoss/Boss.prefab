@@ -7240,6 +7240,8 @@ MonoBehaviour:
   blinding: 0
   aveugle: 0
   intensity1: 0
+  end: 0
+  laserEnd: 0
 --- !u!114 &3711384677511610086
 MonoBehaviour:
   m_ObjectHideFlags: 0
