@@ -78,7 +78,7 @@ public class Waves : MonoBehaviourPun
         {
             if (CountWaves > 0)
             {
-                StatesWaves.text = "Wave Clear !";
+                StatesWaves.text = "Vague terminée !";
             }
             DecompteCanvas.gameObject.SetActive(true);
             time -= Time.deltaTime;
@@ -86,7 +86,7 @@ public class Waves : MonoBehaviourPun
             DecompteTxt.text = "00 : 0" + sec.ToString();
             if (time <= 0f)
             {
-                Debug.Log("Start Waves");
+                Debug.Log("Début vagues");
                 DecompteCanvas.gameObject.SetActive(false);
                 W_inprogress = false;
                 if (PhotonNetwork.IsMasterClient)
@@ -104,7 +104,7 @@ public class Waves : MonoBehaviourPun
         if (!RoomCleared && !IsClear())
         {
             GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
-            StatesWaves.text = "" + enemy.Length + "/" + nbMobs + " Ennemies";
+            StatesWaves.text = "" + enemy.Length + "/" + nbMobs + " Ennemis";
             GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
             if (player.Length == 0)
             {
@@ -118,7 +118,7 @@ public class Waves : MonoBehaviourPun
         if (IsClear() && !W_inprogress && PhotonNetwork.IsMasterClient && !RoomCleared) //Permet au MasterClient de controler l'envoie de vague et leur uptade.
         {
             DecompteCanvas.gameObject.SetActive(true);
-            StatesWaves.text = "Wave Clear !";
+            StatesWaves.text = "Vague terminée !";
             CountWaves++;
             Debug.Log("Waves clear : " + CountWaves);
             W_inprogress = true;
@@ -144,7 +144,7 @@ public class Waves : MonoBehaviourPun
                 Debug.LogWarning("Respawn");
             }
             CWaves.text = "" + nbWaves;
-            StatesWaves.text = "Room Cleared !";
+            StatesWaves.text = "Salle terminée !";
             DecompteCanvas.gameObject.SetActive(false);
             Portal_Back.gameObject.SetActive(true);
             first = false;

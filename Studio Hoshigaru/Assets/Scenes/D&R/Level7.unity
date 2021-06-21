@@ -12119,7 +12119,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Ready ?
+  m_Text: "Pr\xEAt ?"
 --- !u!222 &991010535
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12389,7 +12389,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Continue...?
+  m_Text: Continuer...?
 --- !u!222 &1018427433
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -87197,6 +87197,7 @@ MonoBehaviour:
   actualObjectivesIndex: 0
   target: {fileID: 0}
   destroy_: {fileID: 0}
+  InRoom: 0
 --- !u!4 &1445575337
 Transform:
   m_ObjectHideFlags: 0

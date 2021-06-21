@@ -41777,7 +41777,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Continue...?
+  m_Text: Continuer...?
 --- !u!222 &1717689856
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -43381,7 +43381,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Ready ?
+  m_Text: "Pr\xEAt ?"
 --- !u!222 &2093209084
 CanvasRenderer:
   m_ObjectHideFlags: 0
