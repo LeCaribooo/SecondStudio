@@ -7457,6 +7457,7 @@ MonoBehaviour:
   target: {fileID: 8606346153712435183}
   smoothSpeed: 0.05
   offset: {x: 0, y: 1.3, z: -2}
+  check: 1
 --- !u!81 &2783579247754196197
 AudioListener:
   m_ObjectHideFlags: 0
