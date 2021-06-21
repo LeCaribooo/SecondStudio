@@ -42,6 +42,9 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
     public bool blinding;
     public bool aveugle;
     public float intensity1;
+    public bool end;
+    public bool laserEnd;
+
     Light2D light;
     EyesAnim eyes1;
     EyesAnim eyes2;
@@ -100,6 +103,10 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
                 {
                     wait = maxWait * 1.5f;
                     waiting = true;
+                }
+                else if(!falling)
+                {
+                    end = true;
                 }
             }
             else if(movingback)
@@ -170,9 +177,20 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
                     Death();
                 }
             }
+            else if(laserEnd)
+            {
+                if(stock.BossComplet.activeInHierarchy)
+                {
+                    waiting = true;
+                    laserEnd = false;
+                }
+                else
+                {
+                    base.photonView.RPC("CompletActive", RpcTarget.All, true);
+                }
+            }
             else if(endAttack)
             {
-                base.photonView.RPC("CompletActive", RpcTarget.All, true);
                 switch (step % 4)
                 {
                     case 0:
@@ -843,7 +861,7 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
     {
         base.photonView.RPC("SLActive", RpcTarget.All, false);
         base.photonView.RPC("CompletActive", RpcTarget.All, true);
-        waiting = true;
+        laserEnd = true;
         endAttack = true;
         step += 1;
         base.photonView.RPC("CompletActive", RpcTarget.All, true);
@@ -853,7 +871,7 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
     {
         base.photonView.RPC("SRActive", RpcTarget.All, false);
         base.photonView.RPC("CompletActive", RpcTarget.All, true);
-        waiting = true;
+        laserEnd = true;
         endAttack = true;
         step += 1;
         base.photonView.RPC("CompletActive", RpcTarget.All, true);
@@ -1363,7 +1381,8 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
             stream.SendNext(blinding);
             stream.SendNext(aveugle);
             stream.SendNext(intensity1);
-
+            stream.SendNext(end);
+            stream.SendNext(laserEnd);
         }
         else
         {
@@ -1401,6 +1420,8 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
             blinding = (bool)stream.ReceiveNext();
             aveugle = (bool)stream.ReceiveNext();
             intensity1 = (float)stream.ReceiveNext();
+            end = (bool)stream.ReceiveNext();
+            laserEnd = (bool)stream.ReceiveNext();
         }
     }
 }
