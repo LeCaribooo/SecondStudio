@@ -41,6 +41,7 @@ public class SwordBoss : MonoBehaviourPun
     void Start()
     {
         facingDirection = RIGHT;
+        maxHealth = maxHealth * GameObject.FindGameObjectsWithTag("Player").Length;
         PV = GetComponent<PhotonView>();
         rb2d = GetComponent<Rigidbody2D>();
         health.health = maxHealth;

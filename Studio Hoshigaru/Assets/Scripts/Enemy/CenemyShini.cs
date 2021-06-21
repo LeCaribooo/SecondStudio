@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColliderEnemy : MonoBehaviour
+public class CenemyShini : MonoBehaviour
 {
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         Physics2D.IgnoreLayerCollision(9, 10);
-        Physics2D.IgnoreLayerCollision(10, 10);
     }
 }

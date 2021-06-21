@@ -454,7 +454,7 @@ MonoBehaviour:
   baseCastDist: 1
   maxcooling: 2
   dmg: 4
-  maxHealth: 75
+  maxHealth: 100
   hitbox: {fileID: 3957148486193325730}
   health: {fileID: 368871082802375636}
   chargeCooling: 0

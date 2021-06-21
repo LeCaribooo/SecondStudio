@@ -63,6 +63,7 @@ public class Golem : MonoBehaviourPun,IPunObservable
 
     void Start()
     {
+        Maxhp *= GameObject.FindGameObjectsWithTag("Player").Length;
         dead = false;
         lifeEnded = false;
         health = GetComponent<EnemyHealth>();

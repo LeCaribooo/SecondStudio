@@ -308,6 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootedExperience: 10
+  runesParts: 0
 --- !u!1 &1981095366870197191
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,7 +752,7 @@ GameObject:
   - component: {fileID: 7690206892217989238}
   m_Layer: 0
   m_Name: warrior_sprites
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1280,7 +1281,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 19
   m_TargetDisplay: 0
 --- !u!114 &7690206893711323418
 MonoBehaviour:

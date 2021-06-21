@@ -62,6 +62,7 @@ public class WarriorBoss : MonoBehaviourPun
         cooling1 = maxcooling1;
         cooling2 = maxcooling2;
         cooling3 = maxcooling3;
+        Maxhealth *= GameObject.FindGameObjectsWithTag("Player").Length;
         health = GetComponent<EnemyHealth>();
         health.health = Maxhealth;
         rb2d = GetComponent<Rigidbody2D>();

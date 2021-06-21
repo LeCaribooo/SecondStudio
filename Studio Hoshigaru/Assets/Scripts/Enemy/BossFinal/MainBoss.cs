@@ -61,6 +61,7 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
 
     private void Start()
     {
+        MaxHp *= GameObject.FindGameObjectsWithTag("Player").Length;
         augmente = true;
         timerDps = timerDPSMax;
         step = 0;

@@ -476,7 +476,7 @@ GameObject:
   m_Component:
   - component: {fileID: 358997887466815233}
   - component: {fileID: 358997887466815235}
-  - component: {fileID: 358997887466815234}
+  - component: {fileID: 7145904319375601981}
   m_Layer: 10
   m_Name: shinigami_collider
   m_TagString: Untagged
@@ -514,7 +514,7 @@ CapsuleCollider2D:
   m_Offset: {x: -0.68881387, y: 0.13289589}
   m_Size: {x: 0.9180775, y: 3.2674742}
   m_Direction: 0
---- !u!114 &358997887466815234
+--- !u!114 &7145904319375601981
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -523,7 +523,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 358997887466815232}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73c2a6b8fcf6d6341bc53142bd37bd89, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f3fbdae5b119ee4d96e8037d7e452a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &358997887499192441

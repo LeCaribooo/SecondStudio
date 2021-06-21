@@ -346,7 +346,7 @@ MonoBehaviour:
   attack3cooling: 1
   cooling: 1
   alreadytouched: 1
-  Maxhealth: 75
+  Maxhealth: 100
   baseCastDist: 0.1
   maxDistanceAttack: 2.5
   maxtimer1: 3
