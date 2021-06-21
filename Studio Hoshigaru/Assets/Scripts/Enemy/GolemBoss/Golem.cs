@@ -30,6 +30,7 @@ public class Golem : MonoBehaviourPun
     public float jumpForce = 7.0f;
     public float ground;
     public bool grounded;
+    public bool deade;
 
     private EnemyHealth health;
     private Vector3 baseScale;
@@ -194,7 +195,7 @@ public class Golem : MonoBehaviourPun
         if(lifeEnded)
         {
             base.photonView.RPC("SendExperience", RpcTarget.All);
-            base.photonView.RPC("DestroyOnline", RpcTarget.All);
+            deade = true;
             lifeEnded = false;
         }
     }

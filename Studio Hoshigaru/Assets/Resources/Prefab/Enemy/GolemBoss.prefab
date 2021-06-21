@@ -208,6 +208,7 @@ MonoBehaviour:
   jumpForce: 7
   ground: 0
   grounded: 0
+  deade: 0
   throwCooling: 0
   facingdirection: 
   downPosR: {fileID: 1836649395139359267}
