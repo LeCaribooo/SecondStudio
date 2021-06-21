@@ -23,6 +23,7 @@ public class BossTemple : MonoBehaviourPun
     private bool BlockDestroy;
     private bool SendRoomClear;
     private bool first = true;
+    private bool foursecond = false;
 
     [SerializeField]
     private GameObject[] spawnpoint = new GameObject[8];
@@ -42,6 +43,18 @@ public class BossTemple : MonoBehaviourPun
     {
         Block.gameObject.SetActive(true);
     }
+
+    private void Start()
+    {
+        StartCoroutine(foursec());
+    }
+
+    IEnumerator foursec()
+    {
+        yield return new WaitForSeconds(4.0f);
+        foursecond = true;
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -80,7 +93,7 @@ public class BossTemple : MonoBehaviourPun
             BlockDestroy = true;
         }
 
-        if (RoomCleared && first)
+        if (RoomCleared && first && foursecond)
         {
             //=> Raise tous les personnages morts
             if (PhotonNetwork.IsMasterClient)

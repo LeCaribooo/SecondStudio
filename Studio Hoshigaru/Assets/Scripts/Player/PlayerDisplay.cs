@@ -28,6 +28,7 @@ public class PlayerDisplay : MonoBehaviourPun
     {
         level.text = pe.level.ToString();
         health.numOfHits = playerHealth.numOfHits;
+        health.numOfHearts = playerHealth.numOfHearts;
         switch (wp.actualWeaponString)
         {
             case "hasSword":
@@ -55,6 +56,7 @@ public class PlayerDisplay : MonoBehaviourPun
         name.text = _player.NickName;
         playerHealth = affectedPlayer.GetComponent<Health>();
         health.numOfHits = playerHealth.numOfHits;
+        health.numOfHearts = playerHealth.numOfHearts;
         wp = affectedPlayer.GetComponentInChildren<WeaponSelection>();
         pe = affectedPlayer.GetComponent<PlayerExperience>();
         level.text = pe.level.ToString();

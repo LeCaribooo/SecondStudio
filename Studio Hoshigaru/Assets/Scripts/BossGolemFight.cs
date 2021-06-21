@@ -8,7 +8,9 @@ public class BossGolemFight : MonoBehaviourPun
 {
     public string oldscene;
     public string newscene;
-    
+
+    private bool foursecond = false;
+
     public GameObject BossGolem;
 
     public GameObject spawnboss;
@@ -21,6 +23,13 @@ public class BossGolemFight : MonoBehaviourPun
     void Start()
     {
         StartCoroutine(justASecond());
+        StartCoroutine(foursec());
+    }
+
+    IEnumerator foursec()
+    {
+        yield return new WaitForSeconds(4.0f);
+        foursecond = true;
     }
 
     IEnumerator justASecond()
@@ -44,7 +53,7 @@ public class BossGolemFight : MonoBehaviourPun
         }
 
         
-        if (boss.GetComponent<Golem>().deade && first)
+        if (boss.GetComponent<Golem>().deade && first && foursecond)
         {
             Debug.LogWarning("Golem mort : " + boss.GetComponent<Golem>().deade);
             //=> Raise tous les personnages morts
