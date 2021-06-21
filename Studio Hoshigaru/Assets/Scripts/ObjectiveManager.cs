@@ -40,7 +40,8 @@ public class ObjectiveManager : MonoBehaviour
 
     public void NextObjective()
     {
-        actualObjectivesIndex++;
+        Debug.Log("On m'a appelé");
+        actualObjectivesIndex += 1;
     }
 
     public void PickObjective(int i)

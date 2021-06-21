@@ -19,4 +19,4 @@ MonoBehaviour:
   - "Tu peux l'\xE9quipper dans ton inventaire. Pour l'ouvrir appuies sur E."
   - Va retrouver le reste de tes armes !
   responses: []
-  isEnd: 0
+  isEnd: 1
