@@ -264,10 +264,15 @@ public class PlayerControler : MonoBehaviourPun, IPunObservable
     {
         if (PV.IsMine)
         {
+            GameObject[] others = GameObject.FindGameObjectsWithTag("Player");
+            for (int i = 0; i < others.Length; i++)
+            {
+                others[i].GetComponent<PlayerControler>().camera.gameObject.SetActive(false);
+            }
             camera.gameObject.SetActive(true);
             GameObject master = GameObject.Find("_GameMaster");
             master.GetComponent<Parallaxing>().cam = camera.transform;
-            
+
         }
     }
 }
