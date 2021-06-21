@@ -185,7 +185,7 @@ public class PlayerControler : MonoBehaviourPun, IPunObservable
         {
             if (jumpTimeCounter > 0)
             {
-                movementSpeed = 3;
+                movementSpeed = playerSO.movementSpeed + speedBoost - 1;
                 rb.velocity = Vector2.up * jumpForce;
                 jumpTimeCounter -= Time.deltaTime;
             }
@@ -264,10 +264,15 @@ public class PlayerControler : MonoBehaviourPun, IPunObservable
     {
         if (PV.IsMine)
         {
-            GameObject[] others = GameObject.FindGameObjectsWithTag("Player");
+            GameObject[] others = GameObject.FindGameObjectsWithTag("Dead");
             for (int i = 0; i < others.Length; i++)
             {
                 others[i].GetComponent<PlayerControler>().camera.gameObject.SetActive(false);
+            }
+            GameObject[] others2 = GameObject.FindGameObjectsWithTag("Player");
+            for (int i = 0; i < others2.Length; i++)
+            {
+                others2[i].GetComponent<PlayerControler>().camera.gameObject.SetActive(false);
             }
             camera.gameObject.SetActive(true);
             GameObject master = GameObject.Find("_GameMaster");

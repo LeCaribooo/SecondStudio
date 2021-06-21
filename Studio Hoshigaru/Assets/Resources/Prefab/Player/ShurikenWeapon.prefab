@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PV: {fileID: -5393542517025108317}
   facingRight: 0
-  dmg: 1
+  dmg: 2
 --- !u!58 &8964038959427457201
 CircleCollider2D:
   m_ObjectHideFlags: 0

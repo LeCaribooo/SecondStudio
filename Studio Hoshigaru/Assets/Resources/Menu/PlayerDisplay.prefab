@@ -426,6 +426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSO: {fileID: 11400000, guid: 1e73ed30c3a5b314481ae0d8edc1699b, type: 2}
+  numOfHearts: 0
   numOfHits: 0
   hearts:
   - {fileID: 7699301194995255432}
@@ -443,6 +444,10 @@ MonoBehaviour:
   halfHeart: {fileID: 21300000, guid: e4bd34d853d8ba942b71534994026a52, type: 3}
   hquarterHeart: {fileID: 21300000, guid: d7146649021bc1045a8a07940f636924, type: 3}
   fullHeart: {fileID: 21300000, guid: 95678a91a9671b845bd50ce5969b4a88, type: 3}
+  isInvisible: 0
+  defense: 0
+  regen: 0
+  regenTime: 0
 --- !u!1 &4208304155981178605
 GameObject:
   m_ObjectHideFlags: 0
@@ -1073,8 +1078,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -149.2, y: -30.3}
-  m_SizeDelta: {x: 13.698456, y: 31.207062}
+  m_AnchoredPosition: {x: -135.82, y: -28.6}
+  m_SizeDelta: {x: 46.702103, y: 31.207062}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3195299789435972764
 CanvasRenderer:
@@ -1110,7 +1115,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0

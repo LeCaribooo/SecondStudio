@@ -59,4 +59,9 @@ public class Shuriken : MonoBehaviour
     {
         animator.SetInteger("AttackStatus", AttackStatus);
     }
+
+    private void OnEnable()
+    {
+        numberOfShuriken = 1;
+    }
 }

@@ -22,7 +22,14 @@ public class HitboxDamage : MonoBehaviourPun, IPunObservable
     {
         playerControler = GetComponentInParent<PlayerControler>();
         dmgDealt = dmg + playerControler.playerForce;
-        knockBackDealt = knockbackStrength + playerControler.playerKnockback;
+        if(knockbackStrength != 0)
+        {
+            knockBackDealt = knockbackStrength + playerControler.playerKnockback;
+        }
+        else
+        {
+            knockBackDealt = 0;
+        }
     }
 
 

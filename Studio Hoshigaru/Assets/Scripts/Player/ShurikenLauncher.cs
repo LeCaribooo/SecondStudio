@@ -60,6 +60,10 @@ public class ShurikenLauncher : MonoBehaviourPun, IPunObservable
 
     void Update()
     {
+        if (player.CompareTag("Dead"))
+        {
+            PhotonNetwork.Destroy(this.gameObject);
+        }
         if (PV.IsMine)
         {
             itemToRotate.transform.Rotate(0, 0, Time.deltaTime * 500);
