@@ -18,13 +18,19 @@ public class BossGolemFight : MonoBehaviourPun
     private bool first = true;
 
 
-    private void Start()
+    void Start()
     {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            PhotonNetwork.Instantiate (Path.Combine("Prefab", "Enemy", "GolemBoss"), spawnboss.transform.position, Quaternion.identity);
-        }
+        StartCoroutine(justASecond());
     }
+
+    IEnumerator justASecond()
+    {
+        yield return new WaitForSeconds(2.0f);
+        if (PhotonNetwork.IsMasterClient)
+                PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "GolemBoss"), spawnboss.transform.position, Quaternion.identity);
+        
+    }
+
     private void Update()
     {
         GameObject boss = GameObject.FindGameObjectWithTag("Boss");

@@ -6,10 +6,15 @@ using System.IO;
 
 public class Spawn : MonoBehaviourPun
 {
-    // Start is called before the first frame update
     void Start()
     {
-        if(PhotonNetwork.IsMasterClient)
+        StartCoroutine(justASecond());
+    }
+
+    IEnumerator justASecond()
+    {
+        yield return new WaitForSeconds(2.0f);
+        if (PhotonNetwork.IsMasterClient)
         {
             PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "Boss"), transform.position, Quaternion.identity);
         }

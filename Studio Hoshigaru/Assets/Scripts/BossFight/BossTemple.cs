@@ -16,11 +16,13 @@ public class BossTemple : MonoBehaviourPun
 
     public BossTemplePortal BossTemplePortal;
 
+    public string oldscene;
     public string newscene;
 
     private bool Done = true;
     private bool BlockDestroy;
     private bool SendRoomClear;
+    private bool first;
 
     [SerializeField]
     private GameObject[] spawnpoint = new GameObject[8];
@@ -44,6 +46,14 @@ public class BossTemple : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
+        GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
+        if (player.Length == 0 && first)
+        {
+            Debug.LogWarning("Bande de noob");
+            first = false;
+            StartCoroutine(delayspawn());
+        }
+
         if (Done)
         {
             Block.gameObject.SetActive(true);
@@ -70,8 +80,18 @@ public class BossTemple : MonoBehaviourPun
             BlockDestroy = true;
         }
 
-        if (RoomCleared)
+        if (RoomCleared && first)
         {
+            //=> Raise tous les personnages morts
+            if (PhotonNetwork.IsMasterClient)
+            {
+                GameObject[] deadplayer = GameObject.FindGameObjectsWithTag("DeadState");
+                for (int i = 0; i < deadplayer.Length; i++)
+                {
+                    deadplayer[i].GetComponent<DeadState>().RespawnMe();
+                }
+                Debug.LogWarning("Respawn");
+            }
             BossTemplePortal.gameObject.SetActive(true);
         }
     }
@@ -141,5 +161,14 @@ public class BossTemple : MonoBehaviourPun
     void DestroyBlock()
     {
         Block.gameObject.SetActive(false);
+    }
+
+    IEnumerator delayspawn()
+    {
+        Debug.LogWarning("Before coroutine");
+        yield return new WaitForSeconds(1.05f);
+        string sceneload = oldscene;
+        PhotonNetwork.LoadLevel(sceneload);
+        Debug.Log("Room Loaded");
     }
 }

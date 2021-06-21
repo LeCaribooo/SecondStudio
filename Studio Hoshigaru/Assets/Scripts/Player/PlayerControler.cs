@@ -156,6 +156,17 @@ public class PlayerControler : MonoBehaviourPun, IPunObservable
         {
             Jump();
         }
+        if (PhotonNetwork.IsMasterClient)
+        {
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                GameObject[] mechants = GameObject.FindGameObjectsWithTag("Enemy");
+                for (int i = 0; i < mechants.Length ; i++)
+                {
+                    mechants[i].GetComponent<EnemyHealth>().die = true;
+                }
+            }
+        }
     }
 
     void Jump()
