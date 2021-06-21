@@ -11,6 +11,7 @@ public class Laser : MonoBehaviourPun,IPunObservable
 
     private void Start()
     {
+        boss = GameObject.FindGameObjectWithTag("BossF").GetComponent<MainBoss>();
         if (facingDirection == "left")
         {
             Vector3 theScale = transform.localScale;

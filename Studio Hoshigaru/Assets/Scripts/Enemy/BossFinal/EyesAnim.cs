@@ -11,6 +11,7 @@ public class EyesAnim : MonoBehaviour, IPunObservable
     private void Start()
     {
         anim = GetComponent<Animator>();
+        boss = GameObject.FindGameObjectWithTag("BossF").GetComponent<MainBoss>();
     }
 
     public void EndLaser()

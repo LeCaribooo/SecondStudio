@@ -17,6 +17,7 @@ public class Warnings : MonoBehaviour,IPunObservable
     public void Start()
     {
         light = L.GetComponent<Light2D>();
+        boss = GameObject.FindGameObjectWithTag("BossF").GetComponent<MainBoss>();
     }
 
     void Update()
@@ -65,8 +66,8 @@ public class Warnings : MonoBehaviour,IPunObservable
         }
         else
         {
-            type = (int)stream.ReceiveNext();
             intensity = (float)stream.ReceiveNext();
+            type = (int)stream.ReceiveNext();
             warn = (bool)stream.ReceiveNext();
             middle = (bool)stream.ReceiveNext();
         }

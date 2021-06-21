@@ -739,21 +739,18 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
                 GameObject l = PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "LaserDark"), stock.Laser1.transform.position, Quaternion.identity);
                 Laser laser = l.GetComponent<Laser>();
                 laser.facingDirection = facingdirection;
-                base.photonView.RPC("LaserB", RpcTarget.All,laser);
             }
             else if (step == 6)
             {
                 GameObject l = PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "LaserDark"), stock.Laser3.transform.position, Quaternion.identity);
                 Laser laser = l.GetComponent<Laser>();
                 laser.facingDirection = facingdirection;
-                base.photonView.RPC("LaserB", RpcTarget.All, laser);
             }
             else if (step == 10)
             {
                 GameObject l = PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", "TheBoss", "LaserDark"), stock.Laser2.transform.position, Quaternion.identity);
                 Laser laser = l.GetComponent<Laser>();
                 laser.facingDirection = facingdirection;
-                base.photonView.RPC("LaserB", RpcTarget.All, laser);
             }
         }
         else
@@ -765,9 +762,7 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
                 Laser laser = l.GetComponent<Laser>();
                 Laser laser2 = l2.GetComponent<Laser>();
                 laser.facingDirection = facingdirection;
-                base.photonView.RPC("LaserB", RpcTarget.All, laser);
                 laser2.facingDirection = facingdirection;
-                base.photonView.RPC("LaserB", RpcTarget.All, laser2);
             }
             else if (step == 6)
             {
@@ -777,9 +772,7 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
                 Laser laser = l.GetComponent<Laser>();
                 Laser laser2 = l2.GetComponent<Laser>();
                 laser.facingDirection = facingdirection;
-                base.photonView.RPC("LaserB", RpcTarget.All, laser);
                 laser2.facingDirection = facingdirection;
-                base.photonView.RPC("LaserB", RpcTarget.All, laser2);
             }
             else if (step == 10)
             {
@@ -788,9 +781,7 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
                 Laser laser = l.GetComponent<Laser>();
                 Laser laser2 = l2.GetComponent<Laser>();
                 laser.facingDirection = facingdirection;
-                base.photonView.RPC("LaserB", RpcTarget.All, laser);
                 laser2.facingDirection = facingdirection;
-                base.photonView.RPC("LaserB", RpcTarget.All, laser2);
             }
         }
     }
@@ -904,11 +895,6 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
                 warn2 = stock.Tentacule4.GetComponent<Warnings>();
                 warn3 = stock.Tentacule6.GetComponent<Warnings>();
                 warn4 = stock.Tentacule7.GetComponent<Warnings>();
-                base.photonView.RPC("W", RpcTarget.All,warn1);
-                base.photonView.RPC("W", RpcTarget.All, warn2);
-                base.photonView.RPC("W", RpcTarget.All, warn3);
-                base.photonView.RPC("W", RpcTarget.All, warn4);
-                base.photonView.RPC("W", RpcTarget.All, warn5);
                 warn1.warn = true;
                 warn2.warn = true;
                 warn3.warn = true;
@@ -928,11 +914,6 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
                 warn3 = stock.Tentacule5.GetComponent<Warnings>();
                 warn4 = stock.Tentacule4.GetComponent<Warnings>();
                 warn5 = stock.Tentacule7.GetComponent<Warnings>();
-                base.photonView.RPC("W", RpcTarget.All, warn1);
-                base.photonView.RPC("W", RpcTarget.All, warn2);
-                base.photonView.RPC("W", RpcTarget.All, warn3);
-                base.photonView.RPC("W", RpcTarget.All, warn4);
-                base.photonView.RPC("W", RpcTarget.All, warn5);
                 warn1.warn = true;
                 warn2.warn = true;
                 warn3.warn = true;
@@ -952,11 +933,6 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
                 warn3 = stock.Tentacule6.GetComponent<Warnings>();
                 warn4 = stock.Tentacule4.GetComponent<Warnings>();
                 warn5 = stock.Tentacule1.GetComponent<Warnings>();
-                base.photonView.RPC("W", RpcTarget.All, warn1);
-                base.photonView.RPC("W", RpcTarget.All, warn2);
-                base.photonView.RPC("W", RpcTarget.All, warn3);
-                base.photonView.RPC("W", RpcTarget.All, warn4);
-                base.photonView.RPC("W", RpcTarget.All, warn5);
                 warn1.warn = true;
                 warn2.warn = true;
                 warn3.warn = true;
@@ -980,13 +956,6 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
             warn5 = stock.Tentacule5.GetComponent<Warnings>();
             warn6 = stock.Tentacule6.GetComponent<Warnings>();
             warn7 = stock.Tentacule7.GetComponent<Warnings>();
-            base.photonView.RPC("W", RpcTarget.All, warn1);
-            base.photonView.RPC("W", RpcTarget.All, warn2);
-            base.photonView.RPC("W", RpcTarget.All, warn3);
-            base.photonView.RPC("W", RpcTarget.All, warn4);
-            base.photonView.RPC("W", RpcTarget.All, warn5);
-            base.photonView.RPC("W", RpcTarget.All, warn6);
-            base.photonView.RPC("W", RpcTarget.All, warn7);
             warn1.warn = true;
             warn2.warn = true;
             warn3.warn = true;
@@ -1016,9 +985,6 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
                 warn1 = stock.Meteor1.GetComponent<Warnings>();
                 warn2 = stock.Meteor4.GetComponent<Warnings>();
                 warn3 = stock.Meteor6.GetComponent<Warnings>();
-                base.photonView.RPC("W", RpcTarget.All, warn1);
-                base.photonView.RPC("W", RpcTarget.All, warn2);
-                base.photonView.RPC("W", RpcTarget.All, warn3);
                 warn1.warn = true;
                 warn2.warn = true;
                 warn3.warn = true;
@@ -1033,10 +999,6 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
                 warn2 = stock.Meteor5.GetComponent<Warnings>();
                 warn3 = stock.Meteor7.GetComponent<Warnings>();
                 warn4 = stock.Meteor8.GetComponent<Warnings>();
-                base.photonView.RPC("W", RpcTarget.All, warn1);
-                base.photonView.RPC("W", RpcTarget.All, warn2);
-                base.photonView.RPC("W", RpcTarget.All, warn3);
-                base.photonView.RPC("W", RpcTarget.All, warn4);
                 warn1.warn = true;
                 warn2.warn = true;
                 warn3.warn = true;
@@ -1054,11 +1016,6 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
                 warn3 = stock.Meteor3.GetComponent<Warnings>();
                 warn5 = stock.Meteor5.GetComponent<Warnings>();
                 warn4 = stock.Meteor8.GetComponent<Warnings>();
-                base.photonView.RPC("W", RpcTarget.All, warn1);
-                base.photonView.RPC("W", RpcTarget.All, warn2);
-                base.photonView.RPC("W", RpcTarget.All, warn3);
-                base.photonView.RPC("W", RpcTarget.All, warn4);
-                base.photonView.RPC("W", RpcTarget.All, warn5);
                 warn1.warn = true;
                 warn2.warn = true;
                 warn3.warn = true;
@@ -1082,12 +1039,6 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
                 warn5 = stock.Meteor5.GetComponent<Warnings>();
                 warn6 = stock.Meteor6.GetComponent<Warnings>();
                 warn4 = stock.Meteor8.GetComponent<Warnings>();
-                base.photonView.RPC("W", RpcTarget.All, warn1);
-                base.photonView.RPC("W", RpcTarget.All, warn2);
-                base.photonView.RPC("W", RpcTarget.All, warn3);
-                base.photonView.RPC("W", RpcTarget.All, warn4);
-                base.photonView.RPC("W", RpcTarget.All, warn5);
-                base.photonView.RPC("W", RpcTarget.All, warn6);
                 warn1.warn = true;
                 warn2.warn = true;
                 warn3.warn = true;
@@ -1110,12 +1061,6 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
                 warn5 = stock.Meteor4.GetComponent<Warnings>();
                 warn6 = stock.Meteor6.GetComponent<Warnings>();
                 warn4 = stock.Meteor8.GetComponent<Warnings>();
-                base.photonView.RPC("W", RpcTarget.All, warn1);
-                base.photonView.RPC("W", RpcTarget.All, warn2);
-                base.photonView.RPC("W", RpcTarget.All, warn3);
-                base.photonView.RPC("W", RpcTarget.All, warn4);
-                base.photonView.RPC("W", RpcTarget.All, warn5);
-                base.photonView.RPC("W", RpcTarget.All, warn6);
                 warn1.warn = true;
                 warn2.warn = true;
                 warn3.warn = true;
@@ -1138,12 +1083,6 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
                 warn5 = stock.Meteor5.GetComponent<Warnings>();
                 warn6 = stock.Meteor7.GetComponent<Warnings>();
                 warn4 = stock.Meteor8.GetComponent<Warnings>();
-                base.photonView.RPC("W", RpcTarget.All, warn1);
-                base.photonView.RPC("W", RpcTarget.All, warn2);
-                base.photonView.RPC("W", RpcTarget.All, warn3);
-                base.photonView.RPC("W", RpcTarget.All, warn4);
-                base.photonView.RPC("W", RpcTarget.All, warn5);
-                base.photonView.RPC("W", RpcTarget.All, warn6);
                 warn1.warn = true;
                 warn2.warn = true;
                 warn3.warn = true;
@@ -1357,15 +1296,7 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
         stock.BossComplet.GetComponent<PhaseChanging>().P3.GetComponent<Death>().boss = this;
     }
     [PunRPC]
-    public void LaserB(Laser l)
-    {
-        l.boss = this;
-    }
-    [PunRPC]
-    public void W(Warnings w)
-    {
-        w.boss = this;
-    }
+
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
@@ -1415,32 +1346,32 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
             wait1 = (float)stream.ReceiveNext();
             DPSing = (bool)stream.ReceiveNext();
             beginning = (bool)stream.ReceiveNext();
+            maxWait = (float)stream.ReceiveNext();
+            maxWait1 = (float)stream.ReceiveNext();
             waiting = (bool)stream.ReceiveNext();
             waiting1 = (bool)stream.ReceiveNext();
             endAttack = (bool)stream.ReceiveNext();
+            facingDirection = (string)stream.ReceiveNext();
+            MaxHp = (int)stream.ReceiveNext();
+            laserSpeed = (float)stream.ReceiveNext();
+            damageSpeed = (float)stream.ReceiveNext();
             movingToLaser = (bool)stream.ReceiveNext();
             movingFromLaser = (bool)stream.ReceiveNext();
+            timerDPSMax = (int)stream.ReceiveNext();
             movingToDamage = (bool)stream.ReceiveNext();
             movingFromDamage = (bool)stream.ReceiveNext();
+            moveSpeed = (float)stream.ReceiveNext();
             moving = (bool)stream.ReceiveNext(); ;
-            illuminating = (bool)stream.ReceiveNext(); 
+            illuminating = (bool)stream.ReceiveNext();
             flash = (bool)stream.ReceiveNext();
             movingback = (bool)stream.ReceiveNext();
             falling = (bool)stream.ReceiveNext();
             changing = (bool)stream.ReceiveNext();
-            augmente  = (bool)stream.ReceiveNext();
+            augmente = (bool)stream.ReceiveNext();
             check = (bool)stream.ReceiveNext();
-            dead  = (bool)stream.ReceiveNext();
+            dead = (bool)stream.ReceiveNext();
             blinding = (bool)stream.ReceiveNext();
             aveugle = (bool)stream.ReceiveNext();
-            MaxHp = (int)stream.ReceiveNext();
-            timerDPSMax = (int)stream.ReceiveNext();
-            maxWait = (float)stream.ReceiveNext();
-            maxWait1 = (float)stream.ReceiveNext();
-            laserSpeed = (float)stream.ReceiveNext();
-            damageSpeed = (float)stream.ReceiveNext();
-            moveSpeed = (float)stream.ReceiveNext();
-            facingDirection = (string)stream.ReceiveNext();
             intensity1 = (float)stream.ReceiveNext();
         }
     }

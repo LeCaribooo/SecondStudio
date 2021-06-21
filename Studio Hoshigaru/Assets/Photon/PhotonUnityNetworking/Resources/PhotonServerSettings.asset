@@ -37,14 +37,45 @@ MonoBehaviour:
   - ActiveHammer
   - ActiveShuriken
   - ActiveSword
+  - BCBossP2
+  - BossCP1
   - ClickRpc
+  - CompletActive
+  - CouP2
+  - DamageActive
+  - DeaD
   - Death
   - DesactiveCameraRenderer
   - DestroyBlock
   - DestroyOnline
   - DestroyRpc
+  - Eyes1
+  - Eyes1B
+  - Eyes2
+  - Eyes2B
+  - EyesActive
+  - GetLight
+  - GrowedA
+  - H1
+  - H2
+  - H3
+  - HPSet
   - IsTrigger
+  - L1
+  - L2
+  - L3
+  - LActive
+  - LaserB
+  - P1
+  - P1A
+  - P2
+  - P2A
+  - P3A
   - PlayerReady
+  - R1
+  - R2
+  - R3
+  - RActive
   - RandomRoomNumber_rpc
   - Respawn
   - RPC_ChangeReadyState
@@ -62,37 +93,20 @@ MonoBehaviour:
   - SetShurikenActive
   - SetSwordActive
   - SetTag
-  - Unload
-  - Unlock
-  - VoteRPC
-  - DamageActive
-  - CompletActive
-  - EyesActive
-  - LActive
-  - RActive
   - SLActive
+  - SmokeA
   - SmokeCActive
-  - SmokeTActive
-  - SRActive
-  - BCBossP2
-  - BossCP1
-  - CouP2
-  - H1
-  - H2
-  - H3
-  - HPSet
-  - L1
-  - L2
-  - L3
-  - P1
-  - P2
-  - R1
-  - R2
-  - R3
   - SmokeHActive
   - SmokeLActive
   - SmokeRActive
+  - SmokeTActive
+  - SRActive
   - TorseP2
+  - Unload
+  - Unlock
+  - VoteRPC
+  - W
+  - OnPhotonSerializeView
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
