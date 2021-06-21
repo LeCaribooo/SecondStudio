@@ -172,8 +172,8 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
             }
             else if(endAttack)
             {
-
-                switch(step % 4)
+                base.photonView.RPC("CompletActive", RpcTarget.All, true);
+                switch (step % 4)
                 {
                     case 0:
                         TentacleBegin();
