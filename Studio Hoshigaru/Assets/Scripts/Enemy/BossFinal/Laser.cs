@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class Laser : MonoBehaviourPun
+public class Laser : MonoBehaviourPun,IPunObservable
 {
     
     public string facingDirection;
@@ -37,5 +37,17 @@ public class Laser : MonoBehaviourPun
     void DestroyOnline()
     {
         Destroy(this.gameObject);
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if(stream.IsWriting)
+        {
+            stream.SendNext(facingDirection);
+        }
+        else
+        {
+            facingDirection = (string)stream.ReceiveNext();
+        }
     }
 }

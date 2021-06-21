@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
+using Photon.Pun;
 
-public class Warnings : MonoBehaviour
+public class Warnings : MonoBehaviour,IPunObservable
 {
     public bool warn;
     public bool middle;
@@ -11,6 +12,7 @@ public class Warnings : MonoBehaviour
     public Light2D light;
     public MainBoss boss;
     public int type;
+    public float intensity;
 
     public void Start()
     {
@@ -23,15 +25,18 @@ public class Warnings : MonoBehaviour
         { 
             if(!middle)
             {
-                light.intensity += 0.005f;
+                intensity += 0.005f;
+                light.intensity = intensity;
             }
             else
             {
-                light.intensity -= 0.005f;
+                intensity -= 0.005f;
+                light.intensity = intensity;
             }
-            if(light.intensity <= 0 && middle)
+            if(intensity <= 0 && middle)
             {
                 light.intensity = 0f;
+                intensity = 0f;
                 middle = false;
                 warn = false;
                 if(type == 1)
@@ -43,10 +48,27 @@ public class Warnings : MonoBehaviour
                     boss.MeteorSpawn(transform.position);
                 }
             }
-            else if(light.intensity >= 1f)
+            else if(intensity >= 1f)
             {
                 middle = true;
             }
+        }
+    }
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if(stream.IsWriting)
+        {
+            stream.SendNext(intensity);
+            stream.SendNext(type);
+            stream.SendNext(warn);
+            stream.SendNext(middle);
+        }
+        else
+        {
+            type = (int)stream.ReceiveNext();
+            intensity = (float)stream.ReceiveNext();
+            warn = (bool)stream.ReceiveNext();
+            middle = (bool)stream.ReceiveNext();
         }
     }
 }

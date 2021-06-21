@@ -82,10 +82,14 @@ public class Tentacle : MonoBehaviourPun, IPunObservable
         if (stream.IsWriting)
         {
             stream.SendNext(wait);
+            stream.SendNext(waiting);
+            stream.SendNext(alive);
         }
         else
         {
             wait = (float)stream.ReceiveNext();
+            alive = (float)stream.ReceiveNext();
+            waiting = (bool)stream.ReceiveNext();
         }
     }
 

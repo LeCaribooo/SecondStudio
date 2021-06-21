@@ -8,15 +8,11 @@ public class Meteor : MonoBehaviourPun,IPunObservable
     public float movementSpeed;
     public float alive;
     Rigidbody2D rb2d;
-    public float wait;
-    public float WaitMax;
-    public bool waiting;
     // Start is called before the first frame update
 
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        wait = WaitMax;
     }
 
     // Update is called once per frame
@@ -24,21 +20,8 @@ public class Meteor : MonoBehaviourPun,IPunObservable
     {
         Death();
         rb2d.velocity = new Vector2(rb2d.velocity.x, -movementSpeed);
-        if(waiting)
-        {
-            Wait();
-        }
     }
 
-    public void Wait()
-    {
-        wait -= Time.deltaTime;
-        if (wait <= 0)
-        {
-            wait = WaitMax;
-            waiting = false;
-        }
-    }
 
     public void Death()
     {
@@ -51,21 +34,19 @@ public class Meteor : MonoBehaviourPun,IPunObservable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && !waiting)
+        if (collision.gameObject.CompareTag("Player"))
         {
             GameObject player = collision.gameObject;
             player.GetComponent<Health>().numOfHits -= damage;
-            waiting = true;
         }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && !waiting)
+        if (collision.gameObject.CompareTag("Player"))
         {
             GameObject player = collision.gameObject;
             player.GetComponent<Health>().numOfHits -= damage;
-            waiting = true;
         }
     }
     public void Destroy()
@@ -84,11 +65,13 @@ public class Meteor : MonoBehaviourPun,IPunObservable
     {
         if(stream.IsWriting)
         {
-            stream.SendNext(wait);
+            stream.SendNext(alive);
+            stream.SendNext(damage);
         }
         else
         {
-            wait = (float)stream.ReceiveNext();
+            alive = (float)stream.ReceiveNext();
+            damage = (int)stream.ReceiveNext();
         }
     }
 }

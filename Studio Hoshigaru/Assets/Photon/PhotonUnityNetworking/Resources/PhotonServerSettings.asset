@@ -65,6 +65,34 @@ MonoBehaviour:
   - Unload
   - Unlock
   - VoteRPC
+  - DamageActive
+  - CompletActive
+  - EyesActive
+  - LActive
+  - RActive
+  - SLActive
+  - SmokeCActive
+  - SmokeTActive
+  - SRActive
+  - BCBossP2
+  - BossCP1
+  - CouP2
+  - H1
+  - H2
+  - H3
+  - HPSet
+  - L1
+  - L2
+  - L3
+  - P1
+  - P2
+  - R1
+  - R2
+  - R3
+  - SmokeHActive
+  - SmokeLActive
+  - SmokeRActive
+  - TorseP2
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
