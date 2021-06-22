@@ -57740,6 +57740,7 @@ MonoBehaviour:
   - {fileID: 1097622372}
   enemies:
   - {fileID: 5599938863259524296, guid: f66d74a7754b4f44e9599497e4eaa5af, type: 3}
+  boss: {fileID: 2004856155}
 --- !u!4 &812914993
 Transform:
   m_ObjectHideFlags: 0
@@ -59126,6 +59127,7 @@ MonoBehaviour:
   tag: Boss
   bossIndex: 0
   Health: 0
+  spawned: 0
 --- !u!114 &1183327808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59803,6 +59805,7 @@ MonoBehaviour:
   tag: Boss
   bossIndex: 1
   Health: 0
+  spawned: 0
 --- !u!114 &1362429109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64107,6 +64110,7 @@ MonoBehaviour:
   bosses:
   - {fileID: 5363428200864473283, guid: 89ed761a3e7fc704f83838581dc67e57, type: 3}
   - {fileID: 8420983721660901938, guid: d739a896405395a4abdcfc4507434324, type: 3}
+  spawned: 0
 --- !u!1 &2005905250
 GameObject:
   m_ObjectHideFlags: 0

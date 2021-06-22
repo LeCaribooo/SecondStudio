@@ -16,7 +16,11 @@ public class TrackerDisplay : MonoBehaviour
 
     public void SetUp(GameObject target, int i)
     {
-        this.text.text = target.name;
+        Player_portal portal;
+        if (TryGetComponent<Player_portal>(out portal))
+            this.text.text = portal.NameLvl;
+        else
+            this.text.text = target.name;
         this.i = i;
     }
 

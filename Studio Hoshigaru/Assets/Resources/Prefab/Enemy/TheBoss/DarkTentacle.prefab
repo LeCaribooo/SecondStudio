@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da79f8ba5cbb91b4b96714064dae15b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 10
   alive: 15
   anim: {fileID: 4257673323842725568}
   wait: 3

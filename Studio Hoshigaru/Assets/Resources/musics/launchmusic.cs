@@ -6,8 +6,8 @@ using Photon.Pun;
 public class launchmusic : MonoBehaviour
 {
     public AudioClip[] musics;
-    private float volume;
-    private bool check = false;
+    public float volume;
+    public bool check = true;
     public MainBoss boss;
     public bool end;
     public bool begin = false;
@@ -33,7 +33,7 @@ public class launchmusic : MonoBehaviour
             {
                 if (GetComponent<AudioSource>().volume > 0.00)
                 {
-                    volume -= 0.0005f;
+                    volume -= 0.001f;
                     GetComponent<AudioSource>().volume = volume;
 
                 }

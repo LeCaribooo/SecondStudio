@@ -10,29 +10,41 @@ public class Health_Bar_Boss : MonoBehaviour
     private GameObject[] Bosses;
     public int bossIndex;
     public int Health;
+    public bool spawned;
 
-    public void Start()
-    {
-        Bosses = GameObject.FindGameObjectsWithTag(tag);
-        if(tag == "BossF")
-        {
-            Health = Bosses[bossIndex].GetComponentInChildren<EnemyHealth>().health;
-        }
-        else
-        {
-            Health = Bosses[bossIndex].GetComponent<EnemyHealth>().health;
-        }
-        SetMaxHealth(Health);
-    }
 
     public void Update()
     {
-        Health = Bosses[bossIndex].GetComponent<EnemyHealth>().health;
-        SetHealth(Health);
-        if (Health <= 0)
+        if (!spawned)
         {
-            this.enabled = false;
-            this.gameObject.SetActive(false);
+            Bosses = GameObject.FindGameObjectsWithTag(tag);
+            if (tag == "BossF")
+            {
+                Health = Bosses[bossIndex].GetComponentInChildren<EnemyHealth>().health;
+            }
+            else
+            {
+                Health = Bosses[bossIndex].GetComponent<EnemyHealth>().health;
+            }
+            SetMaxHealth(Health);
+            spawned = true;
+        }
+        else
+        {
+            if (tag == "BossF")
+            {
+                Health = Bosses[bossIndex].GetComponentInChildren<EnemyHealth>().health;
+            }
+            else
+            {
+                Health = Bosses[bossIndex].GetComponent<EnemyHealth>().health;
+            }
+            SetHealth(Health);
+            if (Health <= 0)
+            {
+                this.enabled = false;
+                this.gameObject.SetActive(false);
+            }
         }
     }
 

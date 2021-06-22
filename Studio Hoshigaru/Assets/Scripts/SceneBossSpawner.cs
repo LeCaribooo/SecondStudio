@@ -8,7 +8,7 @@ public class SceneBossSpawner : MonoBehaviourPun
 {
     [SerializeField] Transform[] spawnPoints;
     [SerializeField] GameObject[] bosses;
-
+    public bool spawned;
     void Start()
     {
         StartCoroutine(justASecond());
@@ -22,6 +22,7 @@ public class SceneBossSpawner : MonoBehaviourPun
             if (PhotonNetwork.IsMasterClient)
                 PhotonNetwork.Instantiate(Path.Combine("Prefab", "Enemy", bosses[i].name), spawnPoints[i].position, Quaternion.identity);
         }
+        spawned = true;
     }
 
 }

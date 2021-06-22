@@ -687,7 +687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e2de32d2cd7a24795ac6f2d84247c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lootedExperience: 10
+  lootedExperience: 20
   runesParts: 0
 --- !u!1 &8054569121548340708
 GameObject:

@@ -32,7 +32,7 @@ public class BossTemple : MonoBehaviourPun
     private GameObject[] enemies = new GameObject[2];
 
     private List<GameObject> mobwaves = new List<GameObject>();
-
+    public SceneBossSpawner boss;
     //Timer
     float time = 1f;
 
@@ -62,13 +62,6 @@ public class BossTemple : MonoBehaviourPun
     void Update()
     {
         GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
-        if (player.Length == 0 && first)
-        {
-            Debug.LogWarning("Bande de noob");
-            first = false;
-            StartCoroutine(delayspawn());
-        }
-
         if (Done)
         {
             Block.gameObject.SetActive(true);
@@ -94,10 +87,9 @@ public class BossTemple : MonoBehaviourPun
             BlockDestroy = true;
         }
 
-        if (RoomCleared && first && foursecond)
+        if (RoomCleared && boss.spawned && BossKilled())
         {
             //=> Raise tous les personnages morts
-            first = false;
             if (PhotonNetwork.IsMasterClient)
             {
                 GameObject[] deadplayer = GameObject.FindGameObjectsWithTag("DeadState");
@@ -124,6 +116,12 @@ public class BossTemple : MonoBehaviourPun
                 mobwaves.Add(enemies[i]);
             };
         }
+    }
+
+    private bool BossKilled()
+    {
+        GameObject[] list = GameObject.FindGameObjectsWithTag("Boss");
+        return list.Length == 0;
     }
 
     private void SpawnMob()
@@ -179,12 +177,4 @@ public class BossTemple : MonoBehaviourPun
         Block.gameObject.SetActive(false);
     }
 
-    IEnumerator delayspawn()
-    {
-        Debug.LogWarning("Before coroutine");
-        yield return new WaitForSeconds(1.05f);
-        string sceneload = oldscene;
-        PhotonNetwork.LoadLevel(sceneload);
-        Debug.Log("Room Loaded");
-    }
 }

@@ -118,7 +118,6 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
                 movingback = MoveBack1();
                 if(!movingback)
                 {
-                    Debug.Log("2");
                     base.photonView.RPC("LActive", RpcTarget.All, false);
                     base.photonView.RPC("RActive", RpcTarget.All, false);
                     base.photonView.RPC("CompletActive", RpcTarget.All, true);
@@ -279,6 +278,10 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
             base.photonView.RPC("SmokeLActive", RpcTarget.All, true);
             base.photonView.RPC("SmokeRActive", RpcTarget.All, true);
             base.photonView.RPC("HPSet", RpcTarget.All, MaxHp);
+            GameObject bar = GameObject.Find("CanvasHealtBarWB");
+            bar.transform.GetChild(0).gameObject.SetActive(true);
+            bar.transform.GetChild(0).gameObject.GetComponent<Health_Bar_Boss>().enabled = true;
+            bar.transform.GetChild(0).gameObject.GetComponent<Health_Bar_Boss>().SetMaxHealth(MaxHp);
             augmente = false;
         }
 

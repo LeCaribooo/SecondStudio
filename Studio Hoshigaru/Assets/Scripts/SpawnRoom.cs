@@ -12,7 +12,6 @@ public class SpawnRoom : MonoBehaviour
 
 
 
-
     // Start is called before the first frame update
     //S'occupe de faire spawn tout le monde à un point différent.
     void Start()

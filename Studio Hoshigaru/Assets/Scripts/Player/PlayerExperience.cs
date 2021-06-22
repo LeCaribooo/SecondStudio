@@ -27,7 +27,7 @@ public class PlayerExperience : MonoBehaviour
             level++;
             point++;
             experience -= expForNextLevel;
-            expForNextLevel = (expForNextLevel * 12) / 10;
+            expForNextLevel = level * 153 - 143;
             xpBar.SetMaxXP(expForNextLevel, experience);
             xpBar.SetLevel(level);
             aptitudeManager.EvaluateSkillTree();
