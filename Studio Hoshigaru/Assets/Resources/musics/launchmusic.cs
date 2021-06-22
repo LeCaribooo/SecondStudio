@@ -10,78 +10,82 @@ public class launchmusic : MonoBehaviour
     private bool check = false;
     public MainBoss boss;
     public bool end;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        volume = 1f;
-        boss = GameObject.FindGameObjectWithTag("BossF").GetComponent<MainBoss>();
-        GetComponent<AudioSource>().volume = volume;
-        GetComponent<AudioSource>().clip = musics[0];
-        GetComponent<AudioSource>().Play();
-    }
+    public bool begin = false;
 
     // Update is called once per frame
     void Update()
     {
-
-        if (boss.music1Stop)
+        if (!begin)
         {
-            if (GetComponent<AudioSource>().volume > 0.00)
+            boss = GameObject.FindGameObjectWithTag("BossF").GetComponent<MainBoss>();
+            if (boss != null)
             {
-                volume -= 0.0005f;
+                volume = 1f;
+                begin = true;
                 GetComponent<AudioSource>().volume = volume;
-
-            }
-            else
-            {
-                GetComponent<AudioSource>().Stop();
-                GetComponent<AudioSource>().clip = musics[1];
-                check = false;
-            }
-            if(boss.music2Begin)
-            {
+                GetComponent<AudioSource>().clip = musics[0];
                 GetComponent<AudioSource>().Play();
-                boss.music1Stop = false;
             }
         }
-        else if(!boss.music2End)
+        else
         {
-            if (!check)
+            if (boss.music1Stop)
+            {
+                if (GetComponent<AudioSource>().volume > 0.00)
+                {
+                    volume -= 0.0005f;
+                    GetComponent<AudioSource>().volume = volume;
+
+                }
+                else
+                {
+                    GetComponent<AudioSource>().Stop();
+                    GetComponent<AudioSource>().clip = musics[1];
+                    check = false;
+                }
+                if (boss.music2Begin)
+                {
+                    GetComponent<AudioSource>().Play();
+                    boss.music1Stop = false;
+                }
+            }
+            else if (!boss.music2End)
+            {
+                if (!check)
+                {
+                    if (GetComponent<AudioSource>().volume < 1)
+                    {
+                        volume += 0.001f;
+                        GetComponent<AudioSource>().volume = volume;
+                    }
+                    else
+                    {
+                        check = true;
+                    }
+                }
+            }
+            else if (!end)
+            {
+                if (GetComponent<AudioSource>().volume > 0.00)
+                {
+                    volume -= 0.01f;
+                    GetComponent<AudioSource>().volume = volume;
+                }
+                else
+                {
+                    GetComponent<AudioSource>().Stop();
+                    GetComponent<AudioSource>().clip = musics[2];
+                    end = true;
+                }
+            }
+            else
             {
                 if (GetComponent<AudioSource>().volume < 1)
                 {
                     volume += 0.001f;
                     GetComponent<AudioSource>().volume = volume;
                 }
-                else
-                {
-                    check = true;
-                }
             }
         }
-        else if(!end)
-        {
-            if (GetComponent<AudioSource>().volume > 0.00)
-            {
-                volume -= 0.01f;
-                GetComponent<AudioSource>().volume = volume;
-            }
-            else
-            {
-                GetComponent<AudioSource>().Stop();
-                GetComponent<AudioSource>().clip = musics[2];
-                end = true;
-            }
-        }
-        else
-        {
-            if (GetComponent<AudioSource>().volume < 1)
-            {
-                volume += 0.001f;
-                GetComponent<AudioSource>().volume = volume;
-            }
-        }
-
     }
 }

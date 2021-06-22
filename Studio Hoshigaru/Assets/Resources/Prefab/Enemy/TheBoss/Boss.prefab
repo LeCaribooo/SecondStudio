@@ -7216,7 +7216,7 @@ MonoBehaviour:
   waiting1: 0
   endAttack: 0
   phase: 0
-  MaxHp: 600
+  MaxHp: 25
   laserSpeed: 12
   damageSpeed: 4
   movingToLaser: 0

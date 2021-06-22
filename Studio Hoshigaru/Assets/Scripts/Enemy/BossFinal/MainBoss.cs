@@ -118,6 +118,7 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
                 movingback = MoveBack1();
                 if(!movingback)
                 {
+                    Debug.Log("2");
                     base.photonView.RPC("LActive", RpcTarget.All, false);
                     base.photonView.RPC("RActive", RpcTarget.All, false);
                     base.photonView.RPC("CompletActive", RpcTarget.All, true);
@@ -150,10 +151,10 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
             }
             else if (movingFromLaser)
             {
-                if (!laserEnd)
+                /*if (!laserEnd)
                 {
                     base.photonView.RPC("CompletActive", RpcTarget.All, false);
-                }
+                }*/
                 MoveFromLaser(facingDirection);
             }
             else if (movingToDamage)
@@ -184,7 +185,7 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
                     Death();
                 }
             }
-            else if(laserEnd)
+            /*else if(laserEnd)
             {
                 if(stock.BossComplet.activeInHierarchy)
                 {
@@ -194,7 +195,7 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
                 {
                     base.photonView.RPC("CompletActive", RpcTarget.All, true);
                 }
-            }
+            }*/
             else if(endAttack)
             {
                 switch (step % 4)
@@ -869,21 +870,22 @@ public class MainBoss : MonoBehaviourPun, IPunObservable
     public void LaserEndedL()
     {
         base.photonView.RPC("SLActive", RpcTarget.All, false);
-        base.photonView.RPC("CompletActive", RpcTarget.All, true);
         laserEnd = true;
         endAttack = true;
         step += 1;
         base.photonView.RPC("CompletActive", RpcTarget.All, true);
+        waiting = true;
     }
 
     public void LaserEndedR()
     {
+        Debug.Log("1");
         base.photonView.RPC("SRActive", RpcTarget.All, false);
-        base.photonView.RPC("CompletActive", RpcTarget.All, true);
         laserEnd = true;
         endAttack = true;
         step += 1;
         base.photonView.RPC("CompletActive", RpcTarget.All, true);
+        waiting = true;
     }
 
     public void MeteorBegin()

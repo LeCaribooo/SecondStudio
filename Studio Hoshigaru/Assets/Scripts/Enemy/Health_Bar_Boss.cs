@@ -14,7 +14,14 @@ public class Health_Bar_Boss : MonoBehaviour
     public void Start()
     {
         Bosses = GameObject.FindGameObjectsWithTag(tag);
-        Health = Bosses[bossIndex].GetComponent<EnemyHealth>().health;
+        if(tag == "BossF")
+        {
+            Health = Bosses[bossIndex].GetComponentInChildren<EnemyHealth>().health;
+        }
+        else
+        {
+            Health = Bosses[bossIndex].GetComponent<EnemyHealth>().health;
+        }
         SetMaxHealth(Health);
     }
 

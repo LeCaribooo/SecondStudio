@@ -589,7 +589,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2749212710351372875}
   - component: {fileID: 2749212710351372873}
-  - component: {fileID: 2749212710351372874}
+  - component: {fileID: 4668175950890613709}
   m_Layer: 10
   m_Name: Light_collider
   m_TagString: Untagged
@@ -627,7 +627,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.5, y: 1}
   m_Direction: 0
---- !u!114 &2749212710351372874
+--- !u!114 &4668175950890613709
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -636,7 +636,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2749212710351372884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73c2a6b8fcf6d6341bc53142bd37bd89, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f3fbdae5b119ee4d96e8037d7e452a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2749212710799303950
