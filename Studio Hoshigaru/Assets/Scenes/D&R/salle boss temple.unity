@@ -57729,7 +57729,10 @@ MonoBehaviour:
   RoomCleared: 0
   Block: {fileID: 631290441}
   BossTemplePortal: {fileID: 738685374}
+  oldscene: 
   newscene: TestCharacter
+  first: 0
+  foursecond: 0
   spawnpoint:
   - {fileID: 1532077636}
   - {fileID: 1057407287}
@@ -60510,6 +60513,56 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1452158314
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1452158316}
+  - component: {fileID: 1452158315}
+  m_Layer: 0
+  m_Name: ObjectivesManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1452158315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452158314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 695b7b6e9c710624488c078712d2adb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  objectives:
+  - {fileID: 738685370}
+  actualObjectivesIndex: 0
+  target: {fileID: 0}
+  destroy_: {fileID: 0}
+  InRoom: 0
+--- !u!4 &1452158316
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452158314}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 60, y: 21.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 48
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1460348840
 GameObject:
   m_ObjectHideFlags: 0

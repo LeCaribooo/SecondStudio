@@ -22,8 +22,8 @@ public class BossTemple : MonoBehaviourPun
     private bool Done = true;
     private bool BlockDestroy;
     private bool SendRoomClear;
-    private bool first = true;
-    private bool foursecond = false;
+    public bool first = false;
+    public bool foursecond = false;
 
     [SerializeField]
     private GameObject[] spawnpoint = new GameObject[8];
@@ -41,6 +41,7 @@ public class BossTemple : MonoBehaviourPun
 
     private void Awake()
     {
+        first = true;
         Block.gameObject.SetActive(true);
     }
 
@@ -52,6 +53,7 @@ public class BossTemple : MonoBehaviourPun
     IEnumerator foursec()
     {
         yield return new WaitForSeconds(4.0f);
+        RoomCleared = false;
         foursecond = true;
     }
 
@@ -76,14 +78,13 @@ public class BossTemple : MonoBehaviourPun
                 SpawnMob();
             }
         }
-        if (IsClearBoss() && PhotonNetwork.IsMasterClient && !SendRoomClear)
+        if (IsClearBoss() && PhotonNetwork.IsMasterClient)
         {
             RoomCleared = true;
 
             //Envoie des infos.
             base.photonView.RPC("SendRoomCleared", RpcTarget.Others, RoomCleared);
 
-            SendRoomClear = true;
         }
 
         if (IsClearMob() && PhotonNetwork.IsMasterClient && !BlockDestroy && !Done)
@@ -96,6 +97,7 @@ public class BossTemple : MonoBehaviourPun
         if (RoomCleared && first && foursecond)
         {
             //=> Raise tous les personnages morts
+            first = false;
             if (PhotonNetwork.IsMasterClient)
             {
                 GameObject[] deadplayer = GameObject.FindGameObjectsWithTag("DeadState");
@@ -105,6 +107,7 @@ public class BossTemple : MonoBehaviourPun
                 }
                 Debug.LogWarning("Respawn");
             }
+            Debug.LogWarning("Portail...");
             BossTemplePortal.gameObject.SetActive(true);
         }
     }
