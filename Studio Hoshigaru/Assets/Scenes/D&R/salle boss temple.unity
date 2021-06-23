@@ -57729,7 +57729,7 @@ MonoBehaviour:
   RoomCleared: 0
   Block: {fileID: 631290441}
   BossTemplePortal: {fileID: 738685374}
-  oldscene: 
+  oldscene: TestCharacter
   newscene: TestCharacter
   first: 0
   foursecond: 0

@@ -62,6 +62,13 @@ public class BossTemple : MonoBehaviourPun
     void Update()
     {
         GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
+        if (player.Length == 0 && first)
+        {
+            Debug.LogWarning("Bande de noob");
+            first = false;
+            StartCoroutine(delayspawn());
+        }
+
         if (Done)
         {
             Block.gameObject.SetActive(true);
@@ -175,6 +182,15 @@ public class BossTemple : MonoBehaviourPun
     void DestroyBlock()
     {
         Block.gameObject.SetActive(false);
+    }
+
+    IEnumerator delayspawn()
+    {
+        Debug.LogWarning("Before coroutine");
+        yield return new WaitForSeconds(1.05f);
+        string sceneload = oldscene;
+        PhotonNetwork.LoadLevel(sceneload);
+        Debug.Log("Room Loaded");
     }
 
 }
