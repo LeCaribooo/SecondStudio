@@ -24,6 +24,7 @@ public class BossTemple : MonoBehaviourPun
     private bool SendRoomClear;
     public bool first = false;
     public bool foursecond = false;
+    public bool killed;
 
     [SerializeField]
     private GameObject[] spawnpoint = new GameObject[8];
@@ -61,6 +62,7 @@ public class BossTemple : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
+        killed = BossKilled();
         GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
         if (player.Length == 0 && first)
         {
@@ -94,7 +96,7 @@ public class BossTemple : MonoBehaviourPun
             BlockDestroy = true;
         }
 
-        if (RoomCleared && boss.spawned && BossKilled())
+        if (RoomCleared && boss.spawned && killed)
         {
             //=> Raise tous les personnages morts
             if (PhotonNetwork.IsMasterClient)

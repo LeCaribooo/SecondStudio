@@ -165,6 +165,11 @@ public class PlayerControler : MonoBehaviourPun, IPunObservable
                 {
                     mechants[i].GetComponent<EnemyHealth>().die = true;
                 }
+                GameObject[] mechant = GameObject.FindGameObjectsWithTag("Boss");
+                for (int i = 0; i < mechant.Length; i++)
+                {
+                    mechant[i].GetComponent<EnemyHealth>().die = true;
+                }
             }
         }
     }

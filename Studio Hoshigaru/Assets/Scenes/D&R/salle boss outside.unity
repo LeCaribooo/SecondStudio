@@ -99514,7 +99514,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 610033638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.523746, y: -10.521757, z: -641.61597}
+  m_LocalPosition: {x: 17.523746, y: -10.521757, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -109310,6 +109310,7 @@ MonoBehaviour:
   tag: Boss
   bossIndex: 0
   Health: 0
+  spawned: 0
 --- !u!114 &1564716856
 MonoBehaviour:
   m_ObjectHideFlags: 0
