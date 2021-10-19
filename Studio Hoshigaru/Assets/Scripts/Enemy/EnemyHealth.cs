@@ -14,17 +14,25 @@ public class EnemyHealth : MonoBehaviour, IPunObservable
     private bool hasBleed;
     private float countdown;
     public bool die;
+    public int damage;
+    public bool death;
     private void Start()
     {
         hasBleed = false;
         isBleeding = false;
         dotTaken = 0;
         countdown = 5f;
+        damage = 1;
     }
 
     private void Update()
     {
+
         if(die)
+        {
+            InstantDeath();
+        }
+        if(death)
         {
             Death();
         }
@@ -74,6 +82,11 @@ public class EnemyHealth : MonoBehaviour, IPunObservable
     }
 
     public void Death()
+    {
+        health -= damage;
+    }
+
+    public void InstantDeath()
     {
         countdown -= Time.deltaTime;
         if(countdown <= 0)
