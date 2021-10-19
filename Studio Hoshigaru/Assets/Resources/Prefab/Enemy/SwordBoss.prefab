@@ -454,7 +454,7 @@ MonoBehaviour:
   baseCastDist: 1
   maxcooling: 2
   dmg: 4
-  maxHealth: 100
+  maxHealth: 50
   hitbox: {fileID: 3957148486193325730}
   health: {fileID: 368871082802375636}
   chargeCooling: 0
@@ -488,6 +488,8 @@ MonoBehaviour:
   nbOfDots: 0
   timeBetweenDots: 0
   die: 0
+  damage: 0
+  death: 0
 --- !u!114 &2550903322026823038
 MonoBehaviour:
   m_ObjectHideFlags: 0

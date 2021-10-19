@@ -232,6 +232,8 @@ MonoBehaviour:
   nbOfDots: 0
   timeBetweenDots: 0
   die: 0
+  damage: 0
+  death: 0
 --- !u!70 &3835952796605919478
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

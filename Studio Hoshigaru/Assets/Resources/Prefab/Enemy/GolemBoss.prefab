@@ -355,7 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd713649db67794ba1c841124f15ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Maxhp: 500
+  Maxhp: 99
   laserCooldownMax: 20
   attackCooldownMax: 3
   reinforceCooldownMax: 6

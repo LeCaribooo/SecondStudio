@@ -218,6 +218,8 @@ MonoBehaviour:
   nbOfDots: 0
   timeBetweenDots: 0
   die: 0
+  damage: 0
+  death: 0
 --- !u!114 &358997886789740150
 MonoBehaviour:
   m_ObjectHideFlags: 0

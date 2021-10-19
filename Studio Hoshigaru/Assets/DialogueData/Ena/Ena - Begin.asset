@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ena - Begin
   m_EditorClassIdentifier: 
   dialogue:
-  - Bievenue mes enfants. Je suis tellement heureuse de vous revoir.
+  - Bienvenue mes enfants. Je suis tellement heureuse de vous revoir.
   - "Cependant je manque de temps et d'\xE9nergie."
   - C'est pourquoi nous devons faire vite.
   - "Je sais que vous avez tout oubli\xE9 de vos pouvoirs, mais vous \xEAtes des
@@ -24,7 +24,7 @@ MonoBehaviour:
   - "Vous poss\xE9dez 2 sauts."
   - 'Le premier est modulable en pressant la touche ESPACE plus ou moins longtemps. '
   - "Le deuxi\xE8me saut est quant \xE0 lui fixe."
-  - "Vite d\xE9p\xE9chez vous d'allez au temple, utilisez la boussole que je vous
+  - "Vite d\xE9p\xE9chez vous d'aller au temple, utilisez la boussole que je vous
     ai donn\xE9 pour vous rep\xE9rer."
   - "Par ailleurs c'est une boussole magique. Lorsque tu es dans un monde hostile,
     elle te guidera jusqu'\xE0 ton prochain objectif."

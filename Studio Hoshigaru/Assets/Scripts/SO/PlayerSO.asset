@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 4
   jumpForce: 6
-  numOfHearts: 5
-  numOfHits: 20
+  numOfHearts: 6
+  numOfHits: 24
   extraJumpsValue: 1
   isGrounded: 0
   checkRadius: 0.2

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - "F\xE9licitations d'\xEAtre arriv\xE9 jusque l\xE0 ! Je crois en toi, continue
-    comme \xE7a et le monde est sauv\xE9 !"
+    comme \xE7a et le monde est sauv\xE9 ! L'esprit d'Ena est avec toi ! Rien ne
+    pourra t'arriver, m\xEAme la mort"
   responses: []
   isEnd: 1
